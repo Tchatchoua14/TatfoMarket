@@ -13,6 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('welcome');
+});
+
+// route backend
+Route::get('/back/index', function () {
+    return view('back.index');
+});
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+Route::get('/font/index', function () {
+    return view('font.index');
 });
