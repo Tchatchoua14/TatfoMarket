@@ -21,15 +21,26 @@ Route::get('/', function () {
 Route::get('/back/index', function () {
     return view('back.index');
 });
-
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/back/produit', function () {
+    return view('back.produit');
 });
-
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/back/formproduit', function () {
+    return view('back.formproduit');
+});
+Route::get('/back/profile', function () {
+    return view('back.profile');
+});
+Route::get('/back/user', function () {
+    return view('back.user');
+});
+Route::get('/back/formuser', function () {
+    return view('back.formuser');
+});
+Route::get('/back/category', function () {
+    return view('back.category');
+});
+Route::get('/back/formcategory', function () {
+    return view('back.formcategory');
 });
 
 

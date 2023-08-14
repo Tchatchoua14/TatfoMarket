@@ -57,7 +57,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="produits.html" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
