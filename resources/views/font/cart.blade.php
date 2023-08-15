@@ -23,12 +23,12 @@
                                     <th class="text-center">Quantity</th>
                                     <th class="text-right">Total</th>
                                     <th class="action">&nbsp;</th>
-                                </tr>
+                                </tr> 
                             </thead>
                     		<tbody>
                                 <tr class="cart__row border-bottom line1 cart-flex border-top">
                                     <td class="cart__image-wrapper cart-flex-item">
-                                        <a href="#"><img class="cart__image" src="assets/images/product-images/product-image1.jpg" alt="Elastic Waist Dress - Navy / Small"></a>
+                                        <a href="#"><img class="cart__image" src="{{ asset('images/product-images/product-image1.jpg') }}" alt="Elastic Waist Dress - Navy / Small"></a>
                                     </td>
                                     <td class="cart__meta small--text-left cart-flex-item">
                                         <div class="list-view-item__title">
@@ -58,7 +58,7 @@
                                 </tr>
                                 <tr class="cart__row border-bottom line1 cart-flex border-top">
                                     <td class="cart__image-wrapper cart-flex-item">
-                                        <a href="#"><img class="cart__image" src="assets/images/product-images/product-image3.jpg" alt="3/4 Sleeve Kimono Dress"></a>
+                                        <a href="#"><img class="cart__image" src="{{ asset('images/product-images/product-image3.jpg') }}" alt="3/4 Sleeve Kimono Dress"></a>
                                     </td>
                                     <td class="cart__meta small--text-left cart-flex-item">
                                         <div class="list-view-item__title">
@@ -84,7 +84,7 @@
                                 </tr>
                                 <tr class="cart__row border-bottom line1 cart-flex border-top">
                                     <td class="cart__image-wrapper cart-flex-item">
-                                        <a href="#"><img class="cart__image" src="assets/images/product-images/product-image6.jpg" alt="Minerva Dress black"></a>
+                                        <a href="#"><img class="cart__image" src="{{ asset('images/product-images/product-image6.jpg') }}" alt="Minerva Dress black"></a>
                                     </td>
                                     <td class="cart__meta small--text-left cart-flex-item">
                                         <div class="list-view-item__title">
@@ -388,7 +388,7 @@
                            I agree with the terms and conditions</label>
                       </p>
                       <input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="Checkout" disabled="disabled">
-                      <div class="paymnet-img"><img src="assets/images/payment-img.jpg" alt="Payment"></div>
+                      <div class="paymnet-img"><img src="{{ asset('images/payment-img.jpg') }}" alt="Payment"></div>
                     </div>
 
                 </div>

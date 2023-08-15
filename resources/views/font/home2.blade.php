@@ -142,12 +142,12 @@
                                             <i class="icon anm anm-search-plus-r"></i>
                                         </a>
                                         <div class="wishlist-btn">
-                                            <a class="wishlist add-to-wishlist" href="wishlist.html">
+                                            <a class="wishlist add-to-wishlist" href="{{ route('wishlist') }}">
                                                 <i class="icon anm anm-heart-l"></i>
                                             </a>
                                         </div>
                                         <div class="compare-btn">
-                                            <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
+                                            <a class="compare add-to-compare" href="{{ route('compare1') }}" title="Add to Compare">
                                                 <i class="icon anm anm-random-r"></i>
                                             </a>
                                         </div>
@@ -816,7 +816,7 @@
                                             <i class="icon anm anm-search-plus-r"></i>
                                         </a> 
                                     <div class="wishlist-btn">
-                                        <a class="wishlist add-to-wishlist" href="{{ route('whistlist') }}" title="Add to Wishlist">
+                                        <a class="wishlist add-to-wishlist" href="{{ route('wishlist') }}" title="Add to Wishlist">
                                             <i class="icon anm anm-heart-l"></i>
                                         </a>
                                     </div>

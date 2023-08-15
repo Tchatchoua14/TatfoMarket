@@ -40,32 +40,32 @@
                 </div>
                 <div class="row list-items">
                 	<div class="col-12 col-sm-6 col-md-4 col-lg-4 text-center">
-                    	<img class="blur-up lazyload" data-src="{{ asset('images/warranty.png" src="{{ asset('images/warranty.png" alt="Warranty" title="Warranty" />
+                    	<img class="blur-up lazyload" data-src="{{ asset('images/warranty.png') }}" src="{{ asset('images/warranty.png') }}" alt="Warranty" title="Warranty" />
                         <h3 class="h4">Warranty</h3>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-4 text-center">
-                    	<img class="blur-up lazyload" data-src="{{ asset('images/return.png" src="{{ asset('images/return.png" alt="Easy Returns" title="Easy Returns" />
+                    	<img class="blur-up lazyload" data-src="{{ asset('images/return.png') }}" src="{{ asset('images/return.png') }}" alt="Easy Returns" title="Easy Returns" />
                         <h3 class="h4">Easy Returns</h3>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-4 text-center">
-                    	<img class="blur-up lazyload" data-src="{{ asset('images/dollar.png" src="{{ asset('images/dollar.png" alt="Competitive Prices" title="Competitive Prices" />
+                    	<img class="blur-up lazyload" data-src="{{ asset('images/dollar.png') }}" src="{{ asset('images/dollar.png') }}" alt="Competitive Prices" title="Competitive Prices" />
                         <h3 class="h4">Competitive Prices</h3>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-4 text-center">
-                    	<img class="blur-up lazyload" data-src="{{ asset('images/reliable.png" src="{{ asset('images/reliable.png" alt="Reliability" title="Reliability" />
+                    	<img class="blur-up lazyload" data-src="{{ asset('images/reliable.png') }}" src="{{ asset('images/reliable.png') }}" alt="Reliability" title="Reliability" />
                         <h3 class="h4">Reliability</h3>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-4 text-center">
-                    	<img class="blur-up lazyload" data-src="{{ asset('images/truck.png" src="{{ asset('images/truck.png" alt="Fast Delivery" title="Fast Delivery" />
+                    	<img class="blur-up lazyload" data-src="{{ asset('images/truck.png') }}" src="{{ asset('images/truck.png') }}" alt="Fast Delivery" title="Fast Delivery" />
                         <h3 class="h4">Fast Delivery</h3>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-4 text-center">
-                    	<img class="blur-up lazyload" data-src="{{ asset('images/lock.png" src="{{ asset('images/lock.png" alt="Security" title="Security" />
+                    	<img class="blur-up lazyload" data-src="{{ asset('images/lock.png') }}" src="{{ asset('images/lock.png') }}" alt="Security" title="Security" />
                         <h3 class="h4">Security</h3>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     </div>
@@ -563,16 +563,16 @@
                         </div>
                 		<div class="logo-bar">
                             <div class="logo-bar__item">
-                                <img src="{{ asset('images/logo/brandlogo1.png" alt="" title="" />
+                                <img src="{{ asset('images/logo/brandlogo1.png') }}" alt="" title="" />
                             </div>
                             <div class="logo-bar__item">
-                                <img src="{{ asset('images/logo/brandlogo2.png" alt="" title="" />
+                                <img src="{{ asset('images/logo/brandlogo2.png') }}" alt="" title="" />
                             </div>
                             <div class="logo-bar__item">
-                                <img src="{{ asset('images/logo/brandlogo3.png" alt="" title="" />
+                                <img src="{{ asset('images/logo/brandlogo3.png') }}" alt="" title="" />
                             </div>
                             <div class="logo-bar__item">
-                                <img src="{{ asset('images/logo/brandlogo4.png" alt="" title="" />
+                                <img src="{{ asset('images/logo/brandlogo4.png') }}" alt="" title="" />
                             </div>
                			 </div>
                 	</div>

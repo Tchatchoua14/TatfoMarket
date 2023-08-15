@@ -186,8 +186,8 @@
                                 	<span class="label">Cart Subtotal:</span><span class="product-price"><span class="money">$748.00</span></span>
                                 </div>
                                  <div class="buttonSet text-center">
-                                    <a href="cart.html" class="btn btn-secondary btn--small">View Cart</a>
-                                    <a href="checkout.html" class="btn btn-secondary btn--small">Checkout</a>
+                                    <a href="{{ route('cart') }}" class="btn btn-secondary btn--small">View Cart</a>
+                                    <a href="{{ route('checkout') }}" class="btn btn-secondary btn--small">Checkout</a>
                                 </div>
                             </div>
                         </div>
@@ -216,7 +216,7 @@
                                 <div class="wrap-caption center">
                                         <h2 class="h1 mega-title slideshow__title">Shop Our New Collection</h2>
                                         <span class="mega-subtitle slideshow__subtitle">From Hight to low, classic or modern. We have you covered</span>
-                                        <a href="collection-page.html"><span class="btn">Shop now</span></a> 
+                                        <a href="{{ route('collection') }}"><span class="btn">Shop now</span></a> 
                                     </div>
                             </div>
                         </div>
@@ -230,7 +230,7 @@
                                 <div class="wrap-caption center">
                                     <h2 class="h1 mega-title slideshow__title">Summer Bikini Collection</h2>
                                     <span class="mega-subtitle slideshow__subtitle">Save up to 50% off this weekend only</span>
-                                    <a href="collection-page.html"><span class="btn">Shop now</span></a>
+                                    <a href="{{ route('collection') }}"><span class="btn">Shop now</span></a>
                                 </div>
                             </div>
                         </div>
@@ -279,7 +279,7 @@
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->
-                                                <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
+                                                <form class="variants add" action="{{ route('cart') }}" onclick="window.location.href='cart.html'"method="post">
                                                     <button class="btn btn-addto-cart" type="button" tabindex="0">Add To Cart</button>
                                                 </form>
                                                 <div class="button-set">
@@ -287,12 +287,12 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                                     <div class="wishlist-btn">
-                                                        <a class="wishlist add-to-wishlist" href="wishlist.html">
+                                                        <a class="wishlist add-to-wishlist" href="{{ route('wishlist') }}">
                                                             <i class="icon anm anm-heart-l"></i>
                                                         </a>
                                                     </div>
                                                     <div class="compare-btn">
-                                                        <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
+                                                        <a class="compare add-to-compare" href="{{ route('compare1') }}" title="Add to Compare">
                                                             <i class="icon anm anm-random-r"></i>
                                                         </a>
                                                     </div>

@@ -111,12 +111,12 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                                     <div class="wishlist-btn btn-style2">
-                                                        <a class="wishlist add-to-wishlist" href="{{ route('whistlist') }}">
+                                                        <a class="wishlist add-to-wishlist" href="{{ route('wishlist') }}">
                                                             <i class="icon anm anm-heart-l"></i>
                                                         </a>
                                                     </div>
                                                     <div class="compare-btn btn-style2">
-                                                        <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
+                                                        <a class="compare add-to-compare" href="{{ route('compare1') }}" title="Add to Compare">
                                                             <i class="icon anm anm-random-r"></i>
                                                         </a>
                                                     </div>
@@ -1026,7 +1026,7 @@
 			resolution: 'low_resolution',
 			sortBy: 'most-recent',
 			limit: 8,
-			template: '<div class="insta-img"><a href="{{link}}" target="_blank"><img src="{{image}}" /></a></div>',
+			// template: '<div class="insta-img"><a href="link" target="_blank"><img src="image" /></a></div>',
 		});
 		userFeed.run();
 	 </script>

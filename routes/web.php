@@ -62,10 +62,13 @@ Route::get('/font/login', function () {
 })->name('login');
 Route::get('/font/register', function () {
     return view('font.register');
-})->name('regiister');
-Route::get('/font/whistlist', function () {
-    return view('font.whistlist');
-})->name('whistlist');
+})->name('register');
+Route::get('/font/wishlist', function () {
+    return view('font.wishlist');
+})->name('wishlist');
+Route::get('/font/checkout', function () {
+    return view('font.checkout');
+})->name('checkout');
 Route::get('/font/home2', function () {
     return view('font.home2');
 })->name('home2');
@@ -126,6 +129,57 @@ Route::get('/font/cart', function () {
 Route::get('/font/cart1', function () {
     return view('font.cart1');
 })->name('cart1');
-Route::get('/font/checkout', function () {
-    return view('font.checkout');
-})->name('checkout');
+Route::get('/font/compare2', function () {
+    return view('font.compare2');
+})->name('compare2');
+Route::get('/font/compare1', function () {
+    return view('font.compare1');
+})->name('compare1');
+Route::get('/font/contact', function () {
+    return view('font.contact');
+})->name('contact');
+Route::get('/font/look2', function () {
+    return view('font.look2');
+})->name('look2');
+Route::get('/font/look1', function () {
+    return view('font.look1');
+})->name('look1');
+Route::get('/font/produit-drop', function () {
+    return view('font.produit-drop');
+})->name('produit-drop');
+Route::get('/font/produit-label', function () {
+    return view('font.produit-labels');
+})->name('produit-labels');
+Route::get('/font/produit-layout', function () {
+    return view('font.produit-layout');
+})->name('produit-layout');
+Route::get('/font/produit-round', function () {
+    return view('font.produit-round');
+})->name('produit-round');
+Route::get('/font/produit-video', function () {
+    return view('font.produit-video');
+})->name('produit-video');
+Route::get('/font/shop-description', function () {
+    return view('font.shop-description');
+})->name('shop-description');
+Route::get('/font/shop-right', function () {
+    return view('font.shop-right');
+})->name('shop-right');
+Route::get('/font/shop', function () {
+    return view('font.shop');
+})->name('shop');
+Route::get('/font/shop1', function () {
+    return view('font.shop1');
+})->name('shop1');
+Route::get('/font/blog-left', function () {
+    return view('font.blog-left');
+})->name('blog-left');
+Route::get('/font/collection', function () {
+    return view('font.collection');
+})->name('collection');
+Route::get('/font/compteuser', function () {
+    return view('font.compteuser');
+})->name('compteuser');
+Route::get('/font/infouser', function () {
+    return view('font.infouser');
+})->name('infouser');

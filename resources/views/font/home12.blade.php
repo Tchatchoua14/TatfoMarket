@@ -525,7 +525,7 @@
 			resolution: 'low_resolution',
 			sortBy: 'most-recent',
 			limit: 8,
-			template: '<div class="insta-img"><a href="{{link}}" target="_blank"><img src="{{image}}" /></a></div>',
+			// template: '<div class="insta-img"><a href="link" target="_blank"><img src="image" /></a></div>',
 		});
 		userFeed.run();
 	 </script>

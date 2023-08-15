@@ -345,10 +345,10 @@
                                 <!-- start product image -->
                                 <a href="product-layout-1.html" class="grid-view-item__link">
                                     <!-- image -->
-                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="{{ asset('images/product-images/product-image16.jpg" src="{{ asset('images/product-images/product-image16.jpg" alt="image" title="product">
+                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="{{ asset('images/product-images/product-image16.jpg') }}" src="{{ asset('images/product-images/product-image16.jpg') }}" alt="image" title="product">
                                     <!-- End image -->
                                     <!-- Hover image -->
-                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="{{ asset('images/product-images/product-image16-1.jpg" src="{{ asset('images/product-images/product-image16-1.jpg" alt="image" title="product">
+                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="{{ asset('images/product-images/product-image16-1.jpg') }}" src="{{ asset('images/product-images/product-image16-1.jpg') }}" alt="image" title="product">
                                     <!-- End hover image -->
                                 </a>
                                 <!-- end product image -->
@@ -398,10 +398,10 @@
                                 <!-- start product image -->
                                 <a href="product-layout-1.html" class="grid-view-item__link">
                                     <!-- image -->
-                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="{{ asset('images/product-images/cape-dress-2.jpg" src="{{ asset('images/product-images/cape-dress-2.jpg" alt="image" title="product">
+                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="{{ asset('images/product-images/cape-dress-2.jpg') }}" src="{{ asset('images/product-images/cape-dress-2.jpg') }}" alt="image" title="product">
                                     <!-- End image -->
                                     <!-- Hover image -->
-                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="{{ asset('images/product-images/cape-dress-1.jpg" src="{{ asset('images/product-images/cape-dress-1.jpg" alt="image" title="product">
+                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="{{ asset('images/product-images/cape-dress-1.jpg') }}" src="{{ asset('images/product-images/cape-dress-1.jpg') }}" alt="image" title="product">
                                     <!-- End hover image -->
                                 </a>
                                 <!-- end product image -->
@@ -451,10 +451,10 @@
                                 <!-- start product image -->
                                 <a href="product-layout-1.html" class="grid-view-item__link">
                                     <!-- image -->
-                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="{{ asset('images/product-images/product-image19.jpg" src="{{ asset('images/product-images/product-image19.jpg" alt="image" title="product">
+                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="{{ asset('images/product-images/product-image19.jpg') }}" src="{{ asset('images/product-images/product-image19.jpg') }}" alt="image" title="product">
                                     <!-- End image -->
                                     <!-- Hover image -->
-                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="{{ asset('images/product-images/product-image19-1.jpg" src="{{ asset('images/product-images/product-image19-1.jpg" alt="image" title="product">
+                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="{{ asset('images/product-images/product-image19-1.jpg') }}" src="{{ asset('images/product-images/product-image19-1.jpg') }}" alt="image" title="product">
                                     <!-- End hover image -->
                                 </a>
                                 <!-- end product image -->
@@ -504,10 +504,10 @@
                                 <!-- start product image -->
                                 <a href="product-layout-1.html" class="grid-view-item__link">
                                     <!-- image -->
-                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="{{ asset('images/product-images/product-image20.jpg" src="{{ asset('images/product-images/product-image20.jpg" alt="image" title="product">
+                                    <img class="grid-view-item__image primary blur-up lazyload" data-src="{{ asset('images/product-images/product-image20.jpg') }}" src="{{ asset('images/product-images/product-image20.jpg') }}" alt="image" title="product">
                                     <!-- End image -->
                                     <!-- Hover image -->
-                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="{{ asset('images/product-images/product-image20-1.jpg" src="{{ asset('images/product-images/product-image20-1.jpg" alt="image" title="product">
+                                    <img class="grid-view-item__image hover blur-up lazyload" data-src="{{ asset('images/product-images/product-image20-1.jpg') }}" src="{{ asset('images/product-images/product-image20-1.jpg') }}" alt="image" title="product">
                                     <!-- End hover image -->
                                 </a>
                                 <!-- end product image -->
