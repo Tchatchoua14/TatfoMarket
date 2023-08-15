@@ -17,9 +17,9 @@
                 <div class="col-2 col-sm-4 col-md-3 col-lg-4 text-right">
                 	<span class="user-menu d-block d-lg-none"><i class="anm anm-user-al" aria-hidden="true"></i></span>
                     <ul class="customer-links list-inline">
-                        <li><a href="login.html"><span class="icon-lock"></span> Login</a></li>
-                        <li><a href="register.html"><i class="fa fa-user" style="margin-top: -2px; margin-right: 1px;"></i> Create Account</a></li>
-                        <li><a href="wishlist.html"><i class="fa fa-heart"  style="margin-top: -2px; margin-right: 1px;"></i> Wishlist</a></li>
+                        <li><a href="{{ route('login') }}"><span class="icon-lock"></span> Login</a></li>
+                        <li><a href="{{ route('register') }}"><i class="fa fa-user" style="margin-top: -2px; margin-right: 1px;"></i> Create Account</a></li>
+                        <li><a href="{{ route('whislist') }}"><i class="fa fa-heart"  style="margin-top: -2px; margin-right: 1px;"></i> Wishlist</a></li>
                         
                     </ul>
                 </div>

@@ -12,7 +12,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index.blade.php">Accueil</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>
               <li class="breadcrumb-item active">Administrateur</li>
             </ol>
           </div><!-- /.col -->
@@ -42,7 +42,7 @@
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="listeUser.html" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('user') }}" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -57,7 +57,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('produit') }}" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -72,7 +72,7 @@
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('category') }}" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

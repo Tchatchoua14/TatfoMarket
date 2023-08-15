@@ -20,8 +20,8 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="">Accueil</a></li>
-              <li class="breadcrumb-item active">Produits</li>
+              <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>
+              <li class="breadcrumb-item active">Categories</li>
             </ol>
           </div>
         </div>
@@ -33,8 +33,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 mb-2">
-            <a href="#" class="btn btn-secondary">Effacer</a>
-            <a href="" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer produit</a>
+            <a href="{{ route('formcategory') }}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer catégorie</a>
           </div>
           <div class="col-12">
             <!-- /.card -->
@@ -70,7 +69,7 @@
                       <a class="btn btn-primary btn-sm " href="produitDetail.html">
                         <i class="fas fa-eye"></i>
                       </a>
-                      <a class="btn btn-info btn-sm " href="formProduit.html">
+                      <a class="btn btn-info btn-sm " href="{{ route('formproduit') }}">
                           <i class="fas fa-pencil-alt">
                           </i>  
                       </a>

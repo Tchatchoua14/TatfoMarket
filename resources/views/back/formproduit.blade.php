@@ -31,7 +31,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index2.html">Accueil</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>
               <li class="breadcrumb-item active">Validation</li>
             </ol>
           </div>
@@ -45,7 +45,7 @@
         <div class="row">
           <div class="col-md-3"></div>
           <div class="col-md-6 mb-2">
-            <a href="produits.html" class="btn btn-success float-right">Voir la liste des produits</a>
+            <a href="{{ route('produit') }}" class="btn btn-success float-right">Voir la liste des produits</a>
           </div>
           <div class="col-md-3"></div>
         </div>
@@ -56,7 +56,7 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Créer un nouveau produit</h3>
+                <h3 class="card-title">Créer un produit</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->

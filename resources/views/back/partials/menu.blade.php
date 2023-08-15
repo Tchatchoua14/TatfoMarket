@@ -25,7 +25,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="index.html" class="nav-link">
+            <a href="{{ route('index') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Tableau de bord
@@ -42,7 +42,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="produits.html" class="nav-link">
+                <a href="{{ route('produit') }}" class="nav-link">
                   <i class="fas fa-wrench"></i>
                   <p>Tous les protuits</p>
                 </a>
@@ -54,7 +54,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="formProduit.html" class="nav-link">
+                <a href="{{ route('formproduit') }}" class="nav-link">
                   <i class="fas fa-plus"></i>
                   <p>Ajouter un produit</p>
                 </a>
@@ -71,25 +71,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="profil.html" class="nav-link">
+                <a href="{{ route('profile') }}" class="nav-link">
                   <i class="fas fa-wrench"></i>
                   <p>Admin</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="listeUser.html" class="nav-link">
+                <a href="{{ route('user') }}" class="nav-link">
                   <i class="fas fa-wrench"></i>
                   <p>Tous les Utilisateurs</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="detailUser.html" class="nav-link">
+                <a href="{{ route('detailuser') }}" class="nav-link">
                   <i class="fas fa-plus"></i>
                   <p>Details utilisateurs</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="formUser.html" class="nav-link">
+                <a href="{{ route('formuser') }}" class="nav-link">
                   <i class="fas fa-plus"></i>
                   <p>Ajouter utilisateurs</p>
                 </a>
@@ -106,7 +106,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="produits.html" class="nav-link">
+                <a href="{{ route('category') }}" class="nav-link">
                   <i class="fas fa-wrench"></i>
                   <p>Toutes les categories</p>
                 </a>
@@ -118,7 +118,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="formCategories.html" class="nav-link">
+                <a href="{{ route('formcategory') }}" class="nav-link">
                   <i class="fas fa-plus"></i>
                   <p>Formulaire categories</p>
                 </a>

@@ -9,18 +9,18 @@
 @section('title')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="min-height: 1604.44px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tous les utilisateurs</h1>
+            <h1>Profile utilisateur</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>
-              <li class="breadcrumb-item active">Tous les utilisateurs</li>
+              <li class="breadcrumb-item"><a href="{{ route('index') }}">Retour</a></li>
+              <li class="breadcrumb-item active">Profile utilisateur</li>
             </ol>
           </div>
         </div>
@@ -29,122 +29,52 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12 mb-2">
-            <a href="formUser.html" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer utilisateur</a>
-          </div>
-          <div class="col-12">
-            <!-- /.card -->
 
-            <div class="card bg-white">
-              <div class="card-header">
-                <h3 class="card-title">Listes de tous les utilisateurs</h3>
+      <!-- Default box -->
+      <div class="card card-solid">
+        <div class="card-body pb-0">
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+              <div class="card bg-light d-flex flex-fill">
+                <div class="card-header text-muted border-bottom-0">
+                  Identifiant
+                </div>
+                <div class="card-body pt-0">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="lead"><b>Nom et prenom</b></h2>
+                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <ul class="ml-4 mb-0 fa-ul text-muted">
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                      </ul>
+                    </div>
+                    <div class="col-5 text-center">
+                      <img src="{{ asset('dist/img/user1-128x128.jpg') }}" alt="user-avatar" class="img-circle img-fluid">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="text-right d-flex justify-content-around">
+                    <a href="{{ route('formuser') }}" class="btn btn-sm bg-success"> 
+                      <i class="fas fa-pencil-alt"></i> Modifier
+                    </a>
+                    <form method="POST" action="#">
+                      <button class="btn btn-danger btn-sm  dltBtn" data-id="#"  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i> Supprimer</button>
+                    </form>
+                  </div>
+                </div>
               </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>NOM</th>
-                    <th>Prénom</th>
-                    <th>Email</th>
-                    <th>Image</th>
-                    <th>Roles</th>
-                    <th>Image</th>
-                    <th>Actions</th>
-                    
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Wehsg</td>
-                    <td>Wisxxdff</td>
-                    <td>Wkkj</td>
-                    <td> 4</td>
-                    <td>X</td>
-                    <td class="project-actions d-flex justify-content-around">
-                      <a class="btn btn-primary btn-sm " href="{{ route('detailuser1') }}">
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <a class="btn btn-info btn-sm " href="{{ route('formuser') }}">
-                          <i class="fas fa-pencil-alt">
-                          </i>  
-                      </a>
-                      <form method="POST" action="#">
-                        <button class="btn btn-danger btn-sm  dltBtn" data-id="#"  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
-                      </form>
-              
-                   </td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>wsze</td>
-                    <td>uioe</td>
-                    <td>vfrt</td>
-                    <td>5</td>
-                    <td>C</td>
-                    <td class="project-actions d-flex justify-content-around">
-                      <a class="btn btn-primary btn-sm " href="#">
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <a class="btn btn-info btn-sm " href="#">
-                          <i class="fas fa-pencil-alt">
-                          </i>  
-                      </a>
-                      
-                      <form method="POST" action="#">
-                            <button class="btn btn-danger btn-sm  dltBtn" data-id="#"  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
-                      </form>
-                  
-                   </td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.5
-                    </td>
-                    <td>aqwws+</td>
-                    <td>dein</td>
-                    <td>Winsdaef</td>
-                    <td>5.5</td>
-                    <td>A</td>
-                    <td class="project-actions text-center">
-                      <a class="btn btn-primary btn-sm " href="detailUser1.html">
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <a class="btn btn-info btn-sm " href="formUser.html">
-                          <i class="fas fa-pencil-alt">
-                          </i>  
-                      </a>
-                      <a class="btn btn-danger btn-sm " href="#">
-                          <i class="fas fa-trash">
-                          </i>
-                      </a>
-                   </td>
-                  </tr>
-
-                  </tbody>
-                 
-                </table>
-              </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
+            <div class="col-md-4"></div>
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
+        <!-- /.card-body -->
+        <!-- /.card-footer -->
       </div>
-      <!-- /.container-fluid -->
+      <!-- /.card -->
+
     </section>
     <!-- /.content -->
   </div>
@@ -256,5 +186,4 @@
     });
   });
 </script>
-    
 @endsection
