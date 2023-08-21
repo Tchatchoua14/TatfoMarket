@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,33 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+
+
+# Socialite URLs
+
+// La page où on présente les liens de redirection vers les providers
+Route::get("socialite1", "SocialiteController@register")->name('socialite1');
+Route::get("socialite2", "SocialiteController@login")->name('socialite2');
+
+// La redirection vers le provider
+Route::get("redirect/{provider}", "SocialiteController@redirect")->name('socialite.redirect');
+
+// Le callback du provider
+Route::get("callback/{provider}", "SocialiteController@callback")->name('socialite.callback');
+
+
 
 // route backend
 Route::get('/back/index', function () {
@@ -60,6 +88,12 @@ Route::get('/font/index', function () {
 Route::get('/font/login', function () {
     return view('font.login');
 })->name('login');
+Route::get('/font/forgot-password', function () {
+    return view('font.forgot-password');
+})->name('forgot-password');
+Route::get('/font/reset-password', function () {
+    return view('font.reset-password');
+})->name('reset-password');
 Route::get('/font/register', function () {
     return view('font.register');
 })->name('register');
@@ -183,3 +217,4 @@ Route::get('/font/compteuser', function () {
 Route::get('/font/infouser', function () {
     return view('font.infouser');
 })->name('infouser');
+

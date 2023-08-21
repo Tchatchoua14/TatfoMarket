@@ -1,8 +1,10 @@
 @extends('font.master')
 @section('title')
 @section('content')
-     <!--Body Content-->
-     <div id="page-content">
+  
+   
+    <!--Body Content-->
+    <div id="page-content">
     	<!--Page Title-->
     	<div class="page section-header text-center">
 			<div class="page-title">
@@ -15,30 +17,65 @@
         	<div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3">
                 	<div class="mb-4">
-                       <form method="post" action="#" id="CustomerLoginForm" accept-charset="UTF-8" class="contact-form">	
+                                        
+                        @if (session('status'))
+                            <div class="mb-4 font-medium text-sm text-green-600">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                       <form method="POST" action="{{ route('register') }}" id="CustomerLoginForm" accept-charset="UTF-8" class="contact-form">	
+                       @csrf
                           <div class="row">
+                              <!-- Name -->
 	                          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
-                                    <label for="FirstName">First Name</label>
-                                    <input type="text" name="customer[first_name]" placeholder="" id="FirstName" autofocus="">
+                                    <label for="name">Name</label>
+                                    <input type="text" name="name" id="name" class="form-control my-input @error('name') is-invalid @enderror" value="{{ old('name') }}" required autofocus autocomplete="name" >
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                   @enderror
                                 </div>
                                </div>
-                               <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="form-group">
-                                    <label for="LastName">Last Name</label>
-                                    <input type="text" name="customer[last_name]" placeholder="" id="LastName">
-                                </div>
-                               </div>
+                               <!-- Email Address -->
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
-                                    <label for="CustomerEmail">Email</label>
-                                    <input type="email" name="customer[email]" placeholder="" id="CustomerEmail" class="" autocorrect="off" autocapitalize="off" autofocus="">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email"  id="email" class="form-control my-input @error('email') is-invalid @enderror"  value="{{ old('email') }}" autocorrect="off" autocapitalize="off" required autocomplete="email" >
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div> 
+                            </div>
+                              <!-- Password -->
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" value="" name="password"  id="password" class="form-control my-input @error('password') is-invalid @enderror"  required autocomplete="new-password">  
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                   @enderror                      	
+                                </div>
+                            </div>
+                              <!-- Confirm Password -->
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label for="password_confirmation">Confirm Password</label>
+                                    <input type="password" value="" name="password_confirmation"  id="password_confirmation" class="form-control my-input" required autocomplete="new-password">                        	
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
-                                    <label for="CustomerPassword">Password</label>
-                                    <input type="password" value="" name="customer[password]" placeholder="" id="CustomerPassword" class="">                        	
+                                <input class="" type="checkbox" id="terms-conditions" name="terms">
+                                <label class="form-check-label" for="terms-conditions">
+                                I agree to
+                                <a href="javascript:void(0);">privacy policy & terms</a>
+                                </label>                       	
                                 </div>
                             </div>
                           </div>
@@ -47,6 +84,22 @@
                                 <input type="submit" class="btn mb-3" value="Create">
                             </div>
                          </div>
+                         <p class="text-center">
+                            <span>Already have an account?</span>
+                            <a href="{{ route('login') }}">
+                            <span>Sign in instead</span>
+                            </a>
+                        </p>
+
+                        <div class="row">
+                           <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="text-center px-4">
+                                    <a href="{{ route('socialite.redirect', 'google') }}" class="google-sign-in mr-2"><i class="fa fa-google"></i>  Sign In with Google</a> &nbsp; | &nbsp;
+                                    <a href="{{ route('socialite.redirect', 'github') }}" class="github-sign-in"><i class="fa fa-github"></i>  Sign In with Github</a> &nbsp; | &nbsp;
+                                    <a href="{{ route('socialite.redirect', 'facebook') }}" class="facebook-sign-in ml-2"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
+                                </div>
+                            </div>
+                        </div>
                      </form>
                     </div>
                	</div>
@@ -55,5 +108,6 @@
         
     </div>
     <!--End Body Content-->
-      
+
+   
 @endsection
