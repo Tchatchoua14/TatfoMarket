@@ -1,9 +1,17 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('font.master')
+@section('title')
+@section('content')
+  <!--Body Content-->
+  <div id="page-content">
+    	<!--Page Title-->
+    	<div class="page section-header text-center">
+			<div class="page-title">
+        		<div class="wrapper"><h1 class="page-width">Profile</h1></div>
+      		</div>
+		</div>
+        <!--End Page Title-->
+
+        <div class="container">
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
@@ -26,4 +34,9 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+        </div>
+
+ </div>
+
+    <!--End Body Content-->
+@endsection

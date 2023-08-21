@@ -1,5 +1,19 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
+@extends('font.master')
+@section('title')
+@section('content')
+  <!--Body Content-->
+  <div id="page-content">
+    	<!--Page Title-->
+    	<div class="page section-header text-center">
+			<div class="page-title">
+        		<div class="wrapper"><h1 class="page-width">Verify email</h1></div>
+      		</div>
+		</div>
+        <!--End Page Title-->
+
+<div class="container">
+      
+<div class="mb-4 text-sm text-gray-600">
         {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
     </div>
 
@@ -22,4 +36,9 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+ </div>
+
+ </div>
+
+    <!--End Body Content-->
+@endsection

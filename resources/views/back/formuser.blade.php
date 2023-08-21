@@ -59,31 +59,52 @@
                 <h3 class="card-title">Modifier un utilisateur</h3>
               </div>
               <!-- /.card-header -->
+              @if (session('status'))
+                            <div class="mb-4 font-medium text-sm text-green-600">
+                                {{ session('status') }}
+                            </div>
+               @endif
               <!-- form start -->
-              <form id="quickForm" novalidate="novalidate">
+              <form method="POST" action="{{ route('register') }}" accept-charset="UTF-8" id="quickForm"  novalidate="novalidate">	
+                       @csrf
                 <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Nom</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Entrée votre nom">
+                  <div class="form-group"> 
+                    <label for="name">Nom</label>
+                    <input type="text" placeholder="Entrée votre prénom"  name="name" id="name" class="form-control my-input @error('name') is-invalid @enderror" value="{{ old('name') }}" required autofocus autocomplete="name">
+                                  @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                   @enderror
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Prénom</label>
-                    <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Entrée votre prénom">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" placeholder="Entrée votre email"  id="email" class="form-control my-input @error('email') is-invalid @enderror"  value="{{ old('email') }}" autocorrect="off" autocapitalize="off" required autocomplete="email" >
+                                  @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                  @enderror
+                  </div>         
+                  <div class="form-group">
+                    <label for="password">Mots de passe</label>
+                    <input type="password" name="password"  placeholder="Entrée votre mot de passe" id="password" class="form-control my-input @error('password') is-invalid @enderror"  required autocomplete="new-password">
+                                  @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                   @enderror 
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Entrée votre email">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Mots de passe</label>
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Entrée votre mot de passe">
+                    <label for="password_confirmation">Confirmation du mot de passe</label>
+                    <input type="password" name="password_confirmation"  placeholder="Entrée votre mot de passe" id="password_confirmation" class="form-control my-input"  required autocomplete="new-password">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Choisir une image</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">insérer une image</label>
+                        <input type="file" class="custom-file-input" id="image" name="image">
+                        <label class="custom-file-label" for="image">insérer une image</label>
                       </div>
                      
                     </div>
@@ -111,6 +132,7 @@
        
           <!--/.col (right) -->
         </div>
+
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>

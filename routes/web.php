@@ -14,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// Newsletter
+Route::post('newsletter','UserController@subscribe')->name('newsletter');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -33,15 +38,15 @@ require __DIR__.'/auth.php';
 
 # Socialite URLs
 
-// La page où on présente les liens de redirection vers les providers
-Route::get("socialite1", "SocialiteController@register")->name('socialite1');
-Route::get("socialite2", "SocialiteController@login")->name('socialite2');
-
-// La redirection vers le provider
-Route::get("redirect/{provider}", "SocialiteController@redirect")->name('socialite.redirect');
-
-// Le callback du provider
-Route::get("callback/{provider}", "SocialiteController@callback")->name('socialite.callback');
+// Google
+Route::get('/login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('/login/google/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
+//Facebook
+Route::get('/login/facebook', [App\Http\Controllers\Auth\LoginController::class, 'redirectToFacebook'])->name('login.facebook');
+Route::get('/login/facebook/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleFacebookCallback']);
+//Github
+Route::get('/login/github', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
+Route::get('/login/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
 
 
 
@@ -82,21 +87,9 @@ Route::get('/back/formcategory', function () {
 
 // route font end
 
-Route::get('/font/index', function () {
-    return view('font.index');
-})->name('index');
-Route::get('/font/login', function () {
-    return view('font.login');
-})->name('login');
-Route::get('/font/forgot-password', function () {
-    return view('font.forgot-password');
-})->name('forgot-password');
-Route::get('/font/reset-password', function () {
-    return view('font.reset-password');
-})->name('reset-password');
-Route::get('/font/register', function () {
-    return view('font.register');
-})->name('register');
+// Route::get('/font/index', function () {
+//     return view('font.index');
+// })->name('index');
 Route::get('/font/wishlist', function () {
     return view('font.wishlist');
 })->name('wishlist');

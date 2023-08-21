@@ -1,5 +1,18 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
+@extends('font.master')
+@section('title')
+@section('content')
+  <!--Body Content-->
+  <div id="page-content">
+    	<!--Page Title-->
+    	<div class="page section-header text-center">
+			<div class="page-title">
+        		<div class="wrapper"><h1 class="page-width">Verify email</h1></div>
+      		</div>
+		</div>
+        <!--End Page Title-->
+
+        <div class="container">
+        <div class="mb-4 text-sm text-gray-600">
         {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
     </div>
 
@@ -24,4 +37,9 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+        </div>
+
+ </div>
+
+    <!--End Body Content-->
+@endsection

@@ -23,12 +23,14 @@
                                     <div class="section-header text-center">
                                         <label class="h2"><span>sign up for </span>newsletter</label>
                                     </div>
-                                    <form action="#" method="post">
+                                    <form action="{{ route('newsletter') }}" method="POST">
+                                    @csrf
                                         <div class="input-group">
-                                            <input type="email" class="input-group__field newsletter__input" name="EMAIL" value="" placeholder="Email address" required="">
+                                            <input type="email" class="input-group__field newsletter__input" name="email" id="email" value="" placeholder="Email address" required="">
                                             <span class="input-group__btn">
-                                                <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe"><span class="newsletter__submit-text--large">Subscribe</span></button>
+                                                <button type="submit" class="btn newsletter__submit" name="name" id="Subscribe"><span class="newsletter__submit-text--large">Subscribe</span></button>
                                             </span>
+
                                         </div>
                                     </form>
                                 </div>

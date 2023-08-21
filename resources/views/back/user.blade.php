@@ -32,7 +32,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 mb-2">
-            <a href="formUser.html" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer utilisateur</a>
+            <a href="{{ route('formuser') }}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer utilisateur</a>
           </div>
           <div class="col-12">
             <!-- /.card -->

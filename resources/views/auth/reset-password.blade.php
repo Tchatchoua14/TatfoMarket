@@ -1,5 +1,18 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('password.store') }}">
+@extends('font.master')
+@section('title')
+@section('content')
+  <!--Body Content-->
+  <div id="page-content">
+    	<!--Page Title-->
+    	<div class="page section-header text-center">
+			<div class="page-title">
+        		<div class="wrapper"><h1 class="page-width">Verify email</h1></div>
+      		</div>
+		</div>
+        <!--End Page Title-->
+
+        <div class="container">
+        <form method="POST" action="{{ route('password.store') }}">
         @csrf
 
         <!-- Password Reset Token -->
@@ -36,4 +49,9 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+        </div>
+
+ </div>
+
+    <!--End Body Content-->
+@endsection
