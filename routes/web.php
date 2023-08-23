@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Newsletter
-Route::post('newsletter','UserController@subscribe')->name('newsletter');
+Route::post('newsletter', [HomeController::class, 'subscribe'])->name('newsletter');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -39,24 +40,48 @@ require __DIR__.'/auth.php';
 # Socialite URLs
 
 // Google
-Route::get('/login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
-Route::get('/login/google/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
+Route::get('/login/google/', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('/login/google/callback/', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
 //Facebook
-Route::get('/login/facebook', [App\Http\Controllers\Auth\LoginController::class, 'redirectToFacebook'])->name('login.facebook');
-Route::get('/login/facebook/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleFacebookCallback']);
+Route::get('/login/facebook/', [App\Http\Controllers\Auth\LoginController::class, 'redirectToFacebook'])->name('login.facebook');
+Route::get('/login/facebook/callback/', [App\Http\Controllers\Auth\LoginController::class, 'handleFacebookCallback']);
 //Github
-Route::get('/login/github', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
-Route::get('/login/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
+Route::get('/login/github/', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
+Route::get('/login/github/callback/', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
 
+Route::get('/', 'HomeController@index')->name('user');
+// Profile
+Route::get('/profile', 'HomeController@profile')->name('user-profile');
+Route::post('/profile/{id}', 'HomeController@profileUpdate')->name('user-profile-update');
 
+ 
+    // Profile
+// Route::get('/profile', 'AdminController@profile')->name('admin-profile');
+// Route::post('/profile/{id}', 'AdminController@profileUpdate')->name('profile-update');
+    // Category
+Route::resource('/category', 'CategoryController');
+    // Product
+Route::resource('/product', 'ProductController');
+    // Ajax for sub category
 
 // route backend
+
+
+// profile user
+Route::patch('/user', [UsersController::class, 'create'])->name('user.create');
+Route::get('/user', [UsersController::class, 'edit'])->name('user.edit');
+Route::patch('/user', [UsersController::class, 'index'])->name('user.index');
+
+
 Route::get('/back/index', function () {
     return view('back.index');
-})->name('index');
+})->name('index'); 
 Route::get('/back/produit', function () {
     return view('back.produit');
 })->name('produit');
+Route::get('/back/produitUpdate', function () {
+    return view('back.produitUpdate');
+})->name('produitUpdate');
 Route::get('/back/produitdetail', function () {
     return view('back.produitdetail');
 })->name('produitdetail');
@@ -135,7 +160,7 @@ Route::get('/font/home14', function () {
 Route::get('/font/home15', function () {
     return view('font.home15');
 })->name('home15');
-Route::get('/font/404', function () {
+Route::fallback(function () {
     return view('font.404');
 })->name('404');
 Route::get('/font/about', function () {

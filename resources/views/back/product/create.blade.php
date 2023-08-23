@@ -43,102 +43,184 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-8 mb-2">
-            <a href="{{ route('user') }}" class="btn btn-success float-right">Voir la liste des utilisateurs</a>
+          <div class="col-md-3"></div>
+          <div class="col-md-6 mb-2">
+            <a href="{{ route('poduit.index') }}" class="btn btn-success float-right">Voir la liste des produits</a>
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-3"></div>
         </div>
         <div class="row">
           <!-- left column -->
-          <div class="col-md-2"></div>
-          <div class="col-md-8">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Modifier un utilisateur</h3>
+                <h3 class="card-title">Creation d'un nouveau produit</h3>
               </div>
               <!-- /.card-header -->
-              @if (session('status'))
-                            <div class="mb-4 font-medium text-sm text-green-600">
-                                {{ session('status') }}
-                            </div>
-               @endif
               <!-- form start -->
-              <form method="POST" action="{{ route('register') }}" accept-charset="UTF-8" id="quickForm"  novalidate="novalidate">	
-                       @csrf
-                <div class="card-body">
-                  <div class="form-group"> 
-                    <label for="name">Nom</label>
-                    <input type="text" placeholder="Entrée votre prénom"  name="name" id="name" class="form-control my-input @error('name') is-invalid @enderror" value="{{ old('name') }}" required autofocus autocomplete="name">
-                                  @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                   @enderror
+              <div class="card-body">
+                <form method="post" action="{{route('product.store')}}"  enctype="multipart/form-data">
+                  {{csrf_field()}}
+                  <div class="form-group">
+                    <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
+                    <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{old('title')}}" class="form-control">
+                    @error('title')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
                   </div>
+
                   <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" placeholder="Entrée votre email"  id="email" class="form-control my-input @error('email') is-invalid @enderror"  value="{{ old('email') }}" autocorrect="off" autocapitalize="off" required autocomplete="email" >
-                                  @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                  @enderror
-                  </div>         
-                  <div class="form-group">
-                    <label for="password">Mots de passe</label>
-                    <input type="password" name="password"  placeholder="Entrée votre mot de passe" id="password" class="form-control my-input @error('password') is-invalid @enderror"  required autocomplete="new-password">
-                                  @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                   @enderror 
+                    <label for="description" class="col-form-label">Description</label>
+                    <textarea class="form-control" id="description" name="description">{{old('description')}}</textarea>
+                    @error('description')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
                   </div>
+
                   <div class="form-group">
-                    <label for="password_confirmation">Confirmation du mot de passe</label>
-                    <input type="password" name="password_confirmation"  placeholder="Entrée votre mot de passe" id="password_confirmation" class="form-control my-input"  required autocomplete="new-password">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputFile">Choisir une image</label>
+                    <label for="inputPhoto" class="col-form-label">Image 1 <span class="text-danger">*</span></label>
                     <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="image" name="image">
-                        <label class="custom-file-label" for="image">insérer une image</label>
-                      </div>
-                     
-                    </div>
+                        <span class="input-group-btn">
+                            <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                            <i class="fa fa-picture-o"></i> Choisir
+                            </a>
+                        </span>
+                    <input id="thumbnail" class="form-control" type="text" name="image1" value="{{old('image1')}}">
                   </div>
-                  <div class="form-group mb-0">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
-                      <label class="custom-control-label" for="exampleCheck1">Newsletter</label>
-                    </div>
+                  <div id="holder" style="margin-top:15px;max-height:100px;"></div>
+                    @error('image1')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
                   </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="reset" class="btn btn-secondary">Effacer</button>
-                  <button type="submit" class="btn btn-primary float-right">Enregistrer</button>
-                  <button type="submit" class="btn btn-primary mr-2 float-right">Enregistrer et ajouter un nouveau</button>
-                </div>
-              </form>
+
+                  <div class="form-group">
+                    <label for="inputPhoto" class="col-form-label">Image 2<span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                            <i class="fa fa-picture-o"></i> Choisir une image
+                            </a>
+                        </span>
+                    <input id="thumbnail" class="form-control" type="text" name="image2" value="{{old('image2')}}">
+                  </div>
+                  <div id="holder" style="margin-top:15px;max-height:100px;"></div>
+                    @error('image2')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
+                  </div>
+
+                  <div class="form-group">
+                    <label for="stock">Quantité <span class="text-danger">*</span></label>
+                    <input id="stock" type="number" name="stock" min="0" placeholder="Entrez un stock"  value="{{old('stock')}}" class="form-control">
+                    @error('stock')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
+                  </div>
+
+                  <div class="form-group">
+                    <label for="size">Taille</label>
+                    <select name="size[]" class="form-control selectpicker"  multiple data-live-search="true">
+                        <option value="">--sectionnez une taille--</option>
+                        <option value="XS">Extra Small (S)</option>
+                        <option value="S">Small (S)</option>
+                        <option value="M">Medium (M)</option>
+                        <option value="L">Large (L)</option>
+                        <option value="XL">Extra Large (XL)</option>
+                        <option value="XXL">X Extra Large (XXL)</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="condition">Condition</label>
+                    <select name="condition[]" class="form-control selectpicker"  multiple data-live-search="true">
+                        <option value="">--sectionnez une condition--</option>
+                        <option value="SALE">Sale</option>
+                        <option value="-16%">-16%</option>
+                        <option value="NEW">New</option>
+                        <option value="HOT">Hot</option>
+                        <option value="POPULAR">Popular</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="color">Couleur</label>
+                    <select name="color[]" class="form-control selectpicker"  multiple data-live-search="true">
+                        <option value="">--sectionnez une couleur--</option>
+                        <option value="RED">Rouge</option>
+                        <option value="BLACK">Noir</option>
+                        <option value="GREEN">Vert</option>
+                        <option value="WHITE">Blanc</option>
+                        <option value="YELLOW">Jaune</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="is_featured">Status</label><br>
+                    <input type="checkbox" name='status[]' id='status' value='1' checked> Yes                        
+                  </div>
+                        {{-- {{$categories}} --}}
+
+                  <div class="form-group">
+                    <label for="cat_id">Catégorie<span class="text-danger">*</span></label>
+                    <select name="cat_id" id="cat_id" class="form-control">
+                        <option value="">--Selectionner une catégorie--</option>
+                        @foreach($categories as $key=>$cat_data)
+                            <option value='{{$cat_data->id}}'>{{$cat_data->title}}</option>
+                        @endforeach
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
+                    <select name="status" class="form-control">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                    @error('status')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
+                  </div>
+
+                  <div class="form-group">
+                    <label for="price" class="col-form-label">Prix <span class="text-danger">*</span></label>
+                    <input id="price" type="number" name="price" placeholder="Enter price"  value="{{old('price')}}" class="form-control">
+                    @error('price')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
+                  </div>
+
+                  <div class="form-group">
+                    <label for="priceReduction" class="col-form-label">Prix de réduction <span class="text-danger">*</span></label>
+                    <input id="priceReduction" type="number" name="priceReduction" placeholder="Enter price"  value="{{old('priceReduction')}}" class="form-control">
+                    @error('priceReduction')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
+                  </div>
+                  
+                  <div class="form-group mb-3">
+                    <button type="reset" class="btn btn-warning">Effacer</button>
+                    <button class="btn btn-success" type="submit">Enregistrer</button>
+                  </div>
+                </form>
+    </div>
+
             </div>
             <!-- /.card -->
             </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-3"></div>
           <!--/.col (left) -->
           <!-- right column -->
-       
           <!--/.col (right) -->
         </div>
-
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
 @endsection
 @section('script')
 <!-- ChartJS -->

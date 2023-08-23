@@ -8,7 +8,7 @@
         <div class="row mb-1">
           <div class="col-sm-6">
             <h1 class="m-0">Administrateur
-            </h1>
+            </h1> 
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -39,10 +39,10 @@
 
                 <p>Nombres utilisateurs</p>
               </div>
-              <div class="icon">
+              <div class="icon"> 
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="{{ route('user') }}" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('user.index')}}" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -57,7 +57,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="{{ route('produit') }}" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

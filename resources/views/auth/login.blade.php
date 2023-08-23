@@ -64,9 +64,11 @@
                                 <input type="submit" class="btn mb-3" value="Sign In">
                                 <p class="mb-4">
                                    @if (Route::has('password.request'))
-									<a href="{{ route('password.reset') }}" id="RecoverPassword">Forgot your password?</a> &nbsp; | &nbsp;
+                                        <a class="btn btn-link" href="{{ route('password.reset') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
                                     @endif
-								    <a href="{{ route('register') }}" id="customer_register_link">Create account</a>
+                                    &nbsp; | &nbsp; <a href="{{ route('register') }}" id="customer_register_link">Create account</a>
                                 </p>
                             </div>
 

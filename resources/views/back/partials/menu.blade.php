@@ -14,7 +14,7 @@
           <img src="{{ asset('dist/img/IMG_0013.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <div class="d-block">THOMAS VINY <i class="fa fa-circle text-success"></i></div>
+          <div class="d-block">{{ Auth::user()->name }}<i class="fa fa-circle text-success"></i></div>
         </div>
       </div>
       <!-- SidebarSearch Form -->
