@@ -42,7 +42,7 @@
               <div class="icon"> 
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="{{route('user.index')}}" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('liste')}}" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

@@ -25,7 +25,7 @@
             </ol>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div><!-- /.container-fluid --> 
     </section>
 
     <!-- Main content -->
@@ -37,109 +37,115 @@
           </div>
           <div class="col-12">
             <!-- /.card -->
-
+            @if(session()->get('success'))
+              <div>
+                  <p>{{session()->get('success')}}</p>
+              </div>
+                    
+             @endif  
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Listes de tous les produits disponibles</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
+            <div class="card-body">
               <div class="table-responsive">
-               @if(count($products)>0)
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Titre</th>
-                    <th>Image</th>
-                    <th>Categorie</th>
-                    <th>Prix</th>
-                    <th>PrixReduction</th>
-                    <th>Stock</th>
-                    <th>Description</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                    
-                  </tr>
-                  </thead>
-                  <tfoot>
-                  <tr>
-                    <th>ID</th>
-                    <th>Titre</th>
-                    <th>Image</th>
-                    <th>Categorie</th>
-                    <th>Prix</th>
-                    <th>PrixReduction</th>
-                    <th>Stock</th>
-                    <th>Description</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                    
-                  </tr>
-                  </tfoot>
-                  <tbody>
-                  @foreach($products as $product)
-                  <tr>
-                    <td>{{ $product->id }}</td>
-                    <td>{{ $product->title }}</td>
-                    <td>
-                       @if($product->photo)
-                            @php
-                              $photo=explode(',',$product->photo);
-                              // dd($photo);
-                            @endphp
-                            <img src="{{$photo[0]}}" class="img-fluid zoom" style="max-width:80px" alt="{{$product->photo}}">
+                @if(count($products)>0)
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Titre</th>
+                      <th>Image</th>
+                      <th>Categorie</th>
+                      <th>Prix</th>
+                      <th>PrixReduction</th>
+                      <th>Stock</th>
+                      <th>Description</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                      
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                      <th>ID</th>
+                      <th>Titre</th>
+                      <th>Image</th>
+                      <th>Categorie</th>
+                      <th>Prix</th>
+                      <th>PrixReduction</th>
+                      <th>Stock</th>
+                      <th>Description</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                      
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    @foreach($products as $product)
+                    <tr>
+                      <td>{{ $product->id }}</td>
+                      <td>{{ $product->title }}</td>
+                      <td>
+                        @if($product->photo)
+                              @php
+                                $photo=explode(',',$product->photo);
+                                // dd($photo);
+                              @endphp
+                              <img src="{{$photo[0]}}" class="img-fluid zoom" style="max-width:80px" alt="{{$product->photo}}">
+                          @else
+                              <img src="{{asset('images/canape/product-1.png')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
+                          @endif
+                      </td>
+                      <td>{{ $product->cat_id }}</td>
+                      <td>{{ $product->price }}</td>
+                      <td>{{ $product->priceReduction }}</td>
+                      <td>
+                      @if($product->stock>0)
+                        <span class="badge badge-primary">{{$product->stock}}</span>
                         @else
-                            <img src="{{asset('images/canape/product-1.png')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
-                        @endif
+                        <span class="badge badge-danger">{{$product->stock}}</span>
+                      @endif
+                      </td>
+                      <td>{{ $product->description }}</td>
+                      <td>
+                          @if($product->status=='active')
+                              <span class="badge badge-success">{{$product->status}}</span>
+                          @else
+                              <span class="badge badge-warning">{{$product->status}}</span>
+                          @endif
+                      </td>
+                      <td class="project-actions d-flex justify-content-around">
+                        <a class="btn btn-primary btn-sm " href="{{route('product.edit',$product->id)}}">
+                          <i class="fas fa-eye"></i>
+                        </a>
+                        <a class="btn btn-info btn-sm " href="{{ route('.product.update', $product->id) }}">
+                            <i class="fas fa-pencil-alt">
+                            </i>  
+                        </a>
+                        <form id="destroy{{ $product->id }}" action="{{ route('product.destroy', $product->id) }}" method="POST">
+                          @csrf
+                          @method('DELETE') 
+                          <button class="btn btn-danger btn-sm  dltBtn" data-id="{{$product->id}}"  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                        </form>
+                
                     </td>
-                    <td>{{ $product->cat_id }}</td>
-                    <td>{{ $product->price }}</td>
-                    <td>{{ $product->priceReduction }}</td>
-                    <td>
-                    @if($product->stock>0)
-                      <span class="badge badge-primary">{{$product->stock}}</span>
-                      @else
-                      <span class="badge badge-danger">{{$product->stock}}</span>
+                    </tr>
+                    @endforeach
+                    </tbody>
+                  
+                  </table>
+                  <span style="float:right">{{$products->links()}}</span>
+                    @else
+                      <h6 class="text-center">No Products found!!! Please create Product</h6>
                     @endif
-                    </td>
-                    <td>{{ $product->description }}</td>
-                    <td>
-                        @if($product->status=='active')
-                            <span class="badge badge-success">{{$product->status}}</span>
-                        @else
-                            <span class="badge badge-warning">{{$product->status}}</span>
-                        @endif
-                    </td>
-                    <td class="project-actions d-flex justify-content-around">
-                      <a class="btn btn-primary btn-sm " href="{{route('product.edit',$product->id)}}">
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <a class="btn btn-info btn-sm " href="{{ route('.product.update', $product->id) }}">
-                          <i class="fas fa-pencil-alt">
-                          </i>  
-                      </a>
-                      <form id="destroy{{ $product->id }}" action="{{ route('product.destroy', $product->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE') 
-                        <button class="btn btn-danger btn-sm  dltBtn" data-id="{{$product->id}}"  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
-                      </form>
-              
-                   </td>
-                  </tr>
-                  @endforeach
-                  </tbody>
-                 
-                </table>
-                <span style="float:right">{{$products->links()}}</span>
-                  @else
-                    <h6 class="text-center">No Products found!!! Please create Product</h6>
-                  @endif
               </div>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
+            
           </div>
           <!-- /.col -->
         </div>

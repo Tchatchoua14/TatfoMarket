@@ -45,7 +45,7 @@
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-8 mb-2">
-            <a href="{{ route('user') }}" class="btn btn-success float-right">Voir la liste des utilisateurs</a>
+            <a href="{{ route('liste') }}" class="btn btn-success float-right">Voir la liste des utilisateurs</a>
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -134,7 +134,6 @@
         <div class="form-group mb-3">
         <button type="reset" class="btn btn-warning">Effacer</button>
         <button type="submit" class="btn btn-primary float-right">Enregistrer</button>
-        <button type="submit" class="btn btn-primary mr-2 float-right">Enregistrer et ajouter un nouveau</button>
         </div>
       </form>
             </div>

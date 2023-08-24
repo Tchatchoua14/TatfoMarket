@@ -45,7 +45,7 @@
         <div class="row">
           <div class="col-md-3"></div>
           <div class="col-md-6 mb-2">
-            <a href="{{ route('produit') }}" class="btn btn-success float-right">Voir la liste des produits</a>
+            <a href="{{ route('product.index') }}" class="btn btn-success float-right">Voir la liste des produits</a>
           </div>
           <div class="col-md-3"></div>
         </div>

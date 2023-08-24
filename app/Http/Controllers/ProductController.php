@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    /**
+    /** // 'product_' => Str::slug(request->input('product_name_en')), 
      * Display a listing of the resource.
      */
     public function index()
@@ -32,7 +32,8 @@ class ProductController extends Controller
     public function create()
     {
         //
-        return view('back.produit.create');
+        $category = Category::all();
+        return view('back.product.create')->with('categories',$category)->with('success', "Cet etudiant a bien été supprimé");
     }
 
     /**
@@ -100,7 +101,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
-        return view('back.product.show', compact('product'));
+        return view('back.product.show', compact('product')); 
     }
 
     /**
@@ -109,7 +110,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
-        return view('back.product.edit', compact('back.product'));
+        return view('back.product.edit', compact('product'));
     }
 
     /**
@@ -159,6 +160,7 @@ class ProductController extends Controller
     {
         //
         $product->delete(); 
+        return redirect()->route('back.product.index')->with('success', "Cet etudiant a bien été supprimé");
      
     }
 

@@ -1,8 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BackController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +20,6 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-// Newsletter
-Route::post('newsletter', [HomeController::class, 'subscribe'])->name('newsletter');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -35,6 +32,15 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+ 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Newsletter
+Route::post('newsletter', [App\Http\Controllers\HomeController::class, 'subscribe'])->name('newsletter');
+
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('user-profile');
+Route::post('/profile/{id}', [App\Http\Controllers\HomeController::class, 'profileUpdate'])->name('user-profile-update');
 
 
 # Socialite URLs
@@ -49,33 +55,54 @@ Route::get('/login/facebook/callback/', [App\Http\Controllers\Auth\LoginControll
 Route::get('/login/github/', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
 Route::get('/login/github/callback/', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
 
-Route::get('/', 'HomeController@index')->name('user');
+// Route::get('/', 'HomeController@index')->name('user');
+
 // Profile
-Route::get('/profile', 'HomeController@profile')->name('user-profile');
-Route::post('/profile/{id}', 'HomeController@profileUpdate')->name('user-profile-update');
+// Route::get('/profile', 'App\Http\Controllers\HomeController@profile')->name('user-profile');
+// Route::post('/profile/{id}', 'App\Http\Controllers\HomeController@profileUpdate')->name('user-profile-update');
 
  
     // Profile
-// Route::get('/profile', 'AdminController@profile')->name('admin-profile');
-// Route::post('/profile/{id}', 'AdminController@profileUpdate')->name('profile-update');
+
     // Category
-Route::resource('/category', 'CategoryController');
+Route::resource('/category', CategoryController::class);
+
     // Product
-Route::resource('/product', 'ProductController');
-    // Ajax for sub category
+Route::resource('/product', ProductController::class);
+  
 
 // route backend
+// {{route('user.delete',[$user->id])}} 
+// {{ route('user.detroy',$user->id) }}
 
 
 // profile user
 Route::patch('/user', [UsersController::class, 'create'])->name('user.create');
-Route::get('/user', [UsersController::class, 'edit'])->name('user.edit');
-Route::patch('/user', [UsersController::class, 'index'])->name('user.index');
+Route::get('/user/edit', [UsersController::class, 'edit'])->name('user.edit');
+Route::patch('/user', [UsersController::class, 'update'])->name('user.update');
+Route::get('/user', [UsersController::class, 'destroy'])->name('user.destroy');
+// Liste des utilisateurs
+Route::get('/user/liste', [UsersController::class, 'index'])->name('liste');;
 
+// Backend route
+Route::get('/back/index', [BackController::class, 'index'])->name('index');
+// Route::get('/back/user', [BackController::class, 'listeUser'])->name('listeUser');
+Route::get('/voir', function () {
+    return view('back.user.voir');
+})->name('voir');
+// Route::get('/back/detailuser1', function () {
+//     return view('back.detailuser');
+// })->name('detailuser1');
+Route::get('/back/formproduit', function () {
+    return view('back.formproduit');
+})->name('formproduit');
+// Route::get('/back/profile', function () {
+//     return view('back.profile');
+// })->name('profile');
+// Route::get('/back/formuser', function () {
+//     return view('back.formuser');
+// })->name('formuser');
 
-Route::get('/back/index', function () {
-    return view('back.index');
-})->name('index'); 
 Route::get('/back/produit', function () {
     return view('back.produit');
 })->name('produit');
@@ -85,24 +112,7 @@ Route::get('/back/produitUpdate', function () {
 Route::get('/back/produitdetail', function () {
     return view('back.produitdetail');
 })->name('produitdetail');
-Route::get('/back/detailuser', function () {
-    return view('back.detailuser');
-})->name('detailuser');
-Route::get('/back/detailuser1', function () {
-    return view('back.detailuser');
-})->name('detailuser1');
-Route::get('/back/formproduit', function () {
-    return view('back.formproduit');
-})->name('formproduit');
-Route::get('/back/profile', function () {
-    return view('back.profile');
-})->name('profile');
-Route::get('/back/user', function () {
-    return view('back.user');
-})->name('user');
-Route::get('/back/formuser', function () {
-    return view('back.formuser');
-})->name('formuser');
+
 Route::get('/back/category', function () {
     return view('back.category');
 })->name('category');
@@ -232,7 +242,8 @@ Route::get('/font/collection', function () {
 Route::get('/font/compteuser', function () {
     return view('font.compteuser');
 })->name('compteuser');
-Route::get('/font/infouser', function () {
-    return view('font.infouser');
-})->name('infouser');
+Route::get('/font/Terms', function () {
+    return view('font.Terms');
+})->name('Terms');
+
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Redirect;
 
 class UsersController extends Controller
 {
@@ -79,10 +80,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        $user=User::findOrFail($id);
-        return view('back.user.edit')->with('user',$user);
+        // $user=User::findOrFail($id);
+        // return view('back.user.edit')->with('user',$user);
+        return view('back.user.edit', ['user' => $request->user(),]);
     }
 
     /**
@@ -115,7 +117,8 @@ class UsersController extends Controller
         //     request()->session()->flash('error','Error occured while updating');
         // }
         // return redirect()->route('users.index');
-        return back()->with('message', "L'utilisateur a bien été modifiée !");
+        // return back()->with('message', "L'utilisateur a bien été modifiée !");
+        return Redirect::route('back.user.edit')->with('status', 'profile-updated');
 
     }
 

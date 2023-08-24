@@ -14,7 +14,7 @@
           <img src="{{ asset('dist/img/IMG_0013.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <div class="d-block">{{ Auth::user()->name }}<i class="fa fa-circle text-success"></i></div>
+          <div class="d-block"><span class="text-uppercase mr-1">{{ Auth::user()->name }}</span><i class="fa fa-circle text-success" style="font-size:10px;"></i> <span style="font-size:12px;">en ligne</span></div>
         </div>
       </div>
       <!-- SidebarSearch Form -->
@@ -42,7 +42,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('produit') }}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="fas fa-wrench"></i>
                   <p>Tous les protuits</p>
                 </a>
@@ -54,7 +54,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('formproduit') }}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="fas fa-plus"></i>
                   <p>Ajouter un produit</p>
                 </a>
@@ -71,25 +71,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('profile') }}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="fas fa-wrench"></i>
                   <p>Admin</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('user') }}" class="nav-link">
+                <a href="{{route('liste')}}" class="nav-link">
                   <i class="fas fa-wrench"></i>
                   <p>Tous les Utilisateurs</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('detailuser') }}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="fas fa-plus"></i>
                   <p>Details utilisateurs</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('formuser') }}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="fas fa-plus"></i>
                   <p>Ajouter utilisateurs</p>
                 </a>
