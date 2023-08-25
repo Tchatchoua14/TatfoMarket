@@ -27,6 +27,12 @@ class HomeController extends Controller
     //     $this->middleware('auth');
     // }
 
+    
+    public function welcome()
+    {
+        return view('font.welcome');
+    }
+
     public function index()
     {
         return view('font.index');

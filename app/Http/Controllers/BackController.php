@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BackController extends Controller
 {
@@ -14,7 +15,13 @@ class BackController extends Controller
 
     public function index()
     {
+        if(Auth::user()->role=="admin"){
         return view('back.index');
+        }
+        else
+        {
+        return view('font.404');  
+        }
     }
 
    

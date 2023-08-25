@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 class UsersController extends Controller
@@ -84,7 +83,9 @@ class UsersController extends Controller
     {
         // $user=User::findOrFail($id);
         // return view('back.user.edit')->with('user',$user);
+        if(Auth::user()->role=="admin"){
         return view('back.user.edit', ['user' => $request->user(),]);
+        }
     }
 
     /**

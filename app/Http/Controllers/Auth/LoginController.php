@@ -87,7 +87,7 @@ class LoginController extends Controller
     
     //github callback  
     public function handleGithubCallback(){
-    
+     
     $user = Socialite::driver('github')->user();
     
       $this->_registerorLoginUser($user);

@@ -1,7 +1,7 @@
 <div class="mobile-nav-wrapper" role="navigation">
 		<div class="closemobileMenu"><i class="icon anm anm-times-l pull-right"></i> Close Menu</div>
         <ul id="MobileNav" class="mobile-nav">
-        	<li class="lvl1 parent megamenu"><a href="index.html">Categories <i class="anm anm-plus-l"></i></a>
+      	<li class="lvl1 parent megamenu"><a href="index.html">HOME <i class="anm anm-plus-l"></i></a>
           <ul>
             <li><a href="#" class="site-nav">Home Group 1<i class="anm anm-plus-l"></i></a>
               <ul>
@@ -49,7 +49,19 @@
             </li>
           </ul>
         </li>
-        <li class="lvl1 parent dropdown"><a href="#">Blog <i class="anm anm-angle-down-l"></i></a>
+        <li class="lvl1 parent dropdown"><a href="#">CATEGORIES<i class="anm anm-angle-down-l"></i></a>
+                          <ul class="dropdown">
+                            <li><a href="blog-grid-view.html" class="site-nav">FASHION <span class="lbl nm_label1">New</span></a></li>
+                            <li><a href="blog-article.html" class="site-nav">COSMETIC</a></li>
+                            <li><a href="cart-variant1.html" class="site-nav">BAG<span class="lbl nm_label1">Sale</span></a>
+                            </li>
+                            <li><a href="compare-variant1.html" class="site-nav">ACCESSORIES</a>
+                            </li>
+                            <li><a href="404.html" class="site-nav">SHOES <span class="lbl nm_label1">Popular</span></a></li>
+                            <li><a href="404.html" class="site-nav">JEWELLRY</a></li>
+                          </ul>
+                        </li>
+        <li class="lvl1 parent dropdown"><a href="#">BLOG <i class="anm anm-angle-down-l"></i></a>
             <ul class="dropdown">
               <li><a href="blog-grid-view.html" class="site-nav">Gridview</a></li>
               <li><a href="blog-article.html" class="site-nav">Article</a></li>
@@ -67,7 +79,7 @@
               <li><a href="404.html" class="site-nav">404</a></li>
             </ul>
           </li>
-          <li class="lvl1 parent dropdown"><a href="#">Settings <i class="anm anm-angle-down-l"></i></a>
+          <li class="lvl1 parent dropdown"><a href="#">SETTINGS <i class="anm anm-angle-down-l"></i></a>
               <ul class="dropdown">
                 <li><a href="about-us.html" class="site-nav">About Us <span class="lbl nm_label1">New</span> </a></li>
                 <li><a href="contact-us.html" class="site-nav">Contact Us</a></li>

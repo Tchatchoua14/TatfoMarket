@@ -23,18 +23,20 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
 
- 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//  Home Page
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+// welcome page
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
 
 // Newsletter
 Route::post('newsletter', [App\Http\Controllers\HomeController::class, 'subscribe'])->name('newsletter');

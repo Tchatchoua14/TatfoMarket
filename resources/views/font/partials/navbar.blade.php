@@ -17,31 +17,31 @@
                 <div class="col-2 col-sm-4 col-md-3 col-lg-4 text-right">
                 	<span class="user-menu d-block d-lg-none"><i class="anm anm-user-al" aria-hidden="true"></i></span>
                     <ul class="customer-links list-inline">
-                        
-                 
-                        
-                    @if (Auth::user()->role=="admin") 
-                         <li><a href="{{ route('index') }}">Voir Interface Admin</a></li>
-                         @else
-                         @if (Route::has('login'))
+                        @if (Route::has('login'))
                          @auth 
+                         @if (Auth::user()->role=="admin") 
+                         <li><a href="{{ route('index') }}">Voir Interface Admin</a></li>
+                         @endif
                          @if (Auth::user()->role=="user") 
-                        <li><a href="#">{{ Auth::user()->name }}</a></li>
+                         <li><a href="{{route('profile.edit')}}"><span class="text-uppercase mr-1">{{ Auth::user()->name }}</span></a></li>
+                         @endif
                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('Logout') }}</a>
                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
                         </li>
                           <li><a href="{{ route('wishlist') }}"><i class="fa fa-heart" style="margin-top: -2px; margin-right: 1px;"></i> Wishlist</a></li>
-                          @else
+                          @endauth
+                          @guest()
                           <li> <a href="{{ route('login') }}"><span class="icon-lock"></span>Login</a> </li> 
                             @if (Route::has('register'))
                             <li> <a href="{{ route('register') }}"><i class="fa fa-user" style="margin-top: -2px; margin-right: 1px;"></i>Create Account</a> </li>
                             @endif
-                            @endif
-                           @endauth      
+                            @endguest
+                                
                          @endif
-                         @endif
+                         
+
                        
                         
                     </ul>

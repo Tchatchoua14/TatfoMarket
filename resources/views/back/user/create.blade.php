@@ -35,7 +35,7 @@
               <li class="breadcrumb-item active">Validation</li>
             </ol>
           </div>
-        </div>
+        </div> 
       </div><!-- /.container-fluid -->
     </section>
 

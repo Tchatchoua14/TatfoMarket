@@ -33,7 +33,6 @@
           </form>
         </div>
       </li>
-
       <li class="nav-item dropdown">
         <a href="{{ route('logout') }}" class="nav-link" data-toggle="dropdown" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Déconnexion') }}</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

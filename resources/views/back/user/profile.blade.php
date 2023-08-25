@@ -121,7 +121,7 @@
                 <div class="card">
                     <div class="image">
                         @if($profile->photo)
-                        <img class="card-img-top img-fluid roundend-circle mt-4" style="border-radius:50%;height:80px;width:80px;margin:auto;" src="{{$profile->photo}}" alt="profile picture">
+                        <img class="card-img-top img-fluid roundend-circle mt-4" style="border-radius:50%;height:80px;width:80px;margin:auto;" src="{{asset('storage/' .$profile->photo)}}" alt="profile picture">
                         @else 
                         <img class="card-img-top img-fluid roundend-circle mt-4" style="border-radius:50%;height:80px;width:80px;margin:auto;" src="{{ asset('dist/img/IMG_0013.jpg') }}" alt="profile picture">
                         @endif
@@ -134,7 +134,7 @@
                   </div>
             </div>
             <div class="col-md-8">
-                <form class="border px-4 pt-2 pb-3" method="POST" action="{{route('profile-update',$profile->id)}}"  enctype="multipart/form-data">
+                <form class="border px-4 pt-2 pb-3" method="POST" action="{{route('profile.update',$profile->id)}}"  enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="inputTitle" class="col-form-label">Name</label>
