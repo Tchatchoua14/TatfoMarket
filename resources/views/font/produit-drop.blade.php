@@ -8,7 +8,7 @@
                 <!--Breadcrumb-->
                 <div class="bredcrumbWrap">
                     <div class="container breadcrumbs" role="navigation" aria-label="breadcrumbs">
-                        <a href="index.html" title="Back to the home page">Home</a><span aria-hidden="true">›</span><span>Product with Dropdown</span>
+                        <a href="{{route('home')}}" title="Back to the home page">Home</a><span aria-hidden="true">›</span><span>Product with Dropdown</span>
                     </div>
                 </div>
                 <!--End Breadcrumb-->

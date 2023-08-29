@@ -32,8 +32,8 @@
                             <i class="anm anm-bars-r"></i>
                         </button>
                     </div>
-                	<!--Desktop Menu-->
-                	<nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
+                 	<!--Desktop Menu-->
+                     <nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
                         <ul id="siteNav" class="site-nav medium center hidearrow">
                             <li class="lvl1 parent megamenu"><a href="#">HOME <i class="anm anm-angle-down-l"></i></a>
                                 <div class="megamenu style1">
@@ -42,40 +42,36 @@
                                             <ul class="grid">
                                                 <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Home Group 1</a>
                                                     <ul class="subLinks">
-                                                      <li class="lvl-2"><a href="index.html" class="site-nav lvl-2">Home 1 - Classic</a></li>
-                                                      <li class="lvl-2"><a href="home2-default.html" class="site-nav lvl-2">Home 2 - Default</a></li>
-                                                      <li class="lvl-2"><a href="home15-funiture.html" class="site-nav lvl-2">Home 15 - Furniture <span class="lbl nm_label1">New</span></a></li>
-                                                      <li class="lvl-2"><a href="home3-boxed.html" class="site-nav lvl-2">Home 3 - Boxed</a></li>
-                                                      <li class="lvl-2"><a href="home4-fullwidth.html" class="site-nav lvl-2">Home 4 - Fullwidth</a></li>
-                                                      <li class="lvl-2"><a href="home5-cosmetic.html" class="site-nav lvl-2">Home 5 - Cosmetic</a></li>
-                                                      <li class="lvl-2"><a href="home6-modern.html" class="site-nav lvl-2">Home 6 - Modern</a></li>
-                                                      <li class="lvl-2"><a href="home7-shoes.html" class="site-nav lvl-2">Home 7 - Shoes</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home3')}}" class="site-nav lvl-2">Home 1 - Classic</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home2')}}" class="site-nav lvl-2">Home 2 - Default</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home15')}}" class="site-nav lvl-2">Home 15 - Furniture <span class="lbl nm_label1">New</span></a></li>
+                                                      <li class="lvl-2"><a href="{{route('home5')}}" class="site-nav lvl-2">Home 3 - Boxed</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home6')}}" class="site-nav lvl-2">Home 4 - Fullwidth</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home7')}}" class="site-nav lvl-2">Home 5 - Cosmetic</a></li>
                                                     </ul>
                                                   </li>
                                                 <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Home Group 2</a>
                                                     <ul class="subLinks">
-                                                        <li class="lvl-2"><a href="home8-jewellery.html" class="site-nav lvl-2">Home 8 - Jewellery</a></li>
-                                                        <li class="lvl-2"><a href="home9-parallax.html" class="site-nav lvl-2">Home 9 - Parallax</a></li>
-                                                        <li class="lvl-2"><a href="home10-minimal.html" class="site-nav lvl-2">Home 10 - Minimal</a></li>
-                                                        <li class="lvl-2"><a href="home11-grid.html" class="site-nav lvl-2">Home 11 - Grid</a></li>
-                                                        <li class="lvl-2"><a href="home12-category.html" class="site-nav lvl-2">Home 12 - Category</a></li>
-                                                        <li class="lvl-2"><a href="home13-auto-parts.html" class="site-nav lvl-2">Home 13 - Auto Parts</a></li>
-                                                        <li class="lvl-2"><a href="home14-bags.html" class="site-nav lvl-2">Home 14 - Bags <span class="lbl nm_label1">New</span></a></li>
+                                                        <li class="lvl-2"><a href="{{route('home8')}}" class="site-nav lvl-2">Home 8 - Jewellery</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home9')}}" class="site-nav lvl-2">Home 9 - Parallax</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home10')}}" class="site-nav lvl-2">Home 10 - Minimal</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home11')}}" class="site-nav lvl-2">Home 11 - Grid</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home14')}}" class="site-nav lvl-2">Home 14 - Bags <span class="lbl nm_label1">New</span></a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">New Sections</a>
                                                     <ul class="subLinks">
-                                                        <li class="lvl-2"><a href="home11-grid.html" class="site-nav lvl-2">Image Gallery</a></li>
-                                                        <li class="lvl-2"><a href="home5-cosmetic.html" class="site-nav lvl-2">Featured Product</a></li>
-                                                        <li class="lvl-2"><a href="home7-shoes.html" class="site-nav lvl-2">Columns with Items</a></li>
-                                                        <li class="lvl-2"><a href="home6-modern.html" class="site-nav lvl-2">Text columns with images</a></li>
-                                                        <li class="lvl-2"><a href="home2-default.html" class="site-nav lvl-2">Products Carousel</a></li>
-                                                        <li class="lvl-2"><a href="home9-parallax.html" class="site-nav lvl-2">Parallax Banner</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home11')}}" class="site-nav lvl-2">Image Gallery</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home5')}}" class="site-nav lvl-2">Featured Product</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home7')}}" class="site-nav lvl-2">Columns with Items</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home8')}}" class="site-nav lvl-2">Text columns with images</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home2')}}" class="site-nav lvl-2">Products Carousel</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home9')}}" class="site-nav lvl-2">Parallax Banner</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">New Features</a>
                                                     <ul class="subLinks">
-                                                        <li class="lvl-2"><a href="home13-auto-parts.html" class="site-nav lvl-2">Top Information Bar <span class="lbl nm_label1">New</span></a></li>
+                                                        <li class="lvl-2"><a href="{{route('home13')}}" class="site-nav lvl-2">Top Information Bar <span class="lbl nm_label1">New</span></a></li>
                                                         
                                                     </ul>
                                                 </li>
@@ -87,49 +83,50 @@
                             </li>
                             <li class="lvl1 parent dropdown"><a href="#">CATEGORIES<i class="anm anm-angle-down-l"></i></a>
                           <ul class="dropdown">
-                            <li><a href="blog-grid-view.html" class="site-nav">FASHION <span class="lbl nm_label1">New</span></a></li>
-                            <li><a href="blog-article.html" class="site-nav">COSMETIC</a></li>
-                            <li><a href="cart-variant1.html" class="site-nav">BAG<span class="lbl nm_label1">Sale</span></a>
+                            <li><a href="{{route('home11')}}" class="site-nav">FASHION <span class="lbl nm_label1">New</span></a></li>
+                            <li><a href="{{route('home5')}}" class="site-nav">COSMETIC</a></li>
+                            <li><a href="{{route('home14')}}" class="site-nav">BAG<span class="lbl nm_label1">Sale</span></a>
                             </li>
-                            <li><a href="compare-variant1.html" class="site-nav">ACCESSORIES</a>
+                            <li><a href="{{route('home15')}}" class="site-nav">ACCESSORIES</a>
                             </li>
-                            <li><a href="404.html" class="site-nav">SHOES <span class="lbl nm_label1">Popular</span></a></li>
-                            <li><a href="404.html" class="site-nav">JEWELLRY</a></li>
+                            <li><a href="{{route('home7')}}" class="site-nav">SHOES <span class="lbl nm_label1">Popular</span></a></li>
+                            <li><a href="{{route('home8')}}" class="site-nav">JEWELLRY</a></li>
                           </ul>
+                          </li>
+                 
+                          <li class="lvl1 parent dropdown"><a href="#">BLOG <i class="anm anm-angle-down-l"></i></a>
+                        <ul class="dropdown">
+                        <li><a href="{{route('home3')}}" class="site-nav">Gridview</a></li>
+                        <li><a href="{{route('home7')}}" class="site-nav">Article</a></li>
+                        <li><a href="#" class="site-nav">Cart Page <i class="anm anm-angle-right-l"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="{{route('cart1')}}" class="site-nav">Cart Variant1</a></li>
+                                <li><a href="{{route('cart')}}" class="site-nav">Cart Variant2</a></li>
+                            </ul>
                         </li>
-                        <li class="lvl1 parent dropdown"><a href="#">BLOG <i class="anm anm-angle-down-l"></i></a>
-                          <ul class="dropdown">
-                            <li><a href="blog-grid-view.html" class="site-nav">Gridview</a></li>
-                            <li><a href="blog-article.html" class="site-nav">Article</a></li>
-                            <li><a href="cart-variant1.html" class="site-nav">Cart Page <i class="anm anm-angle-right-l"></i></a>
-                                <ul class="dropdown">
-                                    <li><a href="cart-variant1.html" class="site-nav">Cart Variant1</a></li>
-                                    <li><a href="cart-variant2.html" class="site-nav">Cart Variant2</a></li>
-                                 </ul>
-                            </li>
-                            <li><a href="compare-variant1.html" class="site-nav">Compare Product <i class="anm anm-angle-right-l"></i></a>
-                                <ul class="dropdown">
-                                    <li><a href="compare-variant2.html" class="site-nav">Compare Variant2</a></li>
-                                 </ul>
-                            </li>
-                            <li><a href="404.html" class="site-nav">404</a></li>
-                          </ul>
+                        <li><a href="compare-variant1.html" class="site-nav">Compare Product <i class="anm anm-angle-right-l"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="{{route('compare2')}}" class="site-nav">Compare Variant2</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="site-nav">404</a></li>
+                        </ul>
                         </li>
                         <li class="lvl1 parent dropdown"><a href="#">SETTINGS <i class="anm anm-angle-down-l"></i></a>
                             <ul class="dropdown">
-                              <li><a href="about-us.html" class="site-nav">About Us <span class="lbl nm_label1">New</span> </a></li>
-                              <li><a href="contact-us.html" class="site-nav">Contact Us</a></li>
-                              <li><a href="blog-fullwidth.html" class="site-nav">Administration</a></li>
+                                <li><a href="{{route('about')}}" class="site-nav">About Us <span class="lbl nm_label1">New</span> </a></li>
+                                <li><a href="{{route('contact')}}" class="site-nav">Contact Us</a></li>
+                                <li><a href="{{route('register')}}" class="site-nav">Administration</a></li>
                             </ul>
-                          </li>
-                      </ul>
+                        </li>
+                        </ul>
                     </nav>
                     <!--End Desktop Menu-->
                 </div>
                 <!--Mobile Logo-->
                 <div class="col-6 col-sm-6 col-md-6 col-lg-2 d-block d-lg-none mobile-logo">
                 	<div class="logo">
-                        <a href="index.html">
+                        <a href="{{route('welcome')}}">
                             <img src="{{ asset('images/logo.svg') }}" alt="Belle Multipurpose Html Template" title="Belle Multipurpose Html Template" />
                         </a>
                     </div>
@@ -273,7 +270,7 @@
                                             <!-- start product image -->
                                             <div class="product-image">
                                                 <!-- start product image -->
-                                                <a href="product-layout-1.html">
+                                                <a href="product-layout-1.html"> 
                                                     <!-- image -->
                                                     <img class="primary blur-up lazyload" id="va1" data-src="{{ asset('images/product-images/product-image1.jpg') }}" src="{{ asset('images/product-images/product-image1.jpg') }}" alt="image" title="product">
                                                     <!-- End image -->
@@ -594,7 +591,7 @@
                                                 </div>
                                                 <!-- end product button -->
                                             </div>
-                                            <!-- end product image -->
+                                            <!-- end product image --> 
         
                                             <!--start product details -->
                                             <div class="product-details text-center">
@@ -1248,12 +1245,12 @@
         </div>
         <!--Collection Tab slider-->
         
-        <!--Collection Box slider-->
-        <div class="collection-box section">
+         <!--Collection Box slider-->
+         <div class="collection-box section">
         	<div class="container-fluid">
 				<div class="collection-grid">
                         <div class="collection-grid-item">
-                            <a href="home11-grid.html" class="collection-grid-item__link">
+                            <a href="{{route('home11')}}" class="collection-grid-item__link">
                                 <img data-src="{{ asset('images/collection/fashion.jpg') }}" src="{{ asset('images/collection/fashion.jpg') }}" alt="Fashion" class="blur-up lazyload"/>
                                 <div class="collection-grid-item__title-wrapper">
                                     <h3 class="collection-grid-item__title btn btn--secondary no-border">Fashion</h3>
@@ -1261,7 +1258,7 @@
                             </a>
                         </div>
                         <div class="collection-grid-item">
-                            <a href="home5-cosmetic.html" class="collection-grid-item__link">
+                            <a href="{{route('home5')}}" class="collection-grid-item__link">
                                 <img class="blur-up lazyload" data-src="{{ asset('images/collection/cosmetic.jpg') }}" src="{{ asset('images/collection/cosmetic.jpg') }}" alt="Cosmetic"/>
                                 <div class="collection-grid-item__title-wrapper">
                                     <h3 class="collection-grid-item__title btn btn--secondary no-border">Cosmetic</h3>
@@ -1269,7 +1266,7 @@
                             </a>
                         </div>
                         <div class="collection-grid-item blur-up lazyloaded">
-                            <a href="home14-bags.html" class="collection-grid-item__link">
+                            <a href="{{route('home14')}}" class="collection-grid-item__link">
                                 <img data-src="{{ asset('images/collection/bag.jpg') }}" src="{{ asset('images/collection/bag.jpg') }}" alt="Bag" class="blur-up lazyload"/>
                                 <div class="collection-grid-item__title-wrapper">
                                     <h3 class="collection-grid-item__title btn btn--secondary no-border">Bag</h3>
@@ -1277,7 +1274,7 @@
                             </a>
                         </div>
                         <div class="collection-grid-item">
-                            <a href="home15-funiture.html" class="collection-grid-item__link">
+                            <a href="{{route('home15')}}" class="collection-grid-item__link">
                                 <img data-src="{{ asset('images/collection/accessories.jpg') }}" src="{{ asset('images/collection/accessories.jpg') }}" alt="Accessories" class="blur-up lazyload"/>
                                 <div class="collection-grid-item__title-wrapper">
                                     <h3 class="collection-grid-item__title btn btn--secondary no-border">Accessories</h3>
@@ -1285,7 +1282,7 @@
                             </a>
                         </div>
                         <div class="collection-grid-item">
-                            <a href="home7-shoes.html" class="collection-grid-item__link">
+                            <a href="{{route('home7')}}" class="collection-grid-item__link">
                                 <img data-src="{{ asset('images/collection/shoes.jpg') }}" src="{{ asset('images/collection/shoes.jpg') }}" alt="Shoes" class="blur-up lazyload"/>
                                 <div class="collection-grid-item__title-wrapper">
                                     <h3 class="collection-grid-item__title btn btn--secondary no-border">Shoes</h3>
@@ -1293,7 +1290,7 @@
                             </a>
                         </div>
                         <div class="collection-grid-item">
-                            <a href="home8-jewellery.html" class="collection-grid-item__link">
+                            <a href="{{route('home8')}}" class="collection-grid-item__link">
                                 <img data-src="{{ asset('images/collection/jewellry.jpg') }}" src="{{ asset('images/collection/jewellry.jpg') }}" alt="Jewellry" class="blur-up lazyload"/>
                                 <div class="collection-grid-item__title-wrapper">
                                     <h3 class="collection-grid-item__title btn btn--secondary no-border">Jewellry</h3>
@@ -1311,7 +1308,7 @@
             	<div class="row">
                 	<div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="section-header text-center">
-                            <h2 class="h2">NOS MARQUES</h2>
+                            <h2 class="h2">OUR BRANDS</h2>
                         </div>
                 		<div class="logo-bar">
                     <div class="logo-bar__item">
@@ -1743,7 +1740,7 @@
             	<div class="row">
                 	<div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="section-header text-center">
-                            <h2 class="h2">NOS PARTENAIRES</h2>
+                            <h2 class="h2">OUR PARTNERS</h2>
                         </div>
                 		<div class="logo-bar">
                     <div class="logo-bar__item">

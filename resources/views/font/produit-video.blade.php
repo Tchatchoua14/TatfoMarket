@@ -1,7 +1,9 @@
 @extends('font.master')
 @section('title')
 @section('content')
-<div id="page-content">
+@include('font.partials.header') 
+@include('font.partials.menu')
+<div id="page-content" class="mt-5">
             <!--MainContent-->
             <div id="MainContent" class="main-content" role="main">
                 <!--Breadcrumb-->

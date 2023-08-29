@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::all();
+        $products = Product::orderBy('id','ASC')->paginate(10);
         return view('back.product.index', [
             'products' => $products,
         ]);
@@ -26,6 +26,68 @@ class ProductController extends Controller
 
     }
 
+
+    
+
+    // public function store_product(Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => 'required',
+    //         'price' => 'required',
+    //         'stock' => 'required',
+    //         'description' => 'required',
+    //         'image' => 'required'
+    //     ]);
+
+    //     $file = $request->file('image');
+    //     $path = time() . '_' . $request->name . '.' . $file->getClientOriginalExtension();
+
+    //     Storage::disk('local')->put('public/' . $path, file_get_contents($file));
+
+    //     Product::create([
+    //         'name' => $request->name,
+    //         'price' => $request->price,
+    //         'stock' => $request->stock,
+    //         'description' => $request->description,
+    //         'image' => $path,
+    //     ]);
+
+    //     return Redirect::route('create_product');
+
+
+    // public function update_product(Product $product, Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => 'required',
+    //         'price' => 'required',
+    //         'stock' => 'required',
+    //         'description' => 'required',
+    //         'image' => 'required'
+    //     ]);
+
+    //     $file = $request->file('image');
+    //     $path = time() . '_' . $request->name . '.' . $file->getClientOriginalExtension();
+
+    //     Storage::disk('local')->put('public/' . $path, file_get_contents($file));
+
+    //     $product->update([
+    //         'name' => $request->name,
+    //         'price' => $request->price,
+    //         'stock' => $request->stock,
+    //         'description' => $request->description,
+    //         'image' => $path,
+    //     ]);
+
+    //     return Redirect::route('show_product', $product);
+
+
+
+
+
+
+
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -33,18 +95,22 @@ class ProductController extends Controller
     {
         //
         $category = Category::all();
-        return view('back.product.create')->with('categories',$category)->with('success', "Cet etudiant a bien été supprimé");
+        return view('back.product.create')->with('categories',$category)->with('success', "Cet etudiant a bien été crée");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
         //
-            $this->validate($request,[
+           $data = $request->validate([
             'title'=>'string|required',
             'description'=>'string|nullable',
+            // 'image1'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            // 'image2'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            //  'image1'=>'nullable',
+            //  'image2'=>'nullable',
             'image1'=>'string|required',
             'image2'=>'string|required',
             'stock'=>"required|numeric",
@@ -55,44 +121,38 @@ class ProductController extends Controller
             'price'=>'required|numeric',
             'priceReduction'=>'nullable|numeric',
             'cat_id'=>'required|exists:categories,id',
+          
         ]);
 
-            
-        // $file = $request->file('image');
-        // $path = time() . '_' . $request->name . '.' . $file->getClientOriginalExtension();
+            // $file1 = $request->file('image1');
+            // $path1 = time() . '_' . $request->name . '.' . $file1->getClientOriginalExtension();
+            // Storage::disk('local')->put('public/' . $path1, file_get_contents($file1));
 
-        // Storage::disk('local')->put('public/' . $path, file_get_contents($file));
-
-            // 'description' => $request->description,
-            // 'image' => $path,
-       
-
-            $data=$request->all();
-            $slug=Str::slug($request->title);
-            $count=Product::where('slug',$slug)->count();
-            if($count>0){
-                $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
-            }
-            $data['slug']=$slug;
-            $size=$request->input('size');
-            if($size){
-                $data['size']=implode(',',$size);
-            }
-            else{
-                $data['size']='';
-            }
-            // return $size;
-            // return $data;
-            Product::create($data);
-            // if($status){
-            //     request()->session()->with('success','Product Successfully added');
-            // }
-            // else{
-            //     request()->session()->flash('error','Please try again!!');
-            // }
-            // return redirect()->route('product.index');
+            // $file2 = $request->file('image2');
+            // $path2 = time() . '_' . $request->name . '.' . $file2->getClientOriginalExtension();
     
-        return back()->with('message', "La tâche a bien été créée !");
+            // Storage::disk('local')->put('public/' . $path2, file_get_contents($file2));
+    
+            Product::create([
+              
+               'title' => $request->title,
+               'slug' => $request->slug,
+               'description' => $request->description,
+            //    'image1' => $path1,
+            //    'image2' => $path2,
+               'image1' => $request->image1,
+               'image2' => $request->image2,
+               'stock' => $request->stock,
+               'size' => $request->size,
+               'condition' => $request->condition,
+               'color' => $request->color,
+               'status' => $request->status,
+               'price' => $request->price,
+               'priceReduction' => $request->priceReduction,
+               'cat_id' => $request->cat_id,
+            ]);
+     
+          return redirect()->route('back.product.index')->with('success', 'le prduit a été bien crée');
     }
 
     /**
@@ -110,21 +170,21 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
-        return view('back.product.edit', compact('product'));
+        $categories = Category::all();
+        return view('back.product.edit', compact('product', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product, $id)
+    public function update(Request $request, Product $product)
     {
         //
-        $product=Product::findOrFail($id);
         $this->validate($request,[
         'title'=>'string|required',
         'description'=>'string|nullable',
-        'image1'=>'string|required',
-        'image2'=>'string|required',
+        'image1'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        'image2'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         'stock'=>"required|numeric",
         'size'=>'nullable',
         'condition'=>'required|in:SALE,-16%,NEW,HOT,POPULAR',
@@ -135,19 +195,34 @@ class ProductController extends Controller
         'cat_id'=>'required|exists:categories,id',
     ]);
 
-        $data=$request->all();
-        $size=$request->input('size');
-        if($size){
-            $data['size']=implode(',',$size);
-        }
-        else{
-            $data['size']='';
-        }
+        $file1 = $request->file('image1');
+        $path1 = time() . '_' . $request->name . '.' . $file1->getClientOriginalExtension();
+        Storage::disk('local')->put('public/' . $path1, file_get_contents($file1));
 
-        $product->fill($data)->save();
+        $file2 = $request->file('image2');
+        $path2 = time() . '_' . $request->name . '.' . $file2->getClientOriginalExtension();
+
+        Storage::disk('local')->put('public/' . $path2, file_get_contents($file2));
+
+        $product->title = $request->title;
+        $product->slug = $request->slug;
+        $product->description = $request->description;
+        $product->image1 = $request->path1;
+        $product->image2 = $request->path2;
+        $product->stock = $request->stock;
+        $product->size = $request->size;
+        $product->condition = $request->condition;
+        $product->color = $request->color; 
+        $product->status = $request->status;
+        $product->price = $request->price;
+        $product->priceReduction = $request->priceReduction;
+        $product->cat_id = $request->cat_id;
+
+        $product->save();
+
+        $product->update($request->all());
      
-    
-        return back()->with('message', "La tâche a bien été modifiée !");
+        return redirect()->route('back.product.index')->with('success', 'le produit a etebien mise a jour');
      
         // $product->state = $request->has('state');
      
@@ -160,7 +235,7 @@ class ProductController extends Controller
     {
         //
         $product->delete(); 
-        return redirect()->route('back.product.index')->with('success', "Cet etudiant a bien été supprimé");
+        return redirect()->route('back.product.index')->with('success', "le produit a bien été supprimé");
      
     }
 

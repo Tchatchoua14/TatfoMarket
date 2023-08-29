@@ -119,48 +119,48 @@
 
 	$("#im1").on("click", function() {
 		$("#va1").attr({
-			src: 'assets/images/product-images/product-image1.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: "{{ asset('/images/product-images/product-image1.jpg') }}",
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 
 	$("#im2").on("click", function() {
 		$("#va1").attr({
-			src: 'assets/images/product-images/product-image-stw1.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: "{{ asset('/images/product-images/product-image-stw1.jpg') }}",
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 
 	$("#im3").on("click", function() {
 		$("#va1").attr({
-			src: 'assets/images/product-images/product-image-stw1-1.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: "{{ asset('/images/product-images/product-image-stw1-1.jpg') }}",
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 
 	$("#im4").on("click", function() {
 		$("#va1").attr({
-			src: 'assets/images/product-images/product-image-stw1-2.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: "{{ asset('/images/product-images/product-image-stw1-2.jpg') }}",
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 
 	$("#im5").on("click", function() {
 		$("#va1").attr({
-			src: 'assets/images/product-images/product-image-stw1-3.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: "{{ asset('/images/product-images/product-image-stw1-3.jpg') }}",
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 
 	$("#im6").on("click", function() {
 		$("#va1").attr({
-			src: 'assets/images/product-images/product-image-stw1-4.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: "{{ asset('/images/product-images/product-image-stw1-4.jpg') }}",
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
@@ -169,32 +169,32 @@
 	
 	$("#za2").on("click", function() {
 		$("#za1").attr({
-			src: 'assets/images/product-images/product-image-swt2.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-images/product-image-swt2.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 
 	$("#za3").on("click", function() {
 		$("#za1").attr({
-			src: 'assets/images/product-images/product-image-swt2-1.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-images/product-image-swt2-1.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 	
 	$("#za4").on("click", function() {
 		$("#za1").attr({
-			src: 'assets/images/product-images/product-image-swt2.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-images/product-image-swt2.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 
 	$("#za5").on("click", function() {
 		$("#za1").attr({
-			src: 'assets/images/product-images/product-image-swt2-2.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-images/product-image-swt2-2.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
@@ -203,32 +203,32 @@
 	
 	$("#za8").on("click", function() {
 		$("#za7").attr({
-			src: 'assets/images/product-images/product-image5-1.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-images/product-image5-1.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 
 	$("#za9").on("click", function() {
 		$("#za7").attr({
-			src: 'assets/images/product-images/product-image5.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-images/product-image5.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 	
 	$("#za10").on("click", function() {
 		$("#za7").attr({
-			src: 'assets/images/product-detail-page/product-with-right-thumbs-5.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-detail-page/product-with-right-thumbs-5.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 
 	$("#za11").on("click", function() {
 		$("#za7").attr({
-			src: 'assets/images/product-images/product-image3-1.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-images/product-image3-1.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
@@ -237,32 +237,32 @@
 	
 	$("#za13").on("click", function() {
 		$("#za12").attr({
-			src: 'assets/images/product-images/product-image23-1.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-images/product-image23-1.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 
 	$("#za14").on("click", function() {
 		$("#za12").attr({
-			src: 'assets/images/product-detail-page/cape-dress-3.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-detail-page/cape-dress-3.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 	
 	$("#za15").on("click", function() {
 		$("#za12").attr({
-			src: 'assets/images/product-detail-page/cape-dress-4.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-detail-page/cape-dress-4.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 
 	$("#za17").on("click", function() {
 		$("#za12").attr({
-			src: 'assets/images/product-detail-page/cape-dress-8.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-detail-page/cape-dress-8.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
@@ -271,32 +271,32 @@
 	
 	$("#zz1").on("click", function() {
 		$("#zz").attr({
-			src: 'assets/images/product-detail-page/product-with-dropdown2.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-detail-page/product-with-dropdown2.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 
 	$("#zz2").on("click", function() {
 		$("#zz").attr({
-			src: 'assets/images/product-detail-page/product-with-dropdown1.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-detail-page/product-with-dropdown1.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 	
 	$("#zz3").on("click", function() {
 		$("#zz").attr({
-			src: 'assets/images/product-detail-page/product-with-dropdown4.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-detail-page/product-with-dropdown4.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});
 
 	$("#zz4").on("click", function() {
 		$("#zz").attr({
-			src: 'assets/images/product-detail-page/product-with-dropdown3.jpg',
-			// da: 'assets/images/product-images/product-image-stw1-2.jpg',
+			src: '/images/product-detail-page/product-with-dropdown3.jpg',
+			// da: '/images/product-images/product-image-stw1-2.jpg',
 			});
 
 		});

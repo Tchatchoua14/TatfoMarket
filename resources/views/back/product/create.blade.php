@@ -81,26 +81,30 @@
 
                   <div class="form-group">
                     <label for="inputPhoto" class="col-form-label">Image 1 <span class="text-danger">*</span></label>
-                    <div class="input-group">
+                   <div class="input-group">
                         <span class="input-group-btn">
-                          <input type="file" class="custom-file-input" name="image2" id="lfm1" value="{{old('image1')}}">
-                           <label class="custom-file-label" for="exampleInputFile">insérer une image</label>
+                            <a id="lfm1" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
+                            <i class="fas fa-image"></i> Choisir une image 
+                            </a>
                         </span>
-                  </div>
+                    <input id="image1" class="form-control" type="text" name="image1" >
+                   </div>
                   <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                     @error('image1')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group"> 
                     <label for="inputPhoto" class="col-form-label">Image 2<span class="text-danger">*</span></label>
                     <div class="input-group">
                         <span class="input-group-btn">
-                          <input type="file" class="custom-file-input" name="image2" id="lfm" value="{{old('image2')}}">
-                           <label class="custom-file-label" for="exampleInputFile">insérer une image</label>
+                            <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
+                            <i class="fas fa-image"></i> Choisir une image 
+                            </a>
                         </span>
-                  </div>
+                    <input id="image2" class="form-control" type="text" name="image2" >
+                   </div>
                   <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                     @error('image2')
                     <span class="text-danger">{{$message}}</span>

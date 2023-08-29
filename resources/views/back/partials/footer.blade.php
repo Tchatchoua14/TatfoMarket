@@ -1,5 +1,5 @@
-<footer class="main-footer">
-    <strong>Copyright &copy; 2023-2024 <a href="index2.html">Developpeur Fullstack</a>.</strong>
+<footer class="main-footer text-white">
+    <strong>Copyright &copy; 2023-2024 <a href="{{route('liste')}}">Developpeur Fullstack</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>VINY ASSOU</b>

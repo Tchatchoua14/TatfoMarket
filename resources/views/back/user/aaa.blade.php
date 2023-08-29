@@ -141,6 +141,45 @@
                                         @endif 
 
 
+
+                                        @elseif($product->id==5)
+                          <i class="font-13 fa fa-star"></i>
+                                     <i class="font-13 fa fa-star"></i>
+                                     <i class="font-13 fa fa-star"></i>
+                                  <i class="font-13 fa fa-star"></i>
+                                 <i class="font-13 fa fa-star"></i>
+                            @elseif($product->id==6)
+                            <i class="font-13 fa fa-star"></i>
+                                     <i class="font-13 fa fa-star"></i>
+                                     <i class="font-13 fa fa-star"></i>
+                                  <i class="font-13 fa fa-star"></i>
+                                 <i class="font-13 fa fa-star-o"></i>
+
+                              @elseif($product->id==7)
+                              <i class="font-13 fa fa-star"></i>
+                                     <i class="font-13 fa fa-star"></i>
+                                     <i class="font-13 fa fa-star-o"></i>
+                                  <i class="font-13 fa fa-star-o"></i>
+                                 <i class="font-13 fa fa-star-o"></i>
+                          
+                            @elseif($product->id==8)
+                            <i class="font-13 fa fa-star"></i>
+                                     <i class="font-13 fa fa-star-o"></i>
+                                     <i class="font-13 fa fa-star-o"></i>
+                                  <i class="font-13 fa fa-star-o"></i>
+                                 <i class="font-13 fa fa-star-o"></i>
+                          
+                            @else
+                            <i class="font-13 fa fa-star"></i>
+                                     <i class="font-13 fa fa-star"></i>
+                                     <i class="font-13 fa fa-star"></i>
+                                  <i class="font-13 fa fa-star-o"></i>
+                                 <i class="font-13 fa fa-star-o"></i>
+                            @endif
+
+
+
+
                                         @if (Auth::user()->role=="admin") 
                          <li><a href="{{ route('index') }}">Voir Interface Admin</a></li>
                          @endif

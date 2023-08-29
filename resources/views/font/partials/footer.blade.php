@@ -60,31 +60,31 @@
                     	<div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
                         	<h4 class="h4">Quick Shop</h4>
                             <ul>
-                            	<li><a href="#">Women</a></li>
-                                <li><a href="#">Men</a></li>
-                                <li><a href="#">Kids</a></li>
-                                <li><a href="#">Sportswear</a></li>
-                                <li><a href="#">Sale</a></li>
+                            	<li><a href="{{route('home5')}}">Women</a></li>
+                                <li><a href="{{route('home15')}}">Men</a></li>
+                                <li><a href="{{route('home14')}}">Kids</a></li>
+                                <li><a href="{{route('home7')}}">Sportswear</a></li>
+                                <li><a href="{{route('home8')}}">Sale</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
                         	<h4 class="h4">Informations</h4>
                             <ul>
-                            	<li><a href="#">About us</a></li>
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="#">Privacy policy</a></li>
-                                <li><a href="#">Terms &amp; condition</a></li>
-                                <li><a href="#">My Account</a></li>
+                            	<li><a href="{{route('about')}}">About us</a></li>
+                                <li><a href="{{route('home5')}}">Careers</a></li>
+                                <li><a href="{{route('FAQ')}}">Privacy policy</a></li>
+                                <li><a href="{{route('Terms')}}">Terms &amp; condition</a></li>
+                                <li><a href="{{route('register')}}">My Account</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
                         	<h4 class="h4">Customer Services</h4>
                             <ul>
-                            	<li><a href="#">Request Personal Data</a></li>
-                                <li><a href="#">FAQ's</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Orders and Returns</a></li>
-                                <li><a href="#">Support Center</a></li>
+                            	<li><a href="{{route('home14')}}">Request Personal Data</a></li>
+                                <li><a href="{{route('FAQ')}}">FAQ's</a></li>
+                                <li><a href="{{route('contact')}}">Contact Us</a></li>
+                                <li><a href="{{route('home15')}}">Orders and Returns</a></li>
+                                <li><a href="{{route('home7')}}">Support Center</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-sm-12 col-md-3 col-lg-3 contact-box">
@@ -229,7 +229,7 @@
                             <div class="display-table shareRow">
                                     <div class="display-table-cell">
                                         <div class="wishlist-btn">
-                                            <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist"><i class="icon anm anm-heart-l" aria-hidden="true"></i> <span>Add to Wishlist</span></a>
+                                            <a class="wishlist add-to-wishlist" href="{{route('wishlist')}}" title="Add to Wishlist"><i class="icon anm anm-heart-l" aria-hidden="true"></i> <span>Add to Wishlist</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -256,7 +256,8 @@
             <div class="newsletter-left">
               <h2>Join Our Mailing List</h2>
               <p>Sign Up for our exclusive email list and be the first to know about new products and special offers</p>
-              <form action="#" method="post">
+              <form action="{{ route('newsletter') }}" method="POST">
+                  @csrf
                 <div class="input-group">
                   <input type="email" class="input-group__field newsletter__input" name="EMAIL" value="" placeholder="Email address" required="">
                       <span class="input-group__btn">

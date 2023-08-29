@@ -1,6 +1,8 @@
 @extends('font.master')
 @section('title')
 @section('content')
+@include('font.partials.header') 
+@include('font.partials.menu')
     <!--Body Content-->
     <div id="page-content">
     	<!--Page Title-->

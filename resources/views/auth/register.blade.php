@@ -15,8 +15,8 @@
         
         <div class="container">
         	<div class="row">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3">
-                	<div class="mb-4">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3 d-flex blur justify-content-center shadow-lg my-sm-0 my-sm-6 mt-4 mb-5">
+                	<div class="mb-4 mt-4">
                                         
                         @if (session('status'))
                             <div class="mb-4 font-medium text-sm text-green-600">
@@ -29,7 +29,7 @@
                               <!-- Name -->
 	                          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
-                                    <label for="name">Name<span>*</span></label>
+                                    <label for="name">Name</label>
                                     <input type="text" name="name" id="name" class="form-control my-input @error('name') is-invalid @enderror" value="{{ old('name') }}" required autofocus autocomplete="name" >
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">

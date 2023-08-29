@@ -1,8 +1,11 @@
 @extends('font.master')
 @section('title')
 @section('content')
+@include('font.partials.header') 
+@include('font.partials.menu')
+
   <!--Body Content-->
-  <div id="page-content">
+  <div id="page-content" class="mt-5">
     	<!--Page Title-->
     	<div class="page section-header text-center mb-0">
 			<div class="page-title">
@@ -12,8 +15,8 @@
         <!--End Page Title-->
 	    <div class="bredcrumbWrap">
             <div class="container breadcrumbs">
-                <a href="index.html" title="Back to the home page">Home</a><span aria-hidden="true">›</span>
-                <a href="blog-left-sidebar.html" title="Back to News">News</a><span aria-hidden="true">›</span><span>Blog Article</span>
+                <a href="{{route('home')}}" title="Back to the home page">Home</a><span aria-hidden="true">›</span>
+                <a href="{{route('blog-article')}}" title="Back to News">News</a><span aria-hidden="true">›</span><span>Blog Article</span>
             </div>
         </div>
         <div class="container">

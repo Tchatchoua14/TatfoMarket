@@ -89,16 +89,12 @@
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label">Image 1 <span class="text-danger">*</span></label>
           <div class="input-group">
-              <span class="input-group-btn">
-                  <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
-                  <i class="fas fa-image"></i> Choisir une image
-                  </a>
-              </span>
-          <input id="thumbnail" class="form-control" type="text" name="image1" value="{{$product->image1}}">
-        </div>
+          <!-- <input  class="form-control" type="text" name="image1" value="{{old('image1')}}"> -->
+          <input id="image1" class="form-control" type="file" name="image1">
+         </div>
         <div id="holder" style="margin-top:15px;max-height:100px;"></div>
           @error('image1')
-          <span class="text-danger">{{$message}}</span>
+          <span class="text-danger">{{$message}}</span> 
           @enderror
         </div>
 
@@ -106,13 +102,10 @@
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label"> Image 2  <span class="text-danger">*</span></label>
           <div class="input-group">
-              <span class="input-group-btn">
-                  <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
-                  <i class="fas fa-image"></i> Choisir une image
-                  </a>
-              </span>
-          <input id="thumbnail" class="form-control" type="text" name="image2" value="{{$product->image2}}">
-        </div>
+          <!-- <input  class="form-control" type="text" name="image2" value="{{old('image2')}}"> -->
+          <input id="image2" class="form-control" type="file" name="image2" >
+          </div>
+         
         <div id="holder" style="margin-top:15px;max-height:100px;"></div>
           @error('image2')
           <span class="text-danger">{{$message}}</span>
@@ -134,11 +127,11 @@
           <select name="cat_id" id="cat_id" class="form-control">
               <option value="">--Selectionnez une catégorie--</option>
               @foreach($categories as $key=>$cat_data)
-                  <option value='{{$cat_data->id}}' {{(($product->cat_id==$cat_data->id)? 'selected' : '')}}>{{$cat_data->title}}</option>
+                  <option value='{{$cat_data->id}}' {{(($product->cat_id==$cat_data->id)? 'selected' : '')}}>{{$cat_data->name}}</option>
               @endforeach
           </select>
-        </div>
-        @php 
+        </div> 
+      
         
         <div class="form-group">
           <label for="price" class="col-form-label">Price <span class="text-danger">*</span></label>
@@ -160,18 +153,12 @@
           <label for="size">Size</label>
           <select name="size[]" class="form-control selectpicker"  multiple data-live-search="true">
               <option value="">--Selectionné une taille--</option>
-              @foreach($items as $item)              
-                @php 
-                $data=explode(',',$item->size);
-                // dd($data);
-                @endphp
-              <option value="XS"  @if( in_array( "XS",$data ) ) selected @endif>Extra Small</option>
-              <option value="S"  @if( in_array( "S",$data ) ) selected @endif>Small</option>
-              <option value="M"  @if( in_array( "M",$data ) ) selected @endif>Medium</option>
-              <option value="L"  @if( in_array( "L",$data ) ) selected @endif>Large</option>
-              <option value="XL"  @if( in_array( "XL",$data ) ) selected @endif>Extra Large</option>
-              <option value="XXL"  @if( in_array( "XXL",$data ) ) selected @endif> X Extra Large</option>
-              @endforeach
+              <option value="XS" {{(($product->size=='XS')? 'selected':'')}}>Extra Small</option>
+              <option value="S" {{(($product->size=='S')? 'selected':'')}}>Small</option>
+              <option value="M" {{(($product->size=='M')? 'selected':'')}}>Medium</option>
+              <option value="L" {{(($product->size=='L')? 'selected':'')}}>Large</option>
+              <option value="XL" {{(($product->size=='XL')? 'selected':'')}}>Extra Large</option>
+              <option value="XXL" {{(($product->size=='XXL')? 'selected':'')}}> X Extra Large</option>
           </select>
         </div>
 

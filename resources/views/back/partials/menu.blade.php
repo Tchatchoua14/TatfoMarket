@@ -14,7 +14,13 @@
           <img src="{{ asset('dist/img/IMG_0013.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <div class="d-block"><span class="text-uppercase mr-1">{{ Auth::user()->name }}</span><i class="fa fa-circle text-success" style="font-size:10px;"></i> <span style="font-size:12px;">en ligne</span></div>
+         @if (Route::has('login'))
+           @auth 
+           @if (Auth::user()->role=="admin") 
+          <div class="d-block text-white"><span class="text-uppercase mr-1">{{ Auth::user()->name }}</span><i class="fa fa-circle text-success" style="font-size:10px;"></i> <span style="font-size:12px;">en ligne</span></div>
+          @endif
+          @endauth
+        @endif
         </div>
       </div>
       <!-- SidebarSearch Form -->

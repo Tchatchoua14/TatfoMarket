@@ -1,8 +1,10 @@
 @extends('font.master')
 @section('title')
 @section('content')
+@include('font.partials.header') 
+@include('font.partials.menu')
  <!--Body Content-->
- <div id="page-content">
+ <div id="page-content" class="mt-5">
     	<!--Image Banners-->
         <div class="section imgBanners">
         	<div class="imgBnrOuter">
@@ -74,7 +76,7 @@
                         </p>
                         <h3 class="h4"><a href="#">NEW-SEASON SUITS</a></h3>
                         <div class="rte-setting"><p>Suitability game strong</p></div>
-                        <a href="#" class="btn no-border">Shop The Edit</a>
+                        <a href="{{ route('collection') }}" class="btn no-border">Shop The Edit</a>
                      </div>
                      <!--End Featured Item-->
                      <!--Featured Item-->
@@ -86,7 +88,7 @@
                         </p>
                         <h3 class="h4"><a href="#">STANDOUT SEQUINS</a></h3>
                         <div class="rte-setting"><p>Studio 2018</p></div>
-                        <a href="#" class="btn no-border">Shop Now</a>
+                        <a href="{{ route('collection') }}" class="btn no-border">Shop Now</a>
                      </div>
                      <!--End Featured Item-->
                      <!--Featured Item-->
@@ -98,7 +100,7 @@
                         </p>
                         <h3 class="h4"><a href="#">COLD-WEATHER ACCESSORIES</a></h3>
                         <div class="rte-setting"><p>Coats are only the beginning</p></div>
-                        <a href="#" class="btn no-border">Shop The Edit</a>
+                        <a href="{{ route('collection') }}" class="btn no-border">Shop The Edit</a>
                      </div>
                      <!--End Featured Item-->
                 </div>

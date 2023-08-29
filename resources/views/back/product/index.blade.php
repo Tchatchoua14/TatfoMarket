@@ -43,7 +43,7 @@
               </div>
                     
              @endif  
-            <div class="card">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Listes de tous les produits disponibles</h3>
               </div>
@@ -54,62 +54,54 @@
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>Titre</th>
-                      <th>Image</th>
-                      <th>Categorie</th>
-                      <th>Prix</th>
-                      <th>PrixReduction</th>
-                      <th>Stock</th>
-                      <th>Description</th>
-                      <th>Status</th>
-                      <th>Actions</th>
+                      <th class="text-center">ID</th>
+                      <th class="text-center">Titre</th>
+                      <th class="text-center">Image</th>
+                      <th class="text-center">Categorie</th>
+                      <th class="text-center">Prix</th>
+                      <th class="text-center">PrixReduction</th>
+                      <th class="text-center">Stock</th>
+                      <th class="text-center">Description</th>
+                      <th class="text-center">Status</th>
+                      <th class="text-center">Actions</th>
                       
                     </tr>
                     </thead>
-                    <tfoot>
+                    <tfoot> 
                     <tr>
-                      <th>ID</th>
-                      <th>Titre</th>
-                      <th>Image</th>
-                      <th>Categorie</th>
-                      <th>Prix</th>
-                      <th>PrixReduction</th>
-                      <th>Stock</th>
-                      <th>Description</th>
-                      <th>Status</th>
-                      <th>Actions</th>
+                      <th class="text-center">ID</th>
+                      <th class="text-center">Titre</th>
+                      <th class="text-center">Image</th>
+                      <th class="text-center">Categorie</th>
+                      <th class="text-center">Prix</th>
+                      <th class="text-center">PrixReduction</th>
+                      <th class="text-center">Stock</th>
+                      <th class="text-center">Description</th>
+                      <th class="text-center">Status</th>
+                      <th class="text-center">Actions</th>
                       
                     </tr>
                     </tfoot>
                     <tbody>
                     @foreach($products as $product)
                     <tr>
-                      <td>{{ $product->id }}</td>
-                      <td>{{ $product->title }}</td>
-                      <td>
-                        @if($product->photo)
-                              @php
-                                $photo=explode(',',$product->photo);
-                                // dd($photo);
-                              @endphp
-                              <img src="{{$photo[0]}}" class="img-fluid zoom" style="max-width:80px" alt="{{$product->photo}}">
-                          @else
-                              <img src="{{asset('images/canape/product-1.png')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
-                          @endif
+                      <td class="text-center">{{ $product->id }}</td>
+                      <td class="text-center text-capitalize">{{ $product->title }}</td>
+                      <td class="text-center"> 
+                      <img src="{{ asset('/images/product-images/'.$product->image1) }}"alt="{{$product->image1}}" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />     
                       </td>
-                      <td>{{ $product->cat_id }}</td>
-                      <td>{{ $product->price }}</td>
-                      <td>{{ $product->priceReduction }}</td>
-                      <td>
+                      <td class="text-center">{{ $product->cat_id }}</td>
+                      <td class="text-center">{{ $product->price }}</td>
+                      <td class="text-center">{{ $product->priceReduction }}</td>
+                      <td class="text-center">
                       @if($product->stock>0)
-                        <span class="badge badge-primary">{{$product->stock}}</span>
+                        <span class="badge badge-primary">{{$product->stock}}</span> 
                         @else
                         <span class="badge badge-danger">{{$product->stock}}</span>
                       @endif
                       </td>
-                      <td>{{ $product->description }}</td>
-                      <td>
+                      <td class="text-center">{{ $product->description }}</td>
+                      <td class="text-center">
                           @if($product->status=='active')
                               <span class="badge badge-success">{{$product->status}}</span>
                           @else
@@ -119,10 +111,6 @@
                       <td class="project-actions d-flex justify-content-around">
                         <a class="btn btn-primary btn-sm " href="{{route('product.edit',$product->id)}}">
                           <i class="fas fa-eye"></i>
-                        </a>
-                        <a class="btn btn-info btn-sm " href="{{ route('.product.update', $product->id) }}">
-                            <i class="fas fa-pencil-alt">
-                            </i>  
                         </a>
                         <form id="destroy{{ $product->id }}" action="{{ route('product.destroy', $product->id) }}" method="POST">
                           @csrf
@@ -136,7 +124,7 @@
                     </tbody>
                   
                   </table>
-                  <span style="float:right">{{$products->links()}}</span>
+           
                     @else
                       <h6 class="text-center">No Products found!!! Please create Product</h6>
                     @endif

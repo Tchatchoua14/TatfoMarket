@@ -1,8 +1,10 @@
 @extends('font.master')
 @section('title')
 @section('content')
+@include('font.partials.header') 
+@include('font.partials.menu')
    <!--Body Content-->
-   <div id="page-content">
+   <div id="page-content" class="mt-5">
     	<!--Page Title-->
     	<div class="page section-header text-center">
 			<div class="page-title">
@@ -24,9 +26,9 @@
                	</div>
             </div>
             <div class="row">
-            	<div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-4"><img class="blur-up lazyload" data-src="assets/images/about1.jpg" src="assets/images/about1.jpg" alt="About Us" /></div>
-                <div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-4"><img class="blur-up lazyload" data-src="assets/images/about2.jpg" src="assets/images/about2.jpg" alt="About Us" /></div>
-                <div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-4"><img class="blur-up lazyload" data-src="assets/images/about3.jpg" src="assets/images/about3.jpg" alt="About Us" /></div>
+            	<div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-4"><img class="blur-up lazyload" data-src="{{ asset('images/about1.jpg') }}" src="{{ asset('images/about1.jpg') }}" alt="About Us" /></div>
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-4"><img class="blur-up lazyload" data-src="{{ asset('images/about2.jpg') }}" src="{{ asset('images/about2.jpg') }}" alt="About Us" /></div>
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-4"><img class="blur-up lazyload" data-src="{{ asset('images/about3.jpg') }}" src="{{ asset('images/about3.jpg') }}" alt="About Us" /></div>
             </div>
             <div class="row">
             	<div class="col-12">
@@ -48,9 +50,9 @@
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                 	<h2 class="h2">Contact Us</h2>
                     <ul class="addressFooter">
-                        <li><i class="icon anm anm-map-marker-al"></i><p>55 Gallaxy Enque, 2568 steet, 23568 NY</p></li>
-                        <li class="phone"><i class="icon anm anm-phone-s"></i><p>(440) 000 000 0000</p></li>
-                        <li class="email"><i class="icon anm anm-envelope-l"></i><p>sales@yousite.com</p></li>
+                    <li><i class="icon anm anm-map-marker-al"></i><p>134w. rue grand magasin,<br>Bilongue Entrée bille, Douala-Cameroun</p></li>
+                    <li class="phone"><i class="icon anm anm-phone-s"></i><p>(+237) 691 167 590</p></li>
+                    <li class="email"><i class="icon anm anm-envelope-l"></i><p>Tchatchouaviny@yahoo.fr</p></li>
                     </ul>
                     <hr />
                     <ul class="list--inline site-footer__social-icons social-icons">

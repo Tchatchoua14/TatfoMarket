@@ -1,9 +1,11 @@
 @extends('font.master')
 @section('title')
 @section('content')
+@include('font.partials.header') 
+@include('font.partials.menu')
    
     <!--Body Content-->
-    <div id="page-content">        
+    <div id="page-content" class="mt-5">        
         <!-- Lookbook Start -->
         <div class="container">
         	<div class="row">
@@ -259,7 +261,7 @@ Questions about the Terms of Service should be sent to us at contact@gainaloe.co
 
 
 
-                        <p><a href="{{ route('index') }}" class="btn btn--has-icon-after">Continue shopping <i class="fa fa-caret-right" aria-hidden="true"></i></a></p>
+                        <p><a href="{{ route('collection') }}" class="btn btn--has-icon-after">Continue shopping <i class="fa fa-caret-right" aria-hidden="true"></i></a></p>
                       </div>
         		</div>
         	</div>

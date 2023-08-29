@@ -60,46 +60,49 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dt-buttons btn-group flex-wrap">   <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button> <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button> <div class="btn-group"><button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true" aria-expanded="false"><span>Column visibility</span><span class="dt-down-arrow"></span></button></div> </div></div><div class="col-sm-12 col-md-6"><div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable no-footer dtr-inline" aria-describedby="example1_info">
-                  <thead>
+                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+          <div class="row">
+            <div class="col-sm-12">
+           <table id="example1" class="table table-bordered table-striped dataTable no-footer dtr-inline" aria-describedby="example1_info">
+                <thead>
                   <tr>
-                    <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column descending">S.N.</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="NOM: activate to sort column ascending">Name</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Prénom: activate to sort column ascending">Email</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Photo</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Image: activate to sort column ascending">Join Date</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Roles: activate to sort column ascending">Role</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Image: activate to sort column ascending">Status</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >Action</th></tr>
+                    <th class="sorting sorting_asc text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column descending">S.N.</th>
+                    <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="NOM: activate to sort column ascending">Name</th>
+                    <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Prénom: activate to sort column ascending">Email</th>
+                    <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Photo</th>
+                    <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Image: activate to sort column ascending">Join Date</th>
+                    <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Roles: activate to sort column ascending">Role</th>
+                    <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Image: activate to sort column ascending">Status</th>
+                    <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >Action</th></tr>
                   </thead>
                   <tfoot>
                     <tr>
-                        <th>S.N.</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Photo</th>
-                        <th>Join Date</th>
-                        <th>Role</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th  class="text-center">S.N.</th>
+                        <th  class="text-center">Name</th>
+                        <th  class="text-center">Email</th>
+                        <th  class="text-center">Photo</th>
+                        <th  class="text-center">Join Date</th>
+                        <th  class="text-center">Role</th>
+                        <th  class="text-center">Status</th>
+                        <th  class="text-center">Action</th>
                       </tr>
                   </tfoot>
                   <tbody>
             @foreach($users as $user)   
                 <tr class="odd">
-                    <td class="dtr-control sorting_1" tabindex="0">{{$user->id}}</td>
-                    <td class="text-capitalize">{{$user->name}}</td>
-                    <td class="text-capitalize">{{$user->email}}</td>
-                    <td>
+                    <td class="dtr-control sorting_1 text-center" tabindex="0">{{$user->id}}</td>
+                    <td class="text-capitalize text-center">{{$user->name}}</td>
+                    <td class="text-capitalize text-center">{{$user->email}}</td>
+                    <td class="text-center">
                         @if($user->photo)
-                            <img src="{{$user->photo}}" class="img-fluid rounded-circle" style="max-width:50px" alt="{{$user->photo}}">
+                            <img src="{{ asset('storage/'.$user->photo) }}"alt="{{$user->photo}}" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />
                         @else
                             <img src="{{ asset('dist/img/IMG_0013.jpg') }}" class="img-fluid rounded-circle" style="max-width:50px" alt="avatar.png">
                         @endif
                     </td>
-                    <td>{{(($user->created_at)? $user->created_at->diffForHumans() : '')}}</td>
-                    <td class="text-capitalize">{{$user->role}}</td> 
-                    <td>
+                    <td class="text-center">{{(($user->created_at)? $user->created_at->diffForHumans() : '')}}</td>
+                    <td class="text-capitalize text-center">{{$user->role}}</td> 
+                    <td class="text-center">
                           @if($user->status=='active')
                              <span class="badge badge-success text-capitalize">{{$user->status}}</span>
                             @else
@@ -136,13 +139,13 @@
                     </div> --}}
                 </tr>  
             @endforeach
-          </tbody>
+              </tbody>
                  
-                </table>
+             </table>
                
                 <span style="float:right">{{$users->links()}}</span>
 
-              </div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 3 of 3 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item next disabled" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+   
               </div>
               <!-- /.card-body -->
             </div>
@@ -177,7 +180,7 @@
 <script src="{{ asset('dist/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('dist/js/pages/dashboard2.js') }}"></script>
-<!-- DataTables  & plugins -->
+<!-- DataTables  & plugins --> 
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
@@ -246,26 +249,31 @@
       })
   })
 </script>
-
+ 
 <script>
   $(function () {
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
+      dom: 'Bfrtip',
+      responsive: true, 
+      lengthChange: false, 
+      pageLength: 25,
+      ordering: true,
+      info: true,
+      buttons: ["pdf", "print", "colvis"],
     });
+    // $('#example2').DataTable({
+    //   "paging": true,
+    //   "lengthChange": false,
+    //   "searching": false,
+    //   "ordering": true,
+    //   "info": true,
+    //   "autoWidth": false,
+    //   "responsive": true,
+    // });
   });
 </script>
 <script>
-    $('#lfm').filemanager('image');
+    $('#lfm').filemanager('photo');
 </script>
     
 @endsection

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class UsersController extends Controller
 {
@@ -44,9 +45,19 @@ class UsersController extends Controller
             'password'=>'string|required',
             'role'=>'required|in:admin,user',
             'status'=>'required|in:active,inactive',
-            'photo'=>'nullable|string',
+            'photo'=>'nullable|string|required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
+
+        
+        $file = $request->file('photo');
+        $path = time() . '_' . $request->name . '.' . $file->getClientOriginalExtension();
+        Storage::disk('local')->put('public/' . $path, file_get_contents($file));
       
+        
+        User::create([
+            'photo' => $path,
+        ]);
+
         $user = new User;
 
         $user->name = $request->name;
@@ -104,11 +115,19 @@ class UsersController extends Controller
             'email'=>'string|required',
             'role'=>'required|in:admin,user',
             'status'=>'required|in:active,inactive',
-            'photo'=>'nullable|string',
+            'photo'=>'nullable|string|required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
         // dd($request->all());
         $data=$request->all();
         // dd($data);
+        $file = $request->file('photo');
+        $path = time() . '_' . $request->name . '.' . $file->getClientOriginalExtension();
+        Storage::disk('local')->put('public/' . $path, file_get_contents($file));
+      
+        
+        User::update([
+            'photo' => $path,
+        ]);
         
         $user->fill($data)->save();
         // if($status){
