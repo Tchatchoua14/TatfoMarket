@@ -140,7 +140,8 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/look1', [HomeController::class, 'look1'])->name('look1');
     Route::get('/produit-drop', [HomeController::class, 'produitdrop'])->name('produit-drop');
     Route::get('/produit-label', [HomeController::class, 'produitLabels'])->name('produit-labels');
-    Route::get('/produit-layout', [HomeController::class, 'produitLayout'])->name('produit-layout');
+    // Route::get('/produit-layout', [HomeController::class, 'produitLayout'])->name('produit-layout');
+    Route::get('/produit-layout', [ProductController::class, 'show'])->name('produit-layout');
     Route::get('/produit-round', [HomeController::class, 'produitRound'])->name('produit-round');
     Route::get('/produit-video', [HomeController::class, 'produitvideo'])->name('produit-video');
     Route::get('/shop-description', [HomeController::class, 'shopDescription'])->name('shop-description');

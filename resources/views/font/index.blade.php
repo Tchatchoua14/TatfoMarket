@@ -299,7 +299,7 @@
                                                 <!-- end product image -->
                                                 
                                                 <!-- countdown start -->
-                                        		<div class="saleTime desktop" data-countdown="">{{$product->created_at}}</div>
+                                        		<div class="saleTime desktop" data-countdown="{{ $product->updated_at->format('d/m/Y')}}"> </div>
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->

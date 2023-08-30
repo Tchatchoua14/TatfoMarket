@@ -23,7 +23,8 @@
                          <li><a href="{{ route('index') }}">Voir Interface Admin</a></li>
                          @endif
                          @if (Auth::user()->role=="user") 
-                         <li><a href="{{route('profile.edit')}}"><span class="text-uppercase mr-1">{{ Auth::user()->name }}</span></a></li>
+                         
+                         <li><a href="{{route('profile.edit')}}"><span class="text-uppercase mr-1">Profile</span></a></li>
                          @endif
                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('Logout') }}</a>
                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

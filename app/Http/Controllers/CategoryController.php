@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category=Category::getAllCategory();
+        $category=Category::all();
         return view('back.category')->with('categories',$category);
     }
 

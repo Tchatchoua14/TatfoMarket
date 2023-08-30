@@ -36,13 +36,22 @@
             <a href="{{route('product.create')}}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer produit</a>
           </div>
           <div class="col-12">
-            <!-- /.card -->
-            @if(session()->get('success'))
-              <div>
-                  <p>{{session()->get('success')}}</p>
-              </div>
-                    
-             @endif  
+            <!-- @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('success') }}
+                        </div>
+            @endif -->
+            @if (session('success'))
+               <div class="mb-4 font-medium text-sm text-green-600">
+                  {{ session('success') }}
+               </div>
+            @endif
+
+            @if (session()->has('success'))
+               <div class="mb-4 font-medium text-sm text-green-600">
+                  {{ session('success') }}
+               </div>
+            @endif
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Listes de tous les produits disponibles</h3>
@@ -51,7 +60,7 @@
             <div class="card-body">
               <div class="table-responsive">
                 @if(count($products)>0)
-                  <table id="example1" class="table table-bordered table-striped">
+                  <table id="example1" class="table table-bordered table-striped dataTable dtr-inline dt-responsive" aria-describedby="example1_info">
                     <thead>
                     <tr>
                       <th class="text-center">ID</th>
@@ -102,7 +111,7 @@
                       </td>
                       <td class="text-center">{{ $product->description }}</td>
                       <td class="text-center">
-                          @if($product->status=='active')
+                          @if($product->status=='active')  
                               <span class="badge badge-success">{{$product->status}}</span>
                           @else
                               <span class="badge badge-warning">{{$product->status}}</span>
@@ -115,12 +124,12 @@
                         <form id="destroy{{ $product->id }}" action="{{ route('product.destroy', $product->id) }}" method="POST">
                           @csrf
                           @method('DELETE') 
-                          <button class="btn btn-danger btn-sm  dltBtn" data-id="{{$product->id}}"  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                          <button onclick="event.preventDefault(); document.getElementById('destroy{{ $product->id }}').submit();" class="btn btn-danger btn-sm  dltBtn" data-id={{$product->id}}  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
                 
                     </td>
                     </tr>
-                    @endforeach
+                    @endforeach 
                     </tbody>
                   
                   </table>
@@ -239,17 +248,16 @@
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
+      "buttons": ["pdf", "print", "colvis"],
+      dom: 'Bfrtip',
+      pageLength: 5,
+      ordering: true,
+      info: true,
     });
+
+
+
+    
   });
 </script>
     

@@ -11,8 +11,23 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}"> 
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcYROknAAAAAA1LK4Kbc93hJ4dcWggf5cLYpyUA"></script>
     <title>TatfoMarket - @yield('title')</title>
 </head>
+
+
+<script>
+function onClick(e) {
+  e.preventDefault();
+  grecaptcha.enterprise.ready(async () => {
+    const token = await grecaptcha.enterprise.execute('6LcBDbgnAAAAAFuEMR0dWKE5m0oo9495WeD4Aaxg', {action: 'LOGIN'});
+    // IMPORTANT: The 'token' that results from execute is an encrypted response sent by
+    // reCAPTCHA Enterprise to the end user's browser.
+    // This token must be validated by creating an assessment.
+    // See https://cloud.google.com/recaptcha-enterprise/docs/create-assessment
+  });
+}
+</script>
 <body>
 <div id="pre-loader">
     <img src="{{ asset('images/loader.gif') }}" alt="Loading..." />

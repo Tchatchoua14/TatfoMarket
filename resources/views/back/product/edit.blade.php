@@ -21,7 +21,7 @@
 @section('title')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="min-height: 1345.31px;">
+  <div class="content-wrapper" style="min-height: 1345.31px;"> 
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -60,16 +60,16 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-                    @if (session()->has('message'))
+                    @if (session()->has('success'))
                     <div class="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3">
-                    {{ session('message') }}
+                    {{ session('success') }}
                     </div>
                     @endif
 
       <div class="card-body">
-      <form method="post" action="{{route('product.update',$product->id)}}"  enctype="multipart/form-data">
+      <form method="post" action="{{ route('product.update', $product->id) }}"  enctype="multipart/form-data">
         @csrf 
-        @method('PATCH')
+        @method('PUT')
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
           <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{$product->title}}" class="form-control">
@@ -80,7 +80,7 @@
 
         <div class="form-group">
           <label for="description" class="col-form-label">Description</label>
-          <textarea class="form-control" id="description" name="description">{{$product->description}}</textarea>
+          <textarea class="form-control" id="description" name="description">{{old('description')}}</textarea>
           @error('description')
           <span class="text-danger">{{$message}}</span>
           @enderror
@@ -89,8 +89,8 @@
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label">Image 1 <span class="text-danger">*</span></label>
           <div class="input-group">
-          <!-- <input  class="form-control" type="text" name="image1" value="{{old('image1')}}"> -->
-          <input id="image1" class="form-control" type="file" name="image1">
+          <input  class="form-control" type="text" name="image1" value="{{old('image1')}}">
+          <!-- <input id="image1" class="form-control" type="file" name="image1"> -->
          </div>
         <div id="holder" style="margin-top:15px;max-height:100px;"></div>
           @error('image1')
@@ -102,8 +102,8 @@
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label"> Image 2  <span class="text-danger">*</span></label>
           <div class="input-group">
-          <!-- <input  class="form-control" type="text" name="image2" value="{{old('image2')}}"> -->
-          <input id="image2" class="form-control" type="file" name="image2" >
+          <input  class="form-control" type="text" name="image2" value="{{old('image2')}}">
+          <!-- <input id="image2" class="form-control" type="file" name="image2" > -->
           </div>
          
         <div id="holder" style="margin-top:15px;max-height:100px;"></div>

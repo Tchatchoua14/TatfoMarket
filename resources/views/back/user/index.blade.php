@@ -24,7 +24,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <div class="container-fluid">
+      <div class="container-fluid"> 
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Utilisateur</h1>
@@ -41,29 +41,27 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
+      <div class="container-fluid"> 
         <div class="row">
           <div class="col-12 mb-2">
             <a href="{{route('user.edit')}}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer un utilisateur</a>
           </div>
           <div class="col-12">
-            <!-- /.card -->
-            @if(session()->get('success'))
-              <div>
-                  <p>{{session()->get('success')}}</p>
-              </div>
-                    
-             @endif  
+            @if (session('success'))
+               <div class="mb-4 font-medium text-sm text-green-600">
+                  {{ session('success') }}
+               </div>
+            @endif
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Listes de tous les utilisateurs disponibles</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-          <div class="row">
+             <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+            <div class="row">
             <div class="col-sm-12">
-           <table id="example1" class="table table-bordered table-striped dataTable no-footer dtr-inline" aria-describedby="example1_info">
+             <table id="example1" class="table table-bordered table-striped dataTable no-footer dtr-inline dt-responsive" aria-describedby="example1_info">
                 <thead>
                   <tr>
                     <th class="sorting sorting_asc text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column descending">S.N.</th>
@@ -188,6 +186,11 @@
 <script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('plugins/jszip/jszip.min.js') }}"></script>
+<script src="{{ asset('plugins/jszip/jszip.js') }}"></script>
+<script src="{{ asset('plugins/pdfmake/pdfmake.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.print.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.js') }}"></script>
 <script src="{{ asset('plugins/pdfmake/pdfmake.min.js') }}"></script>
 <script src="{{ asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
 <script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
@@ -251,16 +254,16 @@
 </script>
  
 <script>
-  $(function () {
+  $(function () { 
     $("#example1").DataTable({
       dom: 'Bfrtip',
       responsive: true, 
       lengthChange: false, 
-      pageLength: 25,
+      pageLength: 5,
       ordering: true,
       info: true,
       buttons: ["pdf", "print", "colvis"],
-    });
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     // $('#example2').DataTable({
     //   "paging": true,
     //   "lengthChange": false,

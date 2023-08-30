@@ -83,6 +83,21 @@
                                 </label>                       	
                                 </div>
                             </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                <label for="">Recaptcha:</label>
+                                {!! NoCaptcha::renderJs() !!}
+                                {!! NoCaptcha::display() !!}
+                                </div>
+
+                                @if ( $errors->has('g-recaptcha-response'))
+
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                </span>
+                                                        
+                                @endif
+                            </div>
                           </div>
                           <div class="row">
                             <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">

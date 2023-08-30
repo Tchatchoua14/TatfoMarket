@@ -1,6 +1,6 @@
 @extends('font.master')
 @section('title')
-@section('content')
+@section('content') 
 @include('font.partials.header') 
 @include('font.partials.menu')
         <!--Body Content-->
@@ -10,7 +10,7 @@
                 <!--Breadcrumb-->
                 <div class="bredcrumbWrap">
                     <div class="container breadcrumbs">
-                        <a href="index.html" title="Back to the home page">Home</a><span aria-hidden="true">›</span><span>Product Layout Style1</span>
+                        <a href="{{route('home')}}" title="Back to the home page">Home</a><span aria-hidden="true">›</span><span>Product Layout</span>
                     </div>
                 </div>
                 <!--End Breadcrumb-->

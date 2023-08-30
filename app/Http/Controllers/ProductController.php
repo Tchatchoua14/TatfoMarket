@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::orderBy('id','ASC')->paginate(10);
+        $products = Product::orderBy('id','ASC')->paginate(25);
         return view('back.product.index', [
             'products' => $products,
         ]);
@@ -94,8 +94,7 @@ class ProductController extends Controller
     public function create()
     {
         //
-        $category = Category::all();
-        return view('back.product.create')->with('categories',$category)->with('success', "Cet etudiant a bien été crée");
+        return view('back.product.create')->with('success', "Cet etudiant a bien été crée");
     }
 
     /**
@@ -109,10 +108,10 @@ class ProductController extends Controller
             'description'=>'string|nullable',
             // 'image1'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             // 'image2'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            //  'image1'=>'nullable',
-            //  'image2'=>'nullable',
-            'image1'=>'string|required',
-            'image2'=>'string|required',
+             'image1'=>'nullable',
+             'image2'=>'nullable',
+            // 'image1'=>'string|required',
+            // 'image2'=>'string|required',
             'stock'=>"required|numeric",
             'size'=>'nullable',
             'condition'=>'required|in:SALE,-16%,NEW,HOT,POPULAR',
@@ -136,7 +135,6 @@ class ProductController extends Controller
             Product::create([
               
                'title' => $request->title,
-               'slug' => $request->slug,
                'description' => $request->description,
             //    'image1' => $path1,
             //    'image2' => $path2,
@@ -161,7 +159,9 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
-        return view('back.product.show', compact('product')); 
+        return view('font.produit-layout', compact('product')); 
+        // return response()->json($product);
+        // $product = Product::findOrFail($id);
     }
 
     /**
@@ -180,11 +180,13 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
-        $this->validate($request,[
+         $request->validate([
         'title'=>'string|required',
         'description'=>'string|nullable',
-        'image1'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-        'image2'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        // 'image1'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        // 'image2'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        'image1'=>'nullable',
+        'image2'=>'nullable',
         'stock'=>"required|numeric",
         'size'=>'nullable',
         'condition'=>'required|in:SALE,-16%,NEW,HOT,POPULAR',
@@ -195,20 +197,19 @@ class ProductController extends Controller
         'cat_id'=>'required|exists:categories,id',
     ]);
 
-        $file1 = $request->file('image1');
-        $path1 = time() . '_' . $request->name . '.' . $file1->getClientOriginalExtension();
-        Storage::disk('local')->put('public/' . $path1, file_get_contents($file1));
+        // $file1 = $request->file('image1');
+        // $path1 = time() . '_' . $request->name . '.' . $file1->getClientOriginalExtension();
+        // Storage::disk('local')->put('public/' . $path1, file_get_contents($file1));
 
-        $file2 = $request->file('image2');
-        $path2 = time() . '_' . $request->name . '.' . $file2->getClientOriginalExtension();
+        // $file2 = $request->file('image2');
+        // $path2 = time() . '_' . $request->name . '.' . $file2->getClientOriginalExtension();
 
-        Storage::disk('local')->put('public/' . $path2, file_get_contents($file2));
+        // Storage::disk('local')->put('public/' . $path2, file_get_contents($file2));
 
         $product->title = $request->title;
-        $product->slug = $request->slug;
         $product->description = $request->description;
-        $product->image1 = $request->path1;
-        $product->image2 = $request->path2;
+        $product->image1 = $request->image1;
+        $product->image2 = $request->image2;
         $product->stock = $request->stock;
         $product->size = $request->size;
         $product->condition = $request->condition;
@@ -235,7 +236,7 @@ class ProductController extends Controller
     {
         //
         $product->delete(); 
-        return redirect()->route('back.product.index')->with('success', "le produit a bien été supprimé");
+        return redirect()->route('product.index')->with('success', "le produit a bien été supprimé");
      
     }
 
