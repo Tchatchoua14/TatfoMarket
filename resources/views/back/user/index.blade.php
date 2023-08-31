@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
   
 @endsection
-@section('title')
+@section('title', 'liste-user')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -47,10 +47,10 @@
             <a href="{{route('user.edit')}}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer un utilisateur</a>
           </div>
           <div class="col-12">
-            @if (session('success'))
-               <div class="mb-4 font-medium text-sm text-green-600">
-                  {{ session('success') }}
-               </div>
+             @if (session('success'))
+             <div class="alert alert-success" role="alert">
+               {{ session('success') }}
+             </div>
             @endif
             <div class="card">
               <div class="card-header">
@@ -93,10 +93,11 @@
                     <td class="text-capitalize text-center">{{$user->email}}</td>
                     <td class="text-center">
                         @if($user->photo)
-                            <img src="{{ asset('storage/'.$user->photo) }}"alt="{{$user->photo}}" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />
+                              <img src="{{ asset('/images/faces/'.$user->photo) }}"alt="{{$user->photo}}" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />
                         @else
                             <img src="{{ asset('dist/img/IMG_0013.jpg') }}" class="img-fluid rounded-circle" style="max-width:50px" alt="avatar.png">
                         @endif
+                        <!-- <img src="{{ asset('/images/product-images/'.$user->photo) }}"alt="{{$user->photo}}" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" /> -->
                     </td>
                     <td class="text-center">{{(($user->created_at)? $user->created_at->diffForHumans() : '')}}</td>
                     <td class="text-capitalize text-center">{{$user->role}}</td> 
@@ -109,39 +110,19 @@
                     </td>
                     <td class="project-actions d-flex justify-content-around" >
                         <a href="{{route('user.edit',$user->id)}}" class="btn btn-info btn-sm " data-toggle="tooltip" title="edit" data-placement="bottom"> <i class="fas fa-pencil-alt"></i></a>
-                    <form method="POST" action="">
-                      @csrf 
-                      @method('delete')
-                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$user->id}} data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                        <form id="destroy{{ $user->id }}" action="{{ route('user.destroy', $user->id) }}" method="POST">
+                          @csrf
+                          @method('DELETE') 
+                          <button onclick="event.preventDefault(); document.getElementById('destroy{{ $user->id }}').submit();" class="btn btn-danger btn-sm  dltBtn" data-id={{$user->id}}  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
+                
                     </td>
-                    {{-- Delete Modal --}}
-                    {{-- <div class="modal fade" id="delModal{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="#delModal{{$user->id}}Label" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">Delete user</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <form method="post" action="">
-                                @csrf 
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                    </div> --}}
+                   
                 </tr>  
             @endforeach
               </tbody>
                  
-             </table>
-               
-                <span style="float:right">{{$users->links()}}</span>
+             </table>  
 
    
               </div>
@@ -261,18 +242,11 @@
       lengthChange: false, 
       pageLength: 5,
       ordering: true,
+      lengthChange: false, 
       info: true,
       buttons: ["pdf", "print", "colvis"],
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    // $('#example2').DataTable({
-    //   "paging": true,
-    //   "lengthChange": false,
-    //   "searching": false,
-    //   "ordering": true,
-    //   "info": true,
-    //   "autoWidth": false,
-    //   "responsive": true,
-    // });
+
   });
 </script>
 <script>

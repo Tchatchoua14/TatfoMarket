@@ -18,7 +18,7 @@
 <!-- dropzonejs -->
 <link rel="stylesheet" href="{{ asset('plugins/dropzone/min/dropzone.min.css') }}">
 @endsection
-@section('title')
+@section('title', 'create-product')
 @section('content')
   <!-- Content Wrapper. Contains page content --> 
   <div class="content-wrapper" style="min-height: 1345.31px;">
@@ -87,8 +87,8 @@
                             <i class="fas fa-image"></i> Choisir une image 
                             </a>
                         </span>
-                    <!-- <input id="image1" class="form-control" type="text" name="image1" > -->
-                    <input  class="form-control" type="text" name="image1" >
+                        <input id="image1" type="file" class="form-control @error('image1') is-invalid @enderror" name="image1" value="{{ old('image1') }}" autofocus>
+                  
                    </div>
                   <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                     @error('image1')
@@ -104,7 +104,7 @@
                             <i class="fas fa-image"></i> Choisir une image 
                             </a>
                         </span>
-                    <input id="image2" class="form-control" type="text" name="image2" >
+                    <input id="image2" type="file" class="form-control @error('image2') is-invalid @enderror" name="image2" value="{{ old('image2') }}" autofocus>
                    </div>
                   <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                     @error('image2')
@@ -160,17 +160,6 @@
                   <div class="form-group">
                     <label for="is_featured">Status</label><br>
                     <input type="checkbox" name='status[]' id='status' value='1' checked> Yes                        
-                  </div>
-                        {{-- {{$categories}} --}}
-
-                  <div class="form-group">
-                    <label for="cat_id">Catégorie<span class="text-danger">*</span></label>
-                    <select name="cat_id" id="cat_id" class="form-control">
-                        <option value="">--Selectionner une catégorie--</option>
-                        @foreach($categories as $key=>$cat_data)
-                            <option value='{{$cat_data->name}}'>{{$cat_data->name}}</option>
-                        @endforeach
-                    </select>
                   </div>
 
                   <div class="form-group"> 

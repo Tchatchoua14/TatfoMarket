@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 @endsection
-@section('title')
+@section('title', 'liste-message')
 @section('content')
 <style>
       div.dataTables_wrapper div.dataTables_paginate{

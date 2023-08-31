@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 @endsection
-@section('title')
+@section('title', 'liste-product')
 @section('content')
 
   <!-- Content Wrapper. Contains page content -->
@@ -36,21 +36,10 @@
             <a href="{{route('product.create')}}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer produit</a>
           </div>
           <div class="col-12">
-            <!-- @if (session('success'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('success') }}
-                        </div>
-            @endif -->
             @if (session('success'))
-               <div class="mb-4 font-medium text-sm text-green-600">
-                  {{ session('success') }}
-               </div>
-            @endif
-
-            @if (session()->has('success'))
-               <div class="mb-4 font-medium text-sm text-green-600">
-                  {{ session('success') }}
-               </div>
+             <div class="alert alert-success" role="alert">
+               {{ session('success') }}
+             </div>
             @endif
             <div class="card card-primary">
               <div class="card-header">
@@ -123,7 +112,7 @@
                         </a>
                         <form id="destroy{{ $product->id }}" action="{{ route('product.destroy', $product->id) }}" method="POST">
                           @csrf
-                          @method('DELETE') 
+                          @method('delete') 
                           <button onclick="event.preventDefault(); document.getElementById('destroy{{ $product->id }}').submit();" class="btn btn-danger btn-sm  dltBtn" data-id={{$product->id}}  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
                 
@@ -137,6 +126,7 @@
                     @else
                       <h6 class="text-center">No Products found!!! Please create Product</h6>
                     @endif
+                   
               </div>
               </div>
               <!-- /.card-body -->

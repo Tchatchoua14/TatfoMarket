@@ -18,7 +18,7 @@
 <!-- dropzonejs -->
 <link rel="stylesheet" href="{{ asset('plugins/dropzone/min/dropzone.min.css') }}">
 @endsection
-@section('title')
+@section('title', 'create-user')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="min-height: 1345.31px;">
@@ -96,10 +96,10 @@
         <div class="input-group">
             <span class="input-group-btn">
                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                <i class="fa fa-picture-o"></i> Choose
+                <i class="fa fa-picture-o"></i> Choisir une image
                 </a>
             </span>
-            <input id="thumbnail" class="form-control" type="text" name="photo" value="{{old('photo')}}">
+            <input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{ old('photo') }}" autofocus>
         </div>
         <img id="holder" style="margin-top:15px;max-height:100px;">
           @error('photo')

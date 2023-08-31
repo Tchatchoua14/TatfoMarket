@@ -7,6 +7,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LocalizationController;
 
 
 /*
@@ -43,6 +44,13 @@ Route::post('newsletter', [App\Http\Controllers\HomeController::class, 'subscrib
 
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('user-profile');
 Route::post('/profile/{id}', [App\Http\Controllers\HomeController::class, 'profileUpdate'])->name('user-profile-update');
+
+#Localization Multi-langue
+
+Route::get('/', [LocalizationController::class, 'index']);
+Route::get('/', [LocalizationController::class, 'change'])->name('change');
+
+
 
 
 # Socialite URLs

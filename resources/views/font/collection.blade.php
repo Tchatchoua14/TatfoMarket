@@ -1,5 +1,5 @@
 @extends('font.master')
-@section('title')
+@section('title', 'collection')
 @section('content')
   
     <!--Body Content-->

@@ -1,5 +1,5 @@
 @extends('font.master')
-@section('title')
+@section('title', 'look2')
 @section('content')
 @include('font.partials.header') 
 @include('font.partials.menu')

@@ -1,5 +1,5 @@
 @extends('back.master')
-@section('title')
+@section('title', 'Administration')
 @section('head')
 <link rel="stylesheet" href="{{ asset('dist/css/sweetalert.css') }}">
 <link rel="stylesheet" href="{{ asset('dist/css/sweetalert.min.css') }}">

@@ -1,5 +1,5 @@
 @extends('font.master')
-@section('title')
+@section('title', 'Welcome')
 @section('content1')
 <!--Search Form Drawer-->
 <div class="search">

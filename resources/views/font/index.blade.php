@@ -1,5 +1,5 @@
 @extends('font.master')
-@section('title')
+@section('title', 'home')
 @section('content1')
 <!--Search Form Drawer-->
 <div class="search">
@@ -35,6 +35,27 @@
                 	<!--Desktop Menu-->
                 	<nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
                         <ul id="siteNav" class="site-nav medium center hidearrow">
+                        @if (Route::has('login'))
+                         @auth 
+                         @if (Auth::user()->role=="user")
+                        <li class="lvl1 parent dropdown"><a href="#">MY ACCOUNT<i class="anm anm-angle-down-l"></i></a>
+                                <ul class="dropdown">
+
+                                                         
+                                                        <li><a href="{{route('profile.edit')}}" class="site-nav">PROFILE </a></li>
+                                                        <li><a href="" class="site-nav">MY ORDERS</a></li>
+                                                        <li><a href="" class="site-nav">MY TRANSACTION</a></li>
+                                                        <li><a href="{{ route('logout') }}" class="text-uppercase" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('Logout') }}</a>
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
+                                                        </li>
+                        
+                               </ul>
+                            </li>
+                            @endif
+                            @endauth
+                             @endif
                             <li class="lvl1 parent megamenu"><a href="#">HOME <i class="anm anm-angle-down-l"></i></a>
                                 <div class="megamenu style1">
                                     <ul class="grid mmWrapper">

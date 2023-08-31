@@ -1,5 +1,5 @@
 @extends('font.master')
-@section('title')
+@section('title', 'forgot-password')
 @section('content')
   <!--Body Content-->
   <div id="page-content">

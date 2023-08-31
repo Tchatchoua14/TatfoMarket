@@ -30,6 +30,26 @@
                  	<!--Desktop Menu-->
                      <nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
                         <ul id="siteNav" class="site-nav medium center hidearrow">
+                            
+                                                  @if (Route::has('login'))
+                                                            @auth 
+                                                            @if (Auth::user()->role=="user")
+                            <li class="lvl1 parent dropdown"><a href="#">MY ACCOUNT<i class="anm anm-angle-down-l"></i></a>
+                                <ul class="dropdown">  
+                                                        <li><a href="{{route('profile.edit')}}" class="site-nav">PROFILE </a></li>
+                                                        <li><a href="" class="site-nav">MY ORDERS</a></li>
+                                                        <li><a href="" class="site-nav">MY TRANSACTION</a></li>
+                                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('Logout') }}</a>
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
+                                                        </li>
+                                                       
+                               </ul>
+                            </li>
+                                                        @endif
+                                                        @endauth
+                                                        @endif
                             <li class="lvl1 parent megamenu"><a href="#">HOME <i class="anm anm-angle-down-l"></i></a>
                                 <div class="megamenu style1">
                                     <ul class="grid mmWrapper">
@@ -76,8 +96,8 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="lvl1 parent dropdown"><a href="#">CATEGORIES<i class="anm anm-angle-down-l"></i></a>
-                          <ul class="dropdown">
+                         <li class="lvl1 parent dropdown"><a href="#">CATEGORIES<i class="anm anm-angle-down-l"></i></a>
+                            <ul class="dropdown">
                             <li><a href="{{route('home11')}}" class="site-nav">FASHION <span class="lbl nm_label1">New</span></a></li>
                             <li><a href="{{route('home5')}}" class="site-nav">COSMETIC</a></li>
                             <li><a href="{{route('home14')}}" class="site-nav">BAG<span class="lbl nm_label1">Sale</span></a>
@@ -87,7 +107,7 @@
                             <li><a href="{{route('home7')}}" class="site-nav">SHOES <span class="lbl nm_label1">Popular</span></a></li>
                             <li><a href="{{route('home8')}}" class="site-nav">JEWELLRY</a></li>
                           </ul>
-                          </li>
+                         </li>
                  
                           <li class="lvl1 parent dropdown"><a href="#">BLOG <i class="anm anm-angle-down-l"></i></a>
                         <ul class="dropdown">

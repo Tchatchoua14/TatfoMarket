@@ -13,10 +13,23 @@ use Illuminate\Support\Facades\Storage;
 class UsersController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+ 
     public function index()
     {
-        $users=User::orderBy('id','ASC')->paginate(10);
+        if(Auth::user()->role=="admin"){
+        // $users=User::orderBy('id','ASC')->paginate(1);
+        $users=User::all();
         return view('back.user.index')->with('users',$users);
+        }
+        else
+        {
+        return view('font.404');  
+        }
     }
 
 
@@ -26,8 +39,8 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('back.user.create');
+    {   
+        return view('user.create');
     }
 
     /**
@@ -49,11 +62,12 @@ class UsersController extends Controller
         ]);
 
         
-        $file = $request->file('photo');
-        $path = time() . '_' . $request->name . '.' . $file->getClientOriginalExtension();
-        Storage::disk('local')->put('public/' . $path, file_get_contents($file));
+        // $file = $request->file('photo');
+        // $path = time() . '_' . $request->name . '.' . $file->getClientOriginalExtension();
+        // Storage::disk('local')->put('public/' . $path, file_get_contents($file));
       
-        
+        $path = $request->file('photo')->store('images', 'public');
+
         User::create([
             'photo' => $path,
         ]);
@@ -65,11 +79,11 @@ class UsersController extends Controller
         $user->description = $request->description;
         $user->role = $request->role;
         $user->status = $request->status;
-        $user->photo = $request->photo;
+        $user->photo = $path;
         $user['password']=Hash::make($request->password);
         $user->save();
 
-        return back()->with('message', "L'utilisateur a bien été creée !");
+        return back()->with('message', "the product has been created");
 
     }
 
@@ -106,41 +120,43 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        $user=User::findOrFail($id);
-        $this->validate($request,
+       $data = $this->validate($request,
         [
             'name'=>'string|required|max:30',
             'email'=>'string|required',
             'role'=>'required|in:admin,user',
             'status'=>'required|in:active,inactive',
-            'photo'=>'nullable|string|required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-        ]);
-        // dd($request->all());
-        $data=$request->all();
-        // dd($data);
-        $file = $request->file('photo');
-        $path = time() . '_' . $request->name . '.' . $file->getClientOriginalExtension();
-        Storage::disk('local')->put('public/' . $path, file_get_contents($file));
-      
-        
-        User::update([
-            'photo' => $path,
+            // 'photo'=>'nullable|string|required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'photo' => "image|mimes:jpg,png,jpeg,gif,svg|max:2048",
         ]);
         
-        $user->fill($data)->save();
-        // if($status){
-        //     request()->session()->flash('success','Successfully updated');
-        // }
-        // else{
-        //     request()->session()->flash('error','Error occured while updating');
-        // }
-        // return redirect()->route('users.index');
-        // return back()->with('message', "L'utilisateur a bien été modifiée !");
-        return Redirect::route('back.user.edit')->with('status', 'profile-updated');
 
-    }
+        $path = $request->file('photo')->store('images', 'public');
+    
+        // $file = $request->file('photo');
+        // $path = time() . '_' . $request->name . '.' . $file->getClientOriginalExtension();
+        // Storage::disk('local')->put('public/' . $path, file_get_contents($file));
+        
+        $user->update([
+        'name' => $request->name,
+        'email' => $request->priceReduction,
+        'role' => $request->role,
+        'status' => $request->status,
+        'photo' => $path,
+        ]);
+
+       
+        
+        // User::update([
+        //     'photo' => $path,
+        // ]);
+        
+        // $user->fill($data)->save();
+        return redirect()->route('liste')->with('success', 'the user has been updated');
+
+    } 
 
     /**
      * Remove the specified resource from storage.
@@ -148,9 +164,9 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $delete=User::findorFail($id);
-        $delete->delete();
+    public function destroy(User $user)
+    { 
+        $user->delete();
+        return redirect()->route('liste')->with('success', 'the user has been deleted');
     }
 }

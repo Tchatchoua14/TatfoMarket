@@ -1,6 +1,25 @@
 <div class="mobile-nav-wrapper" role="navigation">
 		<div class="closemobileMenu"><i class="icon anm anm-times-l pull-right"></i> Close Menu</div>
         <ul id="MobileNav" class="mobile-nav">
+        @if (Route::has('login'))
+                                                            @auth 
+                                                            @if (Auth::user()->role=="user")
+                            <li class="lvl1 parent dropdown"><a href="#">MY ACCOUNT<i class="anm anm-angle-down-l"></i></a>
+                                <ul class="dropdown">  
+                                                        <li><a href="{{route('profile.edit')}}" class="site-nav">PROFILE </a></li>
+                                                        <li><a href="" class="site-nav">MY ORDERS</a></li>
+                                                        <li><a href="" class="site-nav">MY TRANSACTION</a></li>
+                                                        <li><a href="{{ route('logout') }}" class="text-uppercase" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('Logout') }}</a>
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
+                                                        </li>
+                                                       
+                               </ul>
+                            </li>
+                                                        @endif
+                                                        @endauth
+                                                        @endif
       	<li class="lvl1 parent megamenu"><a href="index.html">HOME <i class="anm anm-plus-l"></i></a>
           <ul>
             <li><a href="#" class="site-nav">Home Group 1<i class="anm anm-plus-l"></i></a>
@@ -9,7 +28,7 @@
                 <li><a href="{{route('home2')}}" class="site-nav">Home 2 - Default</a></li>
                 <li><a href="{{route('home15')}}" class="site-nav">Home 15 - Furniture </a></li>
                 <li><a href="{{route('home5')}}" class="site-nav">Home 5 - Cosmetic</a></li>
-                <li><a href="{{route('home6')}}" class="site-nav">Home 6 - Modern</a></li>
+                <li><a href="{{route('home6')}}" class="site-nav">Home 6 - Modern</a></li> 
                 <li><a href="{{route('home7')}}" class="site-nav last">Home 7 - Shoes</a></li>
               </ul>
             </li>

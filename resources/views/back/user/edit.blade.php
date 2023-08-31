@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="{{ asset('plugins/dropzone/min/dropzone.min.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 @endsection
-@section('title')
+@section('title', 'edit-user')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="min-height: 1345.31px;">
@@ -66,7 +66,7 @@
                    </div>
                @endif
               <!-- form start -->
-              <form  method="post" action="{{route('user.update',$user->id)}}"  enctype="multipart/form-data" id="quickForm" novalidate="novalidate">
+              <form  method="post" action="{{route('user.update', $user->id)}}"  enctype="multipart/form-data" id="quickForm" novalidate="novalidate">
                   @csrf 
                   @method('PATCH')
                 <div class="card-body">
@@ -95,7 +95,7 @@
                    <label for="inputPhoto" class="col-form-label">Photo</label>
                     <div class="input-group">
                                 <span class="custom-file">
-                                    <input type="file" class="custom-file-input" name="photo" id="thumbnail" value="{{$user->photo}}">
+                                    <input type="file" class="custom-file-input" name="photo" id="photo" value="{{$user->photo}}">
                                     <label class="custom-file-label" for="exampleInputFile">insérer une image</label>
                                 </span>
                     </div>

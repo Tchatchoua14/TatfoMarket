@@ -18,7 +18,7 @@
 <!-- dropzonejs -->
 <link rel="stylesheet" href="{{ asset('plugins/dropzone/min/dropzone.min.css') }}">
 @endsection
-@section('title')
+@section('title', 'edit-product')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="min-height: 1345.31px;"> 
@@ -89,7 +89,8 @@
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label">Image 1 <span class="text-danger">*</span></label>
           <div class="input-group">
-          <input  class="form-control" type="text" name="image1" value="{{old('image1')}}">
+          <!-- <input  class="form-control" type="text" name="image1" value="{{old('image1')}}"> -->
+          <input id="image1" type="file" class="form-control @error('image1') is-invalid @enderror" name="image1" value="{{ old('image1') }}" autofocus>
           <!-- <input id="image1" class="form-control" type="file" name="image1"> -->
          </div>
         <div id="holder" style="margin-top:15px;max-height:100px;"></div>
@@ -102,7 +103,8 @@
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label"> Image 2  <span class="text-danger">*</span></label>
           <div class="input-group">
-          <input  class="form-control" type="text" name="image2" value="{{old('image2')}}">
+          <!-- <input  class="form-control" type="text" name="image2" value="{{old('image2')}}"> -->
+          <input id="image2" type="file" class="form-control @error('image1') is-invalid @enderror" name="image2" value="{{ old('image2') }}" autofocus>
           <!-- <input id="image2" class="form-control" type="file" name="image2" > -->
           </div>
          
@@ -119,18 +121,6 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        
-              {{-- {{$categories}} --}}
-
-        <div class="form-group">
-          <label for="cat_id">Catégorie <span class="text-danger">*</span></label>
-          <select name="cat_id" id="cat_id" class="form-control">
-              <option value="">--Selectionnez une catégorie--</option>
-              @foreach($categories as $key=>$cat_data)
-                  <option value='{{$cat_data->id}}' {{(($product->cat_id==$cat_data->id)? 'selected' : '')}}>{{$cat_data->name}}</option>
-              @endforeach
-          </select>
-        </div> 
       
         
         <div class="form-group">
