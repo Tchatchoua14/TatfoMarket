@@ -35,15 +35,31 @@
           <div class="col-12 mb-2">
             <a href="{{route('product.create')}}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer produit</a>
           </div>
-          <div class="col-12">
+          <div class="col-12">        
+         
             @if (session('success'))
-             <div class="alert alert-success" role="alert">
+            <div class="card">
+              <div class="card-header">
+              <h3 class="card-title alert alert-success" role="alert">
                {{ session('success') }}
-             </div>
+              </h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+            
+              </div>
+            </div>
             @endif
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Listes de tous les produits disponibles</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
               </div>
               <!-- /.card-header -->
             <div class="card-body">

@@ -49,7 +49,7 @@
               <div class="icon"> 
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="{{route('liste')}}" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('liste')}}" class="small-box-footer">Voir plus détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -64,7 +64,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="{{route('product.index')}}" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('product.index')}}" class="small-box-footer">Voir plus détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -72,14 +72,14 @@
             <!-- small box -->
             <div class="small-box bg-warning text-center">
               <div class="inner">
-                <h3>44   <span class="info-box-icon"></i>  <i class="fas fa-dumpster"></i><i class="fas fa-file"></i><i class="fab fa-product-hunt"></i><i class="fas fa-rupee-sign"></i><i class="fas fa-file-powerpoint"></i></span></h3>
+                <h3>{{$news}}<span class="info-box-icon"></i>  <i class="fas fa-dumpster"></i><i class="fas fa-file"></i><i class="fab fa-product-hunt"></i><i class="fas fa-rupee-sign"></i><i class="fas fa-file-powerpoint"></i></span></h3>
 
-                <p>Nombres de categories</p>
+                <p>Nombres de Newsletter</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="{{ route('category') }}" class="small-box-footer">Voir les détails <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('liste-news')}}" class="small-box-footer">Voir plus détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -92,6 +92,14 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title text-center">Les produits récents</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
             </div>
             <!-- /.card-header -->
             <div class="card-body p-0">
@@ -136,6 +144,14 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title text-center">Les utilisateurs récents</h3>
+              <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
             </div>
             <!-- /.card-header -->
             <div class="card-body p-0">

@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
   
 @endsection
-@section('title', 'liste-user')
+@section('title', 'newsletter')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -27,12 +27,12 @@
       <div class="container-fluid"> 
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Utilisateur</h1>
+            <h1>Newsletter</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('index')}}">Accueil</a></li>
-              <li class="breadcrumb-item active">Utilisateur</li>
+              <li class="breadcrumb-item active">Newsletter</li>
             </ol>
           </div>
         </div>
@@ -44,27 +44,11 @@
       <div class="container-fluid"> 
         <div class="row">
           <div class="col-12 mb-2">
-            <a href="{{route('user.edit')}}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer un utilisateur</a>
           </div>
           <div class="col-12">
-          @if (session('success'))
             <div class="card">
               <div class="card-header">
-              <h3 class="card-title alert alert-success" role="alert">
-               {{ session('success') }}
-              </h3>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-            
-              </div>
-            </div>
-            @endif
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Listes de tous les utilisateurs disponibles</h3>
+                <h3 class="card-title">Listes de tous les Newsletter disponibles</h3>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>
@@ -80,55 +64,27 @@
                 <thead>
                   <tr>
                     <th class="sorting sorting_asc text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column descending">S.N.</th>
-                    <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="NOM: activate to sort column ascending">Name</th>
                     <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Prénom: activate to sort column ascending">Email</th>
-                    <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Photo</th>
-                    <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Image: activate to sort column ascending">Join Date</th>
-                    <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Roles: activate to sort column ascending">Role</th>
-                    <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Image: activate to sort column ascending">Status</th>
                     <th class="sorting text-center tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >Action</th></tr>
                   </thead>
                   <tfoot>
                     <tr>
                         <th  class="text-center">S.N.</th>
-                        <th  class="text-center">Name</th>
-                        <th  class="text-center">Email</th>
-                        <th  class="text-center">Photo</th>
-                        <th  class="text-center">Join Date</th>
-                        <th  class="text-center">Role</th>
-                        <th  class="text-center">Status</th>
+                        <th  class="text-center">Email</th> 
                         <th  class="text-center">Action</th>
                       </tr>
                   </tfoot>
                   <tbody>
-            @foreach($users as $user)   
+            @foreach($newsletters as $newsletter)   
                 <tr class="odd">
-                    <td class="dtr-control sorting_1 text-center" tabindex="0">{{$user->id}}</td>
-                    <td class="text-capitalize text-center">{{$user->name}}</td>
-                    <td class="text-capitalize text-center">{{$user->email}}</td>
-                    <td class="text-center">
-                        @if($user->photo)
-                              <img src="{{ asset('/images/faces/'.$user->photo) }}"alt="{{$user->photo}}" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />
-                        @else
-                            <img src="{{ asset('dist/img/IMG_0013.jpg') }}" class="img-fluid rounded-circle" style="max-width:50px" alt="avatar.png">
-                        @endif
-                        <!-- <img src="{{ asset('/images/product-images/'.$user->photo) }}"alt="{{$user->photo}}" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" /> -->
-                    </td>
-                    <td class="text-center">{{(($user->created_at)? $user->created_at->diffForHumans() : '')}}</td>
-                    <td class="text-capitalize text-center">{{$user->role}}</td> 
-                    <td class="text-center">
-                          @if($user->status=='active')
-                             <span class="badge badge-success text-capitalize">{{$user->status}}</span>
-                            @else
-                             <span class="badge badge-warning text-capitalize">{{$user->status}}</span>
-                            @endif
-                    </td>
+                    <td class="dtr-control sorting_1 text-center" tabindex="0">{{$newsletter->id}}</td>
+                    <td class="text-center">{{$newsletter->email}}</td>
+                    <td class="text-center">{{(($newsletter->created_at)? $newsletter->created_at->diffForHumans() : '')}}</td>
                     <td class="project-actions d-flex justify-content-around" >
-                        <a href="{{route('user.edit',$user->id)}}" class="btn btn-info btn-sm " data-toggle="tooltip" title="edit" data-placement="bottom"> <i class="fas fa-pencil-alt"></i></a>
                         <form id="" action="" method="POST">
                           @csrf
                           @method('DELETE') 
-                          <button onclick="event.preventDefault(); document.getElementById('destroy{{ $user->id }}').submit();" class="btn btn-danger btn-sm  dltBtn" data-id={{$user->id}}  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                          <button onclick="event.preventDefault(); document.getElementById('destroy{{ $newsletter->id }}').submit();" class="btn btn-danger btn-sm  dltBtn" data-id={{$newsletter->id}}  data-toggle="tooltip" data-placement="bottom" title="Delete">Supprimer<i class="fas fa-trash-alt ml-2"></i></button>
                         </form>
                 
                     </td>
@@ -255,7 +211,7 @@
       dom: 'Bfrtip',
       responsive: true, 
       lengthChange: false, 
-      pageLength: 5,
+      pageLength: 1,
       ordering: true,
       lengthChange: false, 
       info: true,
@@ -263,9 +219,6 @@
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
   });
-</script>
-<script>
-    $('#lfm').filemanager('photo');
 </script>
     
 @endsection

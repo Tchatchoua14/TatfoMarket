@@ -8,7 +8,7 @@
     	<!--Page Title-->
     	<div class="page section-header text-center">
 			<div class="page-title">
-        		<div class="wrapper"><h1 class="page-width">Login</h1></div>
+        		<div class="wrapper"><h1 class="page-width">{{ __('Log in') }}</h1></div>
       		</div>
 		</div>
         <!--End Page Title-->
@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
-                                    <label for="CustomerPassword">Password</label>
+                                    <label for="CustomerPassword">{{ __('message.home.mdp') }}</label>
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -47,21 +47,21 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ __('Remember me') }}
                                     </label>
                                 </div>
                             </div>
                           </div>
                           <div class="row">
                             <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
-                                <input type="submit" class="btn mb-3" value="Sign In">
+                                <input type="submit" class="btn mb-3" value="{{ __('Log in') }}">
                                 <p class="mb-4">
                                 @if (Route::has('password.request'))
                                     <a class="" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('Forgot your password?') }}
                                     </a>
                                 @endif &nbsp; | &nbsp;
-								    <a href="{{ route('register') }}" id="customer_register_link">Create account</a>
+								    <a href="{{ route('register') }}" id="customer_register_link">{{ __('message.home.create1') }}</a>
                                     
                               
                                 </p>
@@ -70,9 +70,10 @@
                          <div class="row">
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="text-center px-4">
-                                    <a href="{{ route('login.google') }}" class="google-sign-in mr-2"><i class="fa fa-google"></i>  Sign In with Google</a> &nbsp; | &nbsp;
-                                    <a href="{{ route('login.github') }}" class="github-sign-in"><i class="fa fa-github"></i>  Sign In with Github</a> &nbsp; | &nbsp;
-                                    <a href="{{ route('login.facebook') }}" class="facebook-sign-in ml-2"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
+                                    <a href="#" class="mr-2" style="text-decoration: none; pointer-events:none;">{{ __('message.home.la4') }}</a>
+                                    <a href="{{ url('auth/google') }}" class="google-sign-in mr-2"><i class="fa fa-google text-danger"></i> Google</a> &nbsp; | &nbsp;
+                                    <a href="{{ url('auth/github') }}" class="github-sign-in"><i class="fa fa-github"></i>   Github</a> &nbsp; | &nbsp;
+                                    <a href="{{ url('auth/facebook') }}" class="facebook-sign-in ml-2"><i class="fa fa-facebook text-primary"></i> Facebook</a>
                                 </div>
                             </div>
                          </div>

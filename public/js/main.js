@@ -117,6 +117,16 @@
 	 userlink_dropdown();
 
 
+	//  $("#french").on("click", function() {
+	// 	// $("#english1").attr({
+	// 	// 	src: "{{ asset('images/flag-france.png') }}",
+	// 	// 	});
+	// 	$('#french').replaceAll("#english");
+	// 	// $('#english').attr('id', '#french')
+	
+
+		// });
+
 	$("#im1").on("click", function() {
 		$("#va1").attr({
 			src: "{{ asset('/images/product-images/product-image1.jpg') }}",

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Newsletter;
 use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -20,9 +21,10 @@ class BackController extends Controller
         if(Auth::user()->role=="admin"){
         $post = Product::count();
         $posts = User::count();
+        $news = Newsletter::count();
         $users=User::orderBy('id','ASC')->paginate(3);
         $products=Product::orderBy('id','ASC')->paginate(3);
-        return view('back.index')->with('post',$post)->with('posts',$posts)->with('users',$users)->with('products',$products);
+        return view('back.index')->with('post',$post)->with('posts',$posts)->with('users',$users)->with('products',$products)->with('news',$news);
         }
         else
         {

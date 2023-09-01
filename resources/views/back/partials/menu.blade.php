@@ -12,7 +12,7 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <!-- <img src="{{ asset('dist/img/IMG_0013.jpg') }}" class="img-circle elevation-2" alt="User Image"> -->
-          <img src="{{ asset('/images/faces/'.$user->photo) }}"alt="{{$user->photo}}" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />
+          <img src="{{ asset('/images/faces/'.Auth::user()->photo) }}"alt="" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />
         </div>
         <div class="info">
          @if (Route::has('login'))
@@ -43,27 +43,15 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-              Articles
+             Produits
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{route('product.index')}}" class="nav-link">
                   <i class="fas fa-wrench"></i>
                   <p>Tous les protuits</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="produits.html" class="nav-link">
-                  <i class="fas fa-wrench"></i>
-                  <p>Nouveaux produits</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="fas fa-plus"></i>
-                  <p>Ajouter un produit</p>
                 </a>
               </li>
             </ul>
@@ -78,27 +66,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="fas fa-wrench"></i>
-                  <p>Admin</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="{{route('liste')}}" class="nav-link">
                   <i class="fas fa-wrench"></i>
                   <p>Tous les Utilisateurs</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="fas fa-plus"></i>
-                  <p>Details utilisateurs</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="fas fa-plus"></i>
-                  <p>Ajouter utilisateurs</p>
                 </a>
               </li>
             </ul>
@@ -107,109 +77,15 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-              Catalogues
+              Newsletter
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('category') }}" class="nav-link">
+                <a href="{{route('liste-news')}}" class="nav-link">
                   <i class="fas fa-wrench"></i>
-                  <p>Toutes les categories</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="buttons.html" class="nav-link">
-                  <i class="fas fa-plus"></i>
-                  <p>Tous categories</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('formcategory') }}" class="nav-link">
-                  <i class="fas fa-plus"></i>
-                  <p>Formulaire categories</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
-              <p>
-                Administration
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="buttons.html" class="nav-link">
-                  <i class="fas fa-plus"></i>
-                  <p>Boutique</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="buttons.html" class="nav-link">
-                  <i class="fas fa-plus"></i>
-                  <p>Etats de commande</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="buttons.html" class="nav-link">
-                  <i class="fas fa-plus"></i>
-                  <p>Pays</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="buttons.html" class="nav-link">
-                  <i class="fas fa-plus"></i>
-                  <p>Pages</p>
-                </a>
-              </li>
-
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Expéditions
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="buttons.html" class="nav-link">
-                  <i class="fas fa-plus"></i>
-                  <p>Paramètres et Confidentialité</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="buttons.html" class="nav-link">
-                  <i class="fas fa-plus"></i>
-                  <p>Outils</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Aide et assistance
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="buttons.html" class="nav-link">
-                  <i class="fas fa-plus"></i>
-                  <p>Langues</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="buttons.html" class="nav-link">
-                  <i class="fas fa-plus"></i>
-                  <p>DataTables</p>
+                  <p>Tous les newsletter</p>
                 </a>
               </li>
             </ul>

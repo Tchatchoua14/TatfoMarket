@@ -21,7 +21,7 @@
             	<!--Desktop Logo-->
                 <div class="logo col-md-2 col-lg-2 d-none d-lg-block">
                     <a href="{{route('home')}}">
-                    	<img src="{{ asset('images/logo.svg') }}" alt="Belle Multipurpose Html Template" title="Belle Multipurpose Html Template" />
+                    	<img src="{{ asset('images/logo.svg') }}" alt="TatfoMarket" title="TatfoMarket.com" />
                     </a>
                 </div>
                 <!--End Desktop Logo-->
@@ -38,14 +38,14 @@
                         @if (Route::has('login'))
                          @auth 
                          @if (Auth::user()->role=="user")
-                        <li class="lvl1 parent dropdown"><a href="#">MY ACCOUNT<i class="anm anm-angle-down-l"></i></a>
+                        <li class="lvl1 parent dropdown"><a href="#">{{ __('message.home.nav0') }}<i class="anm anm-angle-down-l"></i></a>
                                 <ul class="dropdown">
 
                                                          
-                                                        <li><a href="{{route('profile.edit')}}" class="site-nav">PROFILE </a></li>
-                                                        <li><a href="" class="site-nav">MY ORDERS</a></li>
-                                                        <li><a href="" class="site-nav">MY TRANSACTION</a></li>
-                                                        <li><a href="{{ route('logout') }}" class="text-uppercase" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('Logout') }}</a>
+                                                        <li><a href="{{route('profile.edit')}}" class="site-nav">{{ __('message.home.profile') }}</a></li>
+                                                         <li><a href="" class="site-nav">{{ __('message.home.order') }}</a></li>
+                                                        <li><a href="" class="site-nav">{{ __('message.home.transaction') }}</a></li>
+                                                        <li><a href="{{ route('logout') }}" class="text-uppercase" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('message.home.logout') }}</a>
                                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                                 @csrf
                                                             </form>
@@ -56,43 +56,43 @@
                             @endif
                             @endauth
                              @endif
-                            <li class="lvl1 parent megamenu"><a href="#">HOME <i class="anm anm-angle-down-l"></i></a>
+                            <li class="lvl1 parent megamenu"><a href="#">{{ __('message.home.nav11') }}<i class="anm anm-angle-down-l"></i></a>
                                 <div class="megamenu style1">
                                     <ul class="grid mmWrapper">
                                         <li class="grid__item large-up--one-whole">
                                             <ul class="grid">
-                                                <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Home Group 1</a>
+                                                <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.nav11') }} {{ __('message.home.group') }} 1</a>
                                                     <ul class="subLinks">
-                                                      <li class="lvl-2"><a href="{{route('home3')}}" class="site-nav lvl-2">Home 1 - Classic</a></li>
-                                                      <li class="lvl-2"><a href="{{route('home2')}}" class="site-nav lvl-2">Home 2 - Default</a></li>
-                                                      <li class="lvl-2"><a href="{{route('home15')}}" class="site-nav lvl-2">Home 15 - Furniture <span class="lbl nm_label1">New</span></a></li>
-                                                      <li class="lvl-2"><a href="{{route('home5')}}" class="site-nav lvl-2">Home 3 - Boxed</a></li>
-                                                      <li class="lvl-2"><a href="{{route('home6')}}" class="site-nav lvl-2">Home 4 - Fullwidth</a></li>
-                                                      <li class="lvl-2"><a href="{{route('home7')}}" class="site-nav lvl-2">Home 5 - Cosmetic</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home3')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 1 - {{ __('message.home.home1') }}</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home2')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 2 - {{ __('message.home.home2') }}</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home15')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 15 - {{ __('message.home.home3') }} <span class="lbl nm_label1">{{ __('message.home.new') }}</span></a></li>
+                                                      <li class="lvl-2"><a href="{{route('home5')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 3 - {{ __('message.home.boxed') }}</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home6')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 4 - {{ __('message.home.home4') }}</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home7')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 5 - {{ __('message.home.home5') }}</a></li>
                                                     </ul>
                                                   </li>
-                                                <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Home Group 2</a>
+                                                <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.nav11') }} {{ __('message.home.group') }} 2</a>
                                                     <ul class="subLinks">
-                                                        <li class="lvl-2"><a href="{{route('home8')}}" class="site-nav lvl-2">Home 8 - Jewellery</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home9')}}" class="site-nav lvl-2">Home 9 - Parallax</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home10')}}" class="site-nav lvl-2">Home 10 - Minimal</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home11')}}" class="site-nav lvl-2">Home 11 - Grid</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home14')}}" class="site-nav lvl-2">Home 14 - Bags <span class="lbl nm_label1">New</span></a></li>
+                                                        <li class="lvl-2"><a href="{{route('home8')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 8 - {{ __('message.home.jewellery') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home9')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 9 - {{ __('message.home.parallax') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home10')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 10 - {{ __('message.home.minimal') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home11')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 11 - {{ __('message.home.grid') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home14')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 14 - {{ __('message.home.bags') }} <span class="lbl nm_label1">{{ __('message.home.new') }}</span></a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">New Sections</a>
+                                                <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.sec0') }}</a>
                                                     <ul class="subLinks">
-                                                        <li class="lvl-2"><a href="{{route('home11')}}" class="site-nav lvl-2">Image Gallery</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home5')}}" class="site-nav lvl-2">Featured Product</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home7')}}" class="site-nav lvl-2">Columns with Items</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home8')}}" class="site-nav lvl-2">Text columns with images</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home2')}}" class="site-nav lvl-2">Products Carousel</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home9')}}" class="site-nav lvl-2">Parallax Banner</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home11')}}" class="site-nav lvl-2">{{ __('message.home.sec1') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home5')}}" class="site-nav lvl-2">{{ __('message.home.sec2') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home7')}}" class="site-nav lvl-2">{{ __('message.home.sec3') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home8')}}" class="site-nav lvl-2">{{ __('message.home.sec4') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home2')}}" class="site-nav lvl-2">{{ __('message.home.sec5') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home9')}}" class="site-nav lvl-2">{{ __('message.home.sec7') }}</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">New Features</a>
+                                                <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.shop8') }}</a>
                                                     <ul class="subLinks">
-                                                        <li class="lvl-2"><a href="{{route('home13')}}" class="site-nav lvl-2">Top Information Bar <span class="lbl nm_label1">New</span></a></li>
+                                                        <li class="lvl-2"><a href="{{route('home13')}}" class="site-nav lvl-2">{{ __('message.home.top') }} <span class="lbl nm_label1">{{ __('message.home.new') }}</span></a></li>
                                                         
                                                     </ul>
                                                 </li>
@@ -102,44 +102,43 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="lvl1 parent dropdown"><a href="#">CATEGORIES<i class="anm anm-angle-down-l"></i></a>
-                          <ul class="dropdown">
-                            <li><a href="{{route('home11')}}" class="site-nav">FASHION <span class="lbl nm_label1">New</span></a></li>
-                            <li><a href="{{route('home5')}}" class="site-nav">COSMETIC</a></li>
-                            <li><a href="{{route('home14')}}" class="site-nav">BAG<span class="lbl nm_label1">Sale</span></a>
+                            <li class="lvl1 parent dropdown"><a href="#">{{ __('message.home.nav2') }}<i class="anm anm-angle-down-l"></i></a>
+                                <ul class="dropdown">
+                                    <li><a href="{{route('home11')}}" class="site-nav">{{ __('message.home.fashion') }}<span class="lbl nm_label1">{{ __('message.home.new') }} </span></a></li>
+                                    <li><a href="{{route('home5')}}" class="site-nav">{{ __('message.home.home5') }}</a></li>
+                                    <li><a href="{{route('home14')}}" class="site-nav">{{ __('message.home.bags') }}<span class="lbl nm_label1">{{ __('message.home.SALE') }}</span></a>
+                                    </li>
+                                    <li><a href="{{route('home15')}}" class="site-nav">{{ __('message.home.ass') }}</a>
+                                    </li>
+                                    <li><a href="{{route('home7')}}" class="site-nav">{{ __('message.home.shoes') }}<span class="lbl nm_label1">{{ __('message.home.popular') }} </span></a></li>
+                                    <li><a href="{{route('home8')}}" class="site-nav">{{ __('message.home.jewellery1') }}</a></li>
+                                </ul>
+                            </li>                  
+                            <li class="lvl1 parent dropdown"><a href="#">BLOG <i class="anm anm-angle-down-l"></i></a>
+                                <ul class="dropdown">
+                                <li><a href="{{route('home3')}}" class="site-nav">{{ __('message.home.var4') }}</a></li>
+                                <li><a href="{{route('home7')}}" class="site-nav">Article</a></li>
+                                <li><a href="#" class="site-nav">{{ __('message.home.var3') }}<i class="anm anm-angle-right-l"></i></a>
+                                    <ul class="dropdown">
+                                        <li><a href="{{route('cart1')}}" class="site-nav">{{ __('message.home.var1') }}</a></li>
+                                        <li><a href="{{route('cart')}}" class="site-nav">{{ __('message.home.var2') }}</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="compare-variant1.html" class="site-nav">{{ __('message.home.compare') }} <i class="anm anm-angle-right-l"></i></a>
+                                    <ul class="dropdown">
+                                        <li><a href="{{route('compare2')}}" class="site-nav">{{ __('message.home.compare1') }}</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" class="site-nav">404</a></li>
+                                </ul>
                             </li>
-                            <li><a href="{{route('home15')}}" class="site-nav">ACCESSORIES</a>
+                            <li class="lvl1 parent dropdown"><a href="#">{{ __('message.home.var5') }}<i class="anm anm-angle-down-l"></i></a>
+                                <ul class="dropdown">
+                                    <li><a href="{{route('about')}}" class="site-nav">{{ __('message.home.var7') }} <span class="lbl nm_label1">New</span> </a></li>
+                                    <li><a href="{{route('contact')}}" class="site-nav">{{ __('message.home.var8') }} </a></li>
+                                    <li><a href="{{route('register')}}" class="site-nav">Administration</a></li>
+                                </ul>
                             </li>
-                            <li><a href="{{route('home7')}}" class="site-nav">SHOES <span class="lbl nm_label1">Popular</span></a></li>
-                            <li><a href="{{route('home8')}}" class="site-nav">JEWELLRY</a></li>
-                          </ul>
-                          </li>
-                 
-                          <li class="lvl1 parent dropdown"><a href="#">BLOG <i class="anm anm-angle-down-l"></i></a>
-                        <ul class="dropdown">
-                        <li><a href="{{route('home3')}}" class="site-nav">Gridview</a></li>
-                        <li><a href="{{route('home7')}}" class="site-nav">Article</a></li>
-                        <li><a href="#" class="site-nav">Cart Page <i class="anm anm-angle-right-l"></i></a>
-                            <ul class="dropdown">
-                                <li><a href="{{route('cart1')}}" class="site-nav">Cart Variant1</a></li>
-                                <li><a href="{{route('cart')}}" class="site-nav">Cart Variant2</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="compare-variant1.html" class="site-nav">Compare Product <i class="anm anm-angle-right-l"></i></a>
-                            <ul class="dropdown">
-                                <li><a href="{{route('compare2')}}" class="site-nav">Compare Variant2</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#" class="site-nav">404</a></li>
-                        </ul>
-                        </li>
-                        <li class="lvl1 parent dropdown"><a href="#">SETTINGS <i class="anm anm-angle-down-l"></i></a>
-                            <ul class="dropdown">
-                                <li><a href="{{route('about')}}" class="site-nav">About Us <span class="lbl nm_label1">New</span> </a></li>
-                                <li><a href="{{route('contact')}}" class="site-nav">Contact Us</a></li>
-                                <li><a href="{{route('register')}}" class="site-nav">Administration</a></li>
-                            </ul>
-                        </li>
                         </ul>
                     </nav>
                     <!--End Desktop Menu-->
@@ -148,7 +147,7 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-2 d-block d-lg-none mobile-logo">
                 	<div class="logo">
                         <a href="{{route('home')}}">
-                            <img src="{{ asset('images/logo.svg') }}" alt="Belle Multipurpose Html Template" title="Belle Multipurpose Html Template" />
+                            <img src="{{ asset('images/logo.svg') }}" alt="TatfoMarket" title="TatfoMarket" />
                         </a>
                     </div>
                 </div>
@@ -216,8 +215,8 @@
                                 	<span class="label">Cart Subtotal:</span><span class="product-price"><span class="money">$748.00</span></span>
                                 </div>
                                  <div class="buttonSet text-center">
-                                    <a href="{{ route('cart') }}" class="btn btn-secondary btn--small">View Cart</a>
-                                    <a href="{{ route('checkout') }}" class="btn btn-secondary btn--small">Checkout</a>
+                                    <a href="{{ route('cart') }}" class="btn btn-secondary btn--small">{{ __('message.home.panier') }}</a>
+                                    <a href="{{ route('checkout') }}" class="btn btn-secondary btn--small">{{ __('message.home.checkout') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -244,9 +243,9 @@
                         <div class="slideshow__text-wrap slideshow__overlay classic bottom">
                             <div class="slideshow__text-content bottom">
                                 <div class="wrap-caption center">
-                                        <h2 class="h1 mega-title slideshow__title">Shop Our New Collection</h2>
-                                        <span class="mega-subtitle slideshow__subtitle">From Hight to low, classic or modern. We have you covered</span>
-                                        <a href="{{ route('collection') }}"><span class="btn">Shop now</span></a> 
+                                        <h2 class="h1 mega-title slideshow__title">{{ __('message.home.shop1') }}</h2>
+                                        <span class="mega-subtitle slideshow__subtitle">{{ __('message.home.shop2') }}</span>
+                                        <a href="{{ route('collection') }}"><span class="btn">{{ __('message.home.shop') }}</span></a> 
                                     </div>
                             </div>
                         </div>
@@ -258,9 +257,9 @@
                         <div class="slideshow__text-wrap slideshow__overlay classic bottom">
                             <div class="slideshow__text-content bottom">
                                 <div class="wrap-caption center">
-                                    <h2 class="h1 mega-title slideshow__title">Summer Bikini Collection</h2>
-                                    <span class="mega-subtitle slideshow__subtitle">Save up to 50% off this weekend only</span>
-                                    <a href="{{ route('collection') }}"><span class="btn">Shop now</span></a>
+                                    <h2 class="h1 mega-title slideshow__title">{{ __('message.home.carroul') }}</h2>
+                                    <span class="mega-subtitle slideshow__subtitle">{{ __('message.home.carol') }}</span>
+                                    <a href="{{ route('collection') }}"><span class="btn">{{ __('message.home.shop') }}</span></a>
                                 </div>
                             </div>
                         </div>
@@ -275,14 +274,14 @@
             	<div class="row">
                 	<div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="section-header text-center">
-                            <h2 class="h2">New Arrivals</h2>
-                            <p>Browse the huge variety of our products</p>
+                            <h2 class="h2">{{ __('message.home.arrival') }}</h2>
+                            <p>{{ __('message.home.shop3') }}</p>
                         </div>
                         <div class="tabs-listing">
                             <ul class="tabs clearfix">
-                                <li class="active" rel="tab1">Women</li>
-                                <li rel="tab2">Men</li>
-                                <li rel="tab3">Sale</li>
+                                <li class="active" rel="tab1">{{ __('message.home.women') }}</li>
+                                <li rel="tab2">{{ __('message.home.men') }}</li>
+                                <li rel="tab3">{{ __('message.home.SALE') }}</li>
                             </ul>
                             <div class="tab_container">
                        
@@ -303,15 +302,15 @@
                                                     <!-- End hover image -->
                                                      <!-- product label -->
                                                      @if($product->id==4)
-                                                     <div class="product-labels rectangular"><span class="lbl on-sale">-16%</span> <span class="lbl pr-label1">new</span></div>
+                                                     <div class="product-labels rectangular"><span class="lbl on-sale">-16%</span> <span class="lbl pr-label1">{{ __('message.home.new') }}</span></div>
                                                      @elseif($product->id==5)
-                                                     <div class="product-labels rectangular"><span class="lbl pr-label2">Hot</span></div>
+                                                     <div class="product-labels rectangular"><span class="lbl pr-label2">{{ __('message.home.hot') }}</span></div>
                                                      @elseif($product->id==6)
-                                                     <div class="product-labels rounded"><span class="lbl on-sale">Sale</span></div>
+                                                     <div class="product-labels rounded"><span class="lbl on-sale">{{ __('message.home.SALE') }}</span></div>
                                                      @elseif($product->id==7)
-                                                     <div class="product-labels"><span class="lbl pr-label1">Popular</span></div>
+                                                     <div class="product-labels"><span class="lbl pr-label1">{{ __('message.home.popular') }}</span></div>
                                                      @elseif($product->id==8)
-                                                     <div class="product-labels"><span class="lbl on-sale">-30%</span><span class="lbl pr-label2">Hot</span></div>
+                                                     <div class="product-labels"><span class="lbl on-sale">-30%</span><span class="lbl pr-label2">{{ __('message.home.hot') }}</span></div>
                                                      @else
                                                      @endif
                                                    
@@ -325,7 +324,7 @@
         
                                                 <!-- Start product button -->
                                                 <form class="variants add" action="{{ route('cart') }}" onclick="window.location.href='cart.html'"method="post">
-                                                    <button class="btn btn-addto-cart" type="button" tabindex="0">Add To Cart</button>
+                                                    <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
                                                 </form>
                                                 <div class="button-set">
                                                     <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
@@ -473,15 +472,15 @@
                                                     <!-- End hover image -->
                                                      <!-- product label -->
                                                      @if($product->id==11)
-                                                     <div class="product-labels rectangular"><span class="lbl on-sale">-25%</span> <span class="lbl pr-label1">new</span></div>
+                                                     <div class="product-labels rectangular"><span class="lbl on-sale">-25%</span> <span class="lbl pr-label1">{{ __('message.home.new') }}</span></div>
                                                      @elseif($product->id==9)
-                                                     <div class="product-labels rectangular"><span class="lbl pr-label2">Hot</span></div>
+                                                     <div class="product-labels rectangular"><span class="lbl pr-label2">{{ __('message.home.hot') }}</span></div>
                                                      @elseif($product->id==13)
-                                                     <div class="product-labels"><span class="lbl on-sale">Sale</span></div>
+                                                     <div class="product-labels"><span class="lbl on-sale">{{ __('message.home.SALE') }}</span></div>
                                                      @elseif($product->id==12)
-                                                     <div class="product-labels rounded"><span class="lbl pr-label1">Popular</span></div>
+                                                     <div class="product-labels"><span class="lbl pr-label1">{{ __('message.home.popular') }}</span></div>
                                                      @elseif($product->id==10)
-                                                     <div class="product-labels"><span class="lbl on-sale">-30%</span><span class="lbl pr-label2">Hot</span></div>
+                                                     <div class="product-labels rounded"><span class="lbl on-sale">-30%</span><span class="lbl pr-label2">{{ __('message.home.hot') }}</span></div>
                                                      @else
                                                      @endif
                                                    
@@ -495,7 +494,7 @@
         
                                                 <!-- Start product button -->
                                                 <form class="variants add" action="{{ route('cart') }}" onclick="window.location.href='cart.html'"method="post">
-                                                    <button class="btn btn-addto-cart" type="button" tabindex="0">Add To Cart</button>
+                                                    <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
                                                 </form>
                                                 <div class="button-set">
                                                     <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
@@ -603,15 +602,15 @@
                                                     <!-- End hover image -->
                                                      <!-- product label -->
                                                      @if($product->id==18)
-                                                     <div class="product-labels rounded"><span class="lbl on-sale">-16%</span> <span class="lbl pr-label1">new</span></div>
+                                                     <div class="product-labels rounded"><span class="lbl on-sale">-16%</span> <span class="lbl pr-label1">{{ __('message.home.new') }}</span></div>
                                                      @elseif($product->id==14)
-                                                     <div class="product-labels rectangular"><span class="lbl pr-label2">Hot</span></div>
+                                                     <div class="product-labels rectangular"><span class="lbl pr-label2">{{ __('message.home.hot') }}</span></div>
                                                      @elseif($product->id==15)
-                                                     <div class="product-labels"><span class="lbl on-sale">Sale</span></div>
+                                                     <div class="product-labels"><span class="lbl on-sale">{{ __('message.home.SALE') }}</span></div>
                                                      @elseif($product->id==16)
-                                                     <div class="product-labels"><span class="lbl pr-label1">Popular</span></div>
+                                                     <div class="product-labels"><span class="lbl pr-label1">{{ __('message.home.popular') }}</span></div>
                                                      @elseif($product->id==17)
-                                                     <div class="product-labels"><span class="lbl on-sale">-50%</span><span class="lbl pr-label2">Hot</span></div>
+                                                     <div class="product-labels"><span class="lbl on-sale">-50%</span><span class="lbl pr-label2">{{ __('message.home.hot') }}</span></div>
                                                      @else
                                                      @endif
                                                    
@@ -625,7 +624,7 @@
         
                                                 <!-- Start product button -->
                                                 <form class="variants add" action="{{ route('cart') }}" onclick="window.location.href='cart.html'"method="post">
-                                                    <button class="btn btn-addto-cart" type="button" tabindex="0">Add To Cart</button>
+                                                    <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
                                                 </form>
                                                 <div class="button-set">
                                                     <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
@@ -733,7 +732,7 @@
                             <a href="{{route('home11')}}" class="collection-grid-item__link">
                                 <img data-src="{{ asset('images/collection/fashion.jpg') }}" src="{{ asset('images/collection/fashion.jpg') }}" alt="Fashion" class="blur-up lazyload"/>
                                 <div class="collection-grid-item__title-wrapper">
-                                    <h3 class="collection-grid-item__title btn btn--secondary no-border">Fashion</h3>
+                                    <h3 class="collection-grid-item__title btn btn--secondary no-border">{{ __('message.home.fashion') }}</h3>
                                 </div>
                             </a>
                         </div>
@@ -741,7 +740,7 @@
                             <a href="{{route('home5')}}" class="collection-grid-item__link">
                                 <img class="blur-up lazyload" data-src="{{ asset('images/collection/cosmetic.jpg') }}" src="{{ asset('images/collection/cosmetic.jpg') }}" alt="Cosmetic"/>
                                 <div class="collection-grid-item__title-wrapper">
-                                    <h3 class="collection-grid-item__title btn btn--secondary no-border">Cosmetic</h3>
+                                    <h3 class="collection-grid-item__title btn btn--secondary no-border">{{ __('message.home.home5') }}</h3>
                                 </div>
                             </a>
                         </div>
@@ -749,7 +748,7 @@
                             <a href="{{route('home14')}}" class="collection-grid-item__link">
                                 <img data-src="{{ asset('images/collection/bag.jpg') }}" src="{{ asset('images/collection/bag.jpg') }}" alt="Bag" class="blur-up lazyload"/>
                                 <div class="collection-grid-item__title-wrapper">
-                                    <h3 class="collection-grid-item__title btn btn--secondary no-border">Bag</h3>
+                                    <h3 class="collection-grid-item__title btn btn--secondary no-border">{{ __('message.home.bags') }}</h3>
                                 </div>
                             </a>
                         </div>
@@ -757,7 +756,7 @@
                             <a href="{{route('home15')}}" class="collection-grid-item__link">
                                 <img data-src="{{ asset('images/collection/accessories.jpg') }}" src="{{ asset('images/collection/accessories.jpg') }}" alt="Accessories" class="blur-up lazyload"/>
                                 <div class="collection-grid-item__title-wrapper">
-                                    <h3 class="collection-grid-item__title btn btn--secondary no-border">Accessories</h3>
+                                    <h3 class="collection-grid-item__title btn btn--secondary no-border">{{ __('message.home.ass') }}</h3>
                                 </div>
                             </a>
                         </div>
@@ -765,7 +764,7 @@
                             <a href="{{route('home7')}}" class="collection-grid-item__link">
                                 <img data-src="{{ asset('images/collection/shoes.jpg') }}" src="{{ asset('images/collection/shoes.jpg') }}" alt="Shoes" class="blur-up lazyload"/>
                                 <div class="collection-grid-item__title-wrapper">
-                                    <h3 class="collection-grid-item__title btn btn--secondary no-border">Shoes</h3>
+                                    <h3 class="collection-grid-item__title btn btn--secondary no-border">{{ __('message.home.shoes') }}</h3>
                                 </div>
                             </a>
                         </div>
@@ -788,7 +787,7 @@
             	<div class="row">
                 	<div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="section-header text-center">
-                            <h2 class="h2">OUR BRANDS</h2>
+                            <h2 class="h2">{{ __('message.home.pa3') }}</h2>
                         </div>
                 		<div class="logo-bar">
                     <div class="logo-bar__item">
@@ -844,8 +843,8 @@
             	<div class="row">
                 	<div class="col-12 col-sm-12 col-md-12 col-lg-12">
         				<div class="section-header text-center">
-                            <h2 class="h2">Featured collection</h2>
-                            <p>Our most popular products based on sales</p>
+                            <h2 class="h2">{{ __('message.home.pa') }}</h2>
+                            <p>{{ __('message.home.pa1') }}</p>
                         </div>
             		</div>
                 </div>
@@ -864,17 +863,17 @@
                                     <!-- End hover image -->
                                     <!-- product label -->
                                                      @if($product->id==19)
-                                                     <div class="product-labels rounded"><span class="lbl on-sale">-10%</span> <span class="lbl pr-label1">new</span></div>
+                                                     <div class="product-labels rounded"><span class="lbl on-sale">-10%</span> <span class="lbl pr-label1">{{ __('message.home.new') }}</span></div>
                                                      @elseif($product->id==20)
-                                                     <div class="product-labels"><span class="lbl on-sale">Popular</span><span class="lbl pr-label2">-50%</span></div>
+                                                     <div class="product-labels"><span class="lbl on-sale">{{ __('message.home.popular') }}</span><span class="lbl pr-label2">-50%</span></div>
                                                      @elseif($product->id==21)
-                                                     <div class="product-labels rectangular"><span class="lbl pr-label2">Hot</span></div>
+                                                     <div class="product-labels rectangular"><span class="lbl pr-label2">{{ __('message.home.hot') }}</span></div>
                                                      @elseif($product->id==22)
-                                                     <div class="product-labels"><span class="lbl on-sale">Sale</span></div>
+                                                     <div class="product-labels"><span class="lbl on-sale">{{ __('message.home.SALE') }}</span></div>
                                                      @elseif($product->id==25)
-                                                     <div class="product-labels"><span class="lbl pr-label1">Popular</span></div>
+                                                     <div class="product-labels"><span class="lbl pr-label1">{{ __('message.home.popular') }}</span></div>
                                                      @elseif($product->id==26)
-                                                     <div class="product-labels"><span class="lbl on-sale">-30%</span><span class="lbl pr-label2">Hot</span></div>
+                                                     <div class="product-labels"><span class="lbl on-sale">-30%</span><span class="lbl pr-label2">{{ __('message.home.hot') }}</span></div>
                                                      @else
                                                      @endif
                                     <!-- End product label -->
@@ -952,12 +951,12 @@
                                             <button class="btn cartIcon btn-addto-cart" type="button" tabindex="0"><i class="icon anm anm-bag-l"></i></button>
                                         </form>
                                         <div class="wishlist-btn">
-                                            <a class="wishlist add-to-wishlist" href="wishlist.html">
+                                            <a class="wishlist add-to-wishlist" href="{{ route('wishlist') }}">
                                                 <i class="icon anm anm-heart-l"></i>
                                             </a>
                                         </div>
                                         <div class="compare-btn">
-                                            <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
+                                            <a class="compare add-to-compare" href="{{ route('wishlist') }}" title="Add to Compare">
                                                 <i class="icon anm anm-random-r"></i>
                                             </a>
                                         </div>
@@ -968,7 +967,7 @@
                                 <!-- End Variant -->
                                 <!-- End product details -->
                                 <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
-                                <button class="btn btn-addto-cart" type="button" tabindex="0">Add To Cart</button>
+                                <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
                                </form>
                             </div>
                            
@@ -996,7 +995,7 @@
             	<div class="row">
                 	<div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="section-header text-center">
-                            <h2 class="h2">OUR PARTNERS</h2>
+                            <h2 class="h2">{{ __('message.home.part') }}</h2>
                         </div>
                 		<div class="logo-bar">
                     <div class="logo-bar__item">
@@ -1036,7 +1035,7 @@
             	<div class="row">
                 	<div class="col-12 col-sm-12 col-md-12 col-lg-12">
         				<div class="section-header text-center">
-      						<h2 class="h2">Latest From our Blog</h2>
+      						<h2 class="h2">{{ __('message.home.part1') }}</h2>
 					    </div>
             		</div>
                 </div>
@@ -1049,14 +1048,14 @@
                             <div class="article__grid-meta article__grid-meta--has-image">
                                 <div class="wrap-blog-inner">
                                     <h2 class="h3 article__title">
-                                      <a href="blog-left-sidebar.html">It's all about how you wear</a>
+                                      <a href="blog-left-sidebar.html">{{ __('message.home.part2') }}</a>
                                     </h2>
-                                    <span class="article__date">May 02, 2023</span>
+                                    <span class="article__date">{{ __('message.home.part3') }}</span>
                                     <div class="rte article__grid-excerpt">
-                                        I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account...
+                                      {{ __('message.home.part4') }}
                                     </div>
                                     <ul class="list--inline article__meta-buttons">
-                                    	<li><a href="blog-article.html">Read more</a></li>
+                                    	<li><a href="blog-article.html">{{ __('message.home.part5') }}</a></li>
                                     </ul>
                                 </div>
 							</div>

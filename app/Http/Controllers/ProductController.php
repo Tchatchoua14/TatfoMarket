@@ -82,7 +82,7 @@ class ProductController extends Controller
             //    'cat_id' => $request->cat_id,
             ]); 
      
-          return redirect()->route('product.index')->with('success', 'the product has been created');
+          return redirect()->route('product.index')->with('success', 'Le produit a bien été créé');
     }
 
     /**
@@ -153,7 +153,7 @@ class ProductController extends Controller
         // ]);
     
      
-        return redirect()->route('product.index')->with('success', 'the product has been updated');
+        return redirect()->route('product.index')->with('success', 'Le produit a bien été mise à jour');
      
      
     }
@@ -165,7 +165,7 @@ class ProductController extends Controller
     {
         //
         $product->delete(); 
-        return redirect()->route('product.index')->with('success', 'the product has been deleted');
+        return redirect()->route('product.index')->with('success', 'Le produit a bien été suprimé');
      
     }
 

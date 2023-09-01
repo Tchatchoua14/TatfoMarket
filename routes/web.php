@@ -7,8 +7,8 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\LocalizationController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +22,7 @@ use App\Http\Controllers\LocalizationController;
 */
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
+// Profile User
 Route::middleware('auth')->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -36,19 +33,16 @@ require __DIR__.'/auth.php';
 
 //  Home Page
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
-// welcome page
+// Welcome Page
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
 
-// Newsletter
-Route::post('newsletter', [App\Http\Controllers\HomeController::class, 'subscribe'])->name('newsletter');
 
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('user-profile');
 Route::post('/profile/{id}', [App\Http\Controllers\HomeController::class, 'profileUpdate'])->name('user-profile-update');
 
 #Localization Multi-langue
-
-Route::get('/', [LocalizationController::class, 'index']);
-Route::get('/', [LocalizationController::class, 'change'])->name('change');
+Route::get('locale', [LocalizationController::class, 'getLang'])->name('getlang');
+Route::get('locale/{lang}', [LocalizationController::class, 'setLang'])->name('setlang');
 
 
 
@@ -56,70 +50,54 @@ Route::get('/', [LocalizationController::class, 'change'])->name('change');
 # Socialite URLs
 
 // Google
-Route::get('/login/google/', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
-Route::get('/login/google/callback/', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
+Route::get('auth/google', [App\Http\Controllers\Auth\LoginController::class, 'googleRedirect']);
+Route::get('/auth/google/callback', [App\Http\Controllers\Auth\LoginController::class, 'loginWithGoogle']);
+// Route::get('/login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
+// Route::get('/login/google/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
+// <a href="{{ route('login.google') }}" class="google-sign-in mr-2"><i class="fa fa-google"></i>  Sign In with Google</a> &nbsp; | &nbsp;
+
 //Facebook
-Route::get('/login/facebook/', [App\Http\Controllers\Auth\LoginController::class, 'redirectToFacebook'])->name('login.facebook');
-Route::get('/login/facebook/callback/', [App\Http\Controllers\Auth\LoginController::class, 'handleFacebookCallback']);
+Route::get('auth/facebook', [App\Http\Controllers\Auth\LoginController::class, 'facebookRedirect']);
+Route::get('/auth/facebook/callback', [App\Http\Controllers\Auth\LoginController::class, 'loginWithFacebook']);
+// Route::get('/login/facebook/', [App\Http\Controllers\Auth\LoginController::class, 'redirectToFacebook'])->name('login.facebook');
+// Route::get('/login/facebook/callback/', [App\Http\Controllers\Auth\LoginController::class, 'handleFacebookCallback']);
+
+
 //Github
-Route::get('/login/github/', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
-Route::get('/login/github/callback/', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
+// Route::get('auth/github', [App\Http\Controllers\Auth\LoginController::class, 'githubRedirect']);
+// Route::get('/auth/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'loginWithGithub']);
+Route::get('auth/github', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
+Route::get('/auth/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
 
-// Route::get('/', 'HomeController@index')->name('user');
-
-// Profile
-// Route::get('/profile', 'App\Http\Controllers\HomeController@profile')->name('user-profile');
-// Route::post('/profile/{id}', 'App\Http\Controllers\HomeController@profileUpdate')->name('user-profile-update');
-
- 
-    // Profile
-
-    // Category
+// Category
 Route::resource('/category', CategoryController::class);
 
-    // Product
+// Product
 Route::resource('/product', ProductController::class);
-  
 
-// route backend
-// {{route('user.delete',[$user->id])}} 
-// {{ route('user.detroy',$user->id) }} 
-
-
-// profile user
+// Liste des utilisateurs
+Route::get('/user/liste', [UsersController::class, 'index'])->name('liste');
 Route::patch('/user', [UsersController::class, 'create'])->name('user.create');
 Route::get('/user/edit', [UsersController::class, 'edit'])->name('user.edit');
 Route::patch('/user', [UsersController::class, 'update'])->name('user.update');
-Route::get('/user', [UsersController::class, 'destroy'])->name('user.destroy');
-// Liste des utilisateurs
-Route::get('/user/liste', [UsersController::class, 'index'])->name('liste');;
 
 // Backend route
 Route::get('/back/index', [BackController::class, 'index'])->name('index');
-// Route::get('/back/user', [BackController::class, 'listeUser'])->name('listeUser');
-Route::get('/voir', function () {
-    return view('back.user.voir');
-})->name('voir');
-
-Route::get('/back/category', function () {
-    return view('back.category');
-})->name('category');
-Route::get('/back/formcategory', function () {
-    return view('back.formcategory');
-})->name('formcategory');
 
 
 
-
-// Page erroor
+// Page Error
 Route::fallback(function () {
     return view('font.404');
 })->name('404');
 
-// Route Fontend 
+// Route Fontend App
 
 Route::group(['prefix' => '/font'], function () {
-
+    // Newsletter
+    Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
+    Route::get('/newsletter', [NewsletterController::class, 'index'])->name('liste-news');
+    //Liste des souhaits
     Route::get('/wishlist', [HomeController::class, 'wishlist'])->name('wishlist');
     Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
     Route::get('/home2', [HomeController::class, 'home2'])->name('home2');
@@ -148,7 +126,6 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/look1', [HomeController::class, 'look1'])->name('look1');
     Route::get('/produit-drop', [HomeController::class, 'produitdrop'])->name('produit-drop');
     Route::get('/produit-label', [HomeController::class, 'produitLabels'])->name('produit-labels');
-    // Route::get('/produit-layout', [HomeController::class, 'produitLayout'])->name('produit-layout');
     Route::get('/produit-layout', [ProductController::class, 'show'])->name('produit-layout');
     Route::get('/produit-round', [HomeController::class, 'produitRound'])->name('produit-round');
     Route::get('/produit-video', [HomeController::class, 'produitvideo'])->name('produit-video');

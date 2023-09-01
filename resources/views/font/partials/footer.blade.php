@@ -21,14 +21,14 @@
                             <div class="display-table">
                                 <div class="display-table-cell footer-newsletter">
                                     <div class="section-header text-center">
-                                        <label class="h2"><span>sign up for </span>newsletter</label>
+                                        <label class="h2"><span>{{ __('message.home.sub1') }} </span>newsletter</label>
                                     </div>
-                                    <form action="{{ route('newsletter') }}" method="POST">
-                                    @csrf
+                                    <form action="{{ route('newsletter.store') }}" method="POST">
+                                     @csrf
                                         <div class="input-group">
-                                            <input type="email" class="input-group__field newsletter__input" name="email" id="email" value="" placeholder="Email address" required="">
+                                            <input type="email" class="input-group__field newsletter__input" name="email" id="email" value="" placeholder="{{ __('message.home.place') }}" required>
                                             <span class="input-group__btn">
-                                                <button type="submit" class="btn newsletter__submit" name="name" id="Subscribe"><span class="newsletter__submit-text--large">Subscribe</span></button>
+                                                <button type="submit" class="btn newsletter__submit" name="name" id="Subscribe"><span class="newsletter__submit-text--large">{{ __('message.home.subscribe') }}</span></button>
                                             </span>
 
                                         </div>
@@ -58,37 +58,37 @@
             	<div class="footer-top">
                 	<div class="row">
                     	<div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
-                        	<h4 class="h4">Quick Shop</h4>
+                        	<h4 class="h4">{{ __('message.home.su') }}</h4>
                             <ul>
-                            	<li><a href="{{route('home5')}}">Women</a></li>
-                                <li><a href="{{route('home15')}}">Men</a></li>
-                                <li><a href="{{route('home14')}}">Kids</a></li>
-                                <li><a href="{{route('home7')}}">Sportswear</a></li>
-                                <li><a href="{{route('home8')}}">Sale</a></li>
+                            	<li><a href="{{route('home5')}}">{{ __('message.home.women') }}</a></li>
+                                <li><a href="{{route('home15')}}">{{ __('message.home.men') }}</a></li>
+                                <li><a href="{{route('home14')}}">{{ __('message.home.kid') }}</a></li>
+                                <li><a href="{{route('home7')}}">{{ __('message.home.sop') }}</a></li>
+                                <li><a href="{{route('home8')}}">{{ __('message.home.SALE') }}</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
                         	<h4 class="h4">Informations</h4>
                             <ul>
-                            	<li><a href="{{route('about')}}">About us</a></li>
-                                <li><a href="{{route('home5')}}">Careers</a></li>
-                                <li><a href="{{route('FAQ')}}">Privacy policy</a></li>
-                                <li><a href="{{route('Terms')}}">Terms &amp; condition</a></li>
-                                <li><a href="{{route('register')}}">My Account</a></li>
+                            	<li><a href="{{route('about')}}">{{ __('message.home.var7') }}</a></li>
+                                <li><a href="{{route('home5')}}">{{ __('message.home.lo1') }}</a></li>
+                                <li><a href="{{route('FAQ')}}">{{ __('message.home.la12') }}</a></li>
+                                <li><a href="{{route('Terms')}}">{{ __('message.home.la13') }}</a></li>
+                                <li><a href="{{route('register')}}">{{ __('message.home.nav0') }}</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
-                        	<h4 class="h4">Customer Services</h4>
+                        	<h4 class="h4">{{ __('message.home.lo2') }}</h4>
                             <ul>
-                            	<li><a href="{{route('home14')}}">Request Personal Data</a></li>
+                            	<li><a href="{{route('home14')}}">{{ __('message.home.lo3') }}</a></li>
                                 <li><a href="{{route('FAQ')}}">FAQ's</a></li>
-                                <li><a href="{{route('contact')}}">Contact Us</a></li>
-                                <li><a href="{{route('home15')}}">Orders and Returns</a></li>
-                                <li><a href="{{route('home7')}}">Support Center</a></li>
+                                <li><a href="{{route('contact')}}">{{ __('message.home.var7') }}</a></li>
+                                <li><a href="{{route('home15')}}">{{ __('message.home.lo4') }}</a></li>
+                                <li><a href="{{route('home7')}}">{{ __('message.home.lo5') }}</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-sm-12 col-md-3 col-lg-3 contact-box">
-                        	<h4 class="h4">Contact Us</h4>
+                        	<h4 class="h4">{{ __('message.home.var8') }}</h4>
                             <ul class="addressFooter">
                             	<li><i class="icon anm anm-map-marker-al"></i><p>134w. rue grand magasin,<br>Bilongue Entrée bille, Douala-Cameroun</p></li>
                                 <li class="phone"><i class="icon anm anm-phone-s"></i><p>(+237) 691 167 590</p></li>
@@ -103,7 +103,7 @@
                 	<div class="row">
                     	<!--Footer Copyright-->
 	                	<div class="col-12 col-sm-12 col-md-6 col-lg-6 order-1 order-md-0 order-lg-0 order-sm-1 copyright text-sm-center text-md-left text-lg-left"><span>
-                            Copyright © 2023. All rights reserved, designed and developed by <a href="templateshub.net" class="text-primary">VINY ASSOU</a> Developpeur Fullstack</span>
+                           {{ __('message.home.copy') }}<a href="templateshub.net" class="text-primary">VINY ASSOU</a> Developpeur Fullstack</span>
                     </div>
                         <!--End Footer Copyright-->
                         <!--Footer Payment Icon-->
@@ -163,7 +163,7 @@
                                     </span>
                                 </p>
                                 <div class="product-single__description rte">
-                                    Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping experience which can be used for various kinds of stores such as fashion,...
+                                   TatfoMarket  that will give you and your customers a smooth shopping experience which can be used for various kinds of stores such as fashion,...
                                 </div>
                                 
                             <form method="post" action="http://annimexweb.com/cart/add" id="product_form_10508262282" accept-charset="UTF-8" class="product-form product-form-product-template hidedropdown" enctype="multipart/form-data">
@@ -258,12 +258,12 @@
             <div class="newsletter-left">
               <h2>Join Our Mailing List</h2>
               <p>Sign Up for our exclusive email list and be the first to know about new products and special offers</p>
-              <form action="{{ route('newsletter') }}" method="POST">
+              <form action="{{ route('newsletter.store') }}" method="POST">
                   @csrf
                 <div class="input-group">
-                  <input type="email" class="input-group__field newsletter__input" name="EMAIL" value="" placeholder="Email address" required="">
+                  <input type="email" class="input-group__field newsletter__input" name="email" value="" placeholder="{{ __('message.home.place') }}" required>
                       <span class="input-group__btn">
-                      	<button type="submit" class="btn newsletter__submit" name="commit" id="subscribeBtn"> <span class="newsletter__submit-text--large">Subscribe</span> </button>
+                      	<button type="submit" class="btn newsletter__submit" name="commit" id="subscribeBtn"> <span class="newsletter__submit-text--large">{{ __('message.home.subscribe') }}</span> </button>
                       </span>
                   </div>
               </form>

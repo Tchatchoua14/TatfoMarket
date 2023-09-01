@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Hash;
 use App\Models\User;
 use App\Models\Product;
-use App\Models\Newsletter;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -33,7 +32,7 @@ class HomeController extends Controller
     { 
         $products = Product::paginate(20);
         return view('font.welcome')->with('products',$products);
-    }
+    } 
 
     public function index()
     {
@@ -60,15 +59,15 @@ class HomeController extends Controller
         return redirect()->back()->with('message','Utilisateur a bien été bien mis a jour');
     }
 
-    public function subscribe(Request $request)
-    {
-           $NewsLetter = new NewsLetter();
-           $NewsLetter->name= $request->input('name'); 
-           $NewsLetter->email= $request->input('email');
-           $NewsLetter->save();
-           return redirect()->back()->with('status','Thanks for Subscribing! We Will mail You Our Latest Updates');
+    // public function subscribe(Request $request)
+    // {
+    //        $NewsLetter = new NewsLetter();
+    //        $NewsLetter->name= $request->input('name'); 
+    //        $NewsLetter->email= $request->input('email');
+    //        $NewsLetter->save();
+    //        return redirect()->back()->with('status','Thanks for Subscribing! We Will mail You Our Latest Updates');
 
-    }
+    // }
 
     public function wishlist()
     {
