@@ -115,8 +115,8 @@
                                 <li><a href="{{route('home7')}}" class="site-nav">Article</a></li>
                                 <li><a href="#" class="site-nav">{{ __('message.home.var3') }}<i class="anm anm-angle-right-l"></i></a>
                                     <ul class="dropdown">
-                                        <li><a href="{{route('cart1')}}" class="site-nav">{{ __('message.home.var1') }}</a></li>
-                                        <li><a href="{{route('cart')}}" class="site-nav">{{ __('message.home.var2') }}</a></li>
+                                        <li><a href="" class="site-nav">{{ __('message.home.var1') }}</a></li>
+                                        <li><a href="" class="site-nav">{{ __('message.home.var2') }}</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="compare-variant1.html" class="site-nav">{{ __('message.home.compare') }} <i class="anm anm-angle-right-l"></i></a>
@@ -149,9 +149,10 @@
                 <!--Mobile Logo-->
                 <div class="col-4 col-sm-3 col-md-3 col-lg-2">
                 	<div class="site-cart">
-                    	<a href="#;" class="site-header__cart" title="Cart">
+                    	<a href="{{ route('cart.list') }}" class="site-header__cart" title="Cart">
                         	<i class="icon anm anm-bag-l"></i>
                             <span id="CartCount" class="site-header__cart-count" data-cart-render="item_count">2</span>
+                            {{ Cart::getTotalQuantity()}}
                         </a>
                         <!--Minicart Popup-->
                         <div id="header-cart" class="block block-cart">
@@ -210,8 +211,8 @@
                                 	<span class="label">Cart Subtotal:</span><span class="product-price"><span class="money">$748.00</span></span>
                                 </div>
                                  <div class="buttonSet text-center">
-                                    <a href="{{ route('cart') }}" class="btn btn-secondary btn--small">View Cart</a>
-                                    <a href="{{ route('checkout') }}" class="btn btn-secondary btn--small">Checkout</a>
+                                    <a href="" class="btn btn-secondary btn--small">View Cart</a>
+                                    <a href="" class="btn btn-secondary btn--small">Checkout</a>
                                 </div>
                             </div>
                         </div>

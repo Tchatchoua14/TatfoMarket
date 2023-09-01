@@ -7,6 +7,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\LocalizationController;
 
@@ -52,9 +53,6 @@ Route::get('locale/{lang}', [LocalizationController::class, 'setLang'])->name('s
 // Google
 Route::get('auth/google', [App\Http\Controllers\Auth\LoginController::class, 'googleRedirect']);
 Route::get('/auth/google/callback', [App\Http\Controllers\Auth\LoginController::class, 'loginWithGoogle']);
-// Route::get('/login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
-// Route::get('/login/google/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
-// <a href="{{ route('login.google') }}" class="google-sign-in mr-2"><i class="fa fa-google"></i>  Sign In with Google</a> &nbsp; | &nbsp;
 
 //Facebook
 Route::get('auth/facebook', [App\Http\Controllers\Auth\LoginController::class, 'facebookRedirect']);
@@ -64,10 +62,8 @@ Route::get('/auth/facebook/callback', [App\Http\Controllers\Auth\LoginController
 
 
 //Github
-// Route::get('auth/github', [App\Http\Controllers\Auth\LoginController::class, 'githubRedirect']);
-// Route::get('/auth/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'loginWithGithub']);
-Route::get('auth/github', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
-Route::get('/auth/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
+Route::get('auth/github', [App\Http\Controllers\Auth\LoginController::class, 'githubRedirect']);
+Route::get('/auth/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'loginWithGithub']);
 
 // Category
 Route::resource('/category', CategoryController::class);
@@ -117,8 +113,8 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/blog-article', [HomeController::class, 'home15'])->name('blog-article');
     Route::get('/blog-grid', [HomeController::class, 'bloGrid'])->name('blog-grid');
     Route::get('/blog-left', [HomeController::class, 'blogLeft'])->name('blog-left');
-    Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
-    Route::get('/cart1', [HomeController::class, 'cart1'])->name('cart1');
+    // Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
+    // Route::get('/cart1', [HomeController::class, 'cart1'])->name('cart1');
     Route::get('/compare2', [HomeController::class, 'compare2'])->name('compare2');
     Route::get('/compare1', [HomeController::class, 'compare1'])->name('compare1');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
@@ -138,3 +134,14 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/Terms', [HomeController::class, 'Terms'])->name('Terms');
     Route::get('/FAQ', [HomeController::class, 'FAQ'])->name('FAQ');
 });
+
+
+
+// Route::get( '/' , [ProductController::class, 'productList' ])->name( 'products.list' );
+
+// Add-To-Cart 
+Route::get( 'cart' , [CartController::class, 'cartList' ])->name( 'cart.list' );
+Route::post( 'cart' , [CartController::class, 'addToCart' ])->name( 'cart.store' );
+Route::post( 'update-cart' , [CartController::class, 'updateCart' ])->name( 'cart.update' );
+Route::post( 'remove' , [CartController::class, 'removeCart' ])->name( 'cart.remove' );
+Route::post( 'clear' , [CartController::class, 'clearAllCart' ])->name( 'cart.clear' );

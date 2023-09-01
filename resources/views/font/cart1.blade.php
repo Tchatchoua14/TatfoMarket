@@ -4,8 +4,8 @@
 @include('font.partials.header') 
 @include('font.partials.menu')
  <!--Body Content-->
- <div id="page-content">
-    	<!--Page Title-->
+ <div id="page-content" class="mt-5">
+    	<!--Page Title--> 
     	<div class="page section-header text-center">
 			<div class="page-title">
         		<div class="wrapper"><h1 class="page-width">Shopping Cart</h1></div>

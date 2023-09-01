@@ -4,11 +4,18 @@
 @include('font.partials.header') 
 @include('font.partials.menu')
   <!--Body Content-->
-  <div id="page-content" class="mt-5">
+  <div id="page-content" class="mt-5">  
     	<!--Page Title-->
     	<div class="page section-header text-center">
 			<div class="page-title">
-        		<div class="wrapper"><h1 class="page-width">Your cart</h1></div>
+        		<div class="wrapper">
+                    <h1 class="page-width">Your cart</h1>
+                    @if (session('success'))
+                        <h3 class="card-title alert alert-success" role="alert">
+                        {{ session('success') }}
+                        </h3>
+                    @endif
+            </div>
       		</div>
 		</div>
         <!--End Page Title-->
@@ -28,13 +35,14 @@
                                 </tr> 
                             </thead>
                     		<tbody>
+                            @foreach ($cartItems as $item)
                                 <tr class="cart__row border-bottom line1 cart-flex border-top">
                                     <td class="cart__image-wrapper cart-flex-item">
-                                        <a href="#"><img class="cart__image" src="{{ asset('images/product-images/product-image1.jpg') }}" alt="Elastic Waist Dress - Navy / Small"></a>
+                                        <a href="#"><img class="cart__image" src="{{ $item->attributes->image1 }}" alt="Elastic Waist Dress - Navy / Small"></a>
                                     </td>
                                     <td class="cart__meta small--text-left cart-flex-item">
                                         <div class="list-view-item__title">
-                                            <a href="#">Elastic Waist Dress </a>
+                                            <a href="#">{{ $item->title }}</a>
                                         </div>
                                         
                                         <div class="cart__meta-text">
@@ -42,7 +50,7 @@
                                         </div>
                                     </td>
                                     <td class="cart__price-wrapper cart-flex-item">
-                                        <span class="money">$735.00</span>
+                                        <span class="money">${{ $item->price }} FCFA</span>
                                     </td>
                                     <td class="cart__update-wrapper cart-flex-item text-right">
                                         <div class="cart__qty text-center">
@@ -54,66 +62,30 @@
                                         </div>
                                     </td>
                                     <td class="text-right small--hide cart-price">
-                                        <div><span class="money">$735.00</span></div>
+                                        <!-- <div><span class="money">$735.00</span></div> -->
+                                        <form action="{{ route('cart.update') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $item->id}}" >
+                                            <input type="number" name="quantity" value="{{ $item->quantity }}" 
+                                            class="w-6 text-center bg-gray-300" />
+                                            <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500">update</button>
+                                        </form>
                                     </td>
-                                    <td class="text-center small--hide"><a href="#" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>
+                                        <td class="hidden text-right md:table-cell">
+                                            <form action="{{ route('cart.remove') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{ $item->id }}" name="id">
+                                            <button class="px-4 py-2 text-white bg-red-600">x</button>
+                                            </form>
+                                                        
+                                        </td>
+                                    <!-- <td class="text-center small--hide"><a href="#" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td> -->
                                 </tr>
-                                <tr class="cart__row border-bottom line1 cart-flex border-top">
-                                    <td class="cart__image-wrapper cart-flex-item">
-                                        <a href="#"><img class="cart__image" src="{{ asset('images/product-images/product-image3.jpg') }}" alt="3/4 Sleeve Kimono Dress"></a>
-                                    </td>
-                                    <td class="cart__meta small--text-left cart-flex-item">
-                                        <div class="list-view-item__title">
-                                            <a href="#">3/4 Sleeve Kimono Dress</a>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price-wrapper cart-flex-item">
-                                        <span class="money">$735.00</span>
-                                    </td>
-                                    <td class="cart__update-wrapper cart-flex-item text-right">
-                                        <div class="cart__qty text-center">
-                                            <div class="qtyField">
-                                                <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>
-                                                <input class="cart__qty-input qty" type="text" name="updates[]" id="qty" value="1" pattern="[0-9]*">
-                                                <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right small--hide cart-price">
-                                        <div><span class="money">$735.00</span></div>
-                                    </td>
-                                    <td class="text-center small--hide"><a href="#" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>
-                                </tr>
-                                <tr class="cart__row border-bottom line1 cart-flex border-top">
-                                    <td class="cart__image-wrapper cart-flex-item">
-                                        <a href="#"><img class="cart__image" src="{{ asset('images/product-images/product-image6.jpg') }}" alt="Minerva Dress black"></a>
-                                    </td>
-                                    <td class="cart__meta small--text-left cart-flex-item">
-                                        <div class="list-view-item__title">
-                                            <a href="#">Minerva Dress black</a>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price-wrapper cart-flex-item">
-                                        <span class="money">$526.00</span>
-                                    </td>
-                                    <td class="cart__update-wrapper cart-flex-item text-right">
-                                        <div class="cart__qty text-center">
-                                            <div class="qtyField">
-                                                <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>
-                                                <input class="cart__qty-input qty" type="text" name="updates[]" id="qty" value="1" pattern="[0-9]*">
-                                                <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right small--hide cart-price">
-                                        <div><span class="money">$735.00</span></div>
-                                    </td>
-                                    <td class="text-center small--hide"><a href="#" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>
-                                </tr>
+                             @endforeach
                             </tbody>
                     		<tfoot>
                                 <tr>
-                                    <td colspan="3" class="text-left"><a href="index.html" class="btn--link cart-continue"><i class="icon icon-arrow-circle-left"></i> Continue shopping</a></td>
+                                    <td colspan="3" class="text-left"><a href="" class="btn--link cart-continue"><i class="icon icon-arrow-circle-left"></i> Continue shopping</a></td>
                                     <td colspan="3" class="text-right"><button type="submit" name="update" class="btn--link cart-update"><i class="fa fa-refresh"></i> Update</button></td>
                                 </tr>
                             </tfoot>
@@ -381,7 +353,13 @@
                     <div class="solid-border">
                       <div class="row">
                       	<span class="col-12 col-sm-6 cart__subtotal-title"><strong>Subtotal</strong></span>
-                        <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money">$735.00</span></span>
+                        <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money"> Total: ${{ Cart::getTotal() }} FCFA</span></span>
+                      </div>
+                      <div>
+                          <form action="{{ route('cart.clear') }}" method="POST">
+                            @csrf
+                            <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
+                          </form>
                       </div>
                       <div class="cart__shipping">Shipping &amp; taxes calculated at checkout</div>
                       <p class="cart_tearm">

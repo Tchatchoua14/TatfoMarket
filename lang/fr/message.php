@@ -89,7 +89,7 @@ return [
             'var3' => 'Page du panier',
             'var4' => 'Vue en grille',
             'var5' => 'PARAMèTRES',
-            'var7' => 'A-propos de nous',
+            'var7' => 'À propos de nous',
             'var8' => 'Contactez-nous',
             'checkout' => 'Vérifier',
             'panier' => 'Voir le panier',

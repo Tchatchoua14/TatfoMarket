@@ -225,15 +225,15 @@ class HomeController extends Controller
         return view('font.look1');
     }
 
-    public function cart()
-    {
-        return view('font.cart');
-    }
+    // public function cart()
+    // {
+    //     return view('font.cart');
+    // }
 
-    public function cart1()
-    {
-        return view('font.cart1');
-    }
+    // public function cart1()
+    // {
+    //     return view('font.cart1');
+    // }
 
     public function collection()
     {

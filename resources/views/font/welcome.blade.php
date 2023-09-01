@@ -120,8 +120,8 @@
                                 <li><a href="{{route('home7')}}" class="site-nav">Article</a></li>
                                 <li><a href="#" class="site-nav">{{ __('message.home.var3') }}<i class="anm anm-angle-right-l"></i></a>
                                     <ul class="dropdown">
-                                        <li><a href="{{route('cart1')}}" class="site-nav">{{ __('message.home.var1') }}</a></li>
-                                        <li><a href="{{route('cart')}}" class="site-nav">{{ __('message.home.var2') }}</a></li>
+                                        <li><a href="" class="site-nav">{{ __('message.home.var1') }}</a></li>
+                                        <li><a href="" class="site-nav">{{ __('message.home.var2') }}</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="compare-variant1.html" class="site-nav">{{ __('message.home.compare') }} <i class="anm anm-angle-right-l"></i></a>
@@ -215,8 +215,8 @@
                                 	<span class="label">Cart Subtotal:</span><span class="product-price"><span class="money">$748.00</span></span>
                                 </div>
                                  <div class="buttonSet text-center">
-                                    <a href="{{ route('cart') }}" class="btn btn-secondary btn--small">{{ __('message.home.panier') }}</a>
-                                    <a href="{{ route('checkout') }}" class="btn btn-secondary btn--small">{{ __('message.home.checkout') }}</a>
+                                    <a href="" class="btn btn-secondary btn--small">{{ __('message.home.panier') }}</a>
+                                    <a href="" class="btn btn-secondary btn--small">{{ __('message.home.checkout') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -323,7 +323,7 @@
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->
-                                                <form class="variants add" action="{{ route('cart') }}" onclick="window.location.href='cart.html'"method="post">
+                                                <form class="variants add" action="" onclick="window.location.href='cart.html'"method="post">
                                                     <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
                                                 </form>
                                                 <div class="button-set">
@@ -493,7 +493,7 @@
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->
-                                                <form class="variants add" action="{{ route('cart') }}" onclick="window.location.href='cart.html'"method="post">
+                                                <form class="variants add" action="" onclick="window.location.href='cart.html'"method="post">
                                                     <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
                                                 </form>
                                                 <div class="button-set">
@@ -623,7 +623,7 @@
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->
-                                                <form class="variants add" action="{{ route('cart') }}" onclick="window.location.href='cart.html'"method="post">
+                                                <form class="variants add" action="" onclick="window.location.href='cart.html'"method="post">
                                                     <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
                                                 </form>
                                                 <div class="button-set">
@@ -951,12 +951,12 @@
                                             <button class="btn cartIcon btn-addto-cart" type="button" tabindex="0"><i class="icon anm anm-bag-l"></i></button>
                                         </form>
                                         <div class="wishlist-btn">
-                                            <a class="wishlist add-to-wishlist" href="{{ route('wishlist') }}">
+                                            <a class="wishlist add-to-wishlist" href="">
                                                 <i class="icon anm anm-heart-l"></i>
                                             </a>
                                         </div>
                                         <div class="compare-btn">
-                                            <a class="compare add-to-compare" href="{{ route('wishlist') }}" title="Add to Compare">
+                                            <a class="compare add-to-compare" href="" title="Add to Compare">
                                                 <i class="icon anm anm-random-r"></i>
                                             </a>
                                         </div>

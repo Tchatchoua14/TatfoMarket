@@ -43,7 +43,7 @@
 
                                                          
                                                         <li><a href="{{route('profile.edit')}}" class="site-nav">{{ __('message.home.profile') }}</a></li>
-                                                         <li><a href="" class="site-nav">{{ __('message.home.order') }}</a></li>
+                                                        <li><a href="" class="site-nav">{{ __('message.home.order') }}</a></li>
                                                         <li><a href="" class="site-nav">{{ __('message.home.transaction') }}</a></li>
                                                         <li><a href="{{ route('logout') }}" class="text-uppercase" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('message.home.logout') }}</a>
                                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -120,8 +120,8 @@
                                 <li><a href="{{route('home7')}}" class="site-nav">Article</a></li>
                                 <li><a href="#" class="site-nav">{{ __('message.home.var3') }}<i class="anm anm-angle-right-l"></i></a>
                                     <ul class="dropdown">
-                                        <li><a href="{{route('cart1')}}" class="site-nav">{{ __('message.home.var1') }}</a></li>
-                                        <li><a href="{{route('cart')}}" class="site-nav">{{ __('message.home.var2') }}</a></li>
+                                        <li><a href="" class="site-nav">{{ __('message.home.var1') }}</a></li>
+                                        <li><a href="" class="site-nav">{{ __('message.home.var2') }}</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="compare-variant1.html" class="site-nav">{{ __('message.home.compare') }} <i class="anm anm-angle-right-l"></i></a>
@@ -215,8 +215,8 @@
                                 	<span class="label">Cart Subtotal:</span><span class="product-price"><span class="money">$748.00</span></span>
                                 </div>
                                  <div class="buttonSet text-center">
-                                    <a href="{{ route('cart') }}" class="btn btn-secondary btn--small">{{ __('message.home.panier') }}</a>
-                                    <a href="{{ route('checkout') }}" class="btn btn-secondary btn--small">{{ __('message.home.checkout') }}</a>
+                                    <a href="" class="btn btn-secondary btn--small">{{ __('message.home.panier') }}</a>
+                                    <a href="" class="btn btn-secondary btn--small">{{ __('message.home.checkout') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -323,9 +323,22 @@
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->
-                                                <form class="variants add" action="{{ route('cart') }}" onclick="window.location.href='cart.html'"method="post">
+                                                <!-- <form class="variants add" action="" onclick="window.location.href='cart.html'"method="post">
                                                     <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
-                                                </form>
+                                                </form> -->
+                                                <!-- test -->
+                                                <form  class="variants add" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $product->id }}" name="id">
+                                                            <input type="hidden" value="{{ $product->title }}" name="title">
+                                                            <input type="hidden" value="{{ $product->price }}" name="price">
+                                                            <input type="hidden" value="{{ $product->image1 }}"  name="image1">
+                                                            <input type="hidden" value="1" name="quantity">
+                                                            <button class="btn btn-addto-cart" tabindex="0" type="submit">Add To Cart</button>
+                                                 </form>
+
+
+                                                <!-- test -->
                                                 <div class="button-set">
                                                     <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
                                                         <i class="icon anm anm-search-plus-r"></i>
@@ -493,9 +506,18 @@
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->
-                                                <form class="variants add" action="{{ route('cart') }}" onclick="window.location.href='cart.html'"method="post">
+                                                <!-- <form class="variants add" action="" onclick="window.location.href='cart.html'"method="post">
                                                     <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
-                                                </form>
+                                                </form> -->
+                                                <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{ $product->id }}" name="id">
+                        <input type="hidden" value="{{ $product->title }}" name="title">
+                        <input type="hidden" value="{{ $product->price }}" name="price">
+                        <input type="hidden" value="{{ $product->image1 }}"  name="image1">
+                        <input type="hidden" value="1" name="quantity">
+                        <button class="px-4 py-2 text-white bg-blue-800 rounded">Add To Cart</button>
+                    </form>
                                                 <div class="button-set">
                                                     <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
                                                         <i class="icon anm anm-search-plus-r"></i>
@@ -623,7 +645,7 @@
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->
-                                                <form class="variants add" action="{{ route('cart') }}" onclick="window.location.href='cart.html'"method="post">
+                                                <form class="variants add" action="" onclick="window.location.href='cart.html'"method="post">
                                                     <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
                                                 </form>
                                                 <div class="button-set">

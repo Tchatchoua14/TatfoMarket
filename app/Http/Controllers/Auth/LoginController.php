@@ -74,18 +74,18 @@ class LoginController extends Controller
       
   }
     
-    public function _registerOrLoginUser($data){
-        $user = User::where('email',$data->email)->first();
-          if(!$user){
-             $user = new User();
-             $user->name = $data->name;
-             $user->email = $data->email;
-             $user->provider_id = $data->id;
-             $user->provider = $data->provider;
-             $user->save();
-          }
-        Auth::login($user);
-        }
+    // public function _registerOrLoginUser($data){
+    //     $user = User::where('email',$data->email)->first();
+    //       if(!$user){
+    //          $user = new User();
+    //          $user->name = $data->name;
+    //          $user->email = $data->email;
+    //          $user->provider_id = $data->id;
+    //          $user->provider = $data->provider;
+    //          $user->save();
+    //       }
+    //     Auth::login($user);
+    //     }
         
 
     //Google Login
@@ -153,50 +153,50 @@ class LoginController extends Controller
 
     
     // Github Login
-    public function redirectToGithub(){
-    return Socialite::driver('github')->redirect();
-    }
+    // public function redirectToGithub(){
+    // return Socialite::driver('github')->redirect();
+    // }
     
-    // github callback  
-    public function handleGithubCallback(){
+    // // github callback  
+    // public function handleGithubCallback(){
      
-    $user = Socialite::driver('github')->user();
+    // $user = Socialite::driver('github')->user();
     
-      $this->_registerorLoginUser($user);
-      return redirect()->route('home');
-    }
+    //   $this->_registerorLoginUser($user);
+    //   return redirect()->route('home');
+    // }
 
-  //   public function githubRedirect(){
-  //     return Socialite::driver('github')->redirect();
-  // }
+    public function githubRedirect(){
+      return Socialite::driver('github')->redirect();
+  }
 
-  // public function loginWithGithub()
-  // {
-  //     try {
-  //         $user = Socialite::driver('github')->user();
-  //         $isUser = User::where('provider_id', $user->id)->first();
+  public function loginWithGithub()
+  {
+      try {
+          $user = Socialite::driver('github')->user();
+          $isUser = User::where('provider_id', $user->id)->first();
 
-  //         if($isUser){
-  //           Auth::login($isUser);
-  //           return redirect('/home');
-  //         }else{
-  //           $createUser = User::create([
-  //             'name' => $user->name,
-  //             'email' => $user->email,
-  //             'provider_id' => $user->id,
-  //             'password' => encrypt('admin@124')
-  //           ]);
+          if($isUser){
+            Auth::login($isUser);
+            return redirect('/home');
+          }else{
+            $createUser = User::create([
+              'name' => $user->name,
+              'email' => $user->email,
+              'provider_id' => $user->id,
+              'password' => encrypt('admin@124')
+            ]);
             
-  //           Auth::login($createUser);
-  //           return redirect()->route('home');
-  //         }
+            Auth::login($createUser);
+            return redirect()->route('home');
+          }
 
-  //     }catch(Exception $exception) {
-  //     dd($exception->getMessage());
-  //   }
+      }catch(Exception $exception) {
+      dd($exception->getMessage());
+    }
 
       
-  // }
+  }
  
 }
 
