@@ -9,9 +9,9 @@
         		<div class="wrapper">
                     <h1 class="page-width">My Profile</h1>
                     @if (session('success'))
-                        <h3 class="card-title alert alert-success" role="alert">
-                        {{ session('success') }}
-                        </h3>
+                        <h3 class="card-title alert alert-success text-uppercase" role="alert">
+                        <i class="icon anm anm-truck-l icon-large"></i> &nbsp;<strong>Congratulations!</strong> {{ session('success') }} 
+                        </h3> 
                     @endif
             </div>
       		</div>

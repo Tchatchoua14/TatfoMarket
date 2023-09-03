@@ -103,7 +103,7 @@
                 	<div class="row">
                     	<!--Footer Copyright-->
 	                	<div class="col-12 col-sm-12 col-md-6 col-lg-6 order-1 order-md-0 order-lg-0 order-sm-1 copyright text-sm-center text-md-left text-lg-left"><span>
-                           {{ __('message.home.copy') }}<a href="templateshub.net" class="text-primary">VINY ASSOU</a> Developpeur Fullstack</span>
+                           {{ __('message.home.copy') }}<a href="templateshub.net" class="text-primary"> VINY ASSOU</a> Developpeur Fullstack</span>
                     </div>
                         <!--End Footer Copyright-->
                         <!--Footer Payment Icon-->
@@ -256,8 +256,8 @@
           <div class="display-table-cell width40"><img src="{{ asset('images/newsletter-img.jpg') }}" alt="Join Our Mailing List" title="Join Our Mailing List" /> </div>
           <div class="display-table-cell width60 text-center">
             <div class="newsletter-left">
-              <h2>Join Our Mailing List</h2>
-              <p>Sign Up for our exclusive email list and be the first to know about new products and special offers</p>
+              <h2>{{ __('message.home.p00') }}</h2>
+              <p>{{ __('message.home.p01') }}</p>
               <form action="{{ route('newsletter.store') }}" method="POST">
                   @csrf
                 <div class="input-group">

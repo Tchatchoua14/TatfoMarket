@@ -5,23 +5,13 @@ namespace App\Http\Controllers;
 use Hash;
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Cart; 
 
 class HomeController extends Controller
 {
-    //
-   
-        // public function welcome()
-        // {
-        //     $products = Product::inRandomOrder()->take(6)->get();
-        //     $hotProducts = Product::inRandomOrder()->take(3)->get();
-        //     return view('welcome')->with([
-        //         'products'=> $products,
-        //         'hotProducts' => $hotProducts
-        //     ]);
-        // }
- 
-
+    
     // public function __construct()
     // {
     //     $this->middleware('auth');
@@ -35,12 +25,12 @@ class HomeController extends Controller
     } 
 
     public function index()
-    {
+    {   $cartItems = \Cart::getContent();
         $products = Product::find([4,5,6,7,8]);
         $product1 = Product::find([9,10,11,12,13]);
         $product2 = Product::find([14,15,16,17,18]);
         $product3 = Product::find([19,20,21,22,25,26]);
-        return view('font.index')->with('products',$products)->with('product1',$product1)->with('product2',$product2)->with('product3',$product3);
+        return view('font.index')->with('products',$products)->with('product1',$product1)->with('product2',$product2)->with('product3',$product3)->with('cartItems',$cartItems);
     }
 
     public function profile(){
@@ -57,31 +47,30 @@ class HomeController extends Controller
         $user->fill($data)->save();
     
         return redirect()->back()->with('message','Utilisateur a bien été bien mis a jour');
+    } 
+
+    public function Search(Request $request){
+        $key = trim($request->get('q'));
+        $categories = Category::all();
+        $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(5)->get();
+        $products=Product::orwhere('name', 'like', "%{$key}%")
+                    ->orwhere('slug', 'like', "%{$key}%")
+                    ->orwhere('description', 'like', "%{$key}%")
+                    ->orwhere('color', 'like', "%{$key}%")
+                    ->orwhere('price', 'like', "%{$key}%")
+                    ->orwhere('priceReduction', 'like', "%{$key}%")
+                    ->orwhere('size', 'like', "%{$key}%")
+                    ->orwhere('created_at', 'desc')
+                    ->orderBy('id','DESC')
+                    ->get(); 
+        return view('font.search', ['key' => $key,])->with('products',$products)->with('recent_products',$recent_products)->with('categories',$categories);
     }
-
-    // public function subscribe(Request $request)
-    // {
-    //        $NewsLetter = new NewsLetter();
-    //        $NewsLetter->name= $request->input('name'); 
-    //        $NewsLetter->email= $request->input('email');
-    //        $NewsLetter->save();
-    //        return redirect()->back()->with('status','Thanks for Subscribing! We Will mail You Our Latest Updates');
-
-    // }
-
-    public function wishlist()
-    {
-        return view('font.wishlist');
-    }
+  
 
     public function checkout()
-    {
-        return view('font.checkout');
-    }
-
-    public function home1()
-    {
-        return view('font.home1');
+    {   
+        $cartItems = \Cart::getContent();
+        return view('font.checkout', compact('cartItems'));
     }
 
     public function home2()
@@ -155,11 +144,6 @@ class HomeController extends Controller
         return view('font.Terms');
     }
 
-    public function shop1()
-    {
-        return view('font.shop1');
-    }
-
     public function shop()
     {
         return view('font.shop');
@@ -224,16 +208,6 @@ class HomeController extends Controller
     {
         return view('font.look1');
     }
-
-    // public function cart()
-    // {
-    //     return view('font.cart');
-    // }
-
-    // public function cart1()
-    // {
-    //     return view('font.cart1');
-    // }
 
     public function collection()
     {

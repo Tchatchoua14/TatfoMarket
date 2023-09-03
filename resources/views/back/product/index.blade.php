@@ -40,8 +40,8 @@
             @if (session('success'))
             <div class="card">
               <div class="card-header">
-              <h3 class="card-title alert alert-success" role="alert">
-               {{ session('success') }}
+              <h3 class="card-title alert alert-success text-uppercase" role="alert">
+            	<i class="icon anm anm-truck-l icon-large"></i> &nbsp;<strong>Congratulations!</strong> {{ session('success') }}
               </h3>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
@@ -69,7 +69,7 @@
                     <thead>
                     <tr>
                       <th class="text-center">ID</th>
-                      <th class="text-center">Titre</th>
+                      <th class="text-center">Nom</th>
                       <th class="text-center">Image</th>
                       <th class="text-center">Categorie</th>
                       <th class="text-center">Prix</th>
@@ -84,7 +84,7 @@
                     <tfoot> 
                     <tr>
                       <th class="text-center">ID</th>
-                      <th class="text-center">Titre</th>
+                      <th class="text-center">Nom</th>
                       <th class="text-center">Image</th>
                       <th class="text-center">Categorie</th>
                       <th class="text-center">Prix</th>
@@ -100,11 +100,11 @@
                     @foreach($products as $product)
                     <tr>
                       <td class="text-center">{{ $product->id }}</td>
-                      <td class="text-center text-capitalize">{{ $product->title }}</td>
+                      <td class="text-center text-capitalize">{{ $product->name }}</td>
                       <td class="text-center"> 
                       <img src="{{ asset('/images/product-images/'.$product->image1) }}"alt="{{$product->image1}}" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />     
                       </td>
-                      <td class="text-center">{{ $product->cat_id }}</td>
+                      <td class="text-center">{{ $product->cat_id}}</td>
                       <td class="text-center">{{ $product->price }}</td>
                       <td class="text-center">{{ $product->priceReduction }}</td>
                       <td class="text-center">

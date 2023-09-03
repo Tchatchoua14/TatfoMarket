@@ -10,24 +10,28 @@ use Cart;
 class CartController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
     public function cartList () 
     { 
-       $cartItems = Cart::getContent();
+       $cartItems = \Cart::getContent();
        // dd($cartItems);
-       return view('font.cart', compact('cartItems'));
+       return view('font.cart', compact('cartItems')); 
    }
 
 
    public function addToCart(Request $request)
    {
-       Cart::add([
+        \Cart::add([
            'id' => $request->id,
            'name' => $request->name,
            'price' => $request->price,
            'quantity' => $request->quantity,
            'attributes' => array(
-               'image' => $request->image,
+               'image1' => $request->image1,
            )
        ]);
        session()->flash('success', 'Product is Added to Cart Successfully !');
@@ -35,7 +39,7 @@ class CartController extends Controller
        return redirect()->route('cart.list');
    }
 
-//    public function store(Request $request)
+//    public function store(Request $request) 
 // {
 //     $product = Product::findOrFail($request->id);
       
@@ -53,7 +57,7 @@ class CartController extends Controller
 
    public function updateCart(Request $request)
    {
-        Cart::update(
+        \Cart::update(
             $request->id,
             [
                 'quantity' => [
@@ -70,7 +74,7 @@ class CartController extends Controller
 
    public function removeCart(Request $request)
    {
-       Cart::remove($request->id);
+      \Cart::remove($request->id);
        session()->flash('success', 'Item Cart Remove Successfully !');
 
        return redirect()->route('cart.list');
@@ -78,7 +82,7 @@ class CartController extends Controller
 
    public function clearAllCart()
    {
-       Cart::clear();
+      \Cart::clear();
 
        session()->flash('success', 'All Item Cart Clear Successfully !');
 

@@ -65,15 +65,15 @@
                   @csrf 
                   <div class="form-group">
                     <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
-                    <input id="inputTitle" type="text" name="title" placeholder="Enter title" class="form-control">
-                    @error('title')
+                    <input id="inputTitle" type="text" name="name" placeholder="Enter name" class="form-control" value="{{old('name')}}">
+                    @error('name')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
                   </div>
 
                   <div class="form-group">
                     <label for="description" class="col-form-label">Description</label>
-                    <textarea class="form-control" id="description" name="description"></textarea>
+                    <textarea class="form-control" id="description" name="description">{{old('description')}}</textarea>
                     @error('description')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
@@ -87,7 +87,7 @@
                             <i class="fas fa-image"></i> Choisir une image 
                             </a>
                         </span>
-                        <input id="image1" type="file" class="form-control @error('image1') is-invalid @enderror" name="image1" value="{{ old('image1') }}" autofocus>
+                        <input id="image1" type="text" class="form-control @error('image1') is-invalid @enderror" name="image1" value="{{ old('image1') }}" autofocus>
                   
                    </div>
                   <div id="holder" style="margin-top:15px;max-height:100px;"></div>
@@ -104,7 +104,7 @@
                             <i class="fas fa-image"></i> Choisir une image 
                             </a>
                         </span>
-                    <input id="image2" type="file" class="form-control @error('image2') is-invalid @enderror" name="image2" value="{{ old('image2') }}" autofocus>
+                    <input id="image2" type="text" class="form-control @error('image2') is-invalid @enderror" name="image2" value="{{ old('image2') }}" autofocus>
                    </div>
                   <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                     @error('image2')
@@ -112,9 +112,21 @@
                     @enderror
                   </div>
 
+                  {{-- {{$categories}} --}}
+
+                  <div class="form-group">
+                    <label for="cat_id">Catégorie <span class="text-danger">*</span></label>
+                    <select name="cat_id" id="cat_id" class="form-control">
+                        <option value="">--Select any category--</option>
+                        @foreach($categories as $key=>$cat_data)
+                            <option value='{{$cat_data->id}}'>{{$cat_data->name}}</option>
+                        @endforeach
+                    </select>
+                  </div>
+
                   <div class="form-group">
                     <label for="stock">Quantité <span class="text-danger">*</span></label>
-                    <input id="stock" type="number" name="stock" min="0" placeholder="Entrez un stock"   class="form-control">
+                    <input id="stock" type="number" name="stock" min="1" placeholder="Entrez un stock"   class="form-control">
                     @error('stock')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
@@ -175,7 +187,7 @@
 
                   <div class="form-group">
                     <label for="price" class="col-form-label">Prix <span class="text-danger">*</span></label>
-                    <input id="price" type="number" name="price" placeholder="Enter price" class="form-control">
+                    <input id="price" type="number" name="price" min="500" placeholder="Enter price" class="form-control">
                     @error('price')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
@@ -183,7 +195,7 @@
 
                   <div class="form-group">
                     <label for="priceReduction" class="col-form-label">Prix de réduction</label>
-                    <input id="priceReduction" type="number" name="priceReduction" placeholder="Enter price" class="form-control">
+                    <input id="priceReduction" type="number" min="500" name="priceReduction" placeholder="Enter price" class="form-control">
                     @error('priceReduction')
                     <span class="text-danger">{{$message}}</span>
                     @enderror

@@ -26,12 +26,8 @@
                          
                          <li><a href="{{route('profile.edit')}}"><span class="text-lowercase mr-1">{{ Auth::user()->email }}</span></a></li>
                          @endif
-                        <!-- <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('Logout') }}</a>
-                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                        </li> -->
-                          <li><a href="{{ route('wishlist') }}"><i class="fa fa-heart" style="margin-top: -2px; margin-right: 1px;"></i>{{ __('message.home.titre3') }}</a></li>
+
+                          <li><a href="{{ route('wishlist') }}"><i class="fa fa-heart mr-1" style="margin-top: -2px; margin-right: 1px;"></i>{{ __('message.home.titre3') }}</a></li>
                           @endauth
                           @guest()
                           <li> <a href="{{ route('login') }}"><span class="icon-lock mr-1"></span>{{ __('Login') }}</a> </li> 

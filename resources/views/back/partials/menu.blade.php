@@ -14,14 +14,14 @@
           <!-- <img src="{{ asset('dist/img/IMG_0013.jpg') }}" class="img-circle elevation-2" alt="User Image"> -->
           <img src="{{ asset('/images/faces/'.Auth::user()->photo) }}"alt="" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />
         </div>
-        <div class="info">
+        <div class="info mt-2">
          @if (Route::has('login'))
            @auth 
            @if (Auth::user()->role=="admin") 
           <div class="d-block text-white"><span class="text-uppercase mr-1">{{ Auth::user()->name }}</span><i class="fa fa-circle text-success" style="font-size:10px;"></i> <span style="font-size:12px;">en ligne</span></div>
           @endif
           @endauth
-        @endif
+          @endif
         </div>
       </div>
       <!-- SidebarSearch Form -->

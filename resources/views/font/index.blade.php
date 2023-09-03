@@ -4,7 +4,8 @@
 <!--Search Form Drawer-->
 <div class="search">
         <div class="search__form">
-            <form class="search-bar__form" action="#">
+            <form class="search-bar__form" action="{{route('search')}}">
+                @csrf
                 <button class="go-btn search__button" type="submit"><i class="icon anm anm-search-l"></i></button>
                 <input class="search__input" type="search" name="q" value="" placeholder="Search entire store..." aria-label="Search" autocomplete="off">
             </form>
@@ -156,67 +157,50 @@
                 	<div class="site-cart">
                     	<a href="#;" class="site-header__cart" title="Cart">
                         	<i class="icon anm anm-bag-l"></i>
-                            <span id="CartCount" class="site-header__cart-count" data-cart-render="item_count">2</span>
+                            <span id="CartCount" class="site-header__cart-count" data-cart-render="item_count">{{ Cart::getTotalQuantity() }}</span>
                         </a>
                         <!--Minicart Popup-->
                         <div id="header-cart" class="block block-cart">
                         	<ul class="mini-products-list">
+                            @foreach ($cartItems as $item)
                                 <li class="item">
                                 	<a class="product-image" href="#">
-                                    	<img src="{{ asset('images/product-images/cape-dress-1.jpg') }}" alt="3/4 Sleeve Kimono Dress" title="" />
+                                    	<img src="{{ asset('/images/product-images/'.$item->attributes->image1) }}" alt="{{ $item->name }}" title="{{ $item->name }}" />
                                     </a>
                                     <div class="product-details">
-                                    	<a href="#" class="remove"><i class="anm anm-times-l" aria-hidden="true"></i></a>
-                                        <a href="#" class="edit-i remove"><i class="anm anm-edit" aria-hidden="true"></i></a>
-                                        <a class="pName" href="cart.html">Sleeve Kimono Dress</a>
-                                        <div class="variant-cart">Black / XL</div>
+                                         <form action="{{ route('cart.remove') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{ $item->id }}" name="id">
+                                            <button class="remove" style="border:none;"><i class="anm anm-times-l" aria-hidden="true"></i></button>
+                                            </form>
+                                        <!-- <a href="#" class="edit-i remove"><i class="anm anm-edit" aria-hidden="true"></i></a> -->
+                                        <a class="pName" href="#">{{ $item->name }}</a>
+                                      
+                                        <div class="variant-cart"> BLACK / XL</div>
+                                        <div class="variant-cart">{{ $item->price }}</div>
+                    
                                         <div class="wrapQtyBtn">
                                             <div class="qtyField">
                                             	<span class="label">Qty:</span>
-                                                <a class="qtyBtn minus" href="javascript:void(0);"><i class="fa anm anm-minus-r" aria-hidden="true"></i></a>
-                                                <input type="text" id="Quantity" name="quantity" value="1" class="product-form__input qty">
-                                                <a class="qtyBtn plus" href="javascript:void(0);"><i class="fa anm anm-plus-r" aria-hidden="true"></i></a>
+                                                <form action="{{ route('cart.update') }}" method="POST" class="justify-content-around">
+                                                        @csrf
+                                                <input type="hidden" name="id" value="{{ $item->id}}" >
+                                                <input type="number" name="quantity" value="{{ $item->quantity }}" class="px-1" style="width:80px;" />   
+                                                <button type="submit" name="update" class=""><i class="fa fa-refresh"></i></button>
+                                                </form>
                                             </div>
                                         </div>
-                                        <div class="priceRow">
-                                        	<div class="product-price">
-                                            	<span class="money">$59.00</span>
-                                            </div>
-                                         </div>
 									</div>
                                 </li>
-                                <li class="item">
-                                	<a class="product-image" href="#">
-                                    	<img src="{{ asset('images/product-images/cape-dress-2.jpg') }}" alt="Elastic Waist Dress - Black / Small" title="" />
-                                    </a>
-                                    <div class="product-details">
-                                    	<a href="#" class="remove"><i class="anm anm-times-l" aria-hidden="true"></i></a>
-                                        <a href="#" class="edit-i remove"><i class="anm anm-edit" aria-hidden="true"></i></a>
-                                        <a class="pName" href="cart.html">Elastic Waist Dress</a>
-                                        <div class="variant-cart">Gray / XXL</div>
-                                        <div class="wrapQtyBtn">
-                                            <div class="qtyField">
-                                            	<span class="label">Qty:</span>
-                                                <a class="qtyBtn minus" href="javascript:void(0);"><i class="fa anm anm-minus-r" aria-hidden="true"></i></a>
-                                                <input type="text" id="Quantity" name="quantity" value="1" class="product-form__input qty">
-                                                <a class="qtyBtn plus" href="javascript:void(0);"><i class="fa anm anm-plus-r" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                       	<div class="priceRow">
-                                            <div class="product-price">
-                                                <span class="money">$99.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                            @endforeach
                             </ul>
                             <div class="total">
                             	<div class="total-in">
-                                	<span class="label">Cart Subtotal:</span><span class="product-price"><span class="money">$748.00</span></span>
+                                	<span class="label">Cart Subtotal:</span><span class="product-price"><span class="money">{{ Cart::getSubTotal() }} FCFA</span></span>
                                 </div>
                                  <div class="buttonSet text-center">
-                                    <a href="" class="btn btn-secondary btn--small">{{ __('message.home.panier') }}</a>
-                                    <a href="" class="btn btn-secondary btn--small">{{ __('message.home.checkout') }}</a>
+                                    <a href="{{ route('cart.list') }}" class="btn btn-secondary btn--small">View Cart</a>
+                                    <a href="{{ route('checkout') }}" class="btn btn-secondary btn--small">Checkout</a>
                                 </div>
                             </div>
                         </div>
@@ -319,26 +303,21 @@
                                                 <!-- end product image -->
                                                 
                                                 <!-- countdown start -->
-                                        		<div class="saleTime desktop" data-countdown="{{ $product->updated_at->format('d/m/Y')}}"> </div>
+                                        		<div class="saleTime desktop" data-countdown="{{ $product->updated_at->format('D H:i:s')}}">{{ $product->updated_at->format('D H:i:s')}}</div>
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->
-                                                <!-- <form class="variants add" action="" onclick="window.location.href='cart.html'"method="post">
-                                                    <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
-                                                </form> -->
-                                                <!-- test -->
+                                             
                                                 <form  class="variants add" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
                                                             <input type="hidden" value="{{ $product->id }}" name="id">
-                                                            <input type="hidden" value="{{ $product->title }}" name="title">
+                                                            <input type="hidden" value="{{ $product->name }}" name="name">
                                                             <input type="hidden" value="{{ $product->price }}" name="price">
                                                             <input type="hidden" value="{{ $product->image1 }}"  name="image1">
                                                             <input type="hidden" value="1" name="quantity">
-                                                            <button class="btn btn-addto-cart" tabindex="0" type="submit">Add To Cart</button>
+                                                            <button class="btn btn-addto-cart" tabindex="0" type="submit">{{ __('message.home.panier1') }}</button>
                                                  </form>
-
-
-                                                <!-- test -->
+ 
                                                 <div class="button-set">
                                                     <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
                                                         <i class="icon anm anm-search-plus-r"></i>
@@ -361,7 +340,7 @@
                                             <div class="product-details text-center">
                                                 <!-- product name -->
                                                 <div class="product-name">
-                                                    <a href="short-description.html">{{$product->title}}</a>
+                                                    <a href="short-description.html">{{$product->name}}</a>
                                                 </div>
                                                 <!-- End product name -->
                                                 <!-- product price -->
@@ -372,48 +351,48 @@
                                                 <!-- End product price -->
                                                 
                                                 <div class="product-review">
-                                               
-                                       @if($product->id==4)
-                                                    <i class="font-13 fa fa-star"></i>
-                                                    <i class="font-13 fa fa-star"></i>
-                                                    <i class="font-13 fa fa-star"></i>
-                                                <i class="font-13 fa fa-star-o"></i>
-                                                <i class="font-13 fa fa-star-o"></i>
-                                        
-                                        @elseif($product->id==5)
-                                        <i class="font-13 fa fa-star"></i>
-                                                    <i class="font-13 fa fa-star"></i>
-                                                    <i class="font-13 fa fa-star"></i>
-                                                <i class="font-13 fa fa-star"></i>
-                                                <i class="font-13 fa fa-star"></i>
-                                            @elseif($product->id==6)
-                                            <i class="font-13 fa fa-star"></i>
-                                                    <i class="font-13 fa fa-star"></i>
-                                                    <i class="font-13 fa fa-star"></i>
-                                                <i class="font-13 fa fa-star"></i>
-                                                <i class="font-13 fa fa-star-o"></i>
+                                                                
+                                                        @if($product->id==4)
+                                                                        <i class="font-13 fa fa-star"></i>
+                                                                        <i class="font-13 fa fa-star"></i>
+                                                                        <i class="font-13 fa fa-star"></i>
+                                                                    <i class="font-13 fa fa-star-o"></i>
+                                                                    <i class="font-13 fa fa-star-o"></i>
+                                                            
+                                                            @elseif($product->id==5)
+                                                            <i class="font-13 fa fa-star"></i>
+                                                                        <i class="font-13 fa fa-star"></i>
+                                                                        <i class="font-13 fa fa-star"></i>
+                                                                    <i class="font-13 fa fa-star"></i>
+                                                                    <i class="font-13 fa fa-star"></i>
+                                                                @elseif($product->id==6)
+                                                                <i class="font-13 fa fa-star"></i>
+                                                                        <i class="font-13 fa fa-star"></i>
+                                                                        <i class="font-13 fa fa-star"></i>
+                                                                    <i class="font-13 fa fa-star"></i>
+                                                                    <i class="font-13 fa fa-star-o"></i>
 
-                                            @elseif($product->id==7)
-                                            <i class="font-13 fa fa-star"></i>
-                                                    <i class="font-13 fa fa-star"></i>
-                                                    <i class="font-13 fa fa-star-o"></i>
-                                                <i class="font-13 fa fa-star-o"></i>
-                                                <i class="font-13 fa fa-star-o"></i>
-                                        
-                                            @elseif($product->id==8)
-                                            <i class="font-13 fa fa-star"></i>
-                                                    <i class="font-13 fa fa-star-o"></i>
-                                                    <i class="font-13 fa fa-star-o"></i>
-                                                <i class="font-13 fa fa-star-o"></i>
-                                                <i class="font-13 fa fa-star-o"></i>
-                                        
-                                            @else
-                                            <i class="font-13 fa fa-star"></i>
-                                                    <i class="font-13 fa fa-star"></i>
-                                                    <i class="font-13 fa fa-star"></i>
-                                                <i class="font-13 fa fa-star-o"></i>
-                                                <i class="font-13 fa fa-star-o"></i>
-                                            @endif
+                                                                @elseif($product->id==7)
+                                                                <i class="font-13 fa fa-star"></i>
+                                                                        <i class="font-13 fa fa-star"></i>
+                                                                        <i class="font-13 fa fa-star-o"></i>
+                                                                    <i class="font-13 fa fa-star-o"></i>
+                                                                    <i class="font-13 fa fa-star-o"></i>
+                                                            
+                                                                @elseif($product->id==8)
+                                                                <i class="font-13 fa fa-star"></i>
+                                                                        <i class="font-13 fa fa-star-o"></i>
+                                                                        <i class="font-13 fa fa-star-o"></i>
+                                                                    <i class="font-13 fa fa-star-o"></i>
+                                                                    <i class="font-13 fa fa-star-o"></i>
+                                                            
+                                                                @else
+                                                                <i class="font-13 fa fa-star"></i>
+                                                                        <i class="font-13 fa fa-star"></i>
+                                                                        <i class="font-13 fa fa-star"></i>
+                                                                    <i class="font-13 fa fa-star-o"></i>
+                                                                    <i class="font-13 fa fa-star-o"></i>
+                                                                @endif
 
 
 
@@ -502,7 +481,7 @@
                                                 <!-- end product image -->
                                                 
                                                 <!-- countdown start -->
-                                        		<div class="saleTime desktop" data-countdown="{{$product->created_at}}"></div>
+                                        		<div class="saleTime desktop" data-countdown="{{ $product->updated_at->format('D H:i:s')}}">{{ $product->updated_at->format('D H:i:s')}}</div>
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->
@@ -510,14 +489,14 @@
                                                     <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
                                                 </form> -->
                                                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" value="{{ $product->id }}" name="id">
-                        <input type="hidden" value="{{ $product->title }}" name="title">
-                        <input type="hidden" value="{{ $product->price }}" name="price">
-                        <input type="hidden" value="{{ $product->image1 }}"  name="image1">
-                        <input type="hidden" value="1" name="quantity">
-                        <button class="px-4 py-2 text-white bg-blue-800 rounded">Add To Cart</button>
-                    </form>
+                                                    @csrf
+                                                    <input type="hidden" value="{{ $product->id }}" name="id">
+                                                    <input type="hidden" value="{{ $product->name }}" name="name">
+                                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                                    <input type="hidden" value="{{ $product->image1 }}"  name="image1">
+                                                    <input type="hidden" value="1" name="quantity">
+                                                    <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
+                                                </form>
                                                 <div class="button-set">
                                                     <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
                                                         <i class="icon anm anm-search-plus-r"></i>
@@ -540,7 +519,7 @@
                                             <div class="product-details text-center">
                                                 <!-- product name -->
                                                 <div class="product-name">
-                                                    <a href="short-description.html">{{$product->title}}</a>
+                                                    <a href="short-description.html">{{$product->name}}</a>
                                                 </div>
                                                 <!-- End product name -->
                                                 <!-- product price -->
@@ -641,13 +620,19 @@
                                                 <!-- end product image -->
                                                 
                                                 <!-- countdown start -->
-                                        		<div class="saleTime desktop" data-countdown="{{$product->created_at}}"></div>
+                                                <div class="saleTime desktop" data-countdown="{{ $product->updated_at->format('D H:i:s')}}">{{ $product->updated_at->format('D H:i:s')}}</div>
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->
-                                                <form class="variants add" action="" onclick="window.location.href='cart.html'"method="post">
-                                                    <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
-                                                </form>
+                                                <form  class="variants add" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $product->id }}" name="id">
+                                                            <input type="hidden" value="{{ $product->name }}" name="name">
+                                                            <input type="hidden" value="{{ $product->price }}" name="price">
+                                                            <input type="hidden" value="{{ $product->image1 }}"  name="image1">
+                                                            <input type="hidden" value="1" name="quantity">
+                                                            <button class="btn btn-addto-cart" tabindex="0" type="submit">{{ __('message.home.panier1') }}</button>
+                                                 </form>
                                                 <div class="button-set">
                                                     <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
                                                         <i class="icon anm anm-search-plus-r"></i>
@@ -670,7 +655,7 @@
                                             <div class="product-details text-center">
                                                 <!-- product name -->
                                                 <div class="product-name">
-                                                    <a href="short-description.html">{{$product->title}}</a>
+                                                    <a href="short-description.html">{{$product->name}}</a>
                                                 </div>
                                                 <!-- End product name -->
                                                 <!-- product price -->
@@ -682,34 +667,34 @@
                                                 
                                                 <div class="product-review">
                                                
-                                       @if($product->id==4)
+                                       @if($product->id==19)
                                                     <i class="font-13 fa fa-star"></i>
                                                     <i class="font-13 fa fa-star"></i>
                                                     <i class="font-13 fa fa-star"></i>
                                                 <i class="font-13 fa fa-star-o"></i>
                                                 <i class="font-13 fa fa-star-o"></i>
                                         
-                                        @elseif($product->id==5)
+                                        @elseif($product->id==20)
                                         <i class="font-13 fa fa-star"></i>
                                                     <i class="font-13 fa fa-star"></i>
                                                     <i class="font-13 fa fa-star"></i>
                                                 <i class="font-13 fa fa-star"></i>
                                                 <i class="font-13 fa fa-star"></i>
-                                            @elseif($product->id==6)
+                                            @elseif($product->id==21)
                                             <i class="font-13 fa fa-star"></i>
                                                     <i class="font-13 fa fa-star"></i>
                                                     <i class="font-13 fa fa-star"></i>
                                                 <i class="font-13 fa fa-star"></i>
                                                 <i class="font-13 fa fa-star-o"></i>
 
-                                            @elseif($product->id==7)
+                                            @elseif($product->id==22)
                                             <i class="font-13 fa fa-star"></i>
                                                     <i class="font-13 fa fa-star"></i>
                                                     <i class="font-13 fa fa-star-o"></i>
                                                 <i class="font-13 fa fa-star-o"></i>
                                                 <i class="font-13 fa fa-star-o"></i>
                                         
-                                            @elseif($product->id==8)
+                                            @elseif($product->id==23)
                                             <i class="font-13 fa fa-star"></i>
                                                     <i class="font-13 fa fa-star-o"></i>
                                                     <i class="font-13 fa fa-star-o"></i>
@@ -794,7 +779,7 @@
                             <a href="{{route('home8')}}" class="collection-grid-item__link">
                                 <img data-src="{{ asset('images/collection/jewellry.jpg') }}" src="{{ asset('images/collection/jewellry.jpg') }}" alt="Jewellry" class="blur-up lazyload"/>
                                 <div class="collection-grid-item__title-wrapper">
-                                    <h3 class="collection-grid-item__title btn btn--secondary no-border">Jewellry</h3>
+                                    <h3 class="collection-grid-item__title btn btn--secondary no-border">{{ __('message.home.jewellery') }}</h3>
                                 </div>
                             </a>
                         </div>
@@ -969,9 +954,6 @@
                                             <i class="icon anm anm-search-plus-r"></i>
                                         </a>
                                         <!-- Start product button -->
-                                        <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
-                                            <button class="btn cartIcon btn-addto-cart" type="button" tabindex="0"><i class="icon anm anm-bag-l"></i></button>
-                                        </form>
                                         <div class="wishlist-btn">
                                             <a class="wishlist add-to-wishlist" href="{{ route('wishlist') }}">
                                                 <i class="icon anm anm-heart-l"></i>
@@ -988,9 +970,16 @@
                                 <!-- Variant -->
                                 <!-- End Variant -->
                                 <!-- End product details -->
-                                <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
-                                <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
-                               </form>
+                    
+                               <form  class="variants add" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $product->id }}" name="id">
+                                                            <input type="hidden" value="{{ $product->name }}" name="name">
+                                                            <input type="hidden" value="{{ $product->price }}" name="price">
+                                                            <input type="hidden" value="{{ $product->image1 }}"  name="image1">
+                                                            <input type="hidden" value="1" name="quantity">
+                                                            <button class="btn btn-addto-cart" tabindex="0" type="submit">{{ __('message.home.panier1') }}</button>
+                                                 </form>
                             </div>
                            
                         </div>
@@ -1074,7 +1063,7 @@
                                     </h2>
                                     <span class="article__date">{{ __('message.home.part3') }}</span>
                                     <div class="rte article__grid-excerpt">
-                                      {{ __('message.home.part4') }}
+                                    {{ __('message.home.part4') }}
                                     </div>
                                     <ul class="list--inline article__meta-buttons">
                                     	<li><a href="blog-article.html">{{ __('message.home.part5') }}</a></li>
@@ -1091,14 +1080,14 @@
                             <div class="article__grid-meta article__grid-meta--has-image">
                                 <div class="wrap-blog-inner">
                                     <h2 class="h3 article__title">
-                                      <a href="blog-right-sidebar.html">27 Days of Spring Fashion Recap</a>
+                                      <a href="blog-right-sidebar.html">{{ __('message.home.part2') }}</a>
                                     </h2>
-                                    <span class="article__date">May 22, 2023</span>
+                                    <span class="article__date">{{ __('message.home.part3') }}</span>
                                     <div class="rte article__grid-excerpt">
-                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab...
+                                    {{ __('message.home.part4') }}
                                     </div>
                                     <ul class="list--inline article__meta-buttons">
-                                    	<li><a href="blog-article.html">Read more</a></li>
+                                    	<li><a href="blog-article.html">{{ __('message.home.part5') }}</a></li>
                                     </ul>
                                 </div>
 							</div>
@@ -1117,23 +1106,23 @@
                     	<ul class="display-table store-info">
                         	<li class="display-table-cell">
                             	<i class="icon anm anm-truck-l"></i>
-                            	<h5>Free Shipping &amp; Return</h5>
-                            	<span class="sub-text">Free shipping on all US orders</span>
+                            	<h5>{{ __('message.home.ba0') }}</h5>
+                            	<span class="sub-text">{{ __('message.home.ba1') }}</span>
                             </li>
                           	<li class="display-table-cell">
                             	<i class="icon anm anm-dollar-sign-r"></i>
-                                <h5>Money Guarantee</h5>
-                                <span class="sub-text">30 days money back guarantee</span>
+                                <h5>{{ __('message.home.ba2') }}</h5>
+                                <span class="sub-text">{{ __('message.home.ba3') }}</span>
                           	</li>
                           	<li class="display-table-cell">
                             	<i class="icon anm anm-comments-l"></i>
-                                <h5>Online Support</h5>
-                                <span class="sub-text">We support online 24/7 on day</span>
+                                <h5>{{ __('message.home.ba4') }}</h5>
+                                <span class="sub-text">{{ __('message.home.ba5') }}</span>
                             </li>
                           	<li class="display-table-cell">
                             	<i class="icon anm anm-credit-card-front-r"></i>
-                                <h5>Secure Payments</h5>
-                                <span class="sub-text">All payment are Secured and trusted.</span>
+                                <h5>{{ __('message.home.ba7') }}</h5>
+                                <span class="sub-text">{{ __('message.home.ba8') }}</span>
                         	</li>
                         </ul>
                     </div>

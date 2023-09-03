@@ -42,7 +42,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner text-center">
-                <h3>{{$posts}}<span class="info-box-icon ml-3"><i class="fas fa-users"></i></span></h3>
+                <h3>{{$posts}}<span class="info-box-icon ml-3"><i class="fas fa-users"></i>cat<i class="fas fa-sitemap fa-2x text-gray-300"></i>p<i class="fas fa-cubes fa-2x text-gray-300"></i>com<i class="fas fa-clipboard-list fa-2x text-gray-300"></i></span></h3>
 
                 <p>Nombres utilisateurs</p>
               </div>
@@ -118,7 +118,7 @@
             @foreach($products as $product)   
                 <tr class="odd">
                     <td class="dtr-control sorting_1" tabindex="0">{{$product->id}}</td>
-                    <td class="text-capitalize">{{$product->title}}</td>
+                    <td class="text-capitalize">{{$product->name}}</td>
                     <td class="text-capitalize">
                     @if($product->status=='active')
                               <span class="badge badge-success">{{$product->status}}</span>

@@ -15,13 +15,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
-        // $products = Product::orderBy('id','ASC')->paginate(30);
+        
+        // $category = Category::all();
         $products = Product::all();
-        return view('back.product.index', [
+        return view('back.product.index', [ 
             'products' => $products,
         ]);
-
+ 
     }
 
 
@@ -31,8 +31,8 @@ class ProductController extends Controller
     public function create()
     {
         //
-          
-        return view('back.product.create');
+        $category=Category::all();
+        return view('back.product.create')->with('categories',$category);
     }
 
     /**
@@ -42,12 +42,14 @@ class ProductController extends Controller
     {
         //
            $data = $request->validate([
-            'title'=>'string|required',
+            'name'=>'string|required',
             'description'=>'string|nullable',
             // "image1" => "required|image|mimes:jpg,png,jpeg,gif,svg|max:2048",
             // "image2" => "required|image|mimes:jpg,png,jpeg,gif,svg|max:2048",
-            'image1'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'image2'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image1'=>'string|required',
+            'image2'=>'string|required',
+            // 'image1'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            // 'image2'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'stock'=>"required|numeric",
             'size'=>'nullable',
             'condition'=>'required|in:SALE,-16%,NEW,HOT,POPULAR',
@@ -55,9 +57,10 @@ class ProductController extends Controller
             'status'=>'required|in:active,inactive',
             'price'=>'required|numeric',
             'priceReduction'=>'nullable|numeric',
-            // 'cat_id'=>'required|exists:categories,id',
+            'cat_id'=>'required|exists:categories,id',
           
         ]);
+
 
             // $file1 = $request->file('image1');
             // $path1 = time() . '_' . $request->name . '.' . $file1->getClientOriginalExtension();
@@ -66,9 +69,9 @@ class ProductController extends Controller
             $path1 = $request->file('image1')->store('images', 'public');
             $path2 = $request->file('image2')->store('images', 'public');
     
-            $data = Product::create([
+            $data = Product::create([ 
               
-               'title' => $request->title,
+               'name' => $request->title,
                'description' => $request->description,
                'image1' => $path1,
                'image2' => $path2,
@@ -79,10 +82,17 @@ class ProductController extends Controller
                'status' => $request->status,
                'price' => $request->price,
                'priceReduction' => $request->priceReduction,
-            //    'cat_id' => $request->cat_id,
+               'cat_id' => $request->cat_id,
             ]); 
+           
+            if($data){
+                session()->flash('success', 'Item Cart is Updated Successfully !');
+            }
+            else{
+               session()->flash('success','Please try again!!');
+            }
      
-          return redirect()->route('product.index')->with('success', 'Le produit a bien été créé');
+          return redirect()->route('product.index');
     }
 
     /**
@@ -99,21 +109,24 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
         //
-        $categories = Category::all();
-        return view('back.product.edit', compact('product', 'categories'));
+        $category = Category::all();
+        $product=Product::findOrFail($id);
+        $items=Product::where('id',$id)->get();
+        return view('back.product.edit')->with('product',$product)->with('items',$items)->with('categories',$category);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product, $id)
     {
         //
+         $product=Product::findOrFail($id);
          $data = $request->validate([
-        'title'=>'string|required',
+        'name'=>'string|required',
         'description'=>'string|nullable',
         'image1'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         'image2'=>'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
@@ -124,11 +137,13 @@ class ProductController extends Controller
         'status'=>'required|in:active,inactive',
         'price'=>'required|numeric',
         'priceReduction'=>'nullable|numeric',
-        // 'cat_id'=>'required|exists:categories,id',
+        'cat_id'=>'required|exists:categories,id',
     ]);
         
         $path1 = $request->file('image1')->store('images', 'public');
         $path2 = $request->file('image2')->store('images', 'public');
+
+        $data=$request->all();
 
         $product->update([
         'title' => $request->title,
@@ -142,18 +157,19 @@ class ProductController extends Controller
         'status' => $request->status,
         'price' => $request->price,
         'priceReduction' => $request->priceReduction,
+        'cat_id'=> $request->cat_id,
          ]);
-        // $product->cat_id = $request->cat_id;
-
+     
 
         // $product->update($request->all());
         //   $data = $request->validate([
         //     "photo" => "required|image|mimes:jpg,png,jpeg,gif,svg|max:2048",
             
         // ]);
-    
+
+        $product->save();
      
-        return redirect()->route('product.index')->with('success', 'Le produit a bien été mise à jour');
+        return redirect()->route('product.index')->with('success','Product Successfully updated');
      
      
     }

@@ -10,6 +10,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\NotchPayCallBackController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -95,7 +99,12 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/newsletter', [NewsletterController::class, 'index'])->name('liste-news');
     //Liste des souhaits
     Route::get('/wishlist', [HomeController::class, 'wishlist'])->name('wishlist');
+    // Wishlist
+    Route::get('/wishlist/{slug}', [WishlistController::class, 'wishlist'])->name('add-to-wishlist');
+    Route::get('wishlist-delete/{id}', [WishlistController::class, 'wishlistDelete'])->name('wishlist-delete');
     Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
+    // Barre de recherche 
+    Route::get('/search', [HomeController::class, 'search'])->name('search');
     Route::get('/home2', [HomeController::class, 'home2'])->name('home2');
     Route::get('/home3', [HomeController::class, 'home3'])->name('home3');
     Route::get('/home5', [HomeController::class, 'home5'])->name('home5');
@@ -113,8 +122,6 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/blog-article', [HomeController::class, 'home15'])->name('blog-article');
     Route::get('/blog-grid', [HomeController::class, 'bloGrid'])->name('blog-grid');
     Route::get('/blog-left', [HomeController::class, 'blogLeft'])->name('blog-left');
-    // Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
-    // Route::get('/cart1', [HomeController::class, 'cart1'])->name('cart1');
     Route::get('/compare2', [HomeController::class, 'compare2'])->name('compare2');
     Route::get('/compare1', [HomeController::class, 'compare1'])->name('compare1');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
@@ -128,7 +135,6 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/shop-description', [HomeController::class, 'shopDescription'])->name('shop-description');
     Route::get('/shop-right', [HomeController::class, 'shopRight'])->name('shop-right');
     Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
-    Route::get('/shop1', [HomeController::class, 'shop1'])->name('shop1');
     Route::get('/blog-left', [HomeController::class, 'blogLeft'])->name('blog-left');
     Route::get('/collection', [HomeController::class, 'collection'])->name('collection');
     Route::get('/Terms', [HomeController::class, 'Terms'])->name('Terms');
@@ -137,11 +143,15 @@ Route::group(['prefix' => '/font'], function () {
 
 
 
-// Route::get( '/' , [ProductController::class, 'productList' ])->name( 'products.list' );
-
-// Add-To-Cart 
+ 
+// Add-To-Cart  Darylecode/cart
 Route::get( 'cart' , [CartController::class, 'cartList' ])->name( 'cart.list' );
 Route::post( 'cart' , [CartController::class, 'addToCart' ])->name( 'cart.store' );
 Route::post( 'update-cart' , [CartController::class, 'updateCart' ])->name( 'cart.update' );
 Route::post( 'remove' , [CartController::class, 'removeCart' ])->name( 'cart.remove' );
 Route::post( 'clear' , [CartController::class, 'clearAllCart' ])->name( 'cart.clear' );
+
+
+// Payment Notchpay
+Route::get('payment/{product}', PaymentController::class)->name('payment');
+Route::get('callback-payment', NotchPayCallBackController::class)->name('notchpay-callback');

@@ -8,7 +8,7 @@ return [
     ],
 
     'home'=> [
-        'langue1' => 'English',
+        'langue1' => 'Anglais',
         'create' => 'Create an Account',
         'create1' => 'Create account',
         'name' => 'Name',
@@ -104,8 +104,18 @@ return [
         'part2' => 'It\'s all about how you wear',
         'part3' => 'May 02, 2023',
         'part5' => 'Read more',
+        'ba0' => 'Free Shipping &amp; Return',
+        'ba1' => 'Free shipping on all US orders',
+        'ba2' => 'Money Guarantee',
+        'ba3' => '30 days money back guarantee',
+        'ba4' => 'Online Support',
+        'ba5' => 'We support online 24/7 on day',
+        'ba7' => 'Secure Payments',
+        'ba8' => 'All payment are Secured and trusted.',
         'pa' => 'Featured collection',
         'pa3' => 'OUR BRANDS',
+        'p00' => 'Join Our Mailing List',
+        'p01' => 'Sign Up for our exclusive email list and be the first to know about new products and special offers',
         'pa1' => 'Our most popular products based on sales',
         'part4' => ' I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account...',
        

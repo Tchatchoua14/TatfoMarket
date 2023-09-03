@@ -48,7 +48,7 @@
                                     <div class="ttl">from $50<h5>Trendy Bags</h5></div>
                                 </div>
                             </div>  
-                            <div class="imgBnrOuter mt-4">
+                            <div class="imgBnrOuter mt-4"> 
                                 <div class="inner btmright">
                                     <img data-src="{{ asset('images/home3-small-banner3.jpg') }}" src="{{ asset('images/home3-small-banner3.jpg') }}" alt="" class="blur-up lazyload"/>
                                     <div class="ttl">from $20<h5>ACCESSORIES</h5></div>

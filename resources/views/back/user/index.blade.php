@@ -50,8 +50,8 @@
           @if (session('success'))
             <div class="card">
               <div class="card-header">
-              <h3 class="card-title alert alert-success" role="alert">
-               {{ session('success') }}
+              <h3 class="card-title alert alert-success text-uppercase" role="alert">
+              <i class="icon anm anm-truck-l icon-large"></i> &nbsp;<strong>Congratulations!</strong> {{ session('success') }}
               </h3>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">

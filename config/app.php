@@ -171,7 +171,8 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider ::class,
         Darryldecode\Cart\CartServiceProvider::class,
-    ])->toArray(),
+        // NotchPay\NotchPay\NotchPayServiceProvider::class,
+    ])->toArray(), 
 
     /*
     |--------------------------------------------------------------------------
@@ -187,8 +188,9 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'NoCaptcha' => Anhskohbo\NoCaptcha\Façades\NoCaptcha ::class,
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha ::class,
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
+        // 'NotchPay' =>  NotchPay\NotchPay\Facades\NotchPayFacade::class,
     ])->toArray(),
 
 ];

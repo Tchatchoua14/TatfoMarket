@@ -1,7 +1,219 @@
 @extends('font.master')
 @section('title', 'cart')
 @section('content')
-@include('font.partials.header') 
+<!--Search Form Drawer-->
+<div class="search">
+        <div class="search__form">
+            <form class="search-bar__form" action="{{route('search')}}">
+                @csrf
+                <button class="go-btn search__button" type="submit"><i class="icon anm anm-search-l"></i></button>
+                <input class="search__input" type="search" name="q" value="" placeholder="Search entire store..." aria-label="Search" autocomplete="off">
+            </form>
+            <button type="button" class="search-trigger close-btn"><i class="anm anm-times-l"></i></button>
+        </div>
+</div>
+<!--End Search Form Drawer-->
+    <!--Header--> 
+    <div class="header-wrap classicHeader animated d-flex">
+    	<div class="container-fluid">        
+            <div class="row align-items-center">
+            	<!--Desktop Logo-->
+                <div class="logo col-md-2 col-lg-2 d-none d-lg-block">
+                    <a href="{{ route('home') }}">
+                    	<img src="{{ asset('images/logo.svg') }}" alt="Belle Multipurpose Html Template" title="Belle Multipurpose Html Template" />
+                    </a>
+                </div>
+                <!--End Desktop Logo-->
+                <div class="col-2 col-sm-3 col-md-3 col-lg-8">
+                	<div class="d-block d-lg-none">
+                        <button type="button" class="btn--link site-header__menu js-mobile-nav-toggle mobile-nav--open">
+                        	<i class="icon anm anm-times-l"></i>
+                            <i class="anm anm-bars-r"></i>
+                        </button>
+                    </div>
+                 	<!--Desktop Menu-->
+                     <nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
+                        <ul id="siteNav" class="site-nav medium center hidearrow">
+                        @if (Route::has('login'))
+                         @auth 
+                         @if (Auth::user()->role=="user")
+                        <li class="lvl1 parent dropdown"><a href="#">{{ __('message.home.nav0') }}<i class="anm anm-angle-down-l"></i></a>
+                                <ul class="dropdown">
+
+                                                         
+                                                        <li><a href="{{route('profile.edit')}}" class="site-nav">{{ __('message.home.profile') }}</a></li>
+                                                        <li><a href="" class="site-nav">{{ __('message.home.order') }}</a></li>
+                                                        <li><a href="" class="site-nav">{{ __('message.home.transaction') }}</a></li>
+                                                        <li><a href="{{ route('logout') }}" class="text-uppercase" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('message.home.logout') }}</a>
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
+                                                        </li>
+                        
+                               </ul>
+                            </li>
+                            @endif
+                            @endauth
+                             @endif
+                             <li class="lvl1 parent megamenu"><a href="#">{{ __('message.home.nav11') }}<i class="anm anm-angle-down-l"></i></a>
+                                <div class="megamenu style1">
+                                    <ul class="grid mmWrapper">
+                                        <li class="grid__item large-up--one-whole">
+                                            <ul class="grid">
+                                                <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.nav11') }} {{ __('message.home.group') }} 1</a>
+                                                    <ul class="subLinks">
+                                                      <li class="lvl-2"><a href="{{route('home3')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 1 - {{ __('message.home.home1') }}</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home2')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 2 - {{ __('message.home.home2') }}</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home15')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 15 - {{ __('message.home.home3') }} <span class="lbl nm_label1">{{ __('message.home.new') }}</span></a></li>
+                                                      <li class="lvl-2"><a href="{{route('home5')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 3 - {{ __('message.home.boxed') }}</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home6')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 4 - {{ __('message.home.home4') }}</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home7')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 5 - {{ __('message.home.home5') }}</a></li>
+                                                    </ul>
+                                                  </li>
+                                                <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.nav11') }} {{ __('message.home.group') }} 2</a>
+                                                    <ul class="subLinks">
+                                                        <li class="lvl-2"><a href="{{route('home8')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 8 - {{ __('message.home.jewellery') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home9')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 9 - {{ __('message.home.parallax') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home10')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 10 - {{ __('message.home.minimal') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home11')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 11 - {{ __('message.home.grid') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home14')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 14 - {{ __('message.home.bags') }} <span class="lbl nm_label1">{{ __('message.home.new') }}</span></a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.sec0') }}</a>
+                                                    <ul class="subLinks">
+                                                        <li class="lvl-2"><a href="{{route('home11')}}" class="site-nav lvl-2">{{ __('message.home.sec1') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home5')}}" class="site-nav lvl-2">{{ __('message.home.sec2') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home7')}}" class="site-nav lvl-2">{{ __('message.home.sec3') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home8')}}" class="site-nav lvl-2">{{ __('message.home.sec4') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home2')}}" class="site-nav lvl-2">{{ __('message.home.sec5') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home9')}}" class="site-nav lvl-2">{{ __('message.home.sec7') }}</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.shop8') }}</a>
+                                                    <ul class="subLinks">
+                                                        <li class="lvl-2"><a href="{{route('home13')}}" class="site-nav lvl-2">{{ __('message.home.top') }} <span class="lbl nm_label1">{{ __('message.home.new') }}</span></a></li>
+                                                        
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="grid__item large-up--one-whole imageCol"><a href="#"><img src="{{ asset('images/megamenu-bg2.jpg') }}" alt=""></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lvl1 parent dropdown"><a href="#">{{ __('message.home.nav2') }}<i class="anm anm-angle-down-l"></i></a>
+                                <ul class="dropdown">
+                                    <li><a href="{{route('home11')}}" class="site-nav">{{ __('message.home.fashion') }}<span class="lbl nm_label1">{{ __('message.home.new') }} </span></a></li>
+                                    <li><a href="{{route('home5')}}" class="site-nav">{{ __('message.home.home5') }}</a></li>
+                                    <li><a href="{{route('home14')}}" class="site-nav">{{ __('message.home.bags') }}<span class="lbl nm_label1">{{ __('message.home.SALE') }}</span></a>
+                                    </li>
+                                    <li><a href="{{route('home15')}}" class="site-nav">{{ __('message.home.ass') }}</a>
+                                    </li>
+                                    <li><a href="{{route('home7')}}" class="site-nav">{{ __('message.home.shoes') }}<span class="lbl nm_label1">{{ __('message.home.popular') }} </span></a></li>
+                                    <li><a href="{{route('home8')}}" class="site-nav">{{ __('message.home.jewellery1') }}</a></li>
+                                </ul>
+                            </li>                  
+                            <li class="lvl1 parent dropdown"><a href="#">BLOG <i class="anm anm-angle-down-l"></i></a>
+                                <ul class="dropdown">
+                                <li><a href="{{route('home3')}}" class="site-nav">{{ __('message.home.var4') }}</a></li>
+                                <li><a href="{{route('home7')}}" class="site-nav">Article</a></li>
+                                <li><a href="#" class="site-nav">{{ __('message.home.var3') }}<i class="anm anm-angle-right-l"></i></a>
+                                    <ul class="dropdown">
+                                        <li><a href="" class="site-nav">{{ __('message.home.var1') }}</a></li>
+                                        <li><a href="" class="site-nav">{{ __('message.home.var2') }}</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="compare-variant1.html" class="site-nav">{{ __('message.home.compare') }} <i class="anm anm-angle-right-l"></i></a>
+                                    <ul class="dropdown">
+                                        <li><a href="{{route('compare2')}}" class="site-nav">{{ __('message.home.compare1') }}</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" class="site-nav">404</a></li>
+                                </ul>
+                            </li>
+                            <li class="lvl1 parent dropdown"><a href="#">{{ __('message.home.var5') }}<i class="anm anm-angle-down-l"></i></a>
+                                <ul class="dropdown">
+                                    <li><a href="{{route('about')}}" class="site-nav">{{ __('message.home.var7') }} <span class="lbl nm_label1">New</span> </a></li>
+                                    <li><a href="{{route('contact')}}" class="site-nav">{{ __('message.home.var8') }} </a></li>
+                                    <li><a href="{{route('register')}}" class="site-nav">Administration</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!--End Desktop Menu-->
+                </div>
+                <!--Mobile Logo-->
+                <div class="col-6 col-sm-6 col-md-6 col-lg-2 d-block d-lg-none mobile-logo">
+                	<div class="logo">
+                        <a href="index.html">
+                            <img src="{{ asset('images/logo.svg') }}" alt="Belle Multipurpose Html Template" title="Belle Multipurpose Html Template" />
+                        </a>
+                    </div>
+                </div>
+                <!--Mobile Logo-->
+                <div class="col-4 col-sm-3 col-md-3 col-lg-2"> 
+                	<div class="site-cart">
+                    	<a href="{{ route('cart.list') }}" class="site-header__cart" title="Cart">
+                        	<i class="icon anm anm-bag-l"></i>
+                            <span id="CartCount" class="site-header__cart-count" data-cart-render="item_count">{{ Cart::getTotalQuantity() }}</span>
+                        </a>
+                        <!--Minicart Popup-->
+                        <div id="header-cart" class="block block-cart">
+                        	<ul class="mini-products-list">
+                            {{-- {{$cartItems}} --}}
+                            @foreach ($cartItems as $item)
+                                <li class="item">
+                                	<a class="product-image" href="#">
+                                    	<img src="{{ asset('/images/product-images/'.$item->attributes->image1) }}" alt="{{ $item->name }}" title="{{ $item->name }}" />
+                                    </a>
+                                    <div class="product-details">
+                                         <form action="{{ route('cart.remove') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{ $item->id }}" name="id">
+                                            <button class="remove" style="border:none;"><i class="anm anm-times-l" aria-hidden="true"></i></button>
+                                            </form>
+                                        <!-- <a href="#" class="edit-i remove"><i class="anm anm-edit" aria-hidden="true"></i></a> -->
+                                        <a class="pName" href="#">{{ $item->name }}</a>
+                                      
+                                        <div class="variant-cart"> BLACK / XL</div>
+                                        <div class="variant-cart">{{ $item->price }}</div>
+                    
+                                        <div class="wrapQtyBtn">
+                                            <div class="qtyField">
+                                            	<span class="label">Qty:</span>
+                                                <form action="{{ route('cart.update') }}" method="POST" class="justify-content-around">
+                                                        @csrf
+                                                <input type="hidden" name="id" value="{{ $item->id}}" >
+                                                <input type="number" name="quantity" value="{{ $item->quantity }}" class="px-1" style="width:80px;" />   
+                                                <button type="submit" name="update" class=""><i class="fa fa-refresh"></i></button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                     
+									</div>
+                                </li>
+                            @endforeach
+                            </ul>
+                            <div class="total">
+                            	<div class="total-in">
+                                	<span class="label">Cart Subtotal:</span><span class="product-price"><span class="money">{{ Cart::getSubTotal() }} FCFA</span></span>
+                                </div>
+                                 <div class="buttonSet text-center">
+                                    <a href="{{ route('cart.list') }}" class="btn btn-secondary btn--small">View Cart</a>
+                                    <a href="{{ route('checkout') }}" class="btn btn-secondary btn--small">Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--EndMinicart Popup-->
+                    </div>
+                    <div class="site-header__search">
+                    	<button type="button" class="search-trigger"><i class="icon anm anm-search-l"></i></button>
+                    </div>
+                </div>
+        	</div>
+        </div>
+    </div>
+    <!--End Header-->  
 @include('font.partials.menu')
   <!--Body Content-->
   <div id="page-content" class="mt-5">  
@@ -10,27 +222,26 @@
 			<div class="page-title">
         		<div class="wrapper">
                     <h1 class="page-width">Your cart</h1>
-                    @if (session('success'))
-                        <h3 class="card-title alert alert-success" role="alert">
-                        {{ session('success') }}
-                        </h3>
-                    @endif
-            </div>
+                 </div>
       		</div>
 		</div>
         <!--End Page Title-->
         
-        <div class="container">
+        <div class="container"> 
         	<div class="row">
                 <div class="col-12 col-sm-12 col-md-8 col-lg-8 main-col">
-                	<form action="checkout.html" method="post" class="cart style2">
+                @if (session('success'))
+                   <div class="alert alert-success text-uppercase" role="alert">
+						<i class="icon anm anm-truck-l icon-large text-primary"></i> &nbsp;<strong>Congratulations!</strong> {{ session('success') }}
+					</div>
+                 @endif
+                	<form action="{{route('checkout')}}" method="post" class="cart style2">
                 		<table>
                             <thead class="cart__row cart__header">
                                 <tr>
                                     <th colspan="2" class="text-center">Product</th>
                                     <th class="text-center">Price</th>
-                                    <th class="text-center">Quantity</th>
-                                    <th class="text-right">Total</th>
+                                    <th class="text-center">Quantity</th> 
                                     <th class="action">&nbsp;</th>
                                 </tr> 
                             </thead>
@@ -38,11 +249,11 @@
                             @foreach ($cartItems as $item)
                                 <tr class="cart__row border-bottom line1 cart-flex border-top">
                                     <td class="cart__image-wrapper cart-flex-item">
-                                        <a href="#"><img class="cart__image" src="{{ $item->attributes->image1 }}" alt="Elastic Waist Dress - Navy / Small"></a>
+                                        <a href="#"><img class="cart__image" src="{{ asset('/images/product-images/'.$item->attributes->image1) }}" alt="{{ $item->name }}"></a>
                                     </td>
                                     <td class="cart__meta small--text-left cart-flex-item">
                                         <div class="list-view-item__title">
-                                            <a href="#">{{ $item->title }}</a>
+                                            <a href="#">{{ $item->name }}</a>
                                         </div>
                                         
                                         <div class="cart__meta-text">
@@ -50,325 +261,86 @@
                                         </div>
                                     </td>
                                     <td class="cart__price-wrapper cart-flex-item">
-                                        <span class="money">${{ $item->price }} FCFA</span>
+                                        <span class="money">{{$item->price}}</span>
                                     </td>
                                     <td class="cart__update-wrapper cart-flex-item text-right">
                                         <div class="cart__qty text-center">
                                             <div class="qtyField">
-                                                <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>
-                                                <input class="cart__qty-input qty" type="text" name="updates[]" id="qty" value="1" pattern="[0-9]*">
-                                                <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>
+                                            <form action="{{ route('cart.update') }}" method="POST" class="justify-content-around">
+                                                        @csrf
+                                                <input type="hidden" name="id" value="{{ $item->id}}" >
+                                                <input type="number" name="quantity" value="{{ $item->quantity }}" class="px-1" style="width:80px;" />   
+                                                <button type="submit" name="update" class=""><i class="fa fa-refresh mr-2"></i>Update</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-right small--hide cart-price">
-                                        <!-- <div><span class="money">$735.00</span></div> -->
-                                        <form action="{{ route('cart.update') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $item->id}}" >
-                                            <input type="number" name="quantity" value="{{ $item->quantity }}" 
-                                            class="w-6 text-center bg-gray-300" />
-                                            <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500">update</button>
-                                        </form>
-                                    </td>
                                         <td class="hidden text-right md:table-cell">
-                                            <form action="{{ route('cart.remove') }}" method="POST">
+                                          <form action="{{ route('cart.remove') }}" method="POST">
                                             @csrf
                                             <input type="hidden" value="{{ $item->id }}" name="id">
-                                            <button class="px-4 py-2 text-white bg-red-600">x</button>
+                                            <button class="remove" class="btn btn--secondary cart__remove" title="Remove tem" style="border:none;"><i class="icon icon anm anm-times-l" aria-hidden="true"></i></button>
                                             </form>
                                                         
                                         </td>
-                                    <!-- <td class="text-center small--hide"><a href="#" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td> -->
                                 </tr>
                              @endforeach
                             </tbody>
                     		<tfoot>
                                 <tr>
-                                    <td colspan="3" class="text-left"><a href="" class="btn--link cart-continue"><i class="icon icon-arrow-circle-left"></i> Continue shopping</a></td>
-                                    <td colspan="3" class="text-right"><button type="submit" name="update" class="btn--link cart-update"><i class="fa fa-refresh"></i> Update</button></td>
+                                    <td colspan="3" class="text-left"><a href="{{route('home')}}" class="btn--link cart-continue"><i class="icon icon-arrow-circle-left"></i> Continue shopping</a></td>
+                                    <td colspan="3" class="text-right">
+                                    <form action="{{ route('cart.clear') }}" method="POST">
+                                       @csrf
+                                        <button type="submit" name="update" class="btn--link cart-update"><i class="fa fa-refresh"></i> Clear Cart</button>
+                                     </form>
+                                      <!-- <form action="{{ route('cart.update') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $item->id}}" >
+                                            <input type="number" name="quantity" value="{{ $item->quantity }}"/>   
+                                        <button type="submit" name="update" class="btn--link cart-update"><i class="fa fa-refresh"></i> Update Cart</button>
+                                       </form> -->
+                                    </td>
                                 </tr>
                             </tfoot>
                     </table>
                     
                     <div class="currencymsg">We processes all orders in USD. While the content of your cart is currently displayed in USD, the checkout will use USD at the most current exchange rate.</div>
                     <hr>
-					<div id="shipping-calculator" class="mb-4">
-                    	<h5 class="small--text-center">Get shipping estimates</h5>
-                        <div class="row">
-                        	<div class="col-12 col-sm-12 col-md-4">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-4">
+                        	<h5>Discount Codes</h5>
+                            <form action="#" method="post">
                             	<div class="form-group">
-                                	<label for="address_country">Country</label>
-                          			<select id="address_country" name="address[country]" data-default="United States"><option value="Belgium" data-provinces="[]">Belgium</option>
-                                        <option value="---" data-provinces="[]">---</option>
-                                        <option value="Afghanistan" data-provinces="[]">Afghanistan</option>
-                                        <option value="Aland Islands" data-provinces="[]">Åland Islands</option>
-                                        <option value="Albania" data-provinces="[]">Albania</option>
-                                        <option value="Algeria" data-provinces="[]">Algeria</option>
-                                        <option value="Andorra" data-provinces="[]">Andorra</option>
-                                        <option value="Angola" data-provinces="[]">Angola</option>
-                                        <option value="Anguilla" data-provinces="[]">Anguilla</option>
-                                        <option value="Antigua And Barbuda" data-provinces="[]">Antigua &amp; Barbuda</option>
-                                        <option value="Armenia" data-provinces="[]">Armenia</option>
-                                        <option value="Aruba" data-provinces="[]">Aruba</option>
-                                        <option value="Austria" data-provinces="[]">Austria</option>
-                                        <option value="Azerbaijan" data-provinces="[]">Azerbaijan</option>
-                                        <option value="Bahamas" data-provinces="[]">Bahamas</option>
-                                        <option value="Bahrain" data-provinces="[]">Bahrain</option>
-                                        <option value="Bangladesh" data-provinces="[]">Bangladesh</option>
-                                        <option value="Barbados" data-provinces="[]">Barbados</option>
-                                        <option value="Belarus" data-provinces="[]">Belarus</option>
-                                        <option value="Belgium" data-provinces="[]">Belgium</option>
-                                        <option value="Belize" data-provinces="[]">Belize</option>
-                                        <option value="Benin" data-provinces="[]">Benin</option>
-                                        <option value="Bermuda" data-provinces="[]">Bermuda</option>
-                                        <option value="Bhutan" data-provinces="[]">Bhutan</option>
-                                        <option value="Bolivia" data-provinces="[]">Bolivia</option>
-                                        <option value="Bosnia And Herzegovina" data-provinces="[]">Bosnia &amp; Herzegovina</option>
-                                        <option value="Botswana" data-provinces="[]">Botswana</option>
-                                        <option value="Bouvet Island" data-provinces="[]">Bouvet Island</option>
-                                        <option value="British Indian Ocean Territory" data-provinces="[]">British Indian Ocean Territory</option>
-                                        <option value="Virgin Islands, British" data-provinces="[]">British Virgin Islands</option>
-                                        <option value="Brunei" data-provinces="[]">Brunei</option>
-                                        <option value="Bulgaria" data-provinces="[]">Bulgaria</option>
-                                        <option value="Burkina Faso" data-provinces="[]">Burkina Faso</option>
-                                        <option value="Burundi" data-provinces="[]">Burundi</option>
-                                        <option value="Cambodia" data-provinces="[]">Cambodia</option>
-                                        <option value="Republic of Cameroon" data-provinces="[]">Cameroon</option>
-                                        <option value="Cape Verde" data-provinces="[]">Cape Verde</option>
-                                        <option value="Bonaire, Sint Eustatius and Saba" data-provinces="[]">Caribbean Netherlands</option>
-                                        <option value="Cayman Islands" data-provinces="[]">Cayman Islands</option>
-                                        <option value="Central African Republic" data-provinces="[]">Central African Republic</option>
-                                        <option value="Chad" data-provinces="[]">Chad</option>
-                                        <option value="Chile" data-provinces="[]">Chile</option>
-                                        <option value="Comoros" data-provinces="[]">Comoros</option>
-                                        <option value="Congo" data-provinces="[]">Congo - Brazzaville</option>
-                                        <option value="Congo, The Democratic Republic Of The" data-provinces="[]">Congo - Kinshasa</option>
-                                        <option value="Cook Islands" data-provinces="[]">Cook Islands</option>
-                                        <option value="Costa Rica" data-provinces="[]">Costa Rica</option>
-                                        <option value="Croatia" data-provinces="[]">Croatia</option>
-                                        <option value="Cuba" data-provinces="[]">Cuba</option>
-                                        <option value="Curaçao" data-provinces="[]">Curaçao</option>
-                                        <option value="Cyprus" data-provinces="[]">Cyprus</option>
-                                        <option value="Czech Republic" data-provinces="[]">Czech Republic</option>
-                                        <option value="Côte d'Ivoire" data-provinces="[]">Côte d'Ivoire</option>
-                                        <option value="Denmark" data-provinces="[]">Denmark</option>
-                                        <option value="Djibouti" data-provinces="[]">Djibouti</option>
-                                        <option value="Dominica" data-provinces="[]">Dominica</option>
-                                        <option value="Dominican Republic" data-provinces="[]">Dominican Republic</option>
-                                        <option value="Finland" data-provinces="[]">Finland</option>
-                                        <option value="France" data-provinces="[]">France</option>
-                                        <option value="French Guiana" data-provinces="[]">French Guiana</option>
-                                        <option value="French Polynesia" data-provinces="[]">French Polynesia</option>
-                                        <option value="French Southern Territories" data-provinces="[]">French Southern Territories</option>
-                                        <option value="Gabon" data-provinces="[]">Gabon</option>
-                                        <option value="Gambia" data-provinces="[]">Gambia</option>
-                                        <option value="Georgia" data-provinces="[]">Georgia</option>
-                                        <option value="Germany" data-provinces="[]">Germany</option>
-                                        <option value="Ghana" data-provinces="[]">Ghana</option>
-                                        <option value="Gibraltar" data-provinces="[]">Gibraltar</option>
-                                        <option value="Greece" data-provinces="[]">Greece</option>
-                                        <option value="Greenland" data-provinces="[]">Greenland</option>
-                                        <option value="Jersey" data-provinces="[]">Jersey</option>
-                                        <option value="Jordan" data-provinces="[]">Jordan</option>
-                                        <option value="Kazakhstan" data-provinces="[]">Kazakhstan</option>
-                                        <option value="Kenya" data-provinces="[]">Kenya</option>
-                                        <option value="Kiribati" data-provinces="[]">Kiribati</option>
-                                        <option value="Kosovo" data-provinces="[]">Kosovo</option>
-                                        <option value="Kuwait" data-provinces="[]">Kuwait</option>
-                                        <option value="Kyrgyzstan" data-provinces="[]">Kyrgyzstan</option>
-                                        <option value="Lao People's Democratic Republic" data-provinces="[]">Laos</option>
-                                        <option value="Latvia" data-provinces="[]">Latvia</option>
-                                        <option value="Lebanon" data-provinces="[]">Lebanon</option>
-                                        <option value="Lesotho" data-provinces="[]">Lesotho</option>
-                                        <option value="Liberia" data-provinces="[]">Liberia</option>
-                                        <option value="Libyan Arab Jamahiriya" data-provinces="[]">Libya</option>
-                                        <option value="Liechtenstein" data-provinces="[]">Liechtenstein</option>
-                                        <option value="Lithuania" data-provinces="[]">Lithuania</option>
-                                        <option value="Luxembourg" data-provinces="[]">Luxembourg</option>
-                                        <option value="Macao" data-provinces="[]">Macau SAR China</option>
-                                        <option value="Macedonia, Republic Of" data-provinces="[]">Macedonia</option>
-                                        <option value="Madagascar" data-provinces="[]">Madagascar</option>
-                                        <option value="Malawi" data-provinces="[]">Malawi</option>
-                                        <option value="Monaco" data-provinces="[]">Monaco</option>
-                                        <option value="Mongolia" data-provinces="[]">Mongolia</option>
-                                        <option value="Montenegro" data-provinces="[]">Montenegro</option>
-                                        <option value="Montserrat" data-provinces="[]">Montserrat</option>
-                                        <option value="Morocco" data-provinces="[]">Morocco</option>
-                                        <option value="Mozambique" data-provinces="[]">Mozambique</option>
-                                        <option value="Myanmar" data-provinces="[]">Myanmar (Burma)</option>
-                                        <option value="Namibia" data-provinces="[]">Namibia</option>
-                                        <option value="Nauru" data-provinces="[]">Nauru</option>
-                                        <option value="Nepal" data-provinces="[]">Nepal</option>
-                                        <option value="Netherlands" data-provinces="[]">Netherlands</option>
-                                        <option value="Samoa" data-provinces="[]">Samoa</option>
-                                        <option value="San Marino" data-provinces="[]">San Marino</option>
-                                        <option value="Sao Tome And Principe" data-provinces="[]">São Tomé &amp; Príncipe</option>
-                                        <option value="Saudi Arabia" data-provinces="[]">Saudi Arabia</option>
-                                        <option value="Senegal" data-provinces="[]">Senegal</option>
-                                        <option value="Serbia" data-provinces="[]">Serbia</option>
-                                        <option value="Seychelles" data-provinces="[]">Seychelles</option>
-                                        <option value="Sierra Leone" data-provinces="[]">Sierra Leone</option>
-                                        <option value="Singapore" data-provinces="[]">Singapore</option>
-                                        <option value="Sint Maarten" data-provinces="[]">Sint Marteen</option>
-                                        <option value="Slovakia" data-provinces="[]">Slovakia</option>
-                                        <option value="Slovenia" data-provinces="[]">Slovenia</option>
-                                        <option value="Solomon Islands" data-provinces="[]">Solomon Islands</option>
-                                        <option value="Sri Lanka" data-provinces="[]">Sri Lanka</option>
-                                        <option value="Saint Barthélemy" data-provinces="[]">St. Barthélemy</option>
-                                        <option value="Saint Helena" data-provinces="[]">St. Helena</option>
-                                        <option value="Saint Kitts And Nevis" data-provinces="[]">St. Kitts &amp; Nevis</option>
-                                        <option value="Saint Lucia" data-provinces="[]">St. Lucia</option>
-                                        <option value="Saint Martin" data-provinces="[]">St. Martin</option>
-                                        <option value="Saint Pierre And Miquelon" data-provinces="[]">St. Pierre &amp; Miquelon</option>
-                                        <option value="St. Vincent" data-provinces="[]">St. Vincent &amp; Grenadines</option>
-                                        <option value="Sudan" data-provinces="[]">Sudan</option>
-                                        <option value="Suriname" data-provinces="[]">Suriname</option>
-                                        <option value="Svalbard And Jan Mayen" data-provinces="[]">Svalbard &amp; Jan Mayen</option>
-                                        <option value="Swaziland" data-provinces="[]">Swaziland</option>
-                                        <option value="Sweden" data-provinces="[]">Sweden</option>
-                                        <option value="Switzerland" data-provinces="[]">Switzerland</option>
-                                        <option value="Syria" data-provinces="[]">Syria</option>
-                                        <option value="Taiwan" data-provinces="[]">Taiwan</option>
-                                        <option value="Tajikistan" data-provinces="[]">Tajikistan</option>
-                                        <option value="Timor Leste" data-provinces="[]">Timor-Leste</option>
-                                        <option value="Togo" data-provinces="[]">Togo</option>
-                                        <option value="Tokelau" data-provinces="[]">Tokelau</option>
-                                        <option value="Tonga" data-provinces="[]">Tonga</option>
-                                        <option value="Trinidad and Tobago" data-provinces="[]">Trinidad &amp; Tobago</option>
-                                        <option value="Tunisia" data-provinces="[]">Tunisia</option>
-                                        <option value="Turkey" data-provinces="[]">Turkey</option>
-                                        <option value="Turkmenistan" data-provinces="[]">Turkmenistan</option>
-                                        <option value="Turks and Caicos Islands" data-provinces="[]">Turks &amp; Caicos Islands</option>
-                                        <option value="Tuvalu" data-provinces="[]">Tuvalu</option>
-                                        <option value="United States Minor Outlying Islands" data-provinces="[]">U.S. Outlying Islands</option>
-                                        <option value="Uganda" data-provinces="[]">Uganda</option>
-                                        <option value="Ukraine" data-provinces="[]">Ukraine</option>
-                                        <option value="United Arab Emirates" >United Arab Emirates</option>
-                                        <option value="United Kingdom" data-provinces="[]">United Kingdom</option>
-                                        <option value="United States">United States</option>
-                                        <option value="Uruguay" data-provinces="[]">Uruguay</option>
-                                        <option value="Uzbekistan" data-provinces="[]">Uzbekistan</option>
-                                        <option value="Vanuatu" data-provinces="[]">Vanuatu</option>
-                                        <option value="Holy See (Vatican City State)" data-provinces="[]">Vatican City</option>
-                                        <option value="Venezuela" data-provinces="[]">Venezuela</option>
-                                        <option value="Vietnam" data-provinces="[]">Vietnam</option>
-                                        <option value="Wallis And Futuna" data-provinces="[]">Wallis &amp; Futuna</option>
-                                        <option value="Western Sahara" data-provinces="[]">Western Sahara</option>
-                                        <option value="Yemen" data-provinces="[]">Yemen</option>
-                                        <option value="Zambia" data-provinces="[]">Zambia</option>
-                                        <option value="Zimbabwe" data-provinces="[]">Zimbabwe</option></select>
-                            	</div>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-4">
-                            	<div class="form-group">
-                                	<label>State</label>
-                          			<select id="address_province" name="address[province]" data-default="">
-                                      <option value="Alabama">Alabama</option>
-                                      <option value="Alaska">Alaska</option>
-                                      <option value="American Samoa">American Samoa</option>
-                                      <option value="Arizona">Arizona</option>
-                                      <option value="Arkansas">Arkansas</option>
-                                      <option value="California">California</option>
-                                      <option value="Colorado">Colorado</option>
-                                      <option value="Connecticut">Connecticut</option>
-                                      <option value="Delaware">Delaware</option>
-                                      <option value="District of Columbia">District of Columbia</option>
-                                      <option value="Federated States of Micronesia">Federated States of Micronesia</option>
-                                      <option value="Florida">Florida</option>
-                                      <option value="Georgia">Georgia</option>
-                                      <option value="Guam">Guam</option>
-                                      <option value="Hawaii">Hawaii</option>
-                                      <option value="Idaho">Idaho</option>
-                                      <option value="Illinois">Illinois</option>
-                                      <option value="Indiana">Indiana</option>
-                                      <option value="Iowa">Iowa</option>
-                                      <option value="Kansas">Kansas</option>
-                                      <option value="Kentucky">Kentucky</option>
-                                      <option value="Louisiana">Louisiana</option>
-                                      <option value="Maine">Maine</option>
-                                      <option value="Marshall Islands">Marshall Islands</option>
-                                      <option value="Maryland">Maryland</option>
-                                      <option value="Massachusetts">Massachusetts</option>
-                                      <option value="Michigan">Michigan</option>
-                                      <option value="Minnesota">Minnesota</option>
-                                      <option value="Mississippi">Mississippi</option>
-                                      <option value="Missouri">Missouri</option>
-                                      <option value="Montana">Montana</option>
-                                      <option value="Nebraska">Nebraska</option>
-                                      <option value="Nevada">Nevada</option>
-                                      <option value="New Hampshire">New Hampshire</option>
-                                      <option value="New Jersey">New Jersey</option>
-                                      <option value="New Mexico">New Mexico</option>
-                                      <option value="New York">New York</option>
-                                      <option value="North Carolina">North Carolina</option>
-                                      <option value="North Dakota">North Dakota</option>
-                                      <option value="Northern Mariana Islands">Northern Mariana Islands</option>
-                                      <option value="Ohio">Ohio</option>
-                                      <option value="Oklahoma">Oklahoma</option>
-                                      <option value="Oregon">Oregon</option>
-                                      <option value="Palau">Palau</option>
-                                      <option value="Pennsylvania">Pennsylvania</option>
-                                      <option value="Puerto Rico">Puerto Rico</option>
-                                      <option value="Rhode Island">Rhode Island</option>
-                                      <option value="South Carolina">South Carolina</option>
-                                      <option value="South Dakota">South Dakota</option>
-                                      <option value="Tennessee">Tennessee</option>
-                                      <option value="Texas">Texas</option>
-                                      <option value="Utah">Utah</option>
-                                      <option value="Vermont">Vermont</option>
-                                      <option value="Virgin Islands">Virgin Islands</option>
-                                      <option value="Virginia">Virginia</option>
-                                      <option value="Washington">Washington</option>
-                                      <option value="West Virginia">West Virginia</option>
-                                      <option value="Wisconsin">Wisconsin</option>
-                                      <option value="Wyoming">Wyoming</option>
-                                      <option value="Armed Forces Americas">Armed Forces Americas</option>
-                                      <option value="Armed Forces Europe">Armed Forces Europe</option>
-                                      <option value="Armed Forces Pacific">Armed Forces Pacific</option>
-                                    </select>
-                            	</div>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-4">
-                            	<div class="form-group">
-                                	<label for="address_zip">Postal/Zip Code</label>
-                          			<input type="text" id="address_zip" name="address[zip]">
-                            	</div>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-12 actionRow text-center">
-      							<div><input type="button" class="btn btn--secondary get-rates" value="Calculate shipping"></div>
-  							</div>
-                        </div>
-                    </div> 
-                    
+                                    <label for="address_zip">Enter your coupon code if you have one.</label>
+                                    <input type="text" name="coupon">
+                                </div>
+                                <div class="actionRow">
+                                    <div><input type="button" class="btn btn-secondary btn--small" value="Apply Coupon"></div>
+                                </div>
+                            </form>
+                        </div>     
                     </form>                   
                	</div>
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 cart__footer">
-                	<div class="cart-note">
-                    	<div class="solid-border">
-							<h5><label for="CartSpecialInstructions" class="cart-note__label small--text-center">Add a note to your order</label></h5>
-							<textarea name="note" id="CartSpecialInstructions" class="cart-note__input"></textarea>
-						</div>
-                    </div>
                     <div class="solid-border">
-                      <div class="row">
+                    <div class="row border-bottom pb-2 pt-2">
+                      <span class="col-12 col-sm-6 cart__subtotal-title">Shipping</span>
+                      <span class="col-12 col-sm-6 text-right">Free shipping</span>
+                     </div>
+                      <div class="row border-bottom pb-2 pt-2">
                       	<span class="col-12 col-sm-6 cart__subtotal-title"><strong>Subtotal</strong></span>
-                        <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money"> Total: ${{ Cart::getTotal() }} FCFA</span></span>
+                        <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money">{{ Cart::getSubTotal() }} FCFA</span></span>
                       </div>
-                      <div>
-                          <form action="{{ route('cart.clear') }}" method="POST">
-                            @csrf
-                            <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
-                          </form>
-                      </div>
+        
                       <div class="cart__shipping">Shipping &amp; taxes calculated at checkout</div>
                       <p class="cart_tearm">
                         <label>
                           <input type="checkbox" name="tearm" id="cartTearm" class="checkbox" value="tearm" required="">
                            I agree with the terms and conditions</label>
                       </p>
-                      <input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="Checkout" disabled="disabled">
+                      <a href="{{route('checkout')}}"><input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="Checkout"></a>
                       <div class="paymnet-img"><img src="{{ asset('images/payment-img.jpg') }}" alt="Payment"></div>
+                      <p><a href="#;" style="text-decoration:none;">Checkout with Multiple Addresses</a></p>
                     </div>
 
                 </div>

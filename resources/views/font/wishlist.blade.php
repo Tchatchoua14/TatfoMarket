@@ -30,42 +30,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($already_wishlist as $wishlist)
                                     <tr>
                                     	<td class="product-remove text-center" valign="middle"><a href="#"><i class="icon icon anm anm-times-l"></i></a></td>
                                         <td class="product-thumbnail text-center">
                                             <a href="#"><img src="{{ asset('images/product-images/product-image8.jpg') }}" alt="" title="" /></a>
                                         </td>
                                         <td class="product-name"><h4 class="no-margin"><a href="#">Minerva Dress black</a></h4></td>
-                                        <td class="product-price text-center"><span class="amount">$165.00</span></td>
+                                        <td class="product-price text-center"><span class="amount">{{$wishlist['amount']}}</span></td>
                                         <td class="stock text-center">
                                             <span class="in-stock">in stock</span>
                                         </td>
                                         <td class="product-subtotal text-center"><button type="button" class="btn btn-small">Add To Cart</button></td>
                                     </tr>
-                                    <tr>
-                                    	<td class="product-remove text-center" valign="middle"><a href="#"><i class="icon icon anm anm-times-l"></i></a></td>
-                                        <td class="product-thumbnail text-center">
-                                            <a href="#"><img src="{{ asset('images/product-images/product-image4.jpg') }}" alt="" title="" /></a>
-                                        </td>
-                                        <td class="product-name"><h4 class="no-margin"><a href="#">Sueded Cotton Pant in Khaki</a></h4></td>
-                                        <td class="product-price text-center"><span class="amount">$150.00</span></td>
-                                        <td class="stock text-center">
-                                            <span class="out-stock">Out Of stock</span>
-                                        </td>
-                                        <td class="product-subtotal text-center"><button type="button" class="btn btn-small">Add To Cart</button></td>
-                                    </tr>
-                                    <tr>
-                                    	<td class="product-remove text-center" valign="middle"><a href="#"><i class="icon icon anm anm-times-l"></i></a></td>
-                                        <td class="product-thumbnail text-center">
-                                            <a href="#"><img src="{{ asset('images/product-images/product-image5.jpg') }}" alt="" title="" /></a>
-                                        </td>
-                                        <td class="product-name"><h4 class="no-margin"><a href="#">Woven Solid Midi Shirt Dress</a></h4></td>
-                                        <td class="product-price text-center"><span class="amount">$150.00</span></td>
-                                        <td class="stock text-center">
-                                            <span class="in-stock">in stock</span>
-                                        </td>
-                                        <td class="product-subtotal text-center"><button type="button" class="btn btn-small">Add To Cart</button></td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
