@@ -41,7 +41,7 @@
                                 <ul class="dropdown">
 
                                                          
-                                                        <li><a href="{{route('profile.edit')}}" class="site-nav">{{ __('message.home.profile') }}</a></li>
+                                                        <li><a href="{{route('compte')}}" class="site-nav">{{ __('message.home.profile') }}</a></li>
                                                         <li><a href="" class="site-nav">{{ __('message.home.order') }}</a></li>
                                                         <li><a href="" class="site-nav">{{ __('message.home.transaction') }}</a></li>
                                                         <li><a href="{{ route('logout') }}" class="text-uppercase" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('message.home.logout') }}</a>
@@ -62,19 +62,19 @@
                                             <ul class="grid">
                                                 <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.nav11') }} {{ __('message.home.group') }} 1</a>
                                                     <ul class="subLinks">
-                                                      <li class="lvl-2"><a href="{{route('home3')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 1 - {{ __('message.home.home1') }}</a></li>
+                                                      <li class="lvl-2"><a href="" class="site-nav lvl-2">{{ __('message.home.nav1') }} 1 - {{ __('message.home.home1') }}</a></li>
                                                       <li class="lvl-2"><a href="{{route('home2')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 2 - {{ __('message.home.home2') }}</a></li>
                                                       <li class="lvl-2"><a href="{{route('home15')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 15 - {{ __('message.home.home3') }} <span class="lbl nm_label1">{{ __('message.home.new') }}</span></a></li>
                                                       <li class="lvl-2"><a href="{{route('home5')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 3 - {{ __('message.home.boxed') }}</a></li>
-                                                      <li class="lvl-2"><a href="{{route('home6')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 4 - {{ __('message.home.home4') }}</a></li>
+                                                      <li class="lvl-2"><a href="" class="site-nav lvl-2">{{ __('message.home.nav1') }} 4 - {{ __('message.home.home4') }}</a></li>
                                                       <li class="lvl-2"><a href="{{route('home7')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 5 - {{ __('message.home.home5') }}</a></li>
                                                     </ul>
                                                   </li>
                                                 <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.nav11') }} {{ __('message.home.group') }} 2</a>
                                                     <ul class="subLinks">
                                                         <li class="lvl-2"><a href="{{route('home8')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 8 - {{ __('message.home.jewellery') }}</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home9')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 9 - {{ __('message.home.parallax') }}</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home10')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 10 - {{ __('message.home.minimal') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home15')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 9 - {{ __('message.home.parallax') }}</a></li>
+                                                        <li class="lvl-2"><a href="" class="site-nav lvl-2">{{ __('message.home.nav1') }} 10 - {{ __('message.home.minimal') }}</a></li>
                                                         <li class="lvl-2"><a href="{{route('home11')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 11 - {{ __('message.home.grid') }}</a></li>
                                                         <li class="lvl-2"><a href="{{route('home14')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 14 - {{ __('message.home.bags') }} <span class="lbl nm_label1">{{ __('message.home.new') }}</span></a></li>
                                                     </ul>
@@ -86,7 +86,7 @@
                                                         <li class="lvl-2"><a href="{{route('home7')}}" class="site-nav lvl-2">{{ __('message.home.sec3') }}</a></li>
                                                         <li class="lvl-2"><a href="{{route('home8')}}" class="site-nav lvl-2">{{ __('message.home.sec4') }}</a></li>
                                                         <li class="lvl-2"><a href="{{route('home2')}}" class="site-nav lvl-2">{{ __('message.home.sec5') }}</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home9')}}" class="site-nav lvl-2">{{ __('message.home.sec7') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home15')}}" class="site-nav lvl-2">{{ __('message.home.sec7') }}</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.shop8') }}</a>
@@ -115,7 +115,7 @@
                             </li>                  
                             <li class="lvl1 parent dropdown"><a href="#">BLOG <i class="anm anm-angle-down-l"></i></a>
                                 <ul class="dropdown">
-                                <li><a href="{{route('home3')}}" class="site-nav">{{ __('message.home.var4') }}</a></li>
+                                <li><a href="{{route('home15')}}" class="site-nav">{{ __('message.home.var4') }}</a></li>
                                 <li><a href="{{route('home7')}}" class="site-nav">Article</a></li>
                                 <li><a href="#" class="site-nav">{{ __('message.home.var3') }}<i class="anm anm-angle-right-l"></i></a>
                                     <ul class="dropdown">
@@ -125,7 +125,7 @@
                                 </li>
                                 <li><a href="compare-variant1.html" class="site-nav">{{ __('message.home.compare') }} <i class="anm anm-angle-right-l"></i></a>
                                     <ul class="dropdown">
-                                        <li><a href="{{route('compare2')}}" class="site-nav">{{ __('message.home.compare1') }}</a></li>
+                                        <li><a href="{{route('compare1')}}" class="site-nav">{{ __('message.home.compare1') }}</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#" class="site-nav">404</a></li>
@@ -172,7 +172,7 @@
                                             <input type="hidden" value="{{ $item->id }}" name="id">
                                             <button class="remove" style="border:none;"><i class="anm anm-times-l" aria-hidden="true"></i></button>
                                             </form>
-                                        <!-- <a href="#" class="edit-i remove"><i class="anm anm-edit" aria-hidden="true"></i></a> -->
+                    
                                         <a class="pName" href="#">{{ $item->name }}</a>
                                       
                                         <div class="variant-cart"> BLACK / XL</div>
@@ -181,14 +181,15 @@
                                         <div class="wrapQtyBtn">
                                             <div class="qtyField">
                                             	<span class="label">Qty:</span>
-                                                <form action="{{ route('cart.update') }}" method="POST" class="justify-content-around">
+                                                <form action="{{ route('cart.update' ,$item->id) }}" method="POST" class="justify-content-around">
                                                         @csrf
                                                 <input type="hidden" name="id" value="{{ $item->id}}" >
-                                                <input type="number" name="quantity" value="{{ $item->quantity }}" class="px-1" style="width:80px;" />   
+                                                <input type="number" name="quantity" value="{{ $item->quantity }}" min="1" max="20" class="px-1 text-center" style="width:80px; border-style:none;" />   
                                                 <button type="submit" name="update" class=""><i class="fa fa-refresh"></i></button>
                                                 </form>
                                             </div>
                                         </div>
+                                        <div class="variant-cart">{{ number_format($item->quantity * $item->price, 2, ',', ' ') }}</div>
                                      
 									</div>
                                 </li>
@@ -235,13 +236,14 @@
 						<i class="icon anm anm-truck-l icon-large text-primary"></i> &nbsp;<strong>Congratulations!</strong> {{ session('success') }}
 					</div>
                  @endif
-                	<form action="{{route('checkout')}}" method="post" class="cart style2">
+                	
                 		<table>
                             <thead class="cart__row cart__header">
                                 <tr>
                                     <th colspan="2" class="text-center">Product</th>
                                     <th class="text-center">Price</th>
                                     <th class="text-center">Quantity</th> 
+                                    <th class="text-center">Total</th> 
                                     <th class="action">&nbsp;</th>
                                 </tr> 
                             </thead>
@@ -254,37 +256,39 @@
                                     <td class="cart__meta small--text-left cart-flex-item">
                                         <div class="list-view-item__title">
                                             <a href="#">{{ $item->name }}</a>
-                                        </div>
+                                        </div> 
                                         
                                         <div class="cart__meta-text">
-                                            Color: Navy<br>Size: Small<br>
+                                            Color : Black<br>Size : Small<br>
                                         </div>
                                     </td>
-                                    <td class="cart__price-wrapper cart-flex-item">
+                                    <td class="cart__price-wrapper cart-flex-item"> 
                                         <span class="money">{{$item->price}}</span>
                                     </td>
                                     <td class="cart__update-wrapper cart-flex-item text-right">
                                         <div class="cart__qty text-center">
                                             <div class="qtyField">
-                                            <form action="{{ route('cart.update') }}" method="POST" class="justify-content-around">
+                                            <form action="{{ route('cart.update', $item->id) }}" method="POST" class="justify-content-around">
                                                         @csrf
                                                 <input type="hidden" name="id" value="{{ $item->id}}" >
-                                                <input type="number" name="quantity" value="{{ $item->quantity }}" class="px-1" style="width:80px;" />   
-                                                <button type="submit" name="update" class=""><i class="fa fa-refresh mr-2"></i>Update</button>
+                                                <input type="number" name="quantity" value="{{ $item->quantity }}" min="1" max="20" class="px-1 text-center" style="width:80px; border-style:none;" />   
+                                                <button type="submit" name="update" class="btn--link cart-update" style="cursor:pointer;"><i class="fa fa-refresh mr-2"></i>Update</button>
                                                 </form>
                                             </div>
-                                        </div>
+                                        </div> 
                                     </td>
-                                        <td class="hidden text-right md:table-cell">
-                                          <form action="{{ route('cart.remove') }}" method="POST">
+                                    <td class="text-right small--hide cart-price">
+                                        <div><span class="money">{{ number_format($item->quantity * $item->price) }}</span></div>
+                                    </td>
+                                    <td class="text-center small--hide">
+                                        <form action="{{ route('cart.remove') }}" method="POST">
                                             @csrf
                                             <input type="hidden" value="{{ $item->id }}" name="id">
-                                            <button class="remove" class="btn btn--secondary cart__remove" title="Remove tem" style="border:none;"><i class="icon icon anm anm-times-l" aria-hidden="true"></i></button>
-                                            </form>
-                                                        
-                                        </td>
+                                            <input type="submit" class="btn btn-danger cart__remove mb-2" title="Remove tem" value="x">
+                                        </form>
+                                    </td>
                                 </tr>
-                             @endforeach
+                             @endforeach 
                             </tbody>
                     		<tfoot>
                                 <tr>
@@ -292,14 +296,8 @@
                                     <td colspan="3" class="text-right">
                                     <form action="{{ route('cart.clear') }}" method="POST">
                                        @csrf
-                                        <button type="submit" name="update" class="btn--link cart-update"><i class="fa fa-refresh"></i> Clear Cart</button>
+                                      <button type="submit" class="btn--link cart-update" style="cursor:pointer;"><i class="fa fa-refresh"></i> Clear Cart</button>
                                      </form>
-                                      <!-- <form action="{{ route('cart.update') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $item->id}}" >
-                                            <input type="number" name="quantity" value="{{ $item->quantity }}"/>   
-                                        <button type="submit" name="update" class="btn--link cart-update"><i class="fa fa-refresh"></i> Update Cart</button>
-                                       </form> -->
                                     </td>
                                 </tr>
                             </tfoot>
@@ -319,7 +317,7 @@
                                 </div>
                             </form>
                         </div>     
-                    </form>                   
+                                    
                	</div>
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 cart__footer">
                     <div class="solid-border">

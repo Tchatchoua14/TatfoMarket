@@ -318,12 +318,17 @@
                                                      @endif
                                             <!-- End product label -->
                                         </a>
-                                        <!-- end product image -->
+                                        <!-- end product image --> 
                                         <!-- Start product button -->
-                                        <form class="variants add" action="{{route('cart.list')}}" onclick="window.location.href='cart.html'"method="post">
-                                          @csrf
-                                            <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
-                                        </form>
+                                            <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <input type="hidden" value="{{ $product->id }}" name="id">
+                                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                                        <input type="hidden" value="{{ $product->price }}" name="price">
+                                                        <input type="hidden" value="{{ $product->image1 }}"  name="image1">
+                                                        <input type="hidden" value="1" name="quantity">
+                                                        <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
+                                             </form>
                                         <div class="button-set">
                                             <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
                                                 <i class="icon anm anm-search-plus-r"></i>

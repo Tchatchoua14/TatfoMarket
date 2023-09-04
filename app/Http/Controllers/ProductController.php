@@ -106,7 +106,7 @@ class ProductController extends Controller
         // $product = Product::findOrFail($id);
     }
 
-    /**
+    /** 
      * Show the form for editing the specified resource.
      */
     public function edit($id)
@@ -116,6 +116,15 @@ class ProductController extends Controller
         $product=Product::findOrFail($id);
         $items=Product::where('id',$id)->get();
         return view('back.product.edit')->with('product',$product)->with('items',$items)->with('categories',$category);
+    }
+
+    public function edit1($id)
+    {
+        //
+        $category = Category::all();
+        $product=Product::findOrFail($id);
+        $items=Product::where('id',$id)->get();
+        return view('font.produit-layout')->with('product',$product)->with('items',$items)->with('categories',$category);
     }
 
     /**

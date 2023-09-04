@@ -18,15 +18,16 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'cat_id', 'id');
     }
 
-    // public function transactions()
-    // {
-    //     return $this->hasMany(Transaction::class);
-    // }
 
-    // public function carts()
-    // {
-    //     return $this->hasMany(Cart::class);
-    // }
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
 
     // public function carts(){
     //     return $this->hasMany(Cart::class)->whereNotNull('order_id');

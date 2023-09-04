@@ -43,8 +43,9 @@
                                 <ul class="dropdown">
 
                                                          
-                                                        <li><a href="{{route('profile.edit')}}" class="site-nav">{{ __('message.home.profile') }}</a></li>
+                                                        <li><a href="{{route('compte')}}" class="site-nav">{{ __('message.home.profile') }}</a></li>
                                                         <li><a href="" class="site-nav">{{ __('message.home.order') }}</a></li>
+                                                        <li><a href="" class="site-nav">Créer un coupon</a></li>
                                                         <li><a href="" class="site-nav">{{ __('message.home.transaction') }}</a></li>
                                                         <li><a href="{{ route('logout') }}" class="text-uppercase" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('message.home.logout') }}</a>
                                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -64,19 +65,19 @@
                                             <ul class="grid">
                                                 <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.nav11') }} {{ __('message.home.group') }} 1</a>
                                                     <ul class="subLinks">
-                                                      <li class="lvl-2"><a href="{{route('home3')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 1 - {{ __('message.home.home1') }}</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home14')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 1 - {{ __('message.home.home1') }}</a></li>
                                                       <li class="lvl-2"><a href="{{route('home2')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 2 - {{ __('message.home.home2') }}</a></li>
                                                       <li class="lvl-2"><a href="{{route('home15')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 15 - {{ __('message.home.home3') }} <span class="lbl nm_label1">{{ __('message.home.new') }}</span></a></li>
                                                       <li class="lvl-2"><a href="{{route('home5')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 3 - {{ __('message.home.boxed') }}</a></li>
-                                                      <li class="lvl-2"><a href="{{route('home6')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 4 - {{ __('message.home.home4') }}</a></li>
+                                                      <li class="lvl-2"><a href="{{route('home8')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 4 - {{ __('message.home.home4') }}</a></li>
                                                       <li class="lvl-2"><a href="{{route('home7')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 5 - {{ __('message.home.home5') }}</a></li>
                                                     </ul>
                                                   </li>
                                                 <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.nav11') }} {{ __('message.home.group') }} 2</a>
                                                     <ul class="subLinks">
                                                         <li class="lvl-2"><a href="{{route('home8')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 8 - {{ __('message.home.jewellery') }}</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home9')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 9 - {{ __('message.home.parallax') }}</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home10')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 10 - {{ __('message.home.minimal') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home15')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 9 - {{ __('message.home.parallax') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home13')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 10 - {{ __('message.home.minimal') }}</a></li>
                                                         <li class="lvl-2"><a href="{{route('home11')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 11 - {{ __('message.home.grid') }}</a></li>
                                                         <li class="lvl-2"><a href="{{route('home14')}}" class="site-nav lvl-2">{{ __('message.home.nav1') }} 14 - {{ __('message.home.bags') }} <span class="lbl nm_label1">{{ __('message.home.new') }}</span></a></li>
                                                     </ul>
@@ -88,7 +89,7 @@
                                                         <li class="lvl-2"><a href="{{route('home7')}}" class="site-nav lvl-2">{{ __('message.home.sec3') }}</a></li>
                                                         <li class="lvl-2"><a href="{{route('home8')}}" class="site-nav lvl-2">{{ __('message.home.sec4') }}</a></li>
                                                         <li class="lvl-2"><a href="{{route('home2')}}" class="site-nav lvl-2">{{ __('message.home.sec5') }}</a></li>
-                                                        <li class="lvl-2"><a href="{{route('home9')}}" class="site-nav lvl-2">{{ __('message.home.sec7') }}</a></li>
+                                                        <li class="lvl-2"><a href="{{route('home15')}}" class="site-nav lvl-2">{{ __('message.home.sec7') }}</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">{{ __('message.home.shop8') }}</a>
@@ -117,7 +118,7 @@
                             </li>                  
                             <li class="lvl1 parent dropdown"><a href="#">BLOG <i class="anm anm-angle-down-l"></i></a>
                                 <ul class="dropdown">
-                                <li><a href="{{route('home3')}}" class="site-nav">{{ __('message.home.var4') }}</a></li>
+                                <li><a href="{{route('home13')}}" class="site-nav">{{ __('message.home.var4') }}</a></li>
                                 <li><a href="{{route('home7')}}" class="site-nav">Article</a></li>
                                 <li><a href="#" class="site-nav">{{ __('message.home.var3') }}<i class="anm anm-angle-right-l"></i></a>
                                     <ul class="dropdown">
@@ -127,7 +128,7 @@
                                 </li>
                                 <li><a href="compare-variant1.html" class="site-nav">{{ __('message.home.compare') }} <i class="anm anm-angle-right-l"></i></a>
                                     <ul class="dropdown">
-                                        <li><a href="{{route('compare2')}}" class="site-nav">{{ __('message.home.compare1') }}</a></li>
+                                        <li><a href="" class="site-nav">{{ __('message.home.compare1') }}</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#" class="site-nav">404</a></li>
@@ -173,7 +174,7 @@
                                             <input type="hidden" value="{{ $item->id }}" name="id">
                                             <button class="remove" style="border:none;"><i class="anm anm-times-l" aria-hidden="true"></i></button>
                                             </form>
-                                        <!-- <a href="#" class="edit-i remove"><i class="anm anm-edit" aria-hidden="true"></i></a> -->
+                                     
                                         <a class="pName" href="#">{{ $item->name }}</a>
                                       
                                         <div class="variant-cart"> BLACK / XL</div>
@@ -185,11 +186,12 @@
                                                 <form action="{{ route('cart.update') }}" method="POST" class="justify-content-around">
                                                         @csrf
                                                 <input type="hidden" name="id" value="{{ $item->id}}" >
-                                                <input type="number" name="quantity" value="{{ $item->quantity }}" class="px-1" style="width:80px;" />   
+                                                <input type="number" name="quantity" value="{{ $item->quantity }}" min="1" max="20" class="px-1" style="width:80px;" />   
                                                 <button type="submit" name="update" class=""><i class="fa fa-refresh"></i></button>
                                                 </form>
                                             </div>
                                         </div>
+                                        <div class="variant-cart">{{ number_format($item->quantity * $item->price, 2, ',', ' ') }}</div>
 									</div>
                                 </li>
                             @endforeach
@@ -277,7 +279,7 @@
                                             <!-- start product image -->
                                             <div class="product-image">
                                                  <!-- start product image -->  
-                                                <a href="{{route('produit-layout')}}">
+                                                <a href="{{route('product.edit1',$product->id)}}">
                                                     <!-- image -->
                                                     <img class="primary blur-up lazyload" id="" data-id="{{$product->id}}" data-src="{{ asset('/images/product-images/'.$product->image1) }}" src="{{ asset('/images/product-images/'.$product->image1) }}" alt="{{$product->image1}}" title="product">
                                                     <!-- End image -->
@@ -307,7 +309,7 @@
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->
-                                             
+                                                @if ($product->stock > 0)
                                                 <form  class="variants add" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
                                                             <input type="hidden" value="{{ $product->id }}" name="id">
@@ -317,7 +319,8 @@
                                                             <input type="hidden" value="1" name="quantity">
                                                             <button class="btn btn-addto-cart" tabindex="0" type="submit">{{ __('message.home.panier1') }}</button>
                                                  </form>
- 
+                                                @endif 
+                                                <a href="{{route('payment', $product)}}" class="btn">Acheter</a>
                                                 <div class="button-set">
                                                     <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
                                                         <i class="icon anm anm-search-plus-r"></i>
@@ -455,7 +458,7 @@
                                             <!-- start product image -->
                                             <div class="product-image">
                                                  <!-- start product image -->  
-                                                <a href="{{route('produit-layout')}}">
+                                                <a href="{{route('product.edit1',$product->id)}}">
                                                     <!-- image -->
                                                     <img class="primary blur-up lazyload" id="" data-id="{{$product->id}}" data-src="{{ asset('/images/product-images/'.$product->image1) }}" src="{{ asset('/images/product-images/'.$product->image1) }}" alt="{{$product->image1}}" title="product">
                                                     <!-- End image -->
@@ -485,9 +488,7 @@
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->
-                                                <!-- <form class="variants add" action="" onclick="window.location.href='cart.html'"method="post">
-                                                    <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
-                                                </form> -->
+                                             
                                                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <input type="hidden" value="{{ $product->id }}" name="id">
@@ -594,7 +595,7 @@
                                             <!-- start product image -->
                                             <div class="product-image">
                                                  <!-- start product image -->  
-                                                <a href="{{route('produit-layout')}}">
+                                                <a href="{{route('product.edit1',$product->id)}}">
                                                     <!-- image -->
                                                     <img class="primary blur-up lazyload" id="" data-id="{{$product->id}}" data-src="{{ asset('/images/product-images/'.$product->image1) }}" src="{{ asset('/images/product-images/'.$product->image1) }}" alt="{{$product->image1}}" title="product">
                                                     <!-- End image -->
@@ -861,7 +862,7 @@
                         <div class="col-6 col-sm-6 col-md-4 col-lg-4 item grid-view-item style2">
                         	<div class="grid-view_image">
                                 <!-- start product image -->
-                                <a href="product-accordion.html" class="grid-view-item__link">
+                                <a href="{{route('product.edit1',$product->id)}}" class="grid-view-item__link">
                                     <!-- image -->
                                     <img class="grid-view-item__image primary blur-up lazyload" data-src="{{ asset('/images/product-images/'.$product->image1) }}" src="{{ asset('/images/product-images/'.$product->image1) }}" alt="image" title="product">
                                     <!-- End image -->
@@ -960,16 +961,14 @@
                                             </a>
                                         </div>
                                         <div class="compare-btn">
-                                            <a class="compare add-to-compare" href="{{ route('wishlist') }}" title="Add to Compare">
+                                            <a class="compare add-to-compare" href="{{route('compare1')}}" title="Add to Compare">
                                                 <i class="icon anm anm-random-r"></i>
                                             </a>
                                         </div>
                                     </div>
                                     <!-- end product button -->
                                 </div>
-                                <!-- Variant -->
-                                <!-- End Variant -->
-                                <!-- End product details -->
+                             <a href="{{route('payment', $product)}}" class="btn">Acheter</a>
                     
                                <form  class="variants add" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
@@ -979,7 +978,7 @@
                                                             <input type="hidden" value="{{ $product->image1 }}"  name="image1">
                                                             <input type="hidden" value="1" name="quantity">
                                                             <button class="btn btn-addto-cart" tabindex="0" type="submit">{{ __('message.home.panier1') }}</button>
-                                                 </form>
+                                 </form>
                             </div>
                            
                         </div>
@@ -1132,5 +1131,7 @@
         <!--End Store Feature-->
     </div>
     <!--End Body Content-->
+
+    
 
     @endsection 

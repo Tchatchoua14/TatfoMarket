@@ -29,6 +29,6 @@ class NotchPayCallBackController extends Controller
           }
    
    
-          return redirect(route('profile.edit')); 
+          return redirect(route('cart.list')); 
     }
 }

@@ -80,7 +80,7 @@
 
         <div class="form-group">
           <label for="description" class="col-form-label">Description</label>
-          <textarea class="form-control" id="description" name="description">{{old('description')}}</textarea>
+          <textarea class="form-control" id="description" name="description"  value="{{old('description')}}">{{old('description')}}</textarea>
           @error('description')
           <span class="text-danger">{{$message}}</span>
           @enderror
@@ -158,6 +158,9 @@
                   <option value='{{$cat_data->id}}' {{(($product->cat_id==$cat_data->id)? 'selected' : '')}}>{{$cat_data->name}}</option>
               @endforeach
           </select>
+          @error('cat_id')
+                   <span class="alert text-danger">{{ $message }}</span>
+                @enderror
         </div>
 
         <div class="form-group">

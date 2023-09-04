@@ -14,7 +14,7 @@
         <!--End Page Title-->
         
         <div class="container">
-        	<div class="row">
+        	<div class="row"> 
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
                 	<form action="#">
                         <div class="wishlist-table table-content table-responsive">
@@ -26,22 +26,24 @@
                                         <th class="product-name alt-font">Product</th>
                                         <th class="product-price text-center alt-font">Unit Price</th>
                                         <th class="stock-status text-center alt-font">Stock Status</th>
-                                        <th class="product-subtotal text-center alt-font">Add to Cart</th>
+                                        <th class="product-subtotal text-center alt-font">Add to Cart</th> 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($already_wishlist as $wishlist)
+                                    @foreach ($cartItems as $item)
                                     <tr>
                                     	<td class="product-remove text-center" valign="middle"><a href="#"><i class="icon icon anm anm-times-l"></i></a></td>
                                         <td class="product-thumbnail text-center">
-                                            <a href="#"><img src="{{ asset('images/product-images/product-image8.jpg') }}" alt="" title="" /></a>
+                                            <a href="#"><img  src="{{ asset('/images/product-images/'.$item->attributes->image1) }}" alt="{{ $item->name }}" /></a>
                                         </td>
-                                        <td class="product-name"><h4 class="no-margin"><a href="#">Minerva Dress black</a></h4></td>
-                                        <td class="product-price text-center"><span class="amount">{{$wishlist['amount']}}</span></td>
+                                        <td class="product-name"><h4 class="no-margin"><a href="#">{{$item->name}}</a></h4></td>
+                                        <td class="product-price text-center"><span class="amount">{{$item->price}} FCFA</span></td>
                                         <td class="stock text-center">
                                             <span class="in-stock">in stock</span>
                                         </td>
-                                        <td class="product-subtotal text-center"><button type="button" class="btn btn-small">Add To Cart</button></td>
+                                        <td class="product-subtotal text-center">
+                                                    <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

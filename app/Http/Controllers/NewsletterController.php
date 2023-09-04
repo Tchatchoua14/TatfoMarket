@@ -9,11 +9,6 @@ class NewsletterController extends Controller
 {
     //
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     { 
         $newsletters = Newsletter::all();
@@ -31,7 +26,6 @@ class NewsletterController extends Controller
            $NewsLetter->email= $request->input('email');
            $NewsLetter->save();
            return redirect()->route('profile.edit')->with('success','Thanks for Subscribing! We Will mail You Our Latest Updates');
-        // return redirect()->route('home')->with('status','Thanks for Subscribing! We Will mail You Our Latest Updates');
     }
 
     public function destroy(Newsletter $newsletter){

@@ -33,7 +33,7 @@
                           <li> <a href="{{ route('login') }}"><span class="icon-lock mr-1"></span>{{ __('Login') }}</a> </li> 
                             @if (Route::has('register'))
                             <li> <a href="{{ route('register') }}"><i class="fa fa-user mr-1" style="margin-top: -2px; margin-right: 1px;"></i>{{ __('message.home.nav00') }}</a> </li>
-                            @endif
+                            @endif 
                             @endguest
                                 
                          @endif

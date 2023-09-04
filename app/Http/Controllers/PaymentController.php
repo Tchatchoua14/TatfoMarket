@@ -40,7 +40,7 @@ class PaymentController extends Controller
  
             return redirect($payload->authorization_url);
         } catch (NotchPay\Exception\ApiException $e) {
-            session()->flash('error', __('Impossible de procéder au paiement, veuillez recommencer plus tard. Merci'));
+            session()->flash('success', __('Impossible de procéder au paiement, veuillez recommencer plus tard. Merci'));
  
             return back();
         } 

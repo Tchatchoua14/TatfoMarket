@@ -35,11 +35,17 @@
             <div class="card card-widget widget-user">
               <!-- Add the bg color to the header using any of the bg-* classes -->
               <div class="widget-user-header text-white" id="pq">
-                <h3 class="widget-user-username text-right">THOMAS VINY</h3>
+              @if (Route::has('login'))
+              @auth 
+              @if (Auth::user()->role=="admin") 
+              <h3 class="widget-user-username text-right">{{ Auth::user()->name }}</h3>
+              @endif
+              @endauth
+              @endif
                 <h5 class="widget-user-desc text-right">Developpeur Fullstack</h5>
               </div>
               <div class="widget-user-image">
-                <img class="img-circle" src="{{ asset('dist/img/IMG_0013.jpg') }}" alt="User Avatar">
+              <img src="{{ asset('/images/faces/'.Auth::user()->photo) }}"alt="" class="img-fluid zoom" style="width: 110px;height: 110px;border-radius: 50%" />
               </div>
               <div class="card-footer">
                 <div class="row">
@@ -115,15 +121,15 @@
                 </ul>
               </div><!-- /.card-header -->
 
-              <div class="card-body">
+              <div class="card-body"> 
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <div class="image">
+                    <div class="image text-center mt-5">
                         @if($profile->photo)
-                        <img class="card-img-top img-fluid roundend-circle mt-4" style="border-radius:50%;height:80px;width:80px;margin:auto;" src="{{asset('storage/' .$profile->photo)}}" alt="profile picture">
+                        <img src="{{ asset('/images/faces/'.Auth::user()->photo) }}"alt="" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />
                         @else 
-                        <img class="card-img-top img-fluid roundend-circle mt-4" style="border-radius:50%;height:80px;width:80px;margin:auto;" src="{{ asset('dist/img/IMG_0013.jpg') }}" alt="profile picture">
+                        <img class="card-img-top img-fluid roundend-circle mt-4" style="border-radius:50%;height:150px;width:150px;margin:auto;" src="{{ asset('dist/img/IMG_0013.jpg') }}" alt="profile picture">
                         @endif
                     </div>
                     <div class="card-body mt-4 ml-2">
@@ -136,11 +142,12 @@
             <div class="col-md-8">
                 <form class="border px-4 pt-2 pb-3" method="POST" action="{{route('profile.update',$profile->id)}}"  enctype="multipart/form-data">
                     @csrf
+                    @method('PATCH') 
                     <div class="form-group">
                         <label for="inputTitle" class="col-form-label">Name</label>
                       <input id="inputTitle" type="text" name="name" placeholder="Enter name"  value="{{$profile->name}}" class="form-control">
                       @error('name')
-                      <span class="text-danger">{{$message}}</span>
+                      <span class="text-danger">{{$message}}</span> 
                       @enderror
                       </div>
               

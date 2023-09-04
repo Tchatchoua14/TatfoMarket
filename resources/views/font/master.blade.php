@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}"> 
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcYROknAAAAAA1LK4Kbc93hJ4dcWggf5cLYpyUA"></script>
-    <title>TatfoMarket - @yield('title')</title>
+    <title>{{ config('app.name', 'TatfoMarket') }} | @yield('title')</title>
 </head>
 <body>
 <div id="pre-loader">

@@ -73,7 +73,7 @@
 
                   <div class="form-group">
                     <label for="description" class="col-form-label">Description</label>
-                    <textarea class="form-control" id="description" name="description">{{old('description')}}</textarea>
+                    <textarea class="form-control" id="description" name="description" value="{{old('description')}}">{{old('description')}}</textarea>
                     @error('description')
                     <span class="text-danger">{{$message}}</span>
                     @enderror

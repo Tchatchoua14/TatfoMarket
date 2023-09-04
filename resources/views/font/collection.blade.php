@@ -1,9 +1,10 @@
 @extends('font.master')
 @section('title', 'collection')
 @section('content')
-  
+@include('font.partials.header') 
+@include('font.partials.menu')
     <!--Body Content-->
-    <div id="page-content">
+    <div id="page-content" class="mt-5">
     	<!--Page Title-->
     	<div class="page section-header text-center">
 			<div class="page-title">
@@ -48,7 +49,7 @@
                	</div>
                 <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                 	<div class="colletion-item">
-                        <a href="{{ route('home6') }}">
+                        <a href="{{ route('shop') }}">
                             <img class="blur-up lazyload" data-src="{{ asset('images/collection/collection-page5.jpg') }}" src="{{ asset('images/collection/collection-page5.jpg') }}" alt="image" title="">
                             <span class="title"><span>Kids</span></span>
                         </a>

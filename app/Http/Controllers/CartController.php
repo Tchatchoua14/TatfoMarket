@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use Darryldecode\Cart\Cart;
 use Cart; 
 
 
 class CartController extends Controller
 {
     //
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     
     public function cartList () 
     { 
@@ -39,21 +38,6 @@ class CartController extends Controller
        return redirect()->route('cart.list');
    }
 
-//    public function store(Request $request) 
-// {
-//     $product = Product::findOrFail($request->id);
-      
-//     Cart::add([
-//         'id' => $product->id,
-//         'name' => $product->name,
-//         'price' => $product->price,
-//         'quantity' => $request->quantity,
-//         'attributes' => [],
-//         'associatedModel' => $product,
-//       ]
-//     );
-//     return redirect()->back()->with('cart', 'ok');
-// }
 
    public function updateCart(Request $request)
    {

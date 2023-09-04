@@ -108,14 +108,7 @@
                         <!--End Footer Copyright-->
                         <!--Footer Payment Icon-->
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 order-0 order-md-1 order-lg-1 order-sm-0 payment-icons text-right text-md-center">
-                        	<!-- <ul class="payment-icons list--inline">
-                        		<li><i class="icon fa fa-cc-visa" aria-hidden="true"></i></li>
-                                <li><i class="icon fa fa-cc-mastercard" aria-hidden="true"></i></li>
-                                <li><i class="icon fa fa-cc-discover" aria-hidden="true"></i></li>
-                                <li><i class="icon fa fa-cc-paypal" aria-hidden="true"></i></li>
-                                <li><i class="icon fa fa-cc-amex" aria-hidden="true"></i></li>
-                                <li><i class="icon fa fa-credit-card" aria-hidden="true"></i></li>
-                            </ul> -->
+                      
                             <img src="{{ asset('images/payments.png') }}" alt="" />
     
                         </div>

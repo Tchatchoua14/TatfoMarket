@@ -20,7 +20,7 @@
                         <div class="map-section__overlay">
                             <h3 class="h4">Our store</h3>
                             <div class="rte-setting">
-                                <p>123 Fake St.<br>Toronto, Canada</p>
+                                <p>134w. rue grand magasin,<br>Bilongue Entrée bille, Douala-Cameroun</p>
                                 <p>Mon - Fri, 10am - 9pm<br>Saturday, 11am - 9pm<br>Sunday, 11am - 5pm</p>
                             </div>
                             <p><a href="https://maps.google.com/?daddr=80%20Spadina%20Ave,%20Toronto" class="btn btn--secondary btn--small" target="_blank">Get directions</a></p>
@@ -31,7 +31,7 @@
         </div>
         <div class="bredcrumbWrap">
             <div class="container breadcrumbs">
-                <a href="index.html" title="Back to the home page">Home</a><span aria-hidden="true">›</span><span>Contact Us</span>
+                <a href="{{route('home')}}" title="Back to the home page">Home</a><span aria-hidden="true">›</span><span>Contact Us</span>
             </div>
         </div>
         
@@ -39,9 +39,9 @@
             <div class="row">
             	<div class="col-12 col-sm-12 col-md-8 col-lg-8 mb-4">
                 	<h2>Drop Us A Line</h2>
-                    <p>Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500 </p>
+                    
                 	<div class="formFeilds contact-form form-vertical">
-                      <form action="http://annimexweb.com/items/belle/assets/php/mail.php" method="post"  id="contact_form" class="contact-form">	
+                      <form action="" method="post"  id="contact_form" class="contact-form">	
                       <div class="row">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                         	<div class="form-group">
@@ -93,7 +93,7 @@
                         <li class="phone"><i class="icon anm anm-phone-s"></i><p>(440) 000 000 0000</p></li>
                         <li class="email"><i class="icon anm anm-envelope-l"></i><p>sales@yousite.com</p></li>
                     </ul>
-                    <hr />
+                    <hr /> 
                     <ul class="list--inline site-footer__social-icons social-icons">
                         <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Facebook"><i class="icon icon-facebook"></i></a></li>
                         <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Twitter"><i class="icon icon-twitter"></i> <span class="icon__fallback-text">Twitter</span></a></li>

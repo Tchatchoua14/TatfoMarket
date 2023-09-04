@@ -13,7 +13,7 @@ use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\NotchPayCallBackController;
-
+use App\Models\Wishlist;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,21 +69,21 @@ Route::get('/auth/facebook/callback', [App\Http\Controllers\Auth\LoginController
 Route::get('auth/github', [App\Http\Controllers\Auth\LoginController::class, 'githubRedirect']);
 Route::get('/auth/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'loginWithGithub']);
 
-// Category
-Route::resource('/category', CategoryController::class);
 
-// Product
-Route::resource('/product', ProductController::class);
 
-// Liste des utilisateurs
-Route::get('/user/liste', [UsersController::class, 'index'])->name('liste');
-Route::patch('/user', [UsersController::class, 'create'])->name('user.create');
-Route::get('/user/edit', [UsersController::class, 'edit'])->name('user.edit');
-Route::patch('/user', [UsersController::class, 'update'])->name('user.update');
 
-// Backend route
-Route::get('/back/index', [BackController::class, 'index'])->name('index');
+// Route Backend App
 
+Route::group(['prefix' => '/back'], function () {
+    // Home Backend
+    Route::get('/back/index', [BackController::class, 'index'])->name('index');
+    // Liste des utilisateurs
+    Route::get('/user/liste', [UsersController::class, 'index'])->name('liste');
+    Route::patch('/user', [UsersController::class, 'create'])->name('user.create');
+    Route::get('/user/edit', [UsersController::class, 'edit'])->name('user.edit');
+    Route::patch('/user', [UsersController::class, 'update'])->name('user.update');
+
+});
 
 
 // Page Error
@@ -94,62 +94,51 @@ Route::fallback(function () {
 // Route Fontend App
 
 Route::group(['prefix' => '/font'], function () {
+
+    // Category
+    Route::resource('/category', CategoryController::class);
+    // Product
+    Route::resource('/product', ProductController::class);
+    Route::get('/product/{product}/edit1', [ProductController::class, 'edit1'])->name('product.edit1');
     // Newsletter
     Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
     Route::get('/newsletter', [NewsletterController::class, 'index'])->name('liste-news');
-    //Liste des souhaits
-    Route::get('/wishlist', [HomeController::class, 'wishlist'])->name('wishlist');
-    // Wishlist
-    Route::get('/wishlist/{slug}', [WishlistController::class, 'wishlist'])->name('add-to-wishlist');
-    Route::get('wishlist-delete/{id}', [WishlistController::class, 'wishlistDelete'])->name('wishlist-delete');
+        
+    // Add-To-Cart  Darylecode/cart
+    Route::get( '/cart' , [CartController::class, 'cartList' ])->name( 'cart.list' );
+    Route::post( '/cart' , [CartController::class, 'addToCart' ])->name( 'cart.store' );
+    Route::post( '/update-cart' , [CartController::class, 'updateCart' ])->name( 'cart.update' );
+    Route::post( '/remove' , [CartController::class, 'removeCart' ])->name( 'cart.remove' );
+    Route::post( '/clear' , [CartController::class, 'clearAllCart' ])->name( 'cart.clear' );
+    //Liste des souhaits  // Wishlist
+    Route::get('/wishlist', [WishlistController::class, 'wishlist'])->name('wishlist');
+    Route::post('/wishlist', [WishlistController::class, 'addWishList'])->name('wishlist.store');
+    // Checkout
     Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
+    Route::get('/', [HomeController::class, 'store'])->name('checkout.store');
     // Barre de recherche 
-    Route::get('/search', [HomeController::class, 'search'])->name('search');
+    Route::get('/search', [HomeController::class, 'search'])->name('search'); 
     Route::get('/home2', [HomeController::class, 'home2'])->name('home2');
-    Route::get('/home3', [HomeController::class, 'home3'])->name('home3');
     Route::get('/home5', [HomeController::class, 'home5'])->name('home5');
-    Route::get('/home6', [HomeController::class, 'home6'])->name('home6');
     Route::get('/home7', [HomeController::class, 'home7'])->name('home7');
     Route::get('/home8', [HomeController::class, 'home8'])->name('home8');
-    Route::get('/home9', [HomeController::class, 'home9'])->name('home9');
-    Route::get('/home10', [HomeController::class, 'home10'])->name('home10');
     Route::get('/home11', [HomeController::class, 'home11'])->name('home11');
-    Route::get('/home12', [HomeController::class, 'home12'])->name('home12');
     Route::get('/home13', [HomeController::class, 'home13'])->name('home13');
     Route::get('/home14', [HomeController::class, 'home14'])->name('home14');
     Route::get('/home15', [HomeController::class, 'home15'])->name('home15');
     Route::get('/about', [HomeController::class, 'about'])->name('about');
-    Route::get('/blog-article', [HomeController::class, 'home15'])->name('blog-article');
-    Route::get('/blog-grid', [HomeController::class, 'bloGrid'])->name('blog-grid');
-    Route::get('/blog-left', [HomeController::class, 'blogLeft'])->name('blog-left');
-    Route::get('/compare2', [HomeController::class, 'compare2'])->name('compare2');
     Route::get('/compare1', [HomeController::class, 'compare1'])->name('compare1');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-    Route::get('/look2', [HomeController::class, 'look2'])->name('look2');
-    Route::get('/look1', [HomeController::class, 'look1'])->name('look1');
-    Route::get('/produit-drop', [HomeController::class, 'produitdrop'])->name('produit-drop');
-    Route::get('/produit-label', [HomeController::class, 'produitLabels'])->name('produit-labels');
     Route::get('/produit-layout', [ProductController::class, 'show'])->name('produit-layout');
-    Route::get('/produit-round', [HomeController::class, 'produitRound'])->name('produit-round');
-    Route::get('/produit-video', [HomeController::class, 'produitvideo'])->name('produit-video');
-    Route::get('/shop-description', [HomeController::class, 'shopDescription'])->name('shop-description');
-    Route::get('/shop-right', [HomeController::class, 'shopRight'])->name('shop-right');
     Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
-    Route::get('/blog-left', [HomeController::class, 'blogLeft'])->name('blog-left');
     Route::get('/collection', [HomeController::class, 'collection'])->name('collection');
     Route::get('/Terms', [HomeController::class, 'Terms'])->name('Terms');
     Route::get('/FAQ', [HomeController::class, 'FAQ'])->name('FAQ');
+    Route::get('/compte', [HomeController::class, 'compte'])->name('compte');
+    Route::get('/adresse', [HomeController::class, 'adresse'])->name('adresse');
+    Route::get('/mail', [HomeController::class, 'mail'])->name('mail');
 });
 
-
-
- 
-// Add-To-Cart  Darylecode/cart
-Route::get( 'cart' , [CartController::class, 'cartList' ])->name( 'cart.list' );
-Route::post( 'cart' , [CartController::class, 'addToCart' ])->name( 'cart.store' );
-Route::post( 'update-cart' , [CartController::class, 'updateCart' ])->name( 'cart.update' );
-Route::post( 'remove' , [CartController::class, 'removeCart' ])->name( 'cart.remove' );
-Route::post( 'clear' , [CartController::class, 'clearAllCart' ])->name( 'cart.clear' );
 
 
 // Payment Notchpay

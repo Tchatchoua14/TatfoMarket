@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Hash;
+use Cart; 
 use App\Models\User;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Cart; 
 
 class HomeController extends Controller
 {
@@ -20,8 +21,12 @@ class HomeController extends Controller
     
     public function welcome()
     { 
-        $products = Product::paginate(20);
-        return view('font.welcome')->with('products',$products);
+        $cartItems = \Cart::getContent();
+        $products = Product::find([4,5,6,7,8]);
+        $product1 = Product::find([9,10,11,12,13]);
+        $product2 = Product::find([14,15,16,17,18]);
+        $product3 = Product::find([19,20,21,22,25,26]);
+        return view('font.welcome')->with('products',$products)->with('product1',$product1)->with('product2',$product2)->with('product3',$product3)->with('cartItems',$cartItems);
     } 
 
     public function index()
@@ -73,24 +78,33 @@ class HomeController extends Controller
         return view('font.checkout', compact('cartItems'));
     }
 
+    public function store()
+    {   
+        // $cartItems = \Cart::getContent();
+        return redirect()->route('checkout');;
+    }
+
+
+
+    public function compte()
+    {
+        return view('font.compte');
+    }
+
+    public function mail()
+    {
+        $order = Order::all();
+        return view('font.mail.order')->with('order',$order);
+    }
+
     public function home2()
     {
         return view('font.home2');
     }
 
-    public function home3()
-    {
-        return view('font.home3');
-    }
-
     public function home5()
     {
         return view('font.home5');
-    }
-
-    public function home6()
-    {
-        return view('font.home6');
     }
 
     public function home7()
@@ -103,25 +117,10 @@ class HomeController extends Controller
         return view('font.home8');
     }
 
-    public function home9()
-    {
-        return view('font.home9');
-    }
-
-    public function home10()
-    {
-        return view('font.home10');
-    }
-
     public function home11()
     {
         $products = Product::paginate(13);
         return view('font.home11')->with('products',$products);
-    }
-
-    public function home12()
-    {
-        return view('font.home12');
     }
 
     public function home13()
@@ -149,64 +148,10 @@ class HomeController extends Controller
         return view('font.shop');
     }
 
-    public function shopDescription()
-    {
-        return view('font.shop-description');
-    }
-
-    public function shopRight()
-    {
-        return view('font.shop-right');
-    }
-
-    public function produitVideo()
-    {
-        return view('font.produit-video');
-    }
-
-    public function produitRound()
-    {
-        return view('font.produit-round');
-    }
 
     public function produitLayout()
     {
         return view('font.produit-layout');
-    }
-
-    public function produitLabels()
-    {
-        return view('font.produit-labels');
-    }
-
-    public function produitDrop()
-    {
-        return view('font.produit-drop');
-    }
-
-    public function blogLeft()
-    {
-        return view('font.blog-left');
-    }
-
-    public function blogGrid()
-    {
-        return view('font.blog-grid');
-    }
-
-    public function blogArticle()
-    {
-        return view('font.blog-article');
-    }
-
-    public function look2()
-    {
-        return view('font.look2');
-    }
-
-    public function look1()
-    {
-        return view('font.look1');
     }
 
     public function collection()
@@ -219,9 +164,9 @@ class HomeController extends Controller
         return view('font.compare1');
     }
 
-    public function compare2()
+    public function contact()
     {
-        return view('font.compare2');
+        return view('font.contact');
     }
 
     public function FAQ()
@@ -233,6 +178,12 @@ class HomeController extends Controller
     {
         return view('font.about');
     }
+
+    public function adresse()
+    {
+        return view('font.adresse');
+    }
+
 
 
 
