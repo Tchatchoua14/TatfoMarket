@@ -8,7 +8,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use NotchPay\NotchPay;
 use NotchPay\Payment;
-
+use Cart;
+ 
 class PaymentController extends Controller
 {
     /**
@@ -27,13 +28,16 @@ class PaymentController extends Controller
         //
         NotchPay::setApiKey('sb.Cdo6b4O77BATFtsPUCxlp3buDWtAjqQSV7hXX8fHSBkXC724BO9ncKwxKGfUIqQpsoYojcFYqJAr6GjfUgJ0XVGw1mEI2I4zg00bzfHx8K5mynoKRMXLNiwDLGTyw');
 
+        $subtotal = \Cart::getSubTotal(); 
+
         try {
             $payload = Payment::initialize([
-                'amount' => $product->price,
+                // 'amount' => $product->price,
+                'amount' => $subtotal,
                 'email' => Auth::user()->email,
                 'name' => Auth::user()->name,
                 'currency' => 'XAF',
-                'reference' => Auth::id() . '-' . uniqid(),
+                'reference' => Auth::id() . '-' . uniqid(), 
                 'callback' => route('notchpay-callback'),
                 'description' => $product->description,
             ]);
@@ -46,5 +50,34 @@ class PaymentController extends Controller
         } 
         
 
-    }
+    } 
+
+
+    public function produit(Product $product): RedirectResponse
+    {
+        //
+        NotchPay::setApiKey('sb.Cdo6b4O77BATFtsPUCxlp3buDWtAjqQSV7hXX8fHSBkXC724BO9ncKwxKGfUIqQpsoYojcFYqJAr6GjfUgJ0XVGw1mEI2I4zg00bzfHx8K5mynoKRMXLNiwDLGTyw');
+
+        $subtotal = \Cart::getSubTotal(); 
+
+        try {
+            $payload = Payment::initialize([
+                'amount' => $product->price,
+                'email' => Auth::user()->email,
+                'name' => Auth::user()->name,
+                'currency' => 'XAF',
+                'reference' => Auth::id() . '-' . uniqid(), 
+                'callback' => route('notchpay-callback'),
+                'description' => $product->description,
+            ]);
+ 
+            return redirect($payload->authorization_url);
+        } catch (NotchPay\Exception\ApiException $e) {
+            session()->flash('success', __('Impossible de procéder au paiement, veuillez recommencer plus tard. Merci'));
+ 
+            return back();
+        } 
+        
+
+    } 
 }

@@ -145,7 +145,7 @@
                                                 <a href="{{route('checkout')}}"><button type="button" class="shopify-payment-button__button shopify-payment-button__button--unbranded">Buy it now</button></a>
                                             </div>
                                         </div>
-                                        <!-- End Product Action -->
+                                        <!-- End Product Action --> 
                                     </form>
                                     <div class="display-table shareRow">
                                             <div class="display-table-cell medium-up--one-third">

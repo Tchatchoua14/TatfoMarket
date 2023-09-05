@@ -92,7 +92,7 @@
                                                                         </td>
                                                                         <td> Amount :$order</td>
                                                                         <td> Name : $order</td>
-                                                                        <td> Email : $order</td>
+                                                                        <td> Email : $order</td> 
 
                                                                     </tr>
 

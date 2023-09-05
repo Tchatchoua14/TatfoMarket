@@ -18,8 +18,8 @@ class ShippingController extends Controller
      */
     public function index()
     {
-        $shipping=Shipping::orderBy('id','DESC')->paginate(10);
-        return view('back.shipping.index')->with('shippings',$shipping);
+        $shippings=Shipping::orderBy('id','DESC')->paginate(10);
+        return view('back.shipping.index')->with('shippings',$shippings);
     }
 
     /**
@@ -48,7 +48,7 @@ class ShippingController extends Controller
         $data=$request->all();
         // return $data;
         $shipping=Shipping::create($data);
-        return redirect()->route('shipping.index')->with('success','Shipping successfully created');;
+        return redirect()->route('shipping.index')->with('success','Shipping successfully created');
     }
 
     /**

@@ -41,7 +41,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+            <i class="fas fa-shopping-cart"></i>
               <p>
              Produits
                 <i class="fas fa-angle-left right"></i>
@@ -50,7 +50,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('product.index')}}" class="nav-link">
-                  <i class="fas fa-wrench"></i>
+                <i class="nav-icon fas fa-chart-pie"></i>
                   <p>Tous les protuits</p>
                 </a>
               </li>
@@ -67,7 +67,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('liste')}}" class="nav-link">
-                  <i class="fas fa-wrench"></i>
+                <i class="nav-icon fas fa-chart-pie"></i>
                   <p>Tous les Utilisateurs</p>
                 </a>
               </li>
@@ -75,7 +75,41 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+            <i class="fas fa-sitemap text-gray-300"></i> 
+              <p>
+              Catégories
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('category.index')}}" class="nav-link">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>Toutes les Catégories</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="fas fa-clipboard-list text-gray-300"></i>
+              <p>
+              Commandes
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('order.index')}}" class="nav-link">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>Toutes les commandes</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="fas fa-dumpster"></i>
               <p>
               Newsletter
                 <i class="right fas fa-angle-left"></i>
@@ -84,7 +118,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('liste-news')}}" class="nav-link">
-                  <i class="fas fa-wrench"></i>
+                <i class="nav-icon fas fa-chart-pie"></i>
                   <p>Tous les newsletter</p>
                 </a>
               </li>

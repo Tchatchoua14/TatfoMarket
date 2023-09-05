@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="col-6 text-right margin-25px-top">
                                         <button class="btn btn-secondary btn--small" type="submit">filter</button>
-                                    </div>
+                                    </div> 
                                 </div>
                             </form>
                         </div>
@@ -255,7 +255,7 @@
                                                 <option>Best Selling</option>
                                                 <option>Alphabetically, A-Z</option>
                                                 <option>Alphabetically, Z-A</option>
-                                                <option>Price, low to high</option>
+                                                <option>Price, low to high</option> 
                                                 <option>Price, high to low</option>
                                                 <option>Date, new to old</option>
                                                 <option>Date, old to new</option>

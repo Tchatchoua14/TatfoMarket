@@ -37,12 +37,12 @@
           <div class="col-12 text-white">.</div>
          </div>
 
-        <div class="row">
+        <div class="row"> 
           <div class="col-lg-4 col-4">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner text-center">
-                <h3>{{$posts}}<span class="info-box-icon ml-3"><i class="fas fa-users"></i>cat<i class="fas fa-sitemap fa-2x text-gray-300"></i>p<i class="fas fa-cubes fa-2x text-gray-300"></i>com<i class="fas fa-clipboard-list fa-2x text-gray-300"></i></span></h3>
+                <h3>{{$posts}}<span class="info-box-icon ml-2"><i class="fas fa-users"></i><i class="fas fa-cubes text-gray-300"></i></span></h3>
 
                 <p>Nombres utilisateurs</p>
               </div>
@@ -57,7 +57,7 @@
             <!-- small box -->
             <div class="small-box bg-success text-center">
               <div class="inner">
-                <h3>{{$post}}<span class="info-box-icon ml-1"><i class="fas fa-shopping-cart"></i></span></h3>
+                <h3>{{$post}}<span class="info-box-icon ml-2"><i class="fas fa-shopping-cart"></i></span></h3>
 
                 <p>Nombres produits</p>
               </div>
@@ -67,17 +67,45 @@
               <a href="{{route('product.index')}}" class="small-box-footer">Voir plus détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          <div class="col-lg-4 col-4">
+            <!-- small box -->
+            <div class="small-box bg-danger text-center">
+              <div class="inner">
+                <h3>{{$order}}<span class="info-box-icon ml-2"><i class="fas fa-clipboard-list text-gray-300"></i></span></h3>
+
+                <p>Nombres de commandes</p>
+              </div> 
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="{{route('order.index')}}" class="small-box-footer">Voir plus détails <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-4">
+            <!-- small box -->
+            <div class="small-box bg-orange text-center">
+              <div class="inner">
+                <h3>{{$shipping}}<span class="info-box-icon ml-2"><i class="fas fa-file"></i></span></h3>
+
+                <p>Nombres de Shipping</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="{{route('shipping')}}" class="small-box-footer">Voir plus détails <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
           <!-- ./col -->
           <div class="col-lg-4 col-4">
             <!-- small box -->
-            <div class="small-box bg-warning text-center">
+            <div class="small-box bg-indigo text-center">
               <div class="inner">
-                <h3>{{$news}}<span class="info-box-icon"></i>  <i class="fas fa-dumpster"></i><i class="fas fa-file"></i><i class="fab fa-product-hunt"></i><i class="fas fa-rupee-sign"></i><i class="fas fa-file-powerpoint"></i></span></h3>
+                <h3>{{$news}}<span class="info-box-icon ml-2"><i class="fas fa-dumpster"></i></span></h3>
 
                 <p>Nombres de Newsletter</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-stats-bars"></i>
               </div>
               <a href="{{route('liste-news')}}" class="small-box-footer">Voir plus détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -87,7 +115,7 @@
         </div>
 
       <div class="row">
-        <div class="col-1"></div>
+        <div class="col-4"></div>
         <div class="col-5">
           <div class="card">
             <div class="card-header">
@@ -140,58 +168,7 @@
             <!-- /.card-body -->
           </div>
         </div>
-        <div class="col-5">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title text-center">Les utilisateurs récents</h3>
-              <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body p-0">
-              <table  id="example2" class="table table-bordered table-striped dataTable no-footer dtr-inline" aria-describedby="example2_info">
-                <thead>
-                  <tr>
-                    <th style="width: 10px">#</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th style="width: 40px">Photo</th>
-                    <th>Join Date</th>
-                    <th>Role</th>
-                  </tr>
-                </thead>
-                <tbody>
-               
-               @foreach($users as $user)   
-                <tr class="odd">
-                    <td class="dtr-control sorting_1" tabindex="0">{{$user->id}}</td>
-                    <td class="text-capitalize">{{$user->name}}</td>
-                    <td class="text-capitalize">{{$user->email}}</td>
-                    <td>
-                        @if($user->photo)
-                            <img src="{{$user->photo}}" class="img-fluid rounded-circle" style="max-width:50px" alt="{{$user->photo}}">
-                        @else
-                            <img src="{{ asset('dist/img/IMG_0013.jpg') }}" class="img-fluid rounded-circle" style="max-width:50px" alt="avatar.png">
-                        @endif
-                    </td>
-                    <td>{{(($user->created_at)? $user->created_at->diffForHumans() : '')}}</td>
-                    <td class="text-capitalize">{{$user->role}}</td> 
-                </tr>  
-            @endforeach
-              
-                </tbody>
-              </table>
-            </div>
-            <!-- /.card-body -->
-          </div>
-        </div>
-        <div class="col-1"></div>
+        <div class="col-3"></div>
       </div>
      </div>
         <!-- /.row -->

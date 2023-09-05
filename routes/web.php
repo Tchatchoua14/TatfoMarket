@@ -13,7 +13,8 @@ use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\NotchPayCallBackController;
-use App\Models\Wishlist;
+use App\Http\Controllers\OrderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -137,6 +138,10 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/compte', [HomeController::class, 'compte'])->name('compte');
     Route::get('/adresse', [HomeController::class, 'adresse'])->name('adresse');
     Route::get('/mail', [HomeController::class, 'mail'])->name('mail');
+    //Liste Shippings
+    Route::get('/shipping', [HomeController::class, 'index'])->name('shipping');
+    //Liste des commandes
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index'); 
 });
 
 
@@ -144,3 +149,4 @@ Route::group(['prefix' => '/font'], function () {
 // Payment Notchpay
 Route::get('payment/{product}', PaymentController::class)->name('payment');
 Route::get('callback-payment', NotchPayCallBackController::class)->name('notchpay-callback');
+Route::get('payment/{product}', [PaymentController::class, 'produit'])->name('payment1');

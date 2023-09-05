@@ -710,8 +710,11 @@
                                 </div>
 
                                 <div class="order-button-payment">
-                                   <a href="" class="btn" >Payer par NotchPay</a>
-                                </div>
+                                    @php
+                                    $subtotal = \Cart::getSubTotal();
+                                    @endphp
+                                   <a href="{{route('payment', $subtotal)}}" class="btn">Payer par NotchPay</a>
+                                </div> 
                             </div>
                         </div>
                     </div>
