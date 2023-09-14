@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Cart;
 use App\Models\Order;
 use App\Models\Shipping;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -28,97 +28,41 @@ class OrderController extends Controller
             'first_name'=>'string|required',
             'last_name'=>'string|required',
             'address'=>'string|nullable',
-            'coupon'=>'nullable|numeric',
+            'order_number'=>'nullable|numeric',
             'phone'=>'numeric|required',
+            'country'=>'numeric|required',
+            'city'=>'numeric|required',
+            'apartment'=>'nullable',
+            'compagny'=>'nullable',
             'post_code'=>'string|nullable', 
             'email'=>'string|required'
         ]);
 
-        if(empty(Cart::where('user_id',auth()->user()->id)->where('order_id',null)->first())){
-          session()->flash('success','Cart is Empty !');
-            return back();
-        }
-
         $order=new Order();
-        $order_data=$request->all();
-        $order_data['order_number']='ORD-'.strtoupper(Str::random(10));
-        $order_data['user_id']=$request->user()->id;
-        $order_data['shipping_id']=$request->shipping;
-        $shipping=Shipping::where('id',$order_data['shipping_id'])->pluck('price');
-        $order_data['sub_total']= \Cart::getSubTotal();
-        $order_data['quantity']= \Cart::getTotalQuantity();
-        if(session('coupon')){
-            $order_data['coupon']=session('coupon')['value'];
-        }
-        if($request->shipping){
-            if(session('coupon')){
-                $order_data['total_amount']= \Cart::getSubTotal()+$shipping[0]-session('coupon')['value'];
-            }
-            else{
-                $order_data['total_amount']= \Cart::getSubTotal()+$shipping[0];
-            }
-        }
-        else{
-            if(session('coupon')){
-                $order_data['total_amount']= \Cart::getSubTotal()-session('coupon')['value'];
-            }
-            else{
-                $order_data['total_amount']= \Cart::getSubTotal();
-            }
-        }
-        // return $order_data['total_amount'];
-        $order_data['status']="new";
-        if(request('payment_method')=='paypal'){
-            $order_data['payment_method']='paypal';
-            $order_data['payment_status']='paid';
-        }
-        else{
-            $order_data['payment_method']='cod';
-            $order_data['payment_status']='Unpaid';
-        }
-        $order->fill($order_data);
-        $status=$order->save();
-        if($order)
-        // dd($order->id);
-        $users=User::where('role','admin')->first();
-        $details=[
-            'title'=>'New order created',
-            'actionURL'=>route('order.show',$order->id),
-            'fas'=>'fa-file-alt'
-        ];
-        Notification::send($users, new StatusNotification($details));
-        if(request('payment_method')=='paypal'){
-            return redirect()->route('payment')->with(['id'=>$order->id]);
-        }
-        else{
-            session()->forget('cart');
-            session()->forget('coupon');
-        }
-        Cart::where('user_id', auth()->user()->id)->where('order_id', null)->update(['order_id' => $order->id]);
+        $order->first_name = $request->first_name;
+        $order->last_name = $request->last_name;
+        $order->address = $request->address;
+        $order->order_number = $request->order_number; 
+        $order->post_code = $request->post_code;
+        $order->email = $request->email;
+        $order->country = $request->country;
+        $order->company = $request->company;
+        $order->apartment = $request->apartment;
+        $order->city = $request->city; 
+        $order->save();
+        // 'user_id','order_number','sub_total','quantity','delivery_charge','status','total_amount','payment','first_name','last_name','country','post_code','address','city','company','apartmencountry','email','payment_method','payment_status','shipping_id','order_number'
+      
 
         // dd($users);        
-       session()->flash('success','Your product successfully placed in order');
-        return redirect()->route('cart.list');
+        return redirect()->route('cart.list')->with('success','Your product successfully placed in order');
     }
 
 
-    public function destroy($id)
+    public function destroy(string $id)
     {
-        $order=Order::find($id);
-        if($order){
-            $status=$order->delete();
-            if($status){
-                session()->flash('success','Order Successfully deleted');
-            }
-            else{
-                session()->flash('success','Order can not deleted');
-            }
-            return redirect()->route('order.index');
-        }
-        else{
-            session()->flash('success','Order can not found');
-            return redirect()->back();
-        }
+                $order = Order::find($id);
+                $order->delete();
+                return redirect()->route('back.order.index')->with('success', 'Order Successfully deleted');
     }
 
 

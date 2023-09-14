@@ -12,23 +12,6 @@
       		</div>
 		</div>
         <!--End Page Title-->
-        <div class="map-section map">
-        	<iframe src="https://www.google.com/maps/embed?pb=" height="350" allowfullscreen></iframe>
-            <div class="container">
-            	<div class="row">
-                	<div class="map-section__overlay-wrapper">
-                        <div class="map-section__overlay">
-                            <h3 class="h4">Our store</h3>
-                            <div class="rte-setting">
-                                <p>134w. rue grand magasin,<br>Bilongue Entrée bille, Douala-Cameroun</p>
-                                <p>Mon - Fri, 10am - 9pm<br>Saturday, 11am - 9pm<br>Sunday, 11am - 5pm</p>
-                            </div>
-                            <p><a href="https://maps.google.com/?daddr=80%20Spadina%20Ave,%20Toronto" class="btn btn--secondary btn--small" target="_blank">Get directions</a></p>
-                        </div>
-                   	</div>
-                </div>
-            </div>
-        </div>
         <div class="bredcrumbWrap">
             <div class="container breadcrumbs">
                 <a href="{{route('home')}}" title="Back to the home page">Home</a><span aria-hidden="true">›</span><span>Contact Us</span>
@@ -41,35 +24,37 @@
                 	<h2>Drop Us A Line</h2>
                     
                 	<div class="formFeilds contact-form form-vertical">
-                      <form action="" method="post"  id="contact_form" class="contact-form">	
+                      <form method="post" action="{{route('message.store')}}" id="contact_form" class="contact-form">
+                        @csrf 
+            
                       <div class="row">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                         	<div class="form-group">
-                          	<input type="text" id="ContactFormName" name="name" placeholder="Name" value="" required="">
+                          	<input type="text" id="ContactFormName" name="name" placeholder="Name" value="{{old('name')}}" required="">
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                         	<div class="form-group">
-							<input type="email" id="ContactFormEmail" name="email" placeholder="Email" value="" required="">                        	
+							<input type="email" id="ContactFormEmail" name="email" placeholder="Email" value="{{old('email')}}" required="">                        	
                             </div>
                         </div>
                       </div>
                       <div class="row">
                           <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                           	<div class="form-group">
-                            <input required="" type="tel" id="ContactFormPhone" name="phone" pattern="[0-9\-]*" placeholder="Phone Number" value="">
+                            <input required="" type="tel" id="ContactFormPhone" name="phone" pattern="[0-9\-]*" placeholder="Phone Number" value="{{old('phone')}}">
                             </div>
                           </div>
                           <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                           	<div class="form-group">
-                            <input required="" type="text" id="ContactSubject" name="subject" placeholder="Subject" value="">
+                            <input required="" type="text" id="ContactSubject" name="subject" placeholder="Subject" value="{{old('subject')}}">
                             </div>
                           </div>
                       </div>
-                      <div class="row">
+                      <div class="row"> 
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         	<div class="form-group">
-                            <textarea required="" rows="10" id="ContactFormMessage" name="message" placeholder="Your Message"></textarea>
+                            <textarea required="" rows="10" id="ContactFormMessage" name="message" placeholder="Your Message" value="{{old('message')}}"></textarea>
                             </div>
                         </div>  
                       </div>
@@ -84,14 +69,14 @@
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                 	<div class="open-hours">
                     	<strong>Opening Hours</strong><br>
-						Mon - Sat : 9am - 11pm<br>
-						Sunday: 11am - 5pm
+						Mon - Sun : 24/24 h<br>
+			
                     </div>
                 	<hr />
                     <ul class="addressFooter">
-                        <li><i class="icon anm anm-map-marker-al"></i><p>55 Gallaxy Enque, 2568 steet, 23568 NY</p></li>
-                        <li class="phone"><i class="icon anm anm-phone-s"></i><p>(440) 000 000 0000</p></li>
-                        <li class="email"><i class="icon anm anm-envelope-l"></i><p>sales@yousite.com</p></li>
+                        <li><i class="icon anm anm-map-marker-al"></i><p>134w. rue grand magasin,<br>Bilongue Entrée bille, Douala-Cameroun</p></li>
+                        <li class="phone"><i class="icon anm anm-phone-s"></i><p>(+237) 691 167 590</p></li>
+                        <li class="email"><i class="icon anm anm-envelope-l"></i>TatfoMarket.com</li>
                     </ul>
                     <hr /> 
                     <ul class="list--inline site-footer__social-icons social-icons">

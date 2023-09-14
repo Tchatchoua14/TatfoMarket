@@ -99,7 +99,7 @@
                     <td class="text-capitalize text-center">{{$categorie->name}}</td>
                     <td class="text-center">{{(($categorie->created_at)? $categorie->created_at->diffForHumans() : '')}}</td>
                     <td class="project-actions d-flex justify-content-around" >
-                        <form id="" action="" method="POST">
+                        <form id="destroy{{ $categorie->id }}" action="{{ route('categorie.destroy', $categorie->id) }" method="POST">
                           @csrf
                           @method('DELETE') 
                           <button onclick="event.preventDefault(); document.getElementById('destroy{{ $categorie->id }}').submit();" class="btn btn-danger btn-sm  dltBtn" data-id={{$categorie->id}}  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt mr-2"></i>Supprimer</button>

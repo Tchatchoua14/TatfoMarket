@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
@@ -14,7 +14,8 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\NotchPayCallBackController;
 use App\Http\Controllers\OrderController;
-
+use App\Http\Controllers\MesssageController;
+use App\Http\Controllers\ShippingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,20 +38,14 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-//  Home Page
+// Home Page
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 // Welcome Page
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
 
-
-Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('user-profile');
-Route::post('/profile/{id}', [App\Http\Controllers\HomeController::class, 'profileUpdate'])->name('user-profile-update');
-
 #Localization Multi-langue
 Route::get('locale', [LocalizationController::class, 'getLang'])->name('getlang');
 Route::get('locale/{lang}', [LocalizationController::class, 'setLang'])->name('setlang');
-
-
 
 
 # Socialite URLs
@@ -62,28 +57,25 @@ Route::get('/auth/google/callback', [App\Http\Controllers\Auth\LoginController::
 //Facebook
 Route::get('auth/facebook', [App\Http\Controllers\Auth\LoginController::class, 'facebookRedirect']);
 Route::get('/auth/facebook/callback', [App\Http\Controllers\Auth\LoginController::class, 'loginWithFacebook']);
-// Route::get('/login/facebook/', [App\Http\Controllers\Auth\LoginController::class, 'redirectToFacebook'])->name('login.facebook');
-// Route::get('/login/facebook/callback/', [App\Http\Controllers\Auth\LoginController::class, 'handleFacebookCallback']);
-
 
 //Github
 Route::get('auth/github', [App\Http\Controllers\Auth\LoginController::class, 'githubRedirect']);
 Route::get('/auth/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'loginWithGithub']);
 
-
-
-
 // Route Backend App
 
 Route::group(['prefix' => '/back'], function () {
     // Home Backend
-    Route::get('/back/index', [BackController::class, 'index'])->name('index');
+    Route::get('/index', [BackController::class, 'index'])->name('index');
     // Liste des utilisateurs
-    Route::get('/user/liste', [UsersController::class, 'index'])->name('liste');
-    Route::patch('/user', [UsersController::class, 'create'])->name('user.create');
-    Route::get('/user/edit', [UsersController::class, 'edit'])->name('user.edit');
-    Route::patch('/user', [UsersController::class, 'update'])->name('user.update');
-
+    Route::resource('/user', UserController::class);
+    //Liste Shippings
+    Route::get('/shipping', [ShippingController::class, 'index'])->name('shipping.index');
+    Route::get('/shipping/edit', [ShippingController::class, 'edit'])->name('shipping.edit');
+    //Liste des commandes
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index'); 
+    // liste des messages
+    Route::get('/message', [MessageController::class, 'index'])->name('message.index');
 });
 
 
@@ -115,8 +107,8 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/wishlist', [WishlistController::class, 'wishlist'])->name('wishlist');
     Route::post('/wishlist', [WishlistController::class, 'addWishList'])->name('wishlist.store');
     // Checkout
-    Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
-    Route::get('/', [HomeController::class, 'store'])->name('checkout.store');
+    Route::get('/checkout', [HomeController::class, 'checkout'])->middleware(['auth', 'verified'])->name('checkout');
+    Route::get('/', [HomeController::class, 'store'])->name('checkout.store'); 
     // Barre de recherche 
     Route::get('/search', [HomeController::class, 'search'])->name('search'); 
     Route::get('/home2', [HomeController::class, 'home2'])->name('home2');
@@ -126,10 +118,10 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/home11', [HomeController::class, 'home11'])->name('home11');
     Route::get('/home13', [HomeController::class, 'home13'])->name('home13');
     Route::get('/home14', [HomeController::class, 'home14'])->name('home14');
-    Route::get('/home15', [HomeController::class, 'home15'])->name('home15');
+    Route::get('/home15', [HomeController::class, 'home15'])->name('home15'); 
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/compare1', [HomeController::class, 'compare1'])->name('compare1');
-    Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+    Route::get('/contact', [HomeController::class, 'contact'])->name('contact1');
     Route::get('/produit-layout', [ProductController::class, 'show'])->name('produit-layout');
     Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
     Route::get('/collection', [HomeController::class, 'collection'])->name('collection');
@@ -138,15 +130,18 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/compte', [HomeController::class, 'compte'])->name('compte');
     Route::get('/adresse', [HomeController::class, 'adresse'])->name('adresse');
     Route::get('/mail', [HomeController::class, 'mail'])->name('mail');
-    //Liste Shippings
-    Route::get('/shipping', [HomeController::class, 'index'])->name('shipping');
-    //Liste des commandes
-    Route::get('/order', [OrderController::class, 'index'])->name('order.index'); 
+    Route::get('/commande', [HomeController::class, 'commande'])->name('commande');
+    Route::get('/liste', [HomeController::class, 'order'])->name('order');
+    Route::post('/orders', [OrderController::class, 'store'])->name('order.store');
+    Route::get('/order', [OrderController::class, 'create'])->name('order.create');
+    Route::get('/message', [MessageController::class, 'create'])->name('contact'); 
+    Route::get('/message', [MessageController::class, 'index'])->name('message.index'); 
+    Route::post('/message', [MessageController::class, 'store'])->name('message.store'); 
 });
 
 
 
 // Payment Notchpay
-Route::get('payment/{product}', PaymentController::class)->name('payment');
+Route::get('payment', PaymentController::class)->name('payment');
 Route::get('callback-payment', NotchPayCallBackController::class)->name('notchpay-callback');
 Route::get('payment/{product}', [PaymentController::class, 'produit'])->name('payment1');

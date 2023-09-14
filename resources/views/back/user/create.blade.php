@@ -45,7 +45,7 @@
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-8 mb-2">
-            <a href="{{ route('liste') }}" class="btn btn-success float-right">Voir la liste des utilisateurs</a>
+            <a href="{{ route('user.index') }}" class="btn btn-success float-right">Voir la liste des utilisateurs</a>
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -65,8 +65,8 @@
                      </div>
                @endif
               <!-- form start -->
-              <form method="post" action="{{route('user.store')}}"  enctype="multipart/form-data">
-        {{csrf_field()}}
+              <form method="post" action="{{route('user.store')}}"  enctype="multipart/form-data" class="px-3">
+        @csrf
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Name</label>
         <input id="inputTitle" type="text" name="name" placeholder="Enter name"  value="{{old('name')}}" class="form-control">
@@ -95,15 +95,15 @@
         <label for="inputPhoto" class="col-form-label">Photo</label>
         <div class="input-group">
             <span class="input-group-btn">
-                <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary"> 
                 <i class="fa fa-picture-o"></i> Choisir une image
                 </a>
             </span>
-            <input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{ old('photo') }}" autofocus>
+            <input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{ old('photo') }}"  accept="image/png, image/jpeg" autofocus>
         </div>
         <img id="holder" style="margin-top:15px;max-height:100px;">
           @error('photo')
-          <span class="text-danger">{{$message}}</span>
+          <span class="text-danger">{{$message}}</span> 
           @enderror
         </div>
         @php 

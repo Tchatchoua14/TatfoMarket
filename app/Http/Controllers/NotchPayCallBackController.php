@@ -25,7 +25,7 @@ class NotchPayCallBackController extends Controller
           } else {
               // @ToDO Envoie de mail de remerciement pour l'achat' de l'utilisateur qui est dans la base de données
    
-              session()->flash('success', __('Votre achat a été effectué avec succès, Merci pour votre confiance.'));
+              session()->flash('success', __('Votre achat a été effectué avec succès, Merci pour votre confiance.')); 
           }
    
    

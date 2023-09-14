@@ -46,7 +46,7 @@
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-8 mb-2">
-            <a href="{{ route('liste') }}" class="btn btn-success float-right">Voir la liste des utilisateurs</a>
+            <a href="{{ route('user.index') }}" class="btn btn-success float-right">Voir la liste des utilisateurs</a>
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -64,7 +64,7 @@
                    <div class="mb-4 font-medium text-sm text-green-600">
                       {{ session('status') }}
                    </div>
-               @endif
+               @endif 
               <!-- form start -->
               <form  method="post" action="{{route('user.update', $user->id)}}"  enctype="multipart/form-data" id="quickForm" novalidate="novalidate">
                   @csrf 
@@ -92,18 +92,20 @@
                     @enderror
                   </div> 
                   <div class="form-group">
-                   <label for="inputPhoto" class="col-form-label">Photo</label>
-                    <div class="input-group">
-                                <span class="custom-file">
-                                    <input type="file" class="custom-file-input" name="photo" id="photo" value="{{$user->photo}}">
-                                    <label class="custom-file-label" for="exampleInputFile">insérer une image</label>
-                                </span>
+                    <label for="inputPhoto" class="col-form-label">Photo</label> 
+                    <div class="input-group"> 
+                        <span class="input-group-btn">
+                            <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                            <i class="fa fa-picture-o"></i> Choisir une image
+                            </a>
+                        </span>
+                        <input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{$user->photo}}" autofocus>
                     </div>
                     <img id="holder" style="margin-top:15px;max-height:100px;">
-                        @error('photo')
-                        <span class="text-danger">{{$message}}</span>
-                        @enderror
-                 </div>
+                      @error('photo')
+                      <span class="text-danger">{{$message}}</span>
+                      @enderror
+                  </div>
                     @php 
                       $roles=DB::table('users')->select('role')->where('id',$user->id)->get();
                       // dd($roles);
@@ -135,7 +137,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="reset" class="btn btn-secondary">Effacer</button>
+                  <button type="reset" class="btn btn-warning">Effacer</button>
                   <button type="submit" class="btn btn-primary float-right">Enregistrer</button>
                 </div>
               </form>

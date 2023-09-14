@@ -9,14 +9,14 @@
 
                                                          
                                                         <li><a href="{{route('compte')}}" class="site-nav">{{ __('message.home.profile') }}</a></li>
-                                                        <li><a href="" class="site-nav">{{ __('message.home.order') }}</a></li>
-                                                        <li><a href="" class="site-nav">{{ __('message.home.transaction') }}</a></li>
+                                                        <!-- <li><a href="{{route('commande')}}" class="site-nav">{{ __('message.home.order') }}</a></li>
+                                                        <li><a href="" class="site-nav">{{ __('message.home.transaction') }}</a></li> -->
                                                         <li><a href="{{ route('logout') }}" class="text-uppercase" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('message.home.logout') }}</a>
                                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                                 @csrf
                                                             </form>
                                                         </li>
-                        
+                         
                                </ul>
                             </li>
                             @endif

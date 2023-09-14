@@ -33,27 +33,28 @@
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 sm-margin-30px-bottom">
                     <div class="create-ac-content bg-light-gray padding-20px-all">
-                        <form>
+                    <form action="{{ route('order.store')}}" method="post">
+                            @csrf
                             <fieldset>
                                 <h2 class="login-title mb-3">Billing details</h2>
                                 <div class="row">
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-firstname">First Name <span class="required-f">*</span></label>
-                                        <input name="firstname" value="" id="input-firstname" type="text">
+                                        <input name="first_name" value="{{old('first_name')}}" id="input-firstname" type="text">
                                     </div>
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-lastname">Last Name <span class="required-f">*</span></label>
-                                        <input name="lastname" value="" id="input-lastname" type="text">
+                                        <input name="last_name"  value="{{old('last_name')}}" id="input-lastname" type="text">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-email">E-Mail <span class="required-f">*</span></label>
-                                        <input name="email" value="" id="input-email" type="email">
+                                        <input name="email" value="{{old('email')}}" id="input-email" type="email">
                                     </div>
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-telephone">Telephone <span class="required-f">*</span></label>
-                                        <input name="telephone" value="" id="input-telephone" type="tel">
+                                        <input name="phone" value="{{old('phone')}}" id="input-telephone" type="tel">
                                     </div>
                                 </div>
                             </fieldset>
@@ -62,31 +63,31 @@
                                 <div class="row">
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6">
                                         <label for="input-company">Company</label>
-                                        <input name="company" value="" id="input-company" type="text">
+                                        <input name="company" value="{{old('company')}}" id="input-company" type="text">
                                     </div>
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-address-1">Address <span class="required-f">*</span></label>
-                                        <input name="address_1" value="" id="input-address-1" type="text">
+                                        <input name="address" value="{{old('address')}}" id="input-address-1" type="text">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6">
                                         <label for="input-address-2">Apartment <span class="required-f">*</span></label>
-                                        <input name="address_2" value="" id="input-address-2" type="text">
+                                        <input name="apartment" value="{{old('apartment')}}" id="input-address-2" type="text">
                                     </div>
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-city">City <span class="required-f">*</span></label>
-                                        <input name="city" value="" id="input-city" type="text">
+                                        <input name="city" value="{{old('city')}}" id="input-city" type="text">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-postcode">Post Code <span class="required-f">*</span></label>
-                                        <input name="postcode" value="" id="input-postcode" type="text">
+                                        <input name="postcode" value="{{old('post_code')}}" id="input-postcode" type="text">
                                     </div>
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-country">Country <span class="required-f">*</span></label>
-                                        <select id="address_country" name="address[country]" data-default="United States"><option value="Belgium" data-provinces="[]">Belgium</option>
+                                        <select id="address_country" name="country" data-default="United States"><option value="Belgium" data-provinces="[]">Belgium</option>
                                         <option value="---" data-provinces="[]">---</option>
                                         <option value="Afghanistan" data-provinces="[]">Afghanistan</option>
                                         <option value="Aland Islands" data-provinces="[]">Åland Islands</option>
@@ -250,7 +251,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-zone">Region / State <span class="required-f">*</span></label>
-                                        <select id="address_province" name="address[province]" data-default="">
+                                        <select id="address_province" name="" data-default="">
                                       <option value="Alabama">Alabama</option>
                                       <option value="Alaska">Alaska</option>
                                       <option value="American Samoa">American Samoa</option>
@@ -334,6 +335,12 @@
                                         <label for="input-company">Order Notes <span class="required-f">*</span></label>
                                         <textarea class="form-control resize-both" rows="3"></textarea>
                                     </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="row">
+                                <div class="form-group col-md-12 col-lg-12 col-xl-12">
+                                    <button type="submit" class="btn">Complete Order</button>
                                 </div>
                             </fieldset>
                         </form>

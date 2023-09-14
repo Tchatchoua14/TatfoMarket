@@ -88,7 +88,7 @@
                       <th class="text-center">Image</th>
                       <th class="text-center">Categorie</th>
                       <th class="text-center">Prix</th>
-                      <th class="text-center">PrixReduction</th>
+                      <th class="text-center">Prix de réduction</th>
                       <th class="text-center">Stock</th>
                       <th class="text-center">Description</th>
                       <th class="text-center">Status</th>
@@ -104,7 +104,7 @@
                       <td class="text-center"> 
                       <img src="{{ asset('/images/product-images/'.$product->image1) }}"alt="{{$product->image1}}" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />     
                       </td>
-                      <td class="text-center">{{ $product->cat_id}}</td>
+                      <td class="text-center">{{ $product->category->name}}</td>
                       <td class="text-center">{{ $product->price }}</td>
                       <td class="text-center">{{ $product->priceReduction }}</td>
                       <td class="text-center">

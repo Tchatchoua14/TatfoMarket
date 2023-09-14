@@ -275,7 +275,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="{{route('produit-layout')}}">
+                                        <a href="{{route('product.edit1',$product->id)}}">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-id="{{$product->id}}" data-src="{{ asset('/images/product-images/'.$product->image1) }}" src="{{ asset('/images/product-images/'.$product->image1) }}" alt="image" title="product">
                                             <!-- End image -->

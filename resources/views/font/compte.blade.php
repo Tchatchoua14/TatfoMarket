@@ -20,7 +20,7 @@
     <!-- Account Panel Starts -->
     <div class="row">
       <div class="col-md-4">
-        <a href="your_orders.html" class="btn w-100">
+        <a href="{{route('order.create')}}" class="btn w-100">
           <div class="card">
             <div class="card-body">
               <div class="card-title">
@@ -62,21 +62,7 @@
       </div>
     </div> <!-- Account Panel Starts -->
 
-    <div class="row">
-      <div class="col-md-4">
-        <a href="seller_account_intro.html" class="btn w-100">
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">
-                <i class="fas fa-universal-access fa-2x"></i>
-                <span class="h4">Seller Account</span>
-              </div>
-              <small class="text-muted">Sell your products.</small>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
+  
   </div>
         
     </div> 

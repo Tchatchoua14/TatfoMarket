@@ -42,14 +42,14 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner text-center">
-                <h3>{{$posts}}<span class="info-box-icon ml-2"><i class="fas fa-users"></i><i class="fas fa-cubes text-gray-300"></i></span></h3>
+                <h3>{{$posts}}<span class="info-box-icon ml-2"><i class="fas fa-users"></i></span></h3>
 
                 <p>Nombres utilisateurs</p>
               </div>
               <div class="icon"> 
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="{{route('liste')}}" class="small-box-footer">Voir plus détails <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('user.index')}}" class="small-box-footer">Voir plus détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -83,7 +83,7 @@
           </div>
           <div class="col-lg-4 col-4">
             <!-- small box -->
-            <div class="small-box bg-orange text-center">
+            <div class="small-box bg-pink text-center">
               <div class="inner">
                 <h3>{{$shipping}}<span class="info-box-icon ml-2"><i class="fas fa-file"></i></span></h3>
 
@@ -92,7 +92,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="{{route('shipping')}}" class="small-box-footer">Voir plus détails <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{route('shipping.index')}}" class="small-box-footer">Voir plus détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

@@ -26,7 +26,8 @@ class MessageController extends Controller
      */
     public function create()
     {
-        //
+        // 
+            return view('font.contact');
     }
 
     /**
@@ -47,19 +48,19 @@ class MessageController extends Controller
         // return $request->all();
 
         $message=Message::create($request->all());
-            // return $message;
+            // return $message; 
         $data=array();
         $data['url']=route('message.show',$message->id);
         $data['date']=$message->created_at->format('F d, Y h:i A');
         $data['name']=$message->name;
         $data['email']=$message->email;
-        $data['phone']=$message->phone;
+        $data['phone']=$message->phone; 
         $data['message']=$message->message;
         $data['subject']=$message->subject;
         $data['photo']=Auth()->user()->photo;
         // return $data;    
         // event(new MessageSent($data));
-        exit();
+       return redirect()->route('font.contact')->with('success', 'Error occurred please try again');
     }
 
     /**

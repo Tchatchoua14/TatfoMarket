@@ -40,8 +40,9 @@ class BackController extends Controller
         {
         return view('font.404');  
         }
+
+
     }
 
-    
    
 }

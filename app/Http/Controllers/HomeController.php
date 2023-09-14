@@ -38,21 +38,17 @@ class HomeController extends Controller
         return view('font.index')->with('products',$products)->with('product1',$product1)->with('product2',$product2)->with('product3',$product3)->with('cartItems',$cartItems);
     }
 
-    public function profile(){
-        $profile=Auth()->user();
-        // return $profile;
-        return view('back.user.profile')->with('profile',$profile);
+    public function commande(){
+        $order = Order::latest()->get();
+        return view('font.mail.neworder', compact('order'));
     }
 
-    
-    public function profileUpdate(Request $request,$id){
-        // return $request->all();
-        $user=User::findOrFail($id);
-        $data=$request->all();
-        $user->fill($data)->save();
-    
-        return redirect()->back()->with('message','Utilisateur a bien été bien mis a jour');
-    } 
+    public function order(){
+        $order = Order::latest()->get();
+        $cartItems = \Cart::getContent();
+        return view('font.mail.order', compact('order'))->with('cartItems',$cartItems); 
+    }
+
 
     public function Search(Request $request){
         $key = trim($request->get('q'));
@@ -74,17 +70,21 @@ class HomeController extends Controller
 
     public function checkout()
     {   
-        $cartItems = \Cart::getContent();
-        return view('font.checkout', compact('cartItems'));
+        $subtotal = \Cart::getSubTotal();
+        $cartItems = \Cart::getContent(); 
+        return view('font.checkout', compact('cartItems'))->with('subtotal',$subtotal);
     }
 
     public function store()
     {   
         // $cartItems = \Cart::getContent();
-        return redirect()->route('checkout');;
+        return redirect()->route('checkout');  
     }
 
-
+    public function contact()
+    {
+        return view('font.contact');
+    }
 
     public function compte()
     {
@@ -162,11 +162,6 @@ class HomeController extends Controller
     public function compare1()
     {
         return view('font.compare1');
-    }
-
-    public function contact()
-    {
-        return view('font.contact');
     }
 
     public function FAQ()

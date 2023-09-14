@@ -1,145 +1,614 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="color-scheme" content="light">
-    <meta name="supported-color-schemes" content="light">
+  <title>
+  </title>
+  <!--[if !mso]><!-- -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--<![endif]-->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+    #outlook a {
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table,
+    td {
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    p {
+      display: block;
+      margin: 13px 0;
+    }
+  </style>
+  <!--[if mso]>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+  <!--[if lte mso 11]>
+        <style type="text/css">
+          .mj-outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif]-->
+  <!--[if !mso]><!-->
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
+  <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+  </style>
+  <!--<![endif]-->
+  <style type="text/css">
+    @media only screen and (min-width:480px) {
+      .mj-column-per-100 {
+        width: 100% !important;
+        max-width: 100%;
+      }
+
+      .mj-column-per-50 {
+        width: 50% !important;
+        max-width: 50%;
+      }
+    }
+  </style>
+  <style type="text/css">
+    @media only screen and (max-width:480px) {
+      table.mj-full-width-mobile {
+        width: 100% !important;
+      }
+
+      td.mj-full-width-mobile {
+        width: auto !important;
+      }
+    }
+  </style>
+  <style type="text/css">
+    a:link {
+      color: lightgrey;
+    }
+
+    a:visited {
+      color: white;
+    }
+
+    a:hover {
+      color: grey;
+    }
+  </style>
 </head>
 
-<body
-    style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; background-color: #ffffff; color: #718096; height: 100%; line-height: 1.4; margin: 0; padding: 0; width: 100% !important;">
-    <style>
-        @media only screen and (max-width: 600px) {
-            .inner-body {
-                width: 100% !important;
-            }
-
-            .footer {
-                width: 100% !important;
-            }
-        }
-
-        @media only screen and (max-width: 500px) {
-            .button {
-                width: 100% !important;
-            }
-        }
-
-    </style>
-
-    <table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation"
-        style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #edf2f7; margin: 0; padding: 0; width: 100%;">
+<body style="background-color:#FFFFFF;">
+  <div style="background-color:#FFFFFF;">
+    <!--[if mso | IE]>
+      <table
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
         <tr>
-            <td align="center"
-                style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
-                <table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation"
-                    style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 0; padding: 0; width: 100%;">
-                    <tr>
-                        <td class="header"
-                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; padding: 25px 0; text-align: center;">
-                            <a href="http://127.0.0.1:8000"
-                                style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 19px; font-weight: bold; text-decoration: none; display: inline-block;">
-                          
-                                <img src="{{ asset('images/logo.svg') }}" alt="TatfoMarket" title="TatfoMarket.com"  class="logo"
-                                    alt="Laravel Logo"
-                                    style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100%; border: none; height: 75px; width: 75px;">
-                            </a>
-                        </td>
-                    </tr>
- 
-                    <!-- Email Body -->
-                    <tr>
-                        <td class="body" width="100%" cellpadding="0" cellspacing="0"
-                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #edf2f7; border-bottom: 1px solid #edf2f7; border-top: 1px solid #edf2f7; margin: 0; padding: 0; width: 100%;">
-                            <table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0"
-                                role="presentation"
-                                style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; background-color: #ffffff; border-color: #e8e5ef; border-radius: 2px; border-width: 1px; box-shadow: 0 2px 0 rgba(0, 0, 150, 0.025), 2px 4px 0 rgba(0, 0, 150, 0.015); margin: 0 auto; padding: 0; width: 570px;">
-                                <!-- Body content -->
-                                <tr>
-                                    <td class="content-cell"
-                                        style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
-                                        <h1
-                                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 18px; font-weight: bold; margin-top: 0; text-align: left;">
-                                            Hello!</h1>
-                                        <p
-                                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">
-                                            You are receiving this email from your Store Product .</p>
-                                        <table class="action" align="center" width="100%" cellpadding="0"
-                                            cellspacing="0" role="presentation"
-                                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 30px auto; padding: 0; text-align: center; width: 100%;">
-                                            <tr>
-                                                <td align="center"
-                                                    style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
-                                                    <table width="100%" border="0" cellpadding="0" cellspacing="0"
-                                                        role="presentation"
-                                                        style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
-                                                        <tr>
-                                                            <td align="center"
-                                                                style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
-                                                                <table border="0" cellpadding="0" cellspacing="0"
-                                                                    role="presentation"
-                                                                    style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
-                                                                    <tr>
-                                                                        <td
-                                                                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
-
-                                                                        </td>
-
-                                                                        <td> Invoice No : 
-                                                                        </td>
-                                                                        <td> Amount :$order</td>
-                                                                        <td> Name : $order</td>
-                                                                        <td> Email : $order</td> 
-
-                                                                    </tr>
-
-
-
-
-
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-
-
-
-
-
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td
-                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
-                            <table class="footer" align="center" width="570" cellpadding="0" cellspacing="0"
-                                role="presentation"
-                                style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; margin: 0 auto; padding: 0; text-align: center; width: 570px;">
-                                <tr>
-                                    <td class="content-cell" align="center"
-                                        style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
-                                        <p
-                                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; color: #b0adc5; font-size: 12px; text-align: center;">
-                                            © 2023 TatfoMarket. All rights reserved.</p>
-
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    <div style="margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:20px;padding-top:20px;text-align:center;">
+              <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td
+               class="" style="vertical-align:top;width:600px;"
+            >
+          <![endif]-->
+              <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                  <tr>
+                    <td align="center" style="font-size:0px;padding:10px 25px;padding-top:10px;padding-right:0px;padding-bottom:10px;padding-left:0px;word-break:break-word;">
+                      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                        <tbody>
+                          <tr>
+                            <td style="width:300px;">
+                              <img alt="" height="auto" src="{{ asset('/images/faces/'.Auth::user()->photo) }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="300" />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table> 
+                    </td>
+                  </tr>
                 </table>
+              </div>
+              <!--[if mso | IE]>
             </td>
+          
         </tr>
-    </table>
+      
+                  </table>
+                <![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    <div style="background:#356cc7;background-color:#356cc7;margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#356cc7;background-color:#356cc7;width:100%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:20px;padding-top:0;text-align:center;">
+              <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td
+               class="" style="vertical-align:top;width:600px;"
+            >
+          <![endif]-->
+              <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                  <tr>
+                    <td align="center" style="font-size:0px;padding:10px 25px;padding-top:28px;padding-right:25px;padding-left:25px;word-break:break-word;">
+                      <div style="font-family:Helvetica;font-size:20px;line-height:1;text-align:center;color:#FFFFFF;">Commande référence <strong>{{ $order->order_number }}</strong></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
+                      <div style="font-family:Helvetica;font-size:20px;line-height:1;text-align:center;color:#FFFFFF;">Bonjour {{ $order->firstname . ' ' . $user->name }}</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
+                      <div style="font-family:Helvetica;font-size:20px;line-height:1;text-align:center;color:#FFFFFF;">Merci d'avoir effectué un achat sur notre boutique</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    <div style="background:#356cc7;background-color:#356cc7;margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#356cc7;background-color:#356cc7;width:100%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:5px;padding-top:0;text-align:center;">
+              <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td
+               class="" style="vertical-align:top;width:600px;"
+            >
+          <![endif]-->
+              <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                  <tr>
+                    <td style="font-size:0px;padding:10px 25px;padding-top:0;padding-right:20px;padding-bottom:0px;padding-left:20px;word-break:break-word;">
+                      <p style="border-top:solid 2px #FFFFFF;font-size:1px;margin:0px auto;width:100%;">
+                      </p>
+                      <!--[if mso | IE]>
+        <table
+           align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 2px #FFFFFF;font-size:1px;margin:0px auto;width:560px;" role="presentation" width="560px"
+        >
+          <tr>
+            <td style="height:0;line-height:0;">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      <![endif]-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" style="font-size:0px;padding:10px 25px;padding-top:28px;padding-right:25px;padding-left:25px;word-break:break-word;">
+                      <div style="font-family:Helvetica;font-size:18px;line-height:1;text-align:center;color:#FFFFFF;">Détails de la commande</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                      <table cellpadding="0" cellspacing="0" width="100%" border="0" style="color:#FFFFFF;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:14px;line-height:22px;table-layout:auto;width:100%;border:none;">
+                        <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
+                          <th style="padding: 0 15px 0 0;">Produit</th>
+                          <th style="padding: 0 15px;">Prix TTC</th>
+                        </tr> @foreach ($order->products as $item) <tr>
+                          <td style="padding: 0 15px 0 0;">{{ $item->name }}&nbsp({{ $item->quantity }}&nbsp @if($item->quantity > 1) exemplaires) @else exemplaire) @endif</td>
+                          <td style="padding: 0 15px;">{{ number_format($item->total_amount, 2, ',', ' ') }} €</td>
+                        </tr> @endforeach <tr>
+                          <td style="padding: 15px;"></td>
+                          <td style="padding: 15px;"></td>
+                        </tr>
+                        <tr style="background-color: #25a;">
+                          <td style="padding: 10px;">Livraison en Colissimo</td>
+                          <td style="padding: 0 10px 0 10px;">{{ number_format($order->shipping, 2, ',', ' ') }} €</td>
+                        </tr> @if($order->tax > 0) <tr style="background-color: #25a">
+                          <td style="padding: 10px;">TVA à {{ $order->tax * 100 }}%</td>
+                          <td style="padding: 0 10px 0 10px;">{{ number_format($order->tva, 2, ',', ' ') }} €</td>
+                        </tr> @endif <tr style="background-color: #25a">
+                          <td style="padding: 10px;">Total TTC</td>
+                          <td style="padding: 0 10px 0 10px;">{{ number_format($order->sub_total, 2, ',', ' ') }} €</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-bottom:20px;padding-left:25px;word-break:break-word;">
+                      <div style="font-family:Helvetica;font-size:16px;line-height:1;text-align:left;color:#FFFFFF;"><br /> Date : {{ $order->created_at->format('d/m/Y') }}<br /><br /> Paiement : {{ $order->payment}}</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    <div style="background:#356cc7;background-color:#356cc7;margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#356cc7;background-color:#356cc7;width:100%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:5px;padding-top:0;text-align:center;">
+              <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td
+               class="" style="vertical-align:top;width:600px;"
+            >
+          <![endif]-->
+              <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                  <tr>
+                    <td style="font-size:0px;padding:10px 25px;padding-top:0;padding-right:20px;padding-bottom:0px;padding-left:20px;word-break:break-word;">
+                      <p style="border-top:solid 2px #FFFFFF;font-size:1px;margin:0px auto;width:100%;">
+                      </p>
+                      <!--[if mso | IE]>
+        <table
+           align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 2px #FFFFFF;font-size:1px;margin:0px auto;width:560px;" role="presentation" width="560px"
+        >
+          <tr>
+            <td style="height:0;line-height:0;">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      <![endif]-->
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    <div style="background:#356cc7;background-color:#356cc7;margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#356cc7;background-color:#356cc7;width:100%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:5px;padding-top:0;text-align:center;">
+              <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td
+               class="" style="vertical-align:top;width:300px;"
+            >
+          <![endif]-->
+              <div class="mj-column-per-50 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                  <tr>
+                    <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-bottom:20px;padding-left:25px;word-break:break-word;">
+                      <div style="font-family:Helvetica;font-size:16px;line-height:1;text-align:left;color:#FFFFFF;"><strong>Adresse de facturation @if($order->adresses->count() === 1 && !$order->pick) et de livraison @endif</strong><br /><br /> @isset($order->adresses->first()->name) {{ $order->adresse->first()->civility . ' ' . $order->adresses->first()->name . ' ' . $order->adresses->first()->firstname }}<br /> @endisset @if($order->adresses->first()->company) {{ $order->adresses->first()->company }}<br /> @endif {{ $order->adresses->first()->addresse }}<br /> @if($order->addresse->first()->address) {{ $order->adresses->first()->addressbis }}<br /> @endif @if($order->adresses->first()->bp) {{ $order->adresses->first()->bp }}<br /> @endif {{ $order->adresses->first()->postal . ' ' . $order->adresses->first()->city }}<br />
+                        {{ $order->adresses->first()->country->name }}<br />
+                        {{ $order->adresses->first()->phone }}<br /></div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!--[if mso | IE]>
+            </td>
+          
+            <td
+               class="" style="vertical-align:top;width:300px;"
+            >
+          <![endif]-->
+              <div class="mj-column-per-50 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                  <tr>
+                    <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-bottom:20px;padding-left:25px;word-break:break-word;">
+                      <div style="font-family:Helvetica;font-size:16px;line-height:1;text-align:left;color:#FFFFFF;">@if($order->adresses->count() > 1) <strong>Adresse de livraison</strong><br /><br /> @isset($order->adresses->first()->name) {{ $order->adresses->last()->civility . ' ' . $order->adresse->last()->name . ' ' . $order->adresses->last()->firstname }}<br /> @endisset @if($order->adresses->last()->company) {{ $order->adresses->last()->company }}<br /> @endif {{ $order->adresses->last()->address }}<br /> @if($order->adresses->last()->addressbis) {{ $order->addresses->last()->address }}<br /> @endif @if($order->address->last()->bp) {{ $order->adresses->last()->bp }}<br /> @endif {{ $order->adresses->last()->postal . ' ' . $order->adresses->last()->city }}<br />
+                        {{ $order->adresses->last()->country->name }}<br />
+                        {{ $order->adresses->last()->phone }}<br /> @endif</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    <div style="background:#356cc7;background-color:#356cc7;margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#356cc7;background-color:#356cc7;width:100%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:5px;padding-top:0;text-align:center;">
+              <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td
+               class="" style="vertical-align:top;width:600px;"
+            >
+          <![endif]-->
+              <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                  <tr>
+                    <td style="font-size:0px;padding:10px 25px;padding-top:0;padding-right:20px;padding-bottom:0px;padding-left:20px;word-break:break-word;">
+                      <p style="border-top:solid 2px #FFFFFF;font-size:1px;margin:0px auto;width:100%;">
+                      </p>
+                      <!--[if mso | IE]>
+        <table
+           align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 2px #FFFFFF;font-size:1px;margin:0px auto;width:560px;" role="presentation" width="560px"
+        >
+          <tr>
+            <td style="height:0;line-height:0;">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      <![endif]-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" style="font-size:0px;padding:10px 25px;padding-top:10px;padding-right:25px;padding-left:25px;word-break:break-word;">
+                      <div style="font-family:Helvetica;font-size:16px;line-height:1;text-align:left;color:#FFFFFF;">@if($order->payment === 'cheque') <p>Veuillez nous envoyer un chèque avec :</p>
+                        <ul>
+                          <li>montant du règlement : <strong>{{ number_format($order->totalOrder, 2, ',', ' ') }} €</strong></li>
+                          <li>payable à l'ordre de <strong>{{ $shop->name }}</strong></li>
+                          <li>à envoyer à <strong>{{ $shop->address }}</strong></li>
+                          <li>n'oubliez pas d'indiquer votre référence de commande <strong>{{ $order->order_number }}</strong></li>
+                        </ul> @if($order->pick) <p><strong>Vous pourrez venir chercher votre commande dès réception du paiement.</strong></p> @else <p><strong>Votre commande vous sera envoyée dès réception du paiement.</strong>.</p> @endif Pour toute question ou information complémentaire merci de contacter notre <a href="">support client</a>. @endif @if($order->payment === 'mandat') <p>Vous avez choisi de payer par mandat administratif. Ce type de paiement est réservé aux administrations.</p>
+                        <p>Vous devez envoyer votre mandat administratif à :</p>
+                        <p><strong></strong></p>
+                        <p><strong></strong></p>
+                        <p>Vous pouvez aussi nous le transmettre par e-mail à cette adresse : <strong>{{ $shop->email }}</strong></p>
+                        <p>N'oubliez pas d'indiquer votre référence de commande <strong>{{ $order->order_number }}</strong>.</p> @if($order->status) <p><strong>Vous pourrez venir chercher votre commande dès réception du mandat.</strong></p> @else <p><strong>Votre commande vous sera envoyée dès réception du mandat.</strong>.</p> @endif Pour toute question ou information complémentaire merci de contacter notre <a href="">support client</a>. @endif @if($order->payment ) <p>Veuillez effectuer un virement sur notre compte :</p>
+                        <ul>
+                          <li>montant du virement : <strong>{{ number_format($order->total_amount, 2, ',', ' ') }} €</strong></li>
+                          <li>titulaire : <strong></strong></li>
+                          <li>BIC : <strong></strong></li>
+                          <li>IBAN : <strong></strong></li>
+                          <li>banque : <strong></strong></li>
+                          <li>adresse banque : <strong></strong></li>
+                          <li>n'oubliez pas d'indiquer votre référence de commande <strong>{{ $order->order_number }}</strong></li>
+                        </ul> @if($order->pick) <p><strong>Vous pourrez venir chercher votre commande dès réception du paiement.</strong></p> @else <p><strong>Votre commande vous sera envoyée dès réception du paiement.</strong>.</p> @endif Pour toute question ou information complémentaire merci de contacter notre <a href="">support client</a>. @endif @if($order->payment === 'carte') <p>Vous avez choisi de payer par carte bancaire. Nous vous transmettrons un email de confirmation dès que votre réglement aura été effectué.</p> @if($order->pick) <p><strong>Vous pourrez venir chercher votre commande dès réception du paiement.</strong></p> @else <p><strong>Votre commande vous sera envoyée dès réception du paiement.</strong>.</p> @endif Pour toute question ou information complémentaire merci de contacter notre <a href="">support client</a>. @endif
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    <div style="background:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#FFFFFF;background-color:#FFFFFF;width:100%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0px;padding-top:0;text-align:center;">
+              <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td
+               class="" style="vertical-align:top;width:600px;"
+            >
+          <![endif]-->
+              <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                  <tr>
+                    <td align="center" style="font-size:0px;padding:10px 25px;padding-top:20px;padding-right:25px;padding-bottom:20px;padding-left:25px;word-break:break-word;">
+                      <div style="font-family:Helvetica;font-size:15px;line-height:1;text-align:center;color:#555555;">{{ $user->name  }}</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    <div style="background:#3366cc;background-color:#3366cc;margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#3366cc;background-color:#3366cc;width:100%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0px;padding-top:0;text-align:center;">
+              <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td
+               class="" style="vertical-align:top;width:600px;"
+            >
+          <![endif]-->
+              <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                  <tr>
+                    <td align="center" style="font-size:0px;padding:10px 25px;padding-top:20px;padding-right:25px;padding-left:25px;word-break:break-word;">
+                      <div style="font-family:Helvetica;font-size:18px;line-height:1;text-align:center;color:#dddddd;">Conditions générales de vente</div>
+                    </td>
+                  </tr>
+                
+                </table>
+              </div>
+              <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      <![endif]-->
+  </div>
 </body>
 
 </html>

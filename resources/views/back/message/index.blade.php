@@ -45,7 +45,6 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 mb-2">
-            <a href="{{route('product.create')}}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer message</a>
           </div>
           <div class="col-12">
             <!-- /.card -->
@@ -64,18 +63,6 @@
                 </div>
             @endif
             
-            @if(session()->get('success'))
-              <div>
-                  <p>{{session()->get('success')}}</p>
-              </div>
-                    
-             @endif  
-
-             <!-- @if (session('status'))
-               <div class="mb-4 font-medium text-sm text-green-600">
-                 {{ session('status') }}
-                 </div>
-               @endif -->
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Listes de tous les messages</h3>

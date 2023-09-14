@@ -20,7 +20,7 @@
     	<div class="container-fluid">        
             <div class="row align-items-center">
             	<!--Desktop Logo-->
-                <div class="logo col-md-2 col-lg-2 d-none d-lg-block">
+                <div class="logo col-md-2 col-lg-2 d-none d-lg-block"> 
                     <a href="{{route('home')}}">
                     	<img src="{{ asset('images/logo.svg') }}" alt="TatfoMarket" title="TatfoMarket.com" />
                     </a>
@@ -341,6 +341,7 @@
                                             <!--start product details -->
                                             <div class="product-details text-center">
                                                 <!-- product name -->
+                                                <a href="{{route('payment1', $product)}}" class="btn">{{ __('message.home.buy') }}</a>
                                                 <div class="product-name">
                                                     <a href="short-description.html">{{$product->name}}</a>
                                                 </div>
@@ -481,22 +482,22 @@
                                                     <!-- End product label -->
                                                 </a>
                                                 <!-- end product image -->
-                                                
-                                                <!-- countdown start -->
+                                                   <!-- countdown start -->
                                         		<div class="saleTime desktop" data-countdown="{{ $product->updated_at->format('D H:i:s')}}">{{ $product->updated_at->format('D H:i:s')}}</div>
                                         		<!-- countdown end -->
         
                                                 <!-- Start product button -->
-                                             
-                                                <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
-                                                    @csrf
-                                                    <input type="hidden" value="{{ $product->id }}" name="id">
-                                                    <input type="hidden" value="{{ $product->name }}" name="name">
-                                                    <input type="hidden" value="{{ $product->price }}" name="price">
-                                                    <input type="hidden" value="{{ $product->image1 }}"  name="image1">
-                                                    <input type="hidden" value="1" name="quantity">
-                                                    <button class="btn btn-addto-cart" type="button" tabindex="0">{{ __('message.home.panier1') }}</button>
-                                                </form>
+                                                @if ($product->stock > 0)
+                                                <form  class="variants add" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $product->id }}" name="id">
+                                                            <input type="hidden" value="{{ $product->name }}" name="name">
+                                                            <input type="hidden" value="{{ $product->price }}" name="price">
+                                                            <input type="hidden" value="{{ $product->image1 }}"  name="image1">
+                                                            <input type="hidden" value="1" name="quantity">
+                                                            <button class="btn btn-addto-cart" tabindex="0" type="submit">{{ __('message.home.panier1') }}</button>
+                                                 </form>
+                                                @endif 
                                                 <div class="button-set">
                                                     <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
                                                         <i class="icon anm anm-search-plus-r"></i>
@@ -518,6 +519,7 @@
                                             <!--start product details -->
                                             <div class="product-details text-center">
                                                 <!-- product name -->
+                                                <a href="{{route('payment1', $product)}}" class="btn">{{ __('message.home.buy') }}</a>
                                                 <div class="product-name">
                                                     <a href="short-description.html">{{$product->name}}</a>
                                                 </div>
@@ -654,6 +656,7 @@
                                             <!--start product details -->
                                             <div class="product-details text-center">
                                                 <!-- product name -->
+                                                <a href="{{route('payment1', $product)}}" class="btn">{{ __('message.home.buy') }}</a>
                                                 <div class="product-name">
                                                     <a href="short-description.html">{{$product->name}}</a>
                                                 </div>
@@ -868,7 +871,7 @@
                                     <!-- Hover image -->
                                     <img class="grid-view-item__image hover blur-up lazyload" data-src="{{ asset('/images/product-images/'.$product->image2) }}" src="{{ asset('/images/product-images/'.$product->image2) }}" alt="image" title="product">
                                     <!-- End hover image -->
-                                    <!-- product label -->
+                                    <!-- product label --> 
                                                      @if($product->id==19)
                                                      <div class="product-labels rounded"><span class="lbl on-sale">-10%</span> <span class="lbl pr-label1">{{ __('message.home.new') }}</span></div>
                                                      @elseif($product->id==20)
@@ -883,13 +886,13 @@
                                                      <div class="product-labels"><span class="lbl on-sale">-30%</span><span class="lbl pr-label2">{{ __('message.home.hot') }}</span></div>
                                                      @else
                                                      @endif
-                                    <!-- End product label -->
+                                    <!-- End product label --> 
                                 </a>
                                 <!-- end product image -->
                                 <!--start product details -->
                                 <div class="product-details hoverDetails text-center mobile">
                                     <!-- product name -->
-                                   
+                                    <a href="{{route('payment1', $product)}}" class="btn">{{ __('message.home.buy') }}</a>
                                     <!-- End product name -->
                                     <!-- product price -->
                                     <div class="product-price">
@@ -967,7 +970,7 @@
                                     </div>
                                     <!-- end product button -->
                                 </div>
-                        
+                            
                     
                                <form  class="variants add" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
@@ -1130,5 +1133,7 @@
         <!--End Store Feature-->
     </div>
     <!--End Body Content-->
+
+    
 
     @endsection 

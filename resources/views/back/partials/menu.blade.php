@@ -11,7 +11,6 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <!-- <img src="{{ asset('dist/img/IMG_0013.jpg') }}" class="img-circle elevation-2" alt="User Image"> -->
           <img src="{{ asset('/images/faces/'.Auth::user()->photo) }}"alt="" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />
         </div>
         <div class="info mt-2">
@@ -66,7 +65,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('liste')}}" class="nav-link">
+                <a href="{{route('user.index')}}" class="nav-link">
                 <i class="nav-icon fas fa-chart-pie"></i>
                   <p>Tous les Utilisateurs</p>
                 </a>

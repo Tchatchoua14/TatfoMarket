@@ -80,27 +80,22 @@
 
         <div class="form-group">
           <label for="description" class="col-form-label">Description</label>
-          <textarea class="form-control" id="description" name="description"  value="{{old('description')}}">{{old('description')}}</textarea>
+          <textarea class="form-control" id="description" name="description"  value="{{$product->description}}">{{$product->description}}</textarea>
           @error('description')
           <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
+        </div> 
 
         <div class="form-group">
             <label for="inputPhoto" class="col-form-label">Image 1 <span class="text-danger">*</span></label>
             <div class="input-group">
                 <span class="input-group-btn">
                     <a id="lfm1" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
-                    <i class="fas fa-image"></i> Choose
+                    <i class="fas fa-image"></i> Choisir une image
                     </a>
                 </span>
-            <input id="thumbnail" class="form-control" type="text" name="image1" value="{{$product->image1}}">
+            <input id="thumbnail" class="form-control" type="file" name="image1" value="{{$product->image1}}">
             </div>
-            <!-- <div class="input-group"> -->
-            <!-- <input  class="form-control" type="text" name="image1" value="{{old('image1')}}"> -->
-            <!-- <input id="image1" type="file" class="form-control @error('image1') is-invalid @enderror" name="image1" value="{{ old('image1') }}" autofocus> -->
-            <!-- <input id="image1" class="form-control" type="file" name="image1"> -->
-          <!-- </div> -->
           <div id="holder" style="margin-top:15px;max-height:100px;"></div>
             @error('image1')
             <span class="text-danger">{{$message}}</span> 
@@ -113,10 +108,10 @@
           <div class="input-group">
                 <span class="input-group-btn">
                     <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
-                    <i class="fas fa-image"></i> Choose
+                    <i class="fas fa-image"></i> Choisir une image
                     </a>
                 </span>
-            <input id="image2" class="form-control" type="text" name="image1" value="{{$product->image2}}">
+            <input id="image2" class="form-control" type="file" name="image2" value="{{$product->image2}}">
             </div>
          
           <div id="holder" style="margin-top:15px;max-height:100px;"></div>
@@ -178,7 +173,7 @@
 
         <div class="form-group">
           <label for="condition">Condition</label>
-          <select name="condition" class="form-control">
+          <select name="condition[]" class="form-control">
               <option value="">--Select Condition--</option>
               <option value="SALE" {{(($product->condition=='SALE')? 'selected':'')}}>SALE</option>
               <option value="NEW" {{(($product->condition=='NEW')? 'selected':'')}}>NEW</option>
@@ -190,7 +185,7 @@
 
         <div class="form-group">
           <label for="condition">Couleur</label>
-          <select name="condition" class="form-control">
+          <select name="color[]" class="form-control">
               <option value="">--Selectionnez une couleur--</option>
               <option value="SALE" {{(($product->color=='RED')? 'selected':'')}}>Rouge</option>
               <option value="NEW" {{(($product->color=='BLACK')? 'selected':'')}}>Noir</option>
@@ -207,11 +202,11 @@
             <option value="inactive" {{(($product->status=='inactive')? 'selected' : '')}}>Inactive</option>
         </select>
           @error('status')
-          <span class="text-danger">{{$message}}</span>
+          <span class="text-danger">{{$message}}</span> 
           @enderror
         </div>
         <div class="form-group mb-3">
-           <button type="reset" class="btn btn-secondary">Effacer</button>
+           <button type="reset" class="btn btn-warning">Effacer</button>
            <button type="submit" class="btn btn-primary float-right">Enregistrer</button>
         </div>
       </form>

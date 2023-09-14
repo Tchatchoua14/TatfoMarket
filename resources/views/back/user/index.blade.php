@@ -44,7 +44,7 @@
       <div class="container-fluid"> 
         <div class="row">
           <div class="col-12 mb-2">
-            <a href="{{route('user.edit')}}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer un utilisateur</a>
+            <a href="{{route('user.create')}}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Créer un utilisateur</a>
           </div>
           <div class="col-12">
           @if (session('success'))
@@ -101,14 +101,14 @@
                       </tr>
                   </tfoot>
                   <tbody>
-            @foreach($users as $user)   
+            @foreach($users as $user)    
                 <tr class="odd">
                     <td class="dtr-control sorting_1 text-center" tabindex="0">{{$user->id}}</td>
                     <td class="text-capitalize text-center">{{$user->name}}</td>
-                    <td class="text-capitalize text-center">{{$user->email}}</td>
+                    <td class="text-center">{{$user->email}}</td>
                     <td class="text-center">
                         @if($user->photo)
-                              <img src="{{ asset('/images/faces/'.$user->photo) }}"alt="{{$user->photo}}" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />
+                              <img src="{{ asset('/storage/images/'.$user->photo) }}"alt="{{$user->photo}}" class="img-fluid zoom" style="width: 50px;height: 50px;border-radius: 50%" />
                         @else
                             <img src="{{ asset('dist/img/IMG_0013.jpg') }}" class="img-fluid rounded-circle" style="max-width:50px" alt="avatar.png">
                         @endif
@@ -125,12 +125,11 @@
                     </td>
                     <td class="project-actions d-flex justify-content-around" >
                         <a href="{{route('user.edit',$user->id)}}" class="btn btn-info btn-sm " data-toggle="tooltip" title="edit" data-placement="bottom"> <i class="fas fa-pencil-alt"></i></a>
-                        <form id="" action="" method="POST">
+                        <form id="destroy{{ $user->id }}" action="{{ route('user.destroy', $user->id) }}" method="POST">
                           @csrf
-                          @method('DELETE') 
+                          @method('delete') 
                           <button onclick="event.preventDefault(); document.getElementById('destroy{{ $user->id }}').submit();" class="btn btn-danger btn-sm  dltBtn" data-id={{$user->id}}  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
-                
                     </td>
                    
                 </tr>  
@@ -255,7 +254,7 @@
       dom: 'Bfrtip',
       responsive: true, 
       lengthChange: false, 
-      pageLength: 5,
+      pageLength: 10,
       ordering: true,
       lengthChange: false, 
       info: true,

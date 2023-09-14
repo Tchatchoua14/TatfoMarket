@@ -44,9 +44,9 @@
 
                                                          
                                                         <li><a href="{{route('compte')}}" class="site-nav">{{ __('message.home.profile') }}</a></li>
-                                                        <li><a href="" class="site-nav">{{ __('message.home.order') }}</a></li>
+                                                        <!-- <li><a href="" class="site-nav">{{ __('message.home.order') }}</a></li>
                                                         <li><a href="" class="site-nav">Créer un coupon</a></li>
-                                                        <li><a href="" class="site-nav">{{ __('message.home.transaction') }}</a></li>
+                                                        <li><a href="" class="site-nav">{{ __('message.home.transaction') }}</a></li> -->
                                                         <li><a href="{{ route('logout') }}" class="text-uppercase" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">  {{ __('message.home.logout') }}</a>
                                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                                 @csrf
@@ -341,7 +341,7 @@
                                             <!--start product details -->
                                             <div class="product-details text-center">
                                                 <!-- product name -->
-                                                <a href="{{route('payment1', $product)}}" class="btn">Acheter</a>
+                                                <a href="{{route('payment1', $product)}}" class="btn">{{ __('message.home.buy') }}</a>
                                                 <div class="product-name">
                                                     <a href="short-description.html">{{$product->name}}</a>
                                                 </div>
@@ -519,7 +519,7 @@
                                             <!--start product details -->
                                             <div class="product-details text-center">
                                                 <!-- product name -->
-                                                <a href="{{route('payment1', $product)}}" class="btn">Acheter</a>
+                                                <a href="{{route('payment1', $product)}}" class="btn">{{ __('message.home.buy') }}</a>
                                                 <div class="product-name">
                                                     <a href="short-description.html">{{$product->name}}</a>
                                                 </div>
@@ -656,7 +656,7 @@
                                             <!--start product details -->
                                             <div class="product-details text-center">
                                                 <!-- product name -->
-                                                <a href="{{route('payment1', $product)}}" class="btn">Acheter</a>
+                                                <a href="{{route('payment1', $product)}}" class="btn">{{ __('message.home.buy') }}</a>
                                                 <div class="product-name">
                                                     <a href="short-description.html">{{$product->name}}</a>
                                                 </div>
@@ -871,7 +871,7 @@
                                     <!-- Hover image -->
                                     <img class="grid-view-item__image hover blur-up lazyload" data-src="{{ asset('/images/product-images/'.$product->image2) }}" src="{{ asset('/images/product-images/'.$product->image2) }}" alt="image" title="product">
                                     <!-- End hover image -->
-                                    <!-- product label -->
+                                    <!-- product label --> 
                                                      @if($product->id==19)
                                                      <div class="product-labels rounded"><span class="lbl on-sale">-10%</span> <span class="lbl pr-label1">{{ __('message.home.new') }}</span></div>
                                                      @elseif($product->id==20)
@@ -886,13 +886,13 @@
                                                      <div class="product-labels"><span class="lbl on-sale">-30%</span><span class="lbl pr-label2">{{ __('message.home.hot') }}</span></div>
                                                      @else
                                                      @endif
-                                    <!-- End product label -->
+                                    <!-- End product label --> 
                                 </a>
                                 <!-- end product image -->
                                 <!--start product details -->
                                 <div class="product-details hoverDetails text-center mobile">
                                     <!-- product name -->
-                                    <a href="{{route('payment1', $product)}}" class="btn">Acheter</a>
+                                    <a href="{{route('payment1', $product)}}" class="btn">{{ __('message.home.buy') }}</a>
                                     <!-- End product name -->
                                     <!-- product price -->
                                     <div class="product-price">

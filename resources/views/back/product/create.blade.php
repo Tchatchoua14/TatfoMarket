@@ -43,7 +43,7 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3"></div>
+          <div class="col-md-3"></div> 
           <div class="col-md-6 mb-2">
             <a href="{{ route('product.index') }}" class="btn btn-success float-right">Voir la liste des produits</a>
           </div>
@@ -51,12 +51,12 @@
         </div>
         <div class="row">
           <!-- left column -->
-          <div class="col-md-3"></div>
+          <div class="col-md-3"></div> 
           <div class="col-md-6">
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Creation d'un nouveau produit</h3>
+                <h3 class="card-title">Création d'un nouveau produit</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -87,7 +87,7 @@
                             <i class="fas fa-image"></i> Choisir une image 
                             </a>
                         </span>
-                        <input id="image1" type="text" class="form-control @error('image1') is-invalid @enderror" name="image1" value="{{ old('image1') }}" autofocus>
+                        <input id="image1" type="file" class="form-control @error('image1') is-invalid @enderror" name="image1" value="{{ old('image1') }}" autofocus>
                   
                    </div>
                   <div id="holder" style="margin-top:15px;max-height:100px;"></div>
@@ -104,7 +104,7 @@
                             <i class="fas fa-image"></i> Choisir une image 
                             </a>
                         </span>
-                    <input id="image2" type="text" class="form-control @error('image2') is-invalid @enderror" name="image2" value="{{ old('image2') }}" autofocus>
+                    <input id="image2" type="file" class="form-control @error('image2') is-invalid @enderror" name="image2" value="{{ old('image2') }}" autofocus>
                    </div>
                   <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                     @error('image2')
@@ -117,7 +117,7 @@
                   <div class="form-group">
                     <label for="cat_id">Catégorie <span class="text-danger">*</span></label>
                     <select name="cat_id" id="cat_id" class="form-control">
-                        <option value="">--Select any category--</option>
+                        <option value="">--Selectionez une catégorie--</option>
                         @foreach($categories as $key=>$cat_data)
                             <option value='{{$cat_data->id}}'>{{$cat_data->name}}</option>
                         @endforeach
@@ -135,7 +135,7 @@
                   <div class="form-group">
                     <label for="size">Taille</label>
                     <select name="size[]" class="form-control selectpicker"  multiple data-live-search="true">
-                        <option value="">--sectionnez une taille--</option>
+                        <option value="">--selectionnez une taille--</option>
                         <option value="XS">Extra Small (S)</option>
                         <option value="S">Small (S)</option>
                         <option value="M">Medium (M)</option>
@@ -148,7 +148,7 @@
                   <div class="form-group">
                     <label for="condition">Condition</label>
                     <select name="condition[]" class="form-control selectpicker"  multiple data-live-search="true">
-                        <option value="">--sectionnez une condition--</option>
+                        <option value="">--selectionnez une condition--</option>
                         <option value="SALE">Sale</option>
                         <option value="-16%">-16%</option>
                         <option value="NEW">New</option>
@@ -160,7 +160,7 @@
                   <div class="form-group">
                     <label for="color">Couleur</label>
                     <select name="color[]" class="form-control selectpicker"  multiple data-live-search="true">
-                        <option value="">--sectionnez une couleur--</option>
+                        <option value="">--selectionnez une couleur--</option>
                         <option value="RED">Rouge</option>
                         <option value="BLACK">Noir</option>
                         <option value="GREEN">Vert</option>
@@ -169,13 +169,8 @@
                     </select>
                   </div>
 
-                  <div class="form-group">
-                    <label for="is_featured">Status</label><br>
-                    <input type="checkbox" name='status[]' id='status' value='1' checked> Yes                        
-                  </div>
-
                   <div class="form-group"> 
-                    <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
+                    <label for="status" class="col-form-label">Status</label>
                     <select name="status" class="form-control">
                         <option value="active">Active</option>
                         <option value="inactive">Inactive</option>
@@ -203,7 +198,7 @@
                   
                   <div class="form-group mb-3">
                     <button type="reset" class="btn btn-warning">Effacer</button>
-                    <button class="btn btn-success" type="submit">Enregistrer</button>
+                    <button class="btn btn-success float-right" type="submit">Enregistrer</button>
                   </div>
                 </form>
     </div>

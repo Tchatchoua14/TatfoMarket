@@ -8,6 +8,7 @@ return [
     ],
 
     'home'=> [
+        'buy' => 'BUY NOW',
         'langue1' => 'Anglais',
         'create' => 'Create an Account',
         'create1' => 'Create account',

@@ -213,7 +213,7 @@
       dom: 'Bfrtip',
       responsive: true, 
       lengthChange: false, 
-      pageLength: 4,
+      pageLength: 10,
       ordering: true,
       lengthChange: false, 
       info: true,

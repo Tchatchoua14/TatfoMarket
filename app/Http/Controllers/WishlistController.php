@@ -19,22 +19,18 @@ class WishlistController extends Controller
 
 //    public function addWishList(Request $request)
 //    {
-//         \Cart::add([
-//            'id' => $request->id,
-//            'name' => $request->name,
-//            'price' => $request->price,
-//            'quantity' => $request->quantity,
-//            'attributes' => array(
-//                'image1' => $request->image1,
-//                'size' => $request->size,
-//                'color' => $request->color,
-//            )
-//        ]);
+//     $product = Product::findOrFail($request->id);
+//         \Cart::instance('wishlist')
+//         ->add($request->id, $request->name, $request->price, $request->image1)
+//         ->associate('app\Product');
+          
+           
+       
 //        session()->flash('success', 'Product is Added to Wishlist Successfully !');
 
 //        return redirect()->route('wishlist');
 //    }
 
-
+//  public function destroy()
    
 }

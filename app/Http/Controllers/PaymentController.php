@@ -69,7 +69,7 @@ class PaymentController extends Controller
                 'reference' => Auth::id() . '-' . uniqid(), 
                 'callback' => route('notchpay-callback'),
                 'description' => $product->description,
-            ]);
+            ]); 
  
             return redirect($payload->authorization_url);
         } catch (NotchPay\Exception\ApiException $e) {

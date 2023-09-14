@@ -8,6 +8,7 @@ return [
         ],
 
         'home'=> [
+            'buy' => 'ACHETER',
             'create' => 'Créer un compte',
             'create1' => 'Créer compte',
             'name' => 'Nom',

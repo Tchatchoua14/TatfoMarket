@@ -17,10 +17,10 @@
         	<div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
                 	<div class="text-center mb-4">
-                        <h2 class="h2">Belle Multipurpose Bootstrap 4 Html Template</h2>
+                        <h2 class="h2">TatfoMarket la nouvelle destination desormais pour vos achats en ligne</h2>
                         <div class="rte-setting">
-                            <p><strong>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</strong></p>
-                            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                            <p><strong>Faites votre premier achat et soyez livré gratuitement</strong></p>
+                            <p>A partir de 50% sur vos achat vous abtenez un coupon qui vous permettra des reduction lors de vos prochaines achat en ligne</p>
                         </div>
                     </div>
                	</div>
@@ -48,7 +48,7 @@
                     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p></div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                	<h2 class="h2">Contact Us</h2>
+                	<h2 class="h2">Contact Us</h2> 
                     <ul class="addressFooter">
                     <li><i class="icon anm anm-map-marker-al"></i><p>134w. rue grand magasin,<br>Bilongue Entrée bille, Douala-Cameroun</p></li>
                     <li class="phone"><i class="icon anm anm-phone-s"></i><p>(+237) 691 167 590</p></li>
