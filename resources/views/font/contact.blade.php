@@ -21,6 +21,11 @@
         <div class="container">
             <div class="row">
             	<div class="col-12 col-sm-12 col-md-8 col-lg-8 mb-4">
+                @if (session('success'))
+                   <div class="alert alert-success text-uppercase" role="alert">
+						<i class="icon anm anm-truck-l icon-large text-primary"></i> &nbsp;<strong>Congratulations!</strong> {{ session('success') }}
+					</div>
+                 @endif
                 	<h2>Drop Us A Line</h2>
                     
                 	<div class="formFeilds contact-form form-vertical">

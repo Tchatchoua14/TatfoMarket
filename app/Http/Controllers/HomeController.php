@@ -81,10 +81,10 @@ class HomeController extends Controller
         return redirect()->route('checkout');  
     }
 
-    public function contact()
-    {
-        return view('font.contact');
-    }
+    // public function contact()
+    // {
+    //     return view('font.contact');
+    // }
 
     public function compte()
     {

@@ -83,10 +83,10 @@
                     <td class="text-center">{{$newsletter->email}}</td>
                     <td class="text-center">{{(($newsletter->created_at)? $newsletter->created_at->diffForHumans() : '')}}</td>
                     <td class="project-actions d-flex justify-content-around" >
-                        <form id="" action="" method="POST">
+                        <form id="" action="{{ route('newsletter.destroy', $newsletter->id) }}" method="POST">
                           @csrf
-                          @method('DELETE') 
-                          <button onclick="event.preventDefault(); document.getElementById('destroy{{ $newsletter->id }}').submit();" class="btn btn-danger btn-sm  dltBtn" data-id={{$newsletter->id}}  data-toggle="tooltip" data-placement="bottom" title="Delete">Supprimer<i class="fas fa-trash-alt ml-2"></i></button>
+                          @method('delete') 
+                          <button  class="btn btn-danger btn-sm  dltBtn" data-id={{$newsletter->id}}  data-toggle="tooltip" data-placement="bottom" title="Delete">Supprimer<i class="fas fa-trash-alt ml-2"></i></button>
                         </form>
                 
                     </td>

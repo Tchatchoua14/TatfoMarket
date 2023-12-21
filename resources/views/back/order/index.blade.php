@@ -111,7 +111,7 @@
                     <td class="text-capitalize text-center">{{$order->total_amount}}</td> 
                     <td class="text-capitalize text-center">{{$order->payment}}</td>
                     <td class="project-actions d-flex justify-content-around" >
-                        <form id="destroy{{ $order->id }}" action="{{ route('order.destroy', $order->id) }}" method="POST">
+                        <form id="destroy{{ $order->id }}" action="" method="POST">
                           @csrf
                           @method('DELETE') 
                           <button onclick="event.preventDefault(); document.getElementById('destroy{{ $order->id }}').submit();" class="btn btn-danger btn-sm  dltBtn" data-id={{$order->id}}  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt mr-2"></i></button>

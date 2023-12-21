@@ -37,6 +37,7 @@
 </script>
 <!-- Google recaptcha -->
 <script>
+
 function onClick(e) {
   e.preventDefault();
   grecaptcha.enterprise.ready(async () => {

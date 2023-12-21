@@ -71,9 +71,16 @@
         @csrf 
         @method('PUT')
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
+          <label for="inputTitle" class="col-form-label">Nom <span class="text-danger">*</span></label>
           <input id="inputTitle" type="text" name="name" placeholder="Enter name"  value="{{$product->name}}" class="form-control">
           @error('name')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label for="inputTitle" class="col-form-label">Slug</label>
+          <input id="inputSlug" type="text" name="slug" placeholder="Enter slug"  value="{{$product->slug}}" class="form-control">
+          @error('slug')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>

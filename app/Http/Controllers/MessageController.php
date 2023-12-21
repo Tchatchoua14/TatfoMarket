@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Message;
-use App\Events\MessageSent;
 
 use Illuminate\Http\Request;
 
@@ -27,7 +26,8 @@ class MessageController extends Controller
     public function create()
     {
         // 
-            return view('font.contact');
+        $message = new Message();
+            return view('font.contact')->with('message',$message);
     }
 
     /**
@@ -47,20 +47,29 @@ class MessageController extends Controller
         ]);
         // return $request->all();
 
-        $message=Message::create($request->all());
+        // $message=Message::create($request->all());
             // return $message; 
-        $data=array();
-        $data['url']=route('message.show',$message->id);
-        $data['date']=$message->created_at->format('F d, Y h:i A');
-        $data['name']=$message->name;
-        $data['email']=$message->email;
-        $data['phone']=$message->phone; 
-        $data['message']=$message->message;
-        $data['subject']=$message->subject;
-        $data['photo']=Auth()->user()->photo;
+        // $data=array();
+        // $data['url']=route('message.show',$message->id);
+        // $data['date']=$message->created_at->format('F d, Y h:i A');
+        // $data['name']=$message->name;
+        // $data['email']=$message->email;
+        // $data['phone']=$message->phone; 
+        // $data['message']=$message->message;
+        // $data['subject']=$message->subject;
+        // $data['photo']=Auth()->user()->photo;
+        // $data->save();  
         // return $data;    
         // event(new MessageSent($data));
-       return redirect()->route('font.contact')->with('success', 'Error occurred please try again');
+        $message = new Message();
+        $message->name = $request->name;
+        $message->email = $request->email;
+        $message->phone = $request->phone;
+        $message->message = $request->message;
+        $message->subject = $request->subject;
+        $message->save();
+        
+       return redirect()->route('contact.create')->with('success', 'message has been created');
     }
 
     /**
@@ -111,15 +120,10 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Message $message)
     {
-        $message=Message::find($id);
-        $status=$message->delete();
-        if($status){
-            return redirect()->route('back.message.index')->with('success', 'Successfully deleted message');
-        }
-        else{
-            return redirect()->route('back.message.index')->with('success', 'Error occurred please try again');
-        }
+        $message->delete();
+
+        return redirect()->route('message.index')->with('success', 'Le message a bien été suprimé');
     }
 }

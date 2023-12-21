@@ -63,33 +63,26 @@ class ProductController extends Controller
         //     'cat_id'=>'required|exists:categories,id',
           
         // ]);
-         
-        // $data = $request->validate([
-            // "image1" => "required|image|mimes:jpg,png,jpeg,gif,svg|max:2048",    
-            // "image2" => "required|image|mimes:jpg,png,jpeg,gif,svg|max:2048", 
-        //     'image1'=>'nullable',
-        //     'image2'=>'nullable',
-        // ]);
+   
 
-
-            $file1 = $request->file('image1');
-            $path1 = time() . '_' . $request->name . '.' . $file1->getClientOriginalExtension();
-            Storage::disk('local')->put('public/images/' . $path1, file_get_contents($file1));
+            // $file1 = $request->file('image1');
+            // $path1 = time() . '_' . $request->name . '.' . $file1->getClientOriginalExtension();
+            // Storage::disk('local')->put('public/images/' . $path1, file_get_contents($file1));
 
             
-            $file2 = $request->file('image2');
-            $path2 = time() . '_' . $request->name . '.' . $file2->getClientOriginalExtension();
-            Storage::disk('local')->put('public/images/' . $path2, file_get_contents($file2));
+            // $file2 = $request->file('image2');
+            // $path2 = time() . '_' . $request->name . '.' . $file2->getClientOriginalExtension();
+            // Storage::disk('local')->put('public/images/' . $path2, file_get_contents($file2));
+            // $path1 = $request->file('image1')->store('images', 'public');
+            // $path2 = $request->file('image2')->store('images', 'public');
     
             $product = new Product();
             $product->name = $request->name;
+            $product->slug = $request->slug;
             $product->description = $request->description;
             $product->image1 = $request->image1;
             $product->image2 = $request->image2;
             $product->stock = $request->stock;
-            $product->size = $request->size;
-            $product->condition = $request->condition;
-            $product->color = $request->color;
             $product->status = $request->status;
             $product->price = $request->price;
             $product->priceReduction = $request->priceReduction; 
@@ -133,7 +126,7 @@ class ProductController extends Controller
         //
         $category = Category::all();
         $product=Product::findOrFail($id);
-        // $items=Product::where('id',$id)->get();
+
         return view('back.product.edit')->with('product',$product)->with('categories',$category);
     }
 
@@ -151,36 +144,26 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
-         $data = $request->validate([
-        'image1'=>'nullable',
-        'image2'=>'nullable',
-    ]); 
-        
-        // $path1 = $request->file('image1')->store('images', 'public');
-        // $path2 = $request->file('image2')->store('images', 'public');
-
-        $file1 = $request->file('image1');
-        $path1 = time() . '_' . $request->name . '.' . $file1->getClientOriginalExtension();
-        Storage::disk('local')->put('public/images/' . $path1, file_get_contents($file1));
+   
+        // $file1 = $request->file('image1');
+        // $path1 = time() . '_' . $request->name . '.' . $file1->getClientOriginalExtension();
+        // Storage::disk('local')->put('public/images/' . $path1, file_get_contents($file1));
 
         
-        $file2 = $request->file('image2');
-        $path2 = time() . '_' . $request->name . '.' . $file2->getClientOriginalExtension();
-        Storage::disk('local')->put('public/images/' . $path2, file_get_contents($file2));
+        // $file2 = $request->file('image2');
+        // $path2 = time() . '_' . $request->name . '.' . $file2->getClientOriginalExtension();
+        // Storage::disk('local')->put('public/images/' . $path2, file_get_contents($file2));
 
         $product = Product::find($id);
         $product->name = $request->name;
-        $product->description = $request->description; 
-        $product->image1 = $path1;
-        $product->image2 = $path2;
+        $product->slug = $request->slug;
+        $product->description = $request->description;
+        $product->image1 = $request->image1;
+        $product->image2 = $request->image2;
         $product->stock = $request->stock;
-        $product->size =  $request->size;
-        $product->condition =  $request->condition;
-        $product->color = $request->color;
         $product->status = $request->status;
         $product->price = $request->price;
-        $product->priceReduction = $request->priceReduction;
+        $product->priceReduction = $request->priceReduction; 
         $product->cat_id = $request->cat_id;
         $product->save();
      
@@ -195,7 +178,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
-        $product->delete(); 
+        $product->delete();  
         return redirect()->route('product.index')->with('success', 'Le produit a bien été suprimé');
      
     }

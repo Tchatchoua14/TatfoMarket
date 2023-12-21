@@ -64,9 +64,17 @@
                 <form method="post" action="{{route('product.store')}}"  enctype="multipart/form-data">
                   @csrf 
                   <div class="form-group">
-                    <label for="inputTitle" class="col-form-label">Titre <span class="text-danger">*</span></label>
+                    <label for="inputTitle" class="col-form-label">Nom <span class="text-danger">*</span></label>
                     <input id="inputTitle" type="text" name="name" placeholder="Enter name" class="form-control" value="{{old('name')}}">
                     @error('name')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputTitle" class="col-form-label">Slug<span class="text-danger">*</span></label>
+                    <input id="inputSlug" type="text" name="slug" placeholder="Enter slug" class="form-control" value="{{old('slug')}}">
+                    @error('slug')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
                   </div>

@@ -14,7 +14,7 @@ class CartController extends Controller
     //     $this->middleware('auth');
     // }
     // +237698500461
-    // CARD NUMBER 4929076432525038
+    // CARD NUMBER 4929076432525038 
     // EXP 06/2025
     // CVC 477
 

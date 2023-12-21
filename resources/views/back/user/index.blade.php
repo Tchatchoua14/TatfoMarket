@@ -1,7 +1,7 @@
 @extends('back.master')
 @section('head')
 <link rel="stylesheet" href="{{ asset('dist/css/sweetalert.css') }}"> 
-<link rel="stylesheet" href="{{ asset('dist/css/sweetalert.min.css') }}">
+<link rel="stylesheet" href="{{ asset('dist/css/sweetalert.min.css') }}"> 
 <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
@@ -74,7 +74,7 @@
               <!-- /.card-header -->
               <div class="card-body">
              <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-            <div class="row">
+            <div class="row"> 
             <div class="col-sm-12">
              <table id="example1" class="table table-bordered table-striped dataTable no-footer dtr-inline dt-responsive" aria-describedby="example1_info">
                 <thead>

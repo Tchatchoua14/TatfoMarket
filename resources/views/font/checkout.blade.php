@@ -134,7 +134,7 @@
                             <li class="lvl1 parent dropdown"><a href="#">{{ __('message.home.var5') }}<i class="anm anm-angle-down-l"></i></a>
                                 <ul class="dropdown">
                                     <li><a href="{{route('about')}}" class="site-nav">{{ __('message.home.var7') }} <span class="lbl nm_label1">New</span> </a></li>
-                                    <li><a href="{{route('contact')}}" class="site-nav">{{ __('message.home.var8') }} </a></li>
+                                    <li><a href="{{route('contact.create')}}" class="site-nav">{{ __('message.home.var8') }} </a></li>
                                     <li><a href="{{route('register')}}" class="site-nav">Administration</a></li>
                                 </ul>
                             </li>
@@ -723,4 +723,7 @@
     <!-- EXP : 06/2025 -->
     <!-- CVC : 477 -->
     <!-- Phone : +237698500461 -->
+
+
+    
 @endsection

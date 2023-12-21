@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Message;
 use App\Models\Newsletter;
 use App\Models\User;
 use App\Models\Order;
@@ -24,6 +25,7 @@ class BackController extends Controller
         $post = Product::count();
         $posts = User::count();
         $news = Newsletter::count();
+        $message = Message::count();
         $order = Order::count();
         $shipping = Shipping::count();
         $users=User::orderBy('id','ASC')->paginate(3);
@@ -34,6 +36,7 @@ class BackController extends Controller
         ->with('products',$products)
         ->with('news',$news)
         ->with('order',$order)
+        ->with('message',$message)
         ->with('shipping',$shipping);
         }
         else

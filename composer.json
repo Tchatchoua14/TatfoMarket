@@ -9,7 +9,7 @@
         "anhskohbo/no-captcha": "*",
         "darryldecode/cart": "^4.2",
         "doctrine/dbal": "^3.6",
-        "guzzlehttp/guzzle": "^7.2",
+        "guzzlehttp/guzzle": "^7.8",
         "laravel-lang/lang": "*",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",

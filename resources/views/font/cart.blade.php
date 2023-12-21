@@ -123,7 +123,7 @@
                                         <li><a href="" class="site-nav">{{ __('message.home.var2') }}</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="compare-variant1.html" class="site-nav">{{ __('message.home.compare') }} <i class="anm anm-angle-right-l"></i></a>
+                                <li><a href="" class="site-nav">{{ __('message.home.compare') }} <i class="anm anm-angle-right-l"></i></a>
                                     <ul class="dropdown">
                                         <li><a href="{{route('compare1')}}" class="site-nav">{{ __('message.home.compare1') }}</a></li>
                                     </ul>
@@ -134,7 +134,7 @@
                             <li class="lvl1 parent dropdown"><a href="#">{{ __('message.home.var5') }}<i class="anm anm-angle-down-l"></i></a>
                                 <ul class="dropdown">
                                     <li><a href="{{route('about')}}" class="site-nav">{{ __('message.home.var7') }} <span class="lbl nm_label1">New</span> </a></li>
-                                    <li><a href="{{route('contact')}}" class="site-nav">{{ __('message.home.var8') }} </a></li>
+                                    <li><a href="{{route('contact.create')}}" class="site-nav">{{ __('message.home.var8') }} </a></li>
                                     <li><a href="{{route('register')}}" class="site-nav">Administration</a></li>
                                 </ul>
                             </li>
@@ -146,7 +146,7 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-2 d-block d-lg-none mobile-logo">
                 	<div class="logo">
                         <a href="index.html">
-                            <img src="{{ asset('images/logo.svg') }}" alt="Belle Multipurpose Html Template" title="Belle Multipurpose Html Template" />
+                            <img src="{{ asset('images/logo.svg') }}" alt="TatfoMarket" title="TatfoMarket" />
                         </a>
                     </div>
                 </div>
@@ -261,7 +261,7 @@
                                         <div class="cart__meta-text">
                                             Color : Black<br>Size : Small<br>
                                         </div>
-                                    </td>
+                                    </td> 
                                     <td class="cart__price-wrapper cart-flex-item"> 
                                         <span class="money">{{$item->price}}</span>
                                     </td>

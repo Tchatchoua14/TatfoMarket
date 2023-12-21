@@ -14,6 +14,6 @@ class NewsletterSeeder extends Seeder
     public function run(): void
     {
         //
-        Newsletter::factory()->count(100)->create();
+        // Newsletter::factory()->count(10)->create();
     }
 }

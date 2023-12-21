@@ -85,9 +85,9 @@
             <!-- small box -->
             <div class="small-box bg-pink text-center">
               <div class="inner">
-                <h3>{{$shipping}}<span class="info-box-icon ml-2"><i class="fas fa-file"></i></span></h3>
+                <h3>{{$shipping}}<span class="info-box-icon ml-2"><i class="nav-icon fas fa-chart-pie"></i></span></h3>
 
-                <p>Nombres de Shipping</p>
+                <p>Nombres d'Expéditions</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -108,6 +108,21 @@
                 <i class="ion ion-stats-bars"></i>
               </div>
               <a href="{{route('liste-news')}}" class="small-box-footer">Voir plus détails <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-4">
+            <!-- small box -->
+            <div class="small-box bg-teal text-center">
+              <div class="inner">
+                <h3>{{$message}}<span class="info-box-icon ml-2"><i class="fas fa-file"></i></span></h3>
+
+                <p>Nombres de Messages</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="{{route('message.index')}}" class="small-box-footer">Voir plus détails <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

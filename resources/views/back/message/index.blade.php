@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+
 @endsection
 @section('title', 'liste-message')
 @section('content')
@@ -70,7 +71,7 @@
               <!-- /.card-header -->
               <div class="card-body">
     @if(count($messages)>0)
-    <table class="table message-table" id="message-dataTable">
+    <table  id="example1" class="table table-bordered table-striped dataTable no-footer dtr-inline dt-responsive" aria-describedby="example1_info">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -83,19 +84,18 @@
       <tbody>
         @foreach ( $messages as $message)
 
-        <tr class="@if($message->read_at) border-left-success @else bg-light border-left-warning @endif">
+        <tr class="border-left-success" >
           <td scope="row">{{$loop->index +1}}</td>
-          <td>{{$message->name}} {{$message->read_at}}</td>
+          <td>{{$message->name}}</td>
           <td>{{$message->subject}}</td>
           <td>{{$message->created_at->format('F d, Y h:i A')}}</td>
           <td>
-            <a href="{{route('message.show',$message->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
-            <form method="POST" action="{{route('message.destroy',[$message->id])}}">
+            <form method="POST" action="{{ route('message.destroy', $message->id) }}">
               @csrf 
               @method('delete')
-                  <button class="btn btn-danger btn-sm dltBtn" data-id={{$message->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                  <button class="btn btn-danger btn-sm  dltBtn" data-id={{$message->id}}  data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
             </form>
-          </td>
+          </td> 
         </tr>
 
         @endforeach
@@ -172,4 +172,58 @@
         })
     })
   </script>
+  <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap -->
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- overlayScrollbars -->
+<script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('dist/js/adminlte.js') }}"></script>
+<!-- jQuery Mapael -->
+<script src="{{ asset('plugins/jquery-mousewheel/jquery.mousewheel.js') }}"></script>
+<script src="{{ asset('plugins/raphael/raphael.min.js') }}"></script>
+<script src="{{ asset('plugins/jquery-mapael/jquery.mapael.min.js') }}"></script>
+<script src="{{ asset('plugins/jquery-mapael/maps/usa_states.min.js') }}"></script>
+<!-- ChartJS -->
+<script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('dist/js/demo.js') }}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{ asset('dist/js/pages/dashboard2.js') }}"></script>
+<!-- DataTables  & plugins --> 
+<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/jszip/jszip.min.js') }}"></script>
+<script src="{{ asset('plugins/jszip/jszip.js') }}"></script>
+<script src="{{ asset('plugins/pdfmake/pdfmake.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.print.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.js') }}"></script>
+<script src="{{ asset('plugins/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+<script src="{{ asset('dist/js/sweetalert.min.js') }}"></script>
+<script src="{{ asset('dist/js/sweetalert.js') }}"></script>
+<script src="{{ asset('dist/js/stand-alone-button.js') }}"></script>
+  <script>
+  $(function () { 
+    $("#example1").DataTable({
+      dom: 'Bfrtip',
+      responsive: true, 
+      lengthChange: false, 
+      pageLength: 10,
+      ordering: true,
+      lengthChange: false, 
+      info: true,
+      buttons: ["pdf", "print", "colvis"],
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+  });
+</script>
 @endsection

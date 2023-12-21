@@ -2,20 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\LocalizationController;
-use App\Http\Controllers\WishlistController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\NotchPayCallBackController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\MesssageController;
 use App\Http\Controllers\ShippingController;
+use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\NewsletterController;
+// use App\Http\Controllers\MesssageController;
+use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\NotchPayCallBackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +42,7 @@ require __DIR__.'/auth.php';
 // Home Page
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 // Welcome Page
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
 
 #Localization Multi-langue
 Route::get('locale', [LocalizationController::class, 'getLang'])->name('getlang');
@@ -95,6 +96,7 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/product/{product}/edit1', [ProductController::class, 'edit1'])->name('product.edit1');
     // Newsletter
     Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
+    Route::delete('/newsletter/{newsletter}', [NewsletterController::class, 'destroy'])->name('newsletter.destroy');
     Route::get('/newsletter', [NewsletterController::class, 'index'])->name('liste-news');
         
     // Add-To-Cart  Darylecode/cart
@@ -121,7 +123,7 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/home15', [HomeController::class, 'home15'])->name('home15'); 
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/compare1', [HomeController::class, 'compare1'])->name('compare1');
-    Route::get('/contact', [HomeController::class, 'contact'])->name('contact1');
+    // Route::get('/contact', [HomeController::class, 'contact'])->name('contact1');
     Route::get('/produit-layout', [ProductController::class, 'show'])->name('produit-layout');
     Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
     Route::get('/collection', [HomeController::class, 'collection'])->name('collection');
@@ -134,9 +136,10 @@ Route::group(['prefix' => '/font'], function () {
     Route::get('/liste', [HomeController::class, 'order'])->name('order');
     Route::post('/orders', [OrderController::class, 'store'])->name('order.store');
     Route::get('/order', [OrderController::class, 'create'])->name('order.create');
-    Route::get('/message', [MessageController::class, 'create'])->name('contact'); 
-    Route::get('/message', [MessageController::class, 'index'])->name('message.index'); 
-    Route::post('/message', [MessageController::class, 'store'])->name('message.store'); 
+    Route::get('/message1', [App\Http\Controllers\MessageController::class, 'create'])->name('contact.create'); 
+    Route::get('/message2', [App\Http\Controllers\MessageController::class, 'index'])->name('message.index');
+    Route::delete('/message/{message}', [App\Http\Controllers\MessageController::class, 'destroy'])->name('message.destroy');  
+    Route::post('/message', [App\Http\Controllers\MessageController::class, 'store'])->name('message.store'); 
 });
 
 

@@ -100,12 +100,12 @@
             @foreach($shippings as $shipping)   
                 <tr class="odd">
                     <td class="dtr-control sorting_1 text-center" tabindex="0">{{$shipping->id}}</td>
-                    <td class="text-capitalize text-center">{{$shipping->user_id}}</td>
-                    <td class="text-capitalize text-center">{{$shipping->shipping_number}}</td>
-                    <td class="text-capitalize text-center">{{$shipping->quantity}}</td>
+                    <td class="text-capitalize text-center">{{$shipping->type}}</td>
+                    <td class="text-capitalize text-center">{{$shipping->price}}</td>
+                    <td class="text-capitalize text-center">{{$shipping->status}}</td>
                     <td class="text-center">{{(($shipping->created_at)? $shipping->created_at->diffForHumans() : '')}}</td>
-                    <td class="project-actions d-flex justify-content-around" >
-                        <a href="{{route('shipping.edit',$shipping->id)}}" class="btn btn-info btn-sm " data-toggle="tooltip" title="edit" data-placement="bottom"> <i class="fas fa-pencil-alt"></i></a>
+                    <td class="project-actions d-flex justify-content-around" > 
+  
                         <form id="" action="" method="POST">
                           @csrf
                           @method('DELETE') 
